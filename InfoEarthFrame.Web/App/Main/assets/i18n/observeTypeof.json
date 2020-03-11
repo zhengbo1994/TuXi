@@ -1,0 +1,495 @@
+﻿[
+    [
+        {
+            "label": "山东省",
+            "children": [
+                {
+                    "label": "烟台市",
+                    "children": [
+                        {
+                            "label": "烟台市海洋市发城镇栾家庄崩塌",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "栾家庄裂缝计 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000001", "name": "栾家庄裂缝计", "length": "0.26670", "length": "2017/6/5 8:2", "Longitude": "121.055", "Latitude": "36.95527778", "location": "烟台市海洋市发城镇栾家庄崩塌" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "济宁市",
+                    "children": [
+                        {
+                            "label": "趋城市张庄镇将军堂村北崩塌",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "将军堂村1号裂缝计 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000002", "name": "将军堂村1裂缝计", "length": "0.26671", "length": "2017/6/5 8:3", "Longitude": "121.0551", "Latitude": "36.95527771", "location": "趋城市张庄镇将军堂村北崩塌" }
+
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "泰安市",
+                    "children": [
+                        {
+                            "label": "泰安管委会中天门11号架",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "中天门11号裂缝计 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000003", "name": "中天门11号裂缝计", "length": "0.26672", "length": "2017/6/5 8:4", "Longitude": "121.052", "Latitude": "36.95527772", "location": "泰安管委会中天门11号架" }
+
+                            ]
+                        },
+                        {
+                            "label": "泰安管委会中天门8号架",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "中天门13号裂缝计 0.2667，2017/6/5", "type": "DEVICE", "id": "1394906949000000004", "name": "中天门13号裂缝计", "length": "0.26673", "length": "2017/6/5 8:5", "Longitude": "121.053", "Latitude": "36.95527773", "location": "泰安管委会中天门8号架" }
+
+                            ]
+                        },
+                        {
+                            "label": "泰安市泰山区泰山管委会",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "中天门8号裂缝计 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000005", "name": "中天门8号裂缝计", "length": "0.26674", "length": "2017/6/5 8:6", "Longitude": "121.054", "Latitude": "36.95527774", "location": "泰安管委会中天门13号架" }
+
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "临沂市",
+                    "children": [
+                        {
+                            "label": "南张庄乡绮梦云洞天景区崩地",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "南张庄乡绮梦云洞天景区崩地 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000006", "name": "南张庄乡绮梦云洞天景区崩地", "length": "0.26675", "length": "2017/6/5 8:7", "Longitude": "121.055", "Latitude": "36.95527775", "location": "南张庄乡绮梦云洞天景区崩地" }
+
+                            ]
+                        },
+                        {
+                            "label": "薛庄乡马头崖村崩塌",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "薛庄乡马头崖村一体化裂缝 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000007", "name": "薛庄乡马头崖村一体化裂缝", "length": "0.26676", "length": "2017/6/5 8:8", "Longitude": "121.056", "Latitude": "36.95527776", "location": "薛庄乡马头崖村崩塌" }
+
+                            ]
+                        },
+                        {
+                            "label": "栗子行崩塌",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "栗子行北崩塌监测 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000008", "name": "栗子行北崩塌监测", "length": "0.26677", "length": "2017/6/5 8:9", "Longitude": "121.057", "Latitude": "36.95527777", "location": "栗子行崩塌" }
+
+                            ]
+                        },
+                        {
+                            "label": "曲家洞子滑坡",
+                            "type": "monitor",
+                            "children": [
+
+                                { "label": "曲家洞子滑坡 0.2667,2017/6/5", "type": "DEVICE", "id": "1394906949000000009", "name": "曲家洞子滑坡", "length": "0.26678", "length": "2017/6/5 8:10", "Longitude": "121.058", "Latitude": "36.95527778", "location": "曲家洞子滑坡" }
+
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "id": "3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+            "pId": "0",
+            "label": "山东省",
+            "title": "山东省",
+            "type": "AREA",
+            "icon": "",
+            "children": [
+                {
+                    "id": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "pId": "3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "label": "裂缝",
+                    "title": "裂缝",
+                    "type": "DEVICETYPE",
+                    "icon": "",
+                    "children": [
+                        {
+                            "id": "3706121050050302001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "烟霞洞东侧裂缝计 -0.112015,2017/6/8 16:53:00",
+                            "title": "烟霞洞东侧裂缝计#-0.112015#2017/6/8 16:53:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3706860000001002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "栖霞市翠屏街道黄燕底裂缝计 -0.457503,2017/6/8 16:26:00",
+                            "title": "栖霞市翠屏街道黄燕底裂缝计#-0.457503#2017/6/8 16:26:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713280000040002011700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "栗子行北（南侧）裂缝计 1.498475,2017/6/8 16:42:00",
+                            "title": "栗子行北（南侧）裂缝计#1.498475#2017/6/8 16:42:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713250000020002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "薛庄镇马头崖村（北侧）一体化裂缝计 -0.046291,2017/6/8 17:18:00",
+                            "title": "薛庄镇马头崖村（北侧）一体化裂缝计#-0.046291#2017/6/8 17:18:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713250000008002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "南张庄乡云瀑洞天景区一体化裂缝计 0.030433,2017/6/8 17:14:00",
+                            "title": "南张庄乡云瀑洞天景区一体化裂缝计#0.030433#2017/6/8 17:14:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713250000019002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "薛庄镇马头崖村西一体化裂缝计 -0.053348,2017/6/8 16:54:00",
+                            "title": "薛庄镇马头崖村西一体化裂缝计#-0.053348#2017/6/8 16:54:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713280000040002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "栗子行北（北侧）裂缝计 0.533674,2017/6/8 16:54:00",
+                            "title": "栗子行北（北侧）裂缝计#0.533674#2017/6/8 16:54:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713280000023002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "蒋家庄裂缝计 2.415457,2017/6/8 17:14:00",
+                            "title": "蒋家庄裂缝计#2.415457#2017/6/8 17:14:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713261040010102001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "崔家庄裂缝计 0.064375,2017/6/8 17:15:00",
+                            "title": "崔家庄裂缝计#0.064375#2017/6/8 17:15:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000040002011700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "龙泉二组裂缝计 -0.949678,2017/6/8 17:08:00",
+                            "title": "龙泉二组裂缝计#-0.949678#2017/6/8 17:08:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000040002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "龙泉二组东北侧裂缝计 0.029522,2017/6/8 16:54:00",
+                            "title": "龙泉二组东北侧裂缝计#0.029522#2017/6/8 16:54:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000025002051700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "黑石崖西侧裂缝计 -0.031944,2017/6/8 17:07:00",
+                            "title": "黑石崖西侧裂缝计#-0.031944#2017/6/8 17:07:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000025002041700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "黑石崖东侧裂缝计 -1.100327,2017/6/8 16:57:00",
+                            "title": "黑石崖东侧裂缝计#-1.100327#2017/6/8 16:57:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000025002031700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "鬼谷子文化裂缝计 0.179460,2017/6/8 17:10:00",
+                            "title": "鬼谷子文化裂缝计#0.179460#2017/6/8 17:10:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000025002021700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "群鳄临渊景点裂缝计 0.020173,2017/6/8 15:54:00",
+                            "title": "群鳄临渊景点裂缝计#0.020173#2017/6/8 15:54:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000025002011700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "雏鹰待哺景点裂缝计 -0.040949,2017/6/8 17:00:00",
+                            "title": "雏鹰待哺景点裂缝计#-0.040949#2017/6/8 17:00:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3713260000025002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "神龟拜寿景点裂缝计 -0.020025,2017/6/8 16:55:00",
+                            "title": "神龟拜寿景点裂缝计#-0.020025#2017/6/8 16:55:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3709020030050202001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "中天门索道8号裂缝计 0.044802,2017/6/8 17:32:00",
+                            "title": "中天门索道8号裂缝计#0.044802#2017/6/8 17:32:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3709020030020302001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "中天门索道11号裂缝计 -0.105678,2017/6/8 17:28:00",
+                            "title": "中天门索道11号裂缝计#-0.105678#2017/6/8 17:28:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3709020030010102011700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "白云洞南侧裂缝计 -24.362269,2017/6/8 17:23:00",
+                            "title": "白云洞南侧裂缝计#-24.362269#2017/6/8 17:23:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3709020030010102001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "白云洞（西北侧）裂缝计 0.088698,2017/6/8 4:53:00",
+                            "title": "白云洞（西北侧）裂缝计#0.088698#2017/6/8 4:53:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3708830000007002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "将军堂村裂缝计 -0.1186,2017/6/2 1:56:00",
+                            "title": "将军堂村裂缝计#-0.1186#2017/6/2 1:56:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3706871060010102001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "栾家庄村裂缝计 0.094554,2017/6/8 17:29:00",
+                            "title": "栾家庄村裂缝计#0.094554#2017/6/8 17:29:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3706840040030202001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "田横栈道裂缝计 -0.055363,2017/6/8 16:57:00",
+                            "title": "田横栈道裂缝计#-0.055363#2017/6/8 16:57:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3706840040010102001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "蓬莱阁西门裂缝计 -1.013333,2017/6/8 16:56:00",
+                            "title": "蓬莱阁西门裂缝计#-1.013333#2017/6/8 16:56:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3706820030010102001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "水南村裂缝计 0.999672,2017/5/9 23:01:00",
+                            "title": "水南村裂缝计#0.999672#2017/5/9 23:01:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/雨量.png"
+                        },
+                        {
+                            "id": "3706121050050302011700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "烟霞洞西侧裂缝计 0.133425,2017/5/9 15:10:00",
+                            "title": "烟霞洞西侧裂缝计#0.133425#2017/5/9 15:10:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3706121050030202001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "石门风景点裂缝计 -0.052197,2017/6/8 16:51:00",
+                            "title": "石门风景点裂缝计#-0.052197#2017/6/8 16:51:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3703040000015002001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "青龙湾裂缝计 1.508302,2017/4/27 14:18:00",
+                            "title": "青龙湾裂缝计#1.508302#2017/4/27 14:18:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        },
+                        {
+                            "id": "3703021040050802001700",
+                            "pId": "17#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "五股泉 44.323156,2017/5/6 14:57:00",
+                            "title": "五股泉#44.323156#2017/5/6 14:57:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        }
+                    ]
+                },
+                {
+                    "id": "10#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "pId": "3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "label": "泥位",
+                    "title": "泥位",
+                    "type": "DEVICETYPE",
+                    "icon": "",
+                    "children": [
+                        {
+                            "id": "3706120000011003001000",
+                            "pId": "10#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "涝夼村泥位计 6990,2017/4/29 14:21:00",
+                            "title": "涝夼村泥位计#6990#2017/4/29 14:21:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/泥位.png"
+                        }
+                    ]
+                },
+                {
+                    "id": "01#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "pId": "3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "label": "雨量",
+                    "title": "雨量",
+                    "type": "DEVICETYPE",
+                    "icon": "",
+                    "children": [
+                        {
+                            "id": "3706120000011003000100",
+                            "pId": "01#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "涝夼村雨量计 0,2017/5/22 12:02:00",
+                            "title": "涝夼村雨量计#0#2017/5/22 12:02:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/雨量.png"
+                        }
+                    ]
+                },
+                {
+                    "id": "19#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "pId": "3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "label": "视频",
+                    "title": "视频",
+                    "type": "DEVICETYPE",
+                    "icon": "",
+                    "children": [
+                        {
+                            "id": "3706120000011003001900",
+                            "pId": "19#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "涝夼村视频",
+                            "title": "涝夼村视频##",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/裂缝.png"
+                        }
+                    ]
+                },
+                {
+                    "id": "06#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "pId": "3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "label": "固定测斜",
+                    "title": "固定测斜",
+                    "type": "DEVICETYPE",
+                    "icon": "",
+                    "chlldren": [
+                        {
+                            "id": "3713230000008001000600",
+                            "pId": "06#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "曲家洞子固定测斜1 0.01,2017/5/22 12:01:00",
+                            "title": "曲家洞子固定测斜1#0.01#2017/5/22 12:01:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/固定测斜.png"
+                        },
+                        {
+                            "id": "3713230000008001000601",
+                            "pId": "06#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "曲家洞子固定测斜2 0.01,2017/5/22 12:01:00",
+                            "title": "曲家洞子固定测斜2#0.01#2017/5/22 12:01:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/固定测斜.png"
+                        },
+                        {
+                            "id": "3713230000008001000602",
+                            "pId": "06#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "曲家洞子固定测斜3 0.00,2017/5/22 12:01:00",
+                            "title": "曲家洞子固定测斜3#0.00#2017/5/22 12:01:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/固定测斜.png"
+                        }
+                    ]
+                },
+                {
+                    "id": "07#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "pId": "3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "label": "GPS",
+                    "title": "GPS",
+                    "type": "DEVICETYPE",
+                    "icon": "",
+                    "children": [
+                        {
+                            "id": "3713230000008001000700",
+                            "pId": "07#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "曲家洞子GPS1 -0.0034,0,0.0183,2017/6/8 17:16:00",
+                            "title": "曲家洞子GPS1#-0.0034,0,0.0183#2017/6/8 17:16:00",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/GPS.png"
+                        }
+                    ]
+                },
+                {
+                    "id": "3713230000008001000100",
+                    "pId": "01#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                    "label": "曲家洞子雨量计 0,2017/5/22 12:01:00",
+                    "title": "曲家洞子雨量计#0#2017/5/22 12:01:00",
+                    "type": "DEVICE",
+                    "icon": "/images/v5img/Data/Icons/MonitorDevice/雨量.png",
+                    "children": [
+                        {
+                            "id": "3713230000008001001900",
+                            "pId": "19#3CB3A1CD-4025-4E0E-8AF8-A87D91921C35",
+                            "label": "曲家洞子视频",
+                            "title": "曲家洞子视频##",
+                            "type": "DEVICE",
+                            "icon": "/images/v5img/Data/Icons/MonitorDevice/camera.png"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+]

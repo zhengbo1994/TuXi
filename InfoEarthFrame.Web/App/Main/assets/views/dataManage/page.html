@@ -1,0 +1,111 @@
+﻿<div class="fade-in-up data-manage-left">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-white" style="border:none">
+                <div class="panel-body">
+                    <h4 class="data-manage-title">数据管理</h4>
+                    <div class="box-tree">
+                        <span ng-if="doing_async">...loading...</span>
+                        <abn-tree tree-data="my_data" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="{{initialSelection}}" icon-leaf="ti-file" icon-expand="ti-plus" icon-collapse="ti-minus"></abn-tree>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fade-in-up data-manage-right">
+    <div class="col-md-12">
+        <div class="col-md-12 data-manage-operate" style="margin-left: 16px">
+            <button type="button" class="btn btn-wide btn-primary" ng-click="openUpload()">导入</button><!-- ngf-select="upload($file)" -->
+            <button type="button" class="btn btn-wide btn-primary" ng-click="deleteList()">删除</button>
+        </div>
+    </div>
+    <div class="col-md-12 data-manage-main">
+        <fieldset>
+            <form role="form" class="form-horizontal row data-manage-search" name="dataSearchForm" novalidate ng-submit="signupDataSearchForm()">
+                <div style="display: inline-block; margin: 0 20px">
+                    <label style="margin-right: 10px">文件名称</label>
+                    <input type="text" style="height: 35px; width: 160px" placeholder="文件名称" ng-model="file.name">
+                </div>
+
+                <div style="display: inline-block; margin: 0 20px">
+                    <div style="display: inline-block; margin-right: 10px">
+                        <label>入库时间</label>
+                    </div>
+
+                    <div style="display: inline-block; max-width: 160px">
+                        <div class="input-group" style="top: 12px" ng-controller="dataManageTimeCtrl">
+                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dataStorageStartTime" is-open="opened" datepicker-options="dateOptions"
+                                   ng-required="true" close-text="关闭" clear-text="清除" current-text="今天" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block; margin: 0 20px">
+                        <label>
+                            -
+                        </label>
+                    </div>
+
+                    <div style="display: inline-block; max-width: 160px">
+                        <div class="input-group" style="top: 12px" ng-controller="dataManageTimeCtrl">
+                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dataStorageEndTime" is-open="opened" datepicker-options="dateOptions"
+                                   ng-required="true" close-text="关闭" clear-text="清除" current-text="今天" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; margin-left: 20px; display: inline-block">
+                    <button type="submit" class="btn btn-primary" style="top: -3px">查询</button>
+                </div>
+            </form>
+        </fieldset>
+
+        <div class="table-responsive" style="background: #fff; padding-top: 20px">
+            <table class="table table-bordered table-hover" id="sample-table-1" style="overflow-x: scroll">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th style="text-align: center">文件名称</th>
+                        <th style="text-align: center">图层类型</th>
+                        <th style="text-align: center">入库时间</th>
+                        <th style="text-align: center">比例尺</th>
+                        <th style="text-align: center">版本</th>
+                        <th style="text-align: center">版本号</th>
+                        <th colspan="5" style="text-align: center">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in fileList">
+                        <td><input type="checkbox" id={{item.id}} ng-checked="isSelected(item.id)" ng-click="updateSelection($event,item.id)" /></td>
+                        <td><div class="overflow-text">{{item.zipFileName}}</div></td>
+                        <td><div class="overflow-text">{{item.mappingTypeName}}</div></td>
+                        <td style="letter-spacing: 1px"><div class="overflow-text">{{item.storageTime|date:'yyyy-MM-dd'}}</div></td>
+                        <td><div class="overflow-text">{{item.scaleName}}</div></td>
+                        <td><div class="overflow-text">{{item.versionName}}</div></td>
+                        <td><div class="overflow-text">{{item.versionNo}}</div></td>
+                        <td><div class="overflow-text"><a ng-click="goDetailPage(item.id,item.zipFileName,item.metaDataID)">详细信息</a></div></td>
+                        <td><div class="overflow-text"><a ng-click="goDataPage(item.id)">数据编辑</a></div></td>
+                        <td><div class="overflow-text"><a ng-click="goSpecialPage(item.id)">专题制作</a></div></td>
+                        <td><div class="overflow-text"><a ng-click="download(item.id)">下载</a></div></td>
+                        <td><div class="overflow-text"><a ng-click="goState(item.metaDataID)">元数据管理</a></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <ul pagination total-items="totalItems" ng-model="currentPage" previous-text="上一页" next-text="下一页"
+            boundary-links="true" ng-change="pageChanged(currentPage)" first-text="首页" last-text="尾页"></ul>
+    </div>
+</div>
+<div style="clear:both"></div>
+<!--已将模板移至app.html，发布系统需要调用这些模板（元数据  说明书）-->

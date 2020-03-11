@@ -1,0 +1,126 @@
+﻿<!-- 地图查询页面 create by huqr /// controller:  'mapSearchCtrl' -  localtion: App/Main/assets/js/controllers/mapSearchCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="mapSearchCtrl">
+    <div class="row">
+        <!-- 左侧 -->
+        <div class="col-sm-12 container_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle">地图预览</span>
+                </div>
+                <div class="panel-body panel-fixed" style="padding: 7px;">
+                    <div style="position: relative;">
+                        <div class="righttag" style="top: 2px; right: 2px;">
+                            <div ng-click="isshowtag=!isshowtag" class="r-left font-title-small" style="color: #fff; width: 32px; padding: 9px; float: left; cursor: pointer; ">
+                                服务详细信息<i class="ti-angle-double-right" ng-show="isshowtag" /><br /><i class="ti-angle-double-left" ng-show="!isshowtag" />
+                            </div>
+                            <div class="r-right" ng-show="isshowtag" style="float: left; border-left: solid 1px #AACAD9; border-bottom: solid 1px #AACAD9; background: #fff; width: 430px;">
+                                <div style="width: 100%;">
+                                    <div class="title">
+                                        <span class="font-title-small">基本信息</span>
+                                    </div>
+                                    <ul class="r-right-top" style="overflow: auto; max-height: 110px; margin-bottom: 0px !important; padding-left: 0;">
+                                        <li>
+                                            <p><span class="title font-title-small" style="border: none;">服务名称:</span><span class="text">{{serviceInfo.mapName}}</span></p>
+                                            <p><span class="title font-title-small" style="border: none;">服务分类:</span><span class="text">{{serviceInfo.mapType}}</span></p>
+                                        </li>
+                                        <li>
+                                            <p><span class="title font-title-small" style="border: none;">所有者:</span><span class="text">{{serviceInfo.CreateUserName}}</span></p>
+                                            <p><span class="title font-title-small" style="border: none;">空间参考系:</span><span class="text">{{serviceInfo.spatialRefence}}</span></p>
+                                        </li>
+                                        <li>
+                                            <p><span class="title font-title-small" style="border: none;">数据范围一东:</span><span class="text">{{serviceInfo.maxXName}}</span></p>
+                                            <p><span class="title font-title-small" style="border: none;">数据范围一南:</span><span class="text">{{serviceInfo.minYName}}</span></p>
+                                        </li>
+                                        <li>
+                                            <p><span class="title font-title-small" style="border: none;">数据范围一西:</span><span class="text">{{serviceInfo.minXName}}</span></p>
+                                            <p><span class="title font-title-small" style="border: none;">数据范围一北:</span><span class="text">{{serviceInfo.maxYName}}</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style="width: 100%; overflow: auto;">
+                                    <div class="title">
+                                        <span class="font-title-small" style="border-top:solid 1px #EEEEEE;">
+                                            图例<i class="ti-zoom-in" style="position: absolute; right: 15px; cursor: pointer;" tooltip-placement="left" ng-click="lookPitcure(serviceInfo.mapLegend)" tooltip="查看大图"></i>
+                                        </span>
+                                    </div>
+                                    <div class="r-right-bottom" style="overflow: auto; max-height: 200px;">
+                                        <ul id="dowebok"><li><img ng-src="{{legend}}" alt="" /></li></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="righttag" style="top: 46px; left: 20px; z-index:1000;">
+                            <div style="position: relative; background-color: #fff; width: 320px; ">
+                                <div class="title">
+                                    <span class="font-title-middle">选择图层</span>
+                                    <a href="javascript:;" style="font-size: 18px; float: right; line-height: 1.2;" ng-click="hideChose()">
+                                        <i ng-class="{'mdi-window-minimize':isShowChose,'mdi-window-maximize':!isShowChose}"></i>
+                                    </a>
+                                </div>
+                                <div style="max-height: 140px; overflow: auto; padding: 10px;" ng-if="isShowChose">
+                                    <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                                        <div class="checkbox clip-check check-primary checkbox-inline">
+                                            <input type="checkbox" id="ch1" value="1" ng-checked="choseLayerModel.ischecked1" ng-click="choseLayerModel.checkedAll()">
+                                            <label class="font-content-small" for="ch1">
+                                                全选
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div style="overflow: auto;">
+                                        <div class="checkbox clip-check check-primary check-column" ng-repeat="a in choseLayerModel.layerData">
+                                            <input type="checkbox" id="{{a.dataConfigID}}" value="{{a.dataConfigName}}" ng-checked="a.ischecked" ng-click="choseLayerModel.checkedOne(a)">
+                                            <label class="font-content-small" for="{{a.dataConfigID}}">
+                                                {{a.dataConfigName}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="righttag" style="top: 90px; left: 20px;" ng-if="isShowRes">
+                            <div style="position: relative; background-color: #fff; width: 320px; ">
+                                <div class="title">
+                                    <span class="font-title-middle">查询结果</span>
+                                    <a href="javascript:;" style="font-size: 18px; float: right; line-height: 1.2;" ng-click="closeRes()">
+                                        <i class="mdi-close"></i>
+                                    </a>
+                                </div>
+                                <div style="max-height: 140px; overflow: auto; padding: 10px;">
+                                    <abn-tree class="font-title-little" tree-data="layerTreeData" selected-data="selectedLayer" on-select="onLayerSelected" return-ctrl="returnCtrl" tree-control="treeQueryCtrl" icon-leaf=""></abn-tree>
+                                </div>
+                                <div style="border-top: solid 1px #EEEEEE;">
+                                    <div>
+                                        <label class="title font-title-little" style="border: none;">位置:</label>
+                                        <span>{{location}}</span>
+                                    </div>
+                                    <div style="padding: 10px;">
+                                        <table class="table table-bordered font-content-small">
+                                            <thead style="display: table; width: 100%; table-layout: fixed;">
+                                                <tr>
+                                                    <th style="width: 102px;">字段名称</th>
+                                                    <th>属性值</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="display: block; width: 100%; overflow: auto; max-height: 200px;">
+                                                <tr ng-repeat="(a,b) in layerTableData">
+                                                    <td style="width: 102px;">{{a}}</td>
+                                                    <td style="width: 199px; word-break: break-all;">{{b}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <span class="font-content-small">共查出{{dataNum}}条数据。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <open-maps dataset="mapDataset" map-tool-group map-search-tool="true" mapheight="mapheight" get-extent="getExtent" add-tagging="addTagging" measure-before="measuremapBefore"
+                                   measuremap="measuremap" measure-after="measuremapAfter" clear-after="clearAfter" add-layer="addLayer"
+                                   remove-layer="removeLayer" to-location="tolocation" is-show-tools="1" map="getMap" is-load-internet-tian-di-tu="isLoadTianDiTu"></open-maps>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

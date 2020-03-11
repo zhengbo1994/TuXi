@@ -1,0 +1,179 @@
+﻿@{
+    ViewBag.Title = "制图输出历史列表";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+<style>
+    .layui-body {
+        overflow-y: scroll !important;
+    }
+
+
+
+    body {
+        overflow-y: scroll !important;
+    }
+</style>
+
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+
+
+
+    <div class="layui-card">
+        <div class="layui-card">
+            <div class="layui-card-header">历史列表</div>
+            <div class="layui-card-body">
+                <div class="test-table-reload-btn" style="margin-top: 10px;margin-left:15px">
+                    制图名称：
+                    <div class="layui-inline">
+                        <input class="layui-input" name="DrawingName" id="DrawingName" autocomplete="off">
+                    </div>
+                    创建时间：
+                    <div class="layui-inline">
+                        <input class="layui-input" name="timeRanage" id="txtTimeRanage" autocomplete="off" style="width:300px">
+                    </div>
+                    <button class="layui-btn" data-type="reload" onclick="initGrid()">搜索</button>
+                </div>
+                <div class="layui-card-body" style="overflow-x:hidden">
+                    <table class="layui-hide" id="data-table" lay-filter="data-table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section script{
+<script src="@Url.Content("~/Content/scripts/plugins/signalr/jquery.signalR-2.2.0.min.js")"></script>
+    <script>
+        var table;
+        layui.initModule([ 'table','laydate'], function () {
+            table = layui.table;
+
+            initGrid();
+
+            layui.laydate.render({
+                elem: '#txtTimeRanage'
+, type: 'datetime'
+, range: LangConfig.CommonText.to
+, format: 'yyyy-MM-dd HH:mm:ss'
+, lang: '@UserConfigContext.CurrentLang'
+            });
+
+            var signalR = $.connection("/SignalR/MessageConnection");
+            signalR.received(function (msg) {
+                var contentObj = JSON.parse(msg);
+
+
+                if (contentObj.ModuleType == "Drawing") {
+                    if (contentObj.Content.IsError || contentObj.Content.IsFinish) {
+                        initGrid();
+                        return;
+                    };
+                    console.log(contentObj);
+                }
+            });
+            signalR.start().done(function () {
+                console.log("连接成功");
+            }).fail(function () {
+                console.log("连接失败");
+            });
+        });
+
+
+        function initGrid() {
+            layui.initGird({
+                id: "data-table"
+              , elem: '#data-table'
+            , url: Base.getApiUrl("/ThematicMapping/GetList")
+          , title: '历史列表'
+          , cols: [[
+              { field: 'ID', hide: true }
+            , { field: 'USERNAME', title: '用户名', event: 'setSign' }
+            , { field: 'DRAWINGNAME', title: '制图名称', event: 'setSign' }
+            , {
+                field: 'ERRORMSG', title: '消息', event: 'setSign', width: 200, templet: function (d) {
+                    return (d.ERRORMSG ? d.ERRORMSG : '');
+                }
+            },
+          {
+              field: 'CREATETIME', title: '创建时间', align: 'center',width:200, event: 'setSign', templet: function (d) {
+                  return Base.Converter.dateTime(d.CREATETIME);
+              }
+          }
+            ,
+               {
+                   field: 'STAUE', title: '处理状态', align: 'center', event: 'setSign', templet: function (d) {
+                       if (d.STAUE === '0') {
+                           return "<button class=\"layui-btn layui-btn-warm layui-btn-xs\">待处理</button>"
+                       } else if (d.STAUE === '2') {
+                           return "<button class=\"layui-btn layui-btn-xs\">处理完成</button>"
+                       } else {
+                           return "<button class=\"layui-btn layui-btn-normal layui-btn-xs\">处理中...</button>"
+                       }
+                   }
+               },
+                {
+                    field: 'JD', title: '进度', align: 'center', event: 'setSign', templet: function (d) {
+                      return  "<div class=\"layui-progress layuiadmin-order-progress\" lay-filter=\"progress-"+d.ID+"\" title=\""+(d.JD||(0+"%"))+"\">" +
+ "            <div class=\"layui-progress-bar layui-bg-blue\" lay-percent=" + d.JD + " style=\"width:" + d.JD + "\"></div>" +
+ "          </div>";
+                    }
+                },
+               {
+                   field: 'COMPLETE', title: '制图结果', align: 'center', event: 'setSign', templet: function (d) {
+                       if (d.COMPLETE === '1') {
+                           return "<button class=\"layui-btn layui-btn-xs\">成功</button>"
+                       } else if (d.COMPLETE === '2') {
+                           return "<button class=\"layui-btn layui-btn-danger layui-btn-xs\"失败</button>"
+                       } else {
+                           return "<button class=\"layui-btn layui-btn-primary layui-btn-xs\">未开始</button>"
+                       }
+                   }
+               },
+               {
+                   field: 'OPRETION', title: '操作', align: 'center', event: 'setSign', templet: function (d) {
+                       var dis = (d.COMPLETE == '1') ? 'layui-btn' : 'layui-btn-disabled';
+                       return "<button class=\"layui-btn layui-btn-xs " + dis + "\" onclick=\"download('"+d.ID+"')\"><i class=\"layui-icon\">&#xe601;</i>下载</button>";
+                   }
+               }
+          ]],
+                where: $.extend({
+                    name: $.trim($("#DrawingName").val())
+                }, getTimeRange())
+            });
+
+            //监听行单击事件
+            table.on('row(data-table)', function (obj) {
+     
+            });
+
+            table.on('rowDouble(data-table)', function (obj) {
+           
+            });
+
+
+        }
+
+
+        function getTimeRange() {
+            return Base.getTimeRange('txtTimeRanage');
+        }
+
+
+        function download(id)
+        {
+            top.window.open(Base.getApiUrl("/Download/GetDrawingOutput") + "?id=" + id + "")
+        }
+
+
+        window.setInterval(function () {
+            initGrid();
+        }, 30000);
+
+    </script>
+}

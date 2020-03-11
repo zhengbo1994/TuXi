@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "上传文件";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+<div class="layui-col-md12">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div class="layui-upload">
+                <button type="button" class="layui-btn layui-btn-normal" id="btnSelectFile">选择文件</button>
+                <button type="button" class="layui-btn" id="btnUpload">开始上传</button>
+                <div class="layui-upload-list">
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th>文件名</th>
+                                <th>大小</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fileList"></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+        var uploader = null;
+        layui.initModule(['upload'], function () {
+             
+            uploader = layui.initUploader({
+                elem: '#btnSelectFile',
+                url: '@Html.Raw(ViewBag.Url)',
+                before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                    if (isFlieValid(obj.pushFile())) {
+                        layer.load();
+                    }
+                },
+                exts: '@ViewBag.Ext',
+                okCallback: function (res, index, upload)
+                {
+                    var callback = "@Request.QueryString["okCallback"]";
+                    invoke(res, index, upload,callback);
+                },
+                failureCallback: function (res, index, upload)
+                {
+                    var callback = "@Request.QueryString["UploadFailureCallback"]";
+                    invoke(res, index, upload,callback);
+                }
+            });
+        })
+
+        function isFlieValid(files) {
+            return true;
+        }
+
+        function invoke(res, index, upload,callback)
+        {
+            if (callback) {
+                var func = eval("(window.parent." + callback + ")");
+                if (typeof func == "function") {
+                    func(res, index, upload);
+                }
+                else {
+                    warnning("window.parent." + callback + " function 未注册");
+                }
+            }
+        }
+    </script>
+}

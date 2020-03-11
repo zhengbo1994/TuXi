@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+  <link href="@Url.Content("~/Content/layuiadmin/style/template.css")" rel="stylesheet" />
+    <style>
+        .cmdlist-container {
+         margin-top:10px
+        }
+        .layui-form-checkbox {
+         position:absolute !important;
+         right:60px;
+         top:-25px
+        }
+        .layui-input-block {
+            position: relative !important;
+        }
+    </style>
+}
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card layui-form">
+        <div class="layui-card-header">
+            @ViewBag.Header 
+        </div>
+        <div class="layui-card-body" style="padding:0px">
+            <div class="layui-fluid layadmin-cmdlist-fluid" style="padding:0px 0px 0px 15px">
+                <div class="layui-btn-group">
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="uploadFile()" data-permession-button="编辑"><i class="layui-icon" onclick="uploadFile()">&#xe681;</i>上传</button>
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="removeFile()" data-permession-button="删除"><i class="layui-icon" onclick="removeFile()"></i>删除</button>
+                </div>
+                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                <div class="layui-row layui-col-space30" id="content">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @section script
+{
+        <script>
+
+            var ids = [];
+
+            layui.initModule(['laypage','form'], function () {
+
+
+                initGrid();
+            });
+
+
+            function initGrid()
+            {
+                $.get({
+                    url: Base.getApiUrl("/DataManager/GetUploadFiles"),
+                    data: {
+                        mainId: '@Request.QueryString["mainId"]',
+                        folderName: decodeURIComponent('@Request.QueryString["folderName"]')
+                    },
+                    success: function (resp)
+                    {
+                        $("#content").html('');
+                        $.each(resp.data, function (idx, ele) {
+                            var image = 'file-128.png';
+                            if (ele.Ext.indexOf(".doc") >= 0)
+                            {
+                                image = 'word-128.png';
+                            }
+                            else if (ele.Ext.indexOf(".xls") >= 0)
+                            {
+                                image = 'excel-128.png';
+                            }
+                            image = '@Url.Content("~/Content/images/")' + image;
+                           var  sb = '      <div class="layui-col-md2 layui-col-sm4"><div class="cmdlist-container">';
+                            sb += "                            <a href=\"javascript:viewFile('"+ele.FilePath+"','"+ele.name+"')\">";
+                            sb += "                                <img src=" + image + " title='" + ele.name + "'>";
+                            sb += '                            </a>';
+                            sb += '                            <a href="javascript:;" title="' + ele.name + '">';
+                            sb += '                                <div class="cmdlist-text">';
+                            sb += "                                    <p class=\"info\">" + ele.name + "</p>";
+                            sb += '                                </div>';
+                            sb += '                                <div class="layui-form-item">';
+                            sb += '                                    <label class="layui-form-label"> </label>';
+                            sb += '                                    <div class="layui-input-block">';
+                            sb += "                                        <input type=\"checkbox\" title=\"\" value=" + ele.id + " lay-skin=\"primary\" lay-filter='file'>";
+                            sb += '                                    </div>';
+                            sb += '                                </div>';
+                            sb += '                            </a>';
+                            sb += '                        </div>';
+                            sb += '   </div>';
+
+                            $("#content").append(sb);
+                        });
+                        Base.initPermession(window.parent.parent.location.href);
+                        layui.form.render();
+                        layui.form.on('checkbox(file)', function (data) {
+                            if (data.elem.checked) {
+                                ids.push(data.elem.value);
+                            }
+                            else {
+                                ids.remove(data.elem.value);
+                            }
+                        });
+
+                        $(".cmdlist-container").hover(function () {
+                            $(this).css("border", "none");
+                        })
+                    }
+                })
+            }
+
+
+            function uploadFile() {
+                parent.layui.showDlg({
+                    title: '上传文件',
+                    content: '@Url.Action("UploadFile")?mainId=@Request.QueryString["mainId"]&folderName=@Request.QueryString["folderName"]' + "&uploadUrl=" + '@ViewBag.UploadUrl' + "&ext=@ViewBag.Ext",
+                    area: ['80%', '80%'],
+                    yes: function (index, layero) {
+                    },
+                    cancel: function (index, layero) {
+                        initGrid();
+                        parent.layer.close(index);
+                    },
+                    btn: []
+                });
+            }
+
+            function removeFile() {
+                if (ids.length == 0) {
+                    alert('请选择文件');
+                    return;
+                }
+
+                confirm('是否删除', function () {
+                    $.post({
+                        url: Base.getApiUrl("/DataManager/RemoveFile"),
+                        data: { "": ids.join(",") },
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                initGrid();
+                                layer.closeAll();
+                            }
+                        }
+                    })
+                });
+            }
+
+
+            function viewFile(filePath,fileName)
+            {
+                debugger
+                Base.viewFile({
+                    getPDFFileUrl: "@Url.Action("GetPDFFile","Base")",
+                    filePath: filePath,
+                    fileName: fileName
+                });
+            }
+        </script>
+    }

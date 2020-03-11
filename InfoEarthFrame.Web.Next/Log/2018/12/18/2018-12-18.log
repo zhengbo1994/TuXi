@@ -1,0 +1,15 @@
+2018-12-18 14:49:48,957 InfoEarthFrame.Web.Next.MvcApplication [5] ERROR System.Web.HttpException (0x80004005): 未找到路径“/Views/Home/Index.cshtml”。
+   在 System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-18 14:59:42,626 InfoEarthFrame.Web.Next.MvcApplication [6] ERROR System.Web.HttpException (0x80004005): 未找到路径“/Views/Home/Index.cshtml”。
+   在 System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-18 14:59:51,560 InfoEarthFrame.Web.Next.MvcApplication [6] ERROR System.Web.HttpException (0x80004005): 未找到路径“/Views/Home/Index.cshtml”。
+   在 System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

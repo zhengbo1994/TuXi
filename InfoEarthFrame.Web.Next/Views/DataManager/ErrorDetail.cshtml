@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+@section css
+{
+<style>
+    .layui-elem-field legend {
+        font-weight: normal !important;
+        font-size: 14px !important;
+    }  
+    </style>  
+}
+<div style="padding:0px" id="msg-container">
+    @*<div class="layui-card">
+        <div class="layui-card-header">
+            <blockquote class="layui-elem-quote" style="margin-bottom:5px" id="subtitle">地理图层</blockquote>
+        </div>
+        <div class="layui-card-body" style="padding:0px">
+
+        </div>
+    </div>*@
+</div>
+
+@section script
+{
+    <script>
+        layui.initModule([], function () {
+
+            initErrorMsg();
+        });
+
+        function initErrorMsg() {
+            $.get({
+                url: Base.getApiUrl("/DataManager/GetErrorMsg"),
+                data: {
+                    mainId: '@Request.QueryString["mainId"]'
+                },
+                success: function (resp) {
+                    $("#msg-container").html('');
+                    if (resp.data.length > 0) {
+                        $.each(resp.data, function (index, ele) {
+
+
+                            var errs = ele.ErrorInfo;
+                            var innerHtml = '';
+                            $.each(errs, function (index2, ele2) {
+                                innerHtml += '<fieldset class="layui-elem-field">';
+                                innerHtml += "  <legend>第" + (index2 + 1) + "处</legend>";
+                                innerHtml += "    <div class=\"layui-field-box\">";
+                                innerHtml += ele2;
+                                innerHtml += "       </div>";
+                                innerHtml += "       </fieldset>";
+                                //  innerHtml += '<hr class="layui-bg-red">';
+                            });
+
+                            $("#msg-container").append(["<div class=\"layui-card\">",
+        "        <div class=\"layui-card-header\">",
+        "            <blockquote class=\"layui-elem-quote\" style=\"margin-bottom:5px\" id=\"subtitle\">" + ele.Category + "</blockquote>",
+        "        </div>",
+        "        <div class=\"layui-card-body\" style=\"padding:20px\">",
+       innerHtml,
+        "        </div>",
+        "    </div>"].join(""));
+                        });
+                    }
+                    else {
+
+                        $("#msg-container").append(["<div class=\"layui-card\">",
+    "        <div class=\"layui-card-header\">",
+    "            <blockquote class=\"layui-elem-quote\" style=\"margin-bottom:5px\" id=\"subtitle\">无问题</blockquote>",
+    "        </div>",
+    "        <div class=\"layui-card-body\" style=\"padding:20px\">",
+   "",
+    "        </div>",
+    "    </div>"].join(""));
+                    }
+                    //var index = parent.layer.getFrameIndex(window.name);
+                    //parent.layer.iframeAuto(index);
+                }
+            })
+        }
+    </script>
+}

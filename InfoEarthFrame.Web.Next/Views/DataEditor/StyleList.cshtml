@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "样式列表";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/eleTree/eleTree.css")" media="all">
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+
+   
+
+            <div class="layui-card">
+                <div class="layui-card-header">样式列表</div>
+                <div class="layui-card-body">
+                    <div class="test-table-reload-btn" style="margin-top: 10px;margin-left:15px">
+                        样式名称：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="styleName" id="txtStyleName" autocomplete="off">
+                        </div>
+                        <button class="layui-btn" data-type="reload" onclick="initGrid()">搜索</button>
+                    </div>
+                    <div class="layui-card-body" style="overflow-x:hidden">
+                        <table class="layui-hide" id="style-table" lay-filter="style-table"></table>
+                    </div>
+                </div>
+            </div>
+   
+</div>
+
+
+@section script{
+    <script>
+    var table;
+    var styleId = '@Request.QueryString["defaultStyleId"]';
+        layui.initModule([ 'table'], function () {
+            table = layui.table;
+
+            initGrid();
+
+        });
+
+
+        function initGrid() {
+            layui.initGird({
+                id: "style-table"
+              , elem: '#style-table'
+            , url: Base.getApiUrl("/DataEditor/GetStyles")
+          , title: '样式列表'
+          , cols: [[
+               { type: 'radio', fixed: 'left', event: 'setSign' }
+              , { field: 'Id', hide: true }
+            , { field: 'StyleName', title: '样式名称', event: 'setSign' }
+            , {
+                field: 'StyleDataType', title: '样式类型',align:'center',event: 'setSign', templet: function (d) {
+                    if (d.StyleDataType === Base.DataContext.StyleDataType['点']) {
+                    return "点";
+                }
+                    else if (d.StyleDataType === Base.DataContext.StyleDataType['线']) {
+                    return "线";
+                }
+                    else if (d.StyleDataType === Base.DataContext.StyleDataType['面']) {
+                    return "面";
+                }
+
+                return "";
+            } }
+            , { field: 'StyleTypeName', title: '样式分类', event: 'setSign' }
+            , { field: 'StyleDesc', title: '样式描述', event: 'setSign' }
+          ]],
+          where: {
+              styleType: '',
+              styleName: $.trim($("#txtStyleName").val()),
+              createBy: 'admin',
+              defaultStyleId:styleId
+          },
+            });
+
+            //监听行单击事件
+            table.on('row(style-table)', function (obj) {
+                styleId = obj.data.Id;
+            });
+
+            table.on('rowDouble(style-table)', function (obj) {
+                styleId = obj.Id;
+            });
+
+            table.on('checkbox(style-table)', function (obj) {
+                styleId = obj.Id;
+            });
+        }
+
+
+
+        function getCheckedIds() {
+            return layui.Grid.getCheckedIds('style-table');
+        }
+
+
+        function uploadLayerStyle()
+        {
+            $.post({
+                url: Base.getApiUrl("/DataEditor/UpdateDefaultStyle"),
+                data: {
+                    layerID: '@Request.QueryString["layerId"]',
+                styleID: styleId,
+                user: '@UserIdentityContext.CurrentUserName',
+            },
+            success: function (resp) {
+                if (resp.code == 0) {
+                    window.parent.layer.closeAll();
+                    // window.parent.initLayerTree();
+                     window.parent.$("#btnRefreshWorkArea").click();
+                }
+            }
+        })
+    }
+    </script>
+}

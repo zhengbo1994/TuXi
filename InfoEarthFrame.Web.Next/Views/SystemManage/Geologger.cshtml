@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "GeoServer日志";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs12 layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">GeoServer日志</div>
+                <div class="layui-card-body">
+                    <form class="layui-form" action="" lay-filter="basic-form">
+                        <div class="layui-form-item" style="padding-right:10px;">
+                            <div class="layui-col-lg4 layui-col-md4 layui-col-sm4 layui-col-xs4">
+                                <label class="layui-form-label">导入日志：</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="message" id="message" placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-col-lg4 layui-col-md4 layui-col-sm4 layui-col-xs4">
+                                <label class="layui-form-label">导入状态：</label>
+                                <div class="layui-input-block">
+                                    <select lay-filter="readstatus" id="readstatus" name="readstatus" class="layui-input">
+                                        <option value="">请选择</option>
+                                        <option value="1">处理成功</option>
+                                        <option value="2">处理失败</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="layui-col-lg4 layui-col-md4 layui-col-sm4 layui-col-xs4">
+                                <label class="layui-form-label">创建人：</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="createby" id="createby" placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="layui-form-item" style="padding-right:10px;">
+                        <div class="layui-col-lg4 layui-col-md4 layui-col-sm4 layui-col-xs4">
+                            <label class="layui-form-label">创建时间：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="createdt" id="createdt" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-col-lg8 layui-col-md8 layui-col-sm8 layui-col-xs8" style="text-align:right;">
+                            <button class="layui-btn" data-type="reload" onclick="initGrid()">搜索</button>
+                        </div>
+                    </div>
+
+                    <div class="layui-card-body" style="overflow-x:hidden">
+                        <table class="layui-hide" id="file-table" lay-filter="file-table"></table>
+                        <script type="text/html" id="file-table-toolbar">
+                            <div class="layui-btn-group">
+                            </div>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section script{
+    <script>
+        layui.initModule(['form', 'table', 'laydate'],
+            function () {
+                var form = layui.form;
+                var admin = layui.admin;
+                var table = layui.table;
+                var laydate = layui.laydate;
+
+                initGrid();
+
+                laydate.render({
+                    elem: '#createdt',
+                    type: 'datetime',
+                    range: LangConfig.CommonText.to,
+                    format: 'yyyy-MM-dd HH:mm:ss',
+                    lang: '@UserConfigContext.CurrentLang'
+                });
+            })
+
+
+        function initGrid() {
+            layui.initGird({
+                id: "file-table",
+                elem: '#file-table',
+                url: Base.getApiUrl("/SystemManage/GetGeologgerPageListByCondition"),
+                title: '文件包列表',
+                cols: [
+                    [
+                        { type: 'checkbox', fixed: 'left', event: 'setSign', hide: true },
+                        { field: 'Id', hide: true },
+                        { field: 'LayerID', title: '图层编号', hide: true },
+                        { field: 'ShpFileName', title: 'shp文件名称' },
+                        { field: 'Message', title: '导入日志' },
+                      
+                        { field: 'CreateBy', title: '创建人' },
+                        { field: 'MsgStatus', title: '消息状态', hide: true },
+                        {
+                            field: 'MsgReadDT', title: '消息读取时间', hide: true, templet: function (d) {
+                                return Base.Converter.dateTime(d.MsgReadDT);
+                            }
+                        },
+                        { field: 'FolderName', title: '文件夹名称' },
+                          {
+                              field: 'CreateDT', title: '创建时间', align: 'center', templet: function (d) {
+                                  return Base.Converter.dateTime(d.CreateDT);
+                              }
+                          },
+                        {
+                            field: 'ReadStartDT', title: '导入开始时间', align: 'center', templet: function (d) {
+                                return Base.Converter.dateTime(d.ReadStartDT);
+                            }
+                        },
+                        {
+                            field: 'ReadEndDT', title: '导入结束时间',align: 'center', templet: function (d) {
+                                return Base.Converter.dateTime(d.ReadEndDT);
+                            }
+                        },
+                        {
+                            field: 'ReadStatus', title: '导入状态', align: 'center', templet: function (d) {
+                                if (d.ReadStatus === 1) {
+                                    return "<button class=\"layui-btn layui-btn-xs\">处理成功</button>"
+                                }
+                                else if (d.ReadStatus === 2) {
+                                    return "<button class=\"layui-btn layui-btn-danger layui-btn-xs\">处理失败</button>"
+                                }
+
+                                return "";
+                            }
+                        },
+                    ]
+                ],
+                method: "get",
+                where: $.extend({
+                    Createby: $("#createby").val(),
+                    Readstatus: parseInt($("#readstatus").val() == "" ? 0 : $("#readstatus").val()),
+                    Message: $("#message").val()
+                },
+                    getTimeRange())
+            });
+        }
+
+        function getTimeRange() {
+            var value = $("#createdt").val();
+            if (!value) {
+                return {
+                    StartDate: '',
+                    EndDate: ''
+                };
+            }
+
+            var valuePart = value.split(LangConfig.CommonText.to);
+            return {
+                StartDate: valuePart[0],
+                EndDate: valuePart[1]
+            };
+        }
+    </script>
+}

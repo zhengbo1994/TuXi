@@ -1,0 +1,843 @@
+#editor-content {
+  /* 编辑器边框颜色 */
+
+  /* 菜单颜色、上边框颜色 */
+
+  /* 菜单选中状态的颜色 */
+
+  /* input focus 时的颜色 */
+
+  /* 按钮颜色 */
+
+  /* tab selected 状态下的颜色 */
+
+}
+#editor-content .wangEditor-container {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  z-index: 1;
+  width: 100%;
+}
+#editor-content .wangEditor-container a:focus,
+#editor-content .wangEditor-container button:focus {
+  outline: none;
+}
+#editor-content .wangEditor-container,
+#editor-content .wangEditor-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1;
+}
+#editor-content .wangEditor-container img {
+  border: none;
+}
+#editor-content .wangEditor-container .clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#editor-content .wangEditor-container .clearfix {
+  *zoom: 1;
+}
+#editor-content .wangEditor-container textarea {
+  border: none;
+}
+#editor-content .wangEditor-container textarea:focus {
+  outline: none;
+}
+#editor-content .wangEditor-container .height-tip {
+  position: absolute;
+  width: 3px;
+  background-color: #ccc;
+  left: 0;
+  transition: top .2s;
+}
+#editor-content .wangEditor-container .txt-toolbar {
+  position: absolute;
+  background-color: #fff;
+  padding: 3px 5px;
+  border-top: 2px solid #666666;
+  box-shadow: 1px 3px 3px #999;
+  border-left: 1px\9 solid\9 #ccc\9;
+  border-bottom: 1px\9 solid\9 #999\9;
+  border-right: 1px\9 solid\9 #999\9;
+}
+#editor-content .wangEditor-container .txt-toolbar .tip-triangle {
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid;
+  border-color: transparent transparent #666666 transparent;
+  top: -12px;
+  left: 50%;
+  margin-left: -5px;
+}
+#editor-content .wangEditor-container .txt-toolbar a {
+  color: #666666;
+  display: inline-block;
+  margin: 0 3px;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+#editor-content .wangEditor-container .txt-toolbar a:hover {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-container .img-drag-point {
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: se-resize;
+  background-color: #666666;
+  margin-left: -6px;
+  margin-top: -6px;
+  box-shadow: 1px 1px 5px #999;
+}
+#editor-content .wangEditor-container .wangEditor-upload-progress {
+  position: absolute;
+  height: 1px;
+  background: #1e88e5;
+  width: 0;
+  display: none;
+  -webkit-transition: width .5s;
+  -o-transition: width .5s;
+  transition: width .5s;
+}
+#editor-content .wangEditor-fullscreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#editor-content .wangEditor-container .code-textarea {
+  resize: none;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Verdana';
+  color: #333;
+  padding: 0 15px 0 15px;
+}
+#editor-content .wangEditor-menu-container {
+  width: 100%;
+  border-bottom: 1px solid #f1f1f1;
+  background-color: #fff;
+}
+#editor-content .wangEditor-menu-container a {
+  text-decoration: none;
+}
+#editor-content .wangEditor-menu-container .menu-group {
+  float: left;
+  padding: 0 8px;
+  border-right: 1px solid #f1f1f1;
+}
+#editor-content .wangEditor-menu-container .menu-item {
+  float: left;
+  position: relative;
+  text-align: center;
+  height: 31px;
+  width: 35px;
+}
+#editor-content .wangEditor-menu-container .menu-item:hover {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-menu-container .menu-item a {
+  display: block;
+  text-align: center;
+  color: #666666;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 0.9em;
+}
+#editor-content .wangEditor-menu-container .menu-item .selected {
+  color: #1e88e5;
+}
+#editor-content .wangEditor-menu-container .menu-item .active {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-menu-container .menu-item .disable {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+#editor-content .wangEditor-menu-container .menu-tip {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  width: 60px;
+  text-align: center;
+  background-color: #666666;
+  color: #fff;
+  padding: 7px 0;
+  font-size: 12px;
+  top: 100%;
+  left: 50%;
+  margin-left: -30px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px #999;
+  display: none;
+  /*// 小三角
+        .tip-triangle {
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border:5px solid;
+            border-color: transparent transparent @fore-color transparent;
+            top: -10px;
+            left: 50%;
+            margin-left: -5px;
+        }*/
+
+}
+#editor-content .wangEditor-menu-container .menu-tip-40 {
+  width: 40px;
+  margin-left: -20px;
+}
+#editor-content .wangEditor-menu-container .menu-tip-50 {
+  width: 50px;
+  margin-left: -25px;
+}
+#editor-content .wangEditor-menu-shadow {
+  /*border-bottom-width: 0;*/
+
+  border-bottom: 1px\9 solid\9 #f1f1f1\9;
+  box-shadow: 0 1px 3px #999;
+}
+#editor-content .wangEditor-container .wangEditor-txt {
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  padding-top: 0;
+  margin-top: 5px;
+  overflow-y: auto;
+}
+#editor-content .wangEditor-container .wangEditor-txt p,
+#editor-content .wangEditor-container .wangEditor-txt h1,
+#editor-content .wangEditor-container .wangEditor-txt h2,
+#editor-content .wangEditor-container .wangEditor-txt h3,
+#editor-content .wangEditor-container .wangEditor-txt h4,
+#editor-content .wangEditor-container .wangEditor-txt h5 {
+  margin: 10px 0;
+  line-height: 1.8;
+}
+#editor-content .wangEditor-container .wangEditor-txt p *,
+#editor-content .wangEditor-container .wangEditor-txt h1 *,
+#editor-content .wangEditor-container .wangEditor-txt h2 *,
+#editor-content .wangEditor-container .wangEditor-txt h3 *,
+#editor-content .wangEditor-container .wangEditor-txt h4 *,
+#editor-content .wangEditor-container .wangEditor-txt h5 * {
+  line-height: 1.8;
+}
+#editor-content .wangEditor-container .wangEditor-txt ul,
+#editor-content .wangEditor-container .wangEditor-txt ol {
+  padding-left: 20px;
+}
+#editor-content .wangEditor-container .wangEditor-txt img {
+  cursor: pointer;
+}
+#editor-content .wangEditor-container .wangEditor-txt img.clicked {
+  box-shadow: 1px 1px 10px #999;
+}
+#editor-content .wangEditor-container .wangEditor-txt table.clicked {
+  box-shadow: 1px 1px 10px #999;
+}
+#editor-content .wangEditor-container .wangEditor-txt pre code {
+  line-height: 1.5;
+}
+#editor-content .wangEditor-container .wangEditor-txt:focus {
+  outline: none;
+}
+#editor-content .wangEditor-container .wangEditor-txt blockquote {
+  display: block;
+  border-left: 8px solid #d0e5f2;
+  padding: 5px 10px;
+  margin: 10px 0;
+  line-height: 1.4;
+  font-size: 100%;
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-container .wangEditor-txt table {
+  border: none;
+  border-collapse: collapse;
+}
+#editor-content .wangEditor-container .wangEditor-txt table td,
+#editor-content .wangEditor-container .wangEditor-txt table th {
+  border: 1px solid #999;
+  padding: 3px 5px;
+  min-width: 50px;
+  height: 20px;
+}
+#editor-content .wangEditor-container .wangEditor-txt pre {
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin: 5px 0px;
+  font-size: 0.8em;
+  border-radius: 3px;
+}
+#editor-content .wangEditor-drop-list {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 10;
+  transition: height .7s;
+  border-top: 1px solid #f1f1f1;
+  box-shadow: 1px 3px 3px #999;
+  border-left: 1px\9 solid\9 #ccc\9;
+  border-bottom: 1px\9 solid\9 #999\9;
+  border-right: 1px\9 solid\9 #999\9;
+}
+#editor-content .wangEditor-drop-list a {
+  text-decoration: none;
+  display: block;
+  color: #666666;
+  padding: 3px 5px;
+}
+#editor-content .wangEditor-drop-list a:hover {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-drop-panel,
+#editor-content .txt-toolbar {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 14px;
+  /*border: 1px\9 solid\9 #cccccc\9;*/
+
+  background-color: #fff;
+  z-index: 10;
+  border-top: 2px solid #666666;
+  box-shadow: 1px 3px 3px #999;
+  border-left: 1px\9 solid\9 #ccc\9;
+  border-bottom: 1px\9 solid\9 #999\9;
+  border-right: 1px\9 solid\9 #999\9;
+}
+#editor-content .wangEditor-drop-panel .tip-triangle,
+#editor-content .txt-toolbar .tip-triangle {
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid;
+  border-color: transparent transparent #666666 transparent;
+  top: -12px;
+  left: 50%;
+  margin-left: -5px;
+}
+#editor-content .wangEditor-drop-panel a,
+#editor-content .txt-toolbar a {
+  text-decoration: none;
+}
+#editor-content .wangEditor-drop-panel input[type=text],
+#editor-content .txt-toolbar input[type=text] {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  height: 20px;
+  color: #333;
+  padding: 3px 0;
+}
+#editor-content .wangEditor-drop-panel input[type=text]:focus,
+#editor-content .txt-toolbar input[type=text]:focus {
+  outline: none;
+  border-bottom: 2px solid #1e88e5;
+}
+#editor-content .wangEditor-drop-panel input[type=text].block,
+#editor-content .txt-toolbar input[type=text].block {
+  display: block;
+  width: 100%;
+}
+#editor-content .wangEditor-drop-panel textarea,
+#editor-content .txt-toolbar textarea {
+  border: 1px solid #ccc;
+}
+#editor-content .wangEditor-drop-panel textarea:focus,
+#editor-content .txt-toolbar textarea:focus {
+  outline: none;
+  border-color: #1e88e5;
+}
+#editor-content .wangEditor-drop-panel button,
+#editor-content .txt-toolbar button {
+  font-size: 14px;
+  color: #1e88e5;
+  border: none;
+  padding: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+}
+#editor-content .wangEditor-drop-panel button:hover,
+#editor-content .txt-toolbar button:hover {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-drop-panel button:focus,
+#editor-content .txt-toolbar button:focus {
+  outline: none;
+}
+#editor-content .wangEditor-drop-panel button.right,
+#editor-content .txt-toolbar button.right {
+  float: right;
+  margin-left: 10px;
+}
+#editor-content .wangEditor-drop-panel button.gray,
+#editor-content .txt-toolbar button.gray {
+  color: #999;
+}
+#editor-content .wangEditor-drop-panel button.link,
+#editor-content .txt-toolbar button.link {
+  padding: 5px 10px;
+}
+#editor-content .wangEditor-drop-panel button.link:hover,
+#editor-content .txt-toolbar button.link:hover {
+  background-color: #fff;
+  text-decoration: underline;
+}
+#editor-content .wangEditor-drop-panel .color-item,
+#editor-content .txt-toolbar .color-item {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding: 2px;
+  border-radius: 2px;
+  text-decoration: underline;
+}
+#editor-content .wangEditor-drop-panel .color-item:hover,
+#editor-content .txt-toolbar .color-item:hover {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-drop-panel .list-menu-item,
+#editor-content .txt-toolbar .list-menu-item {
+  display: block;
+  float: left;
+  color: #333;
+  padding: 5px 5px;
+  border-radius: 2px;
+}
+#editor-content .wangEditor-drop-panel .list-menu-item:hover,
+#editor-content .txt-toolbar .list-menu-item:hover {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-drop-panel table.choose-table,
+#editor-content .txt-toolbar table.choose-table {
+  border: none;
+  border-collapse: collapse;
+}
+#editor-content .wangEditor-drop-panel table.choose-table td,
+#editor-content .txt-toolbar table.choose-table td {
+  border: 1px solid #ccc;
+  width: 16px;
+  height: 12px;
+}
+#editor-content .wangEditor-drop-panel table.choose-table td.active,
+#editor-content .txt-toolbar table.choose-table td.active {
+  background-color: #ccc;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+#editor-content .wangEditor-drop-panel .panel-tab .tab-container,
+#editor-content .txt-toolbar .panel-tab .tab-container {
+  margin-bottom: 5px;
+}
+#editor-content .wangEditor-drop-panel .panel-tab .tab-container a,
+#editor-content .txt-toolbar .panel-tab .tab-container a {
+  display: inline-block;
+  color: #999;
+  text-align: center;
+  margin: 0 5px;
+  padding: 5px 5px;
+}
+#editor-content .wangEditor-drop-panel .panel-tab .tab-container a.selected,
+#editor-content .txt-toolbar .panel-tab .tab-container a.selected {
+  color: #1e88e5;
+  border-bottom: 2px solid #1e88e5;
+}
+#editor-content .wangEditor-drop-panel .panel-tab .content-container .content,
+#editor-content .txt-toolbar .panel-tab .content-container .content {
+  display: none;
+}
+#editor-content .wangEditor-drop-panel .panel-tab .content-container .content a,
+#editor-content .txt-toolbar .panel-tab .content-container .content a {
+  display: inline-block;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 2px;
+}
+#editor-content .wangEditor-drop-panel .panel-tab .content-container .content a:hover,
+#editor-content .txt-toolbar .panel-tab .content-container .content a:hover {
+  background-color: #f1f1f1;
+}
+#editor-content .wangEditor-drop-panel .panel-tab .content-container .selected,
+#editor-content .txt-toolbar .panel-tab .content-container .selected {
+  display: block;
+}
+#editor-content .wangEditor-drop-panel .panel-tab .emotion-content-container,
+#editor-content .txt-toolbar .panel-tab .emotion-content-container {
+  height: 200px;
+  overflow-y: auto;
+}
+#editor-content .wangEditor-drop-panel .upload-icon-container,
+#editor-content .txt-toolbar .upload-icon-container {
+  color: #ccc;
+  text-align: center;
+  margin: 20px 20px 15px 20px !important;
+  padding: 5px !important;
+  font-size: 65px;
+  cursor: pointer;
+  border: 2px dotted #f1f1f1;
+  display: block !important;
+}
+#editor-content .wangEditor-drop-panel .upload-icon-container:hover,
+#editor-content .txt-toolbar .upload-icon-container:hover {
+  color: #666;
+  border-color: #ccc;
+}
+#editor-content .wangEditor-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  border-top: 1px solid #f1f1f1;
+  box-shadow: 1px 3px 3px #999;
+  border-top: 1px\9 solid\9 #ccc\9;
+  border-left: 1px\9 solid\9 #ccc\9;
+  border-bottom: 1px\9 solid\9 #999\9;
+  border-right: 1px\9 solid\9 #999\9;
+}
+#editor-content .wangEditor-modal .wangEditor-modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -25px;
+  margin-right: -25px;
+  font-size: 1.5em;
+  color: #666;
+  cursor: pointer;
+}
+@font-face {
+  font-family: 'icomoon';
+src: url('../fonts/icomoon.eot?-qdfu1s');
+src: url('../fonts/icomoon.eot?#iefix-qdfu1s') format('embedded-opentype'), url('../fonts/icomoon.ttf?-qdfu1s') format('truetype'), url('../fonts/icomoon.woff?-qdfu1s') format('woff'), url('../fonts/icomoon.svg?-qdfu1s#icomoon') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+#editor-content [class^="wangeditor-menu-img-"],
+#editor-content [class*=" wangeditor-menu-img-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#editor-content .wangeditor-menu-img-link:before {
+  content: "\e800";
+}
+#editor-content .wangeditor-menu-img-unlink:before {
+  content: "\e801";
+}
+#editor-content .wangeditor-menu-img-code:before {
+  content: "\e802";
+}
+#editor-content .wangeditor-menu-img-cancel:before {
+  content: "\e803";
+}
+#editor-content .wangeditor-menu-img-terminal:before {
+  content: "\e804";
+}
+#editor-content .wangeditor-menu-img-angle-down:before {
+  content: "\e805";
+}
+#editor-content .wangeditor-menu-img-font:before {
+  content: "\e806";
+}
+#editor-content .wangeditor-menu-img-bold:before {
+  content: "\e807";
+}
+#editor-content .wangeditor-menu-img-italic:before {
+  content: "\e808";
+}
+#editor-content .wangeditor-menu-img-header:before {
+  content: "\e809";
+}
+#editor-content .wangeditor-menu-img-align-left:before {
+  content: "\e80a";
+}
+#editor-content .wangeditor-menu-img-align-center:before {
+  content: "\e80b";
+}
+#editor-content .wangeditor-menu-img-align-right:before {
+  content: "\e80c";
+}
+#editor-content .wangeditor-menu-img-list-bullet:before {
+  content: "\e80d";
+}
+#editor-content .wangeditor-menu-img-indent-left:before {
+  content: "\e80e";
+}
+#editor-content .wangeditor-menu-img-indent-right:before {
+  content: "\e80f";
+}
+#editor-content .wangeditor-menu-img-list-numbered:before {
+  content: "\e810";
+}
+#editor-content .wangeditor-menu-img-underline:before {
+  content: "\e811";
+}
+#editor-content .wangeditor-menu-img-table:before {
+  content: "\e812";
+}
+#editor-content .wangeditor-menu-img-eraser:before {
+  content: "\e813";
+}
+#editor-content .wangeditor-menu-img-text-height:before {
+  content: "\e814";
+}
+#editor-content .wangeditor-menu-img-brush:before {
+  content: "\e815";
+}
+#editor-content .wangeditor-menu-img-pencil:before {
+  content: "\e816";
+}
+#editor-content .wangeditor-menu-img-minus:before {
+  content: "\e817";
+}
+#editor-content .wangeditor-menu-img-picture:before {
+  content: "\e818";
+}
+#editor-content .wangeditor-menu-img-file-image:before {
+  content: "\e819";
+}
+#editor-content .wangeditor-menu-img-cw:before {
+  content: "\e81a";
+}
+#editor-content .wangeditor-menu-img-ccw:before {
+  content: "\e81b";
+}
+#editor-content .wangeditor-menu-img-music:before {
+  content: "\e911";
+}
+#editor-content .wangeditor-menu-img-play:before {
+  content: "\e912";
+}
+#editor-content .wangeditor-menu-img-location:before {
+  content: "\e947";
+}
+#editor-content .wangeditor-menu-img-happy:before {
+  content: "\e9df";
+}
+#editor-content .wangeditor-menu-img-sigma:before {
+  content: "\ea67";
+}
+#editor-content .wangeditor-menu-img-enlarge2:before {
+  content: "\e98b";
+}
+#editor-content .wangeditor-menu-img-shrink2:before {
+  content: "\e98c";
+}
+#editor-content .wangeditor-menu-img-newspaper:before {
+  content: "\e904";
+}
+#editor-content .wangeditor-menu-img-camera:before {
+  content: "\e90f";
+}
+#editor-content .wangeditor-menu-img-video-camera:before {
+  content: "\e914";
+}
+#editor-content .wangeditor-menu-img-file-zip:before {
+  content: "\e92b";
+}
+#editor-content .wangeditor-menu-img-stack:before {
+  content: "\e92e";
+}
+#editor-content .wangeditor-menu-img-credit-card:before {
+  content: "\e93f";
+}
+#editor-content .wangeditor-menu-img-address-book:before {
+  content: "\e944";
+}
+#editor-content .wangeditor-menu-img-envelop:before {
+  content: "\e945";
+}
+#editor-content .wangeditor-menu-img-drawer:before {
+  content: "\e95c";
+}
+#editor-content .wangeditor-menu-img-download:before {
+  content: "\e960";
+}
+#editor-content .wangeditor-menu-img-upload:before {
+  content: "\e961";
+}
+#editor-content .wangeditor-menu-img-lock:before {
+  content: "\e98f";
+}
+#editor-content .wangeditor-menu-img-unlocked:before {
+  content: "\e990";
+}
+#editor-content .wangeditor-menu-img-wrench:before {
+  content: "\e991";
+}
+#editor-content .wangeditor-menu-img-eye:before {
+  content: "\e9ce";
+}
+#editor-content .wangeditor-menu-img-eye-blocked:before {
+  content: "\e9d1";
+}
+#editor-content .wangeditor-menu-img-command:before {
+  content: "\ea4e";
+}
+#editor-content .wangeditor-menu-img-font2:before {
+  content: "\ea5c";
+}
+#editor-content .wangeditor-menu-img-libreoffice:before {
+  content: "\eade";
+}
+#editor-content .wangeditor-menu-img-quotes-left:before {
+  content: "\e977";
+}
+#editor-content .wangeditor-menu-img-strikethrough:before {
+  content: "\ea65";
+}
+#editor-content .wangeditor-menu-img-desktop:before {
+  content: "\f108";
+}
+#editor-content .wangeditor-menu-img-tablet:before {
+  content: "\f10a";
+}
+#editor-content .wangeditor-menu-img-search-plus:before {
+  content: "\f00e";
+}
+#editor-content .wangeditor-menu-img-search-minus:before {
+  content: "\f010";
+}
+#editor-content .wangeditor-menu-img-trash-o:before {
+  content: "\f014";
+}
+#editor-content .wangeditor-menu-img-align-justify:before {
+  content: "\f039";
+}
+#editor-content .wangeditor-menu-img-arrows-v:before {
+  content: "\f07d";
+}
+#editor-content .wangeditor-menu-img-sigma2:before {
+  content: "\ea68";
+}
+#editor-content .wangeditor-menu-img-omega:before {
+  content: "\e900";
+}
+#editor-content .wangeditor-menu-img-cancel-circle:before {
+  content: "\e901";
+}
+#editor-content .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+  -webkit-text-size-adjust: none;
+}
+#editor-content .hljs-comment,
+#editor-content .diff .hljs-header {
+  color: #998;
+  font-style: italic;
+}
+#editor-content .hljs-keyword,
+#editor-content .css .rule .hljs-keyword,
+#editor-content .hljs-winutils,
+#editor-content .nginx .hljs-title,
+#editor-content .hljs-subst,
+#editor-content .hljs-request,
+#editor-content .hljs-status {
+  color: #333;
+  font-weight: bold;
+}
+#editor-content .hljs-number,
+#editor-content .hljs-hexcolor,
+#editor-content .ruby .hljs-constant {
+  color: #008080;
+}
+#editor-content .hljs-string,
+#editor-content .hljs-tag .hljs-value,
+#editor-content .hljs-doctag,
+#editor-content .tex .hljs-formula {
+  color: #d14;
+}
+#editor-content .hljs-title,
+#editor-content .hljs-id,
+#editor-content .scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+#editor-content .hljs-list .hljs-keyword,
+#editor-content .hljs-subst {
+  font-weight: normal;
+}
+#editor-content .hljs-class .hljs-title,
+#editor-content .hljs-type,
+#editor-content .vhdl .hljs-literal,
+#editor-content .tex .hljs-command {
+  color: #458;
+  font-weight: bold;
+}
+#editor-content .hljs-tag,
+#editor-content .hljs-tag .hljs-title,
+#editor-content .hljs-rule .hljs-property,
+#editor-content .django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal;
+}
+#editor-content .hljs-attribute,
+#editor-content .hljs-variable,
+#editor-content .lisp .hljs-body,
+#editor-content .hljs-name {
+  color: #008080;
+}
+#editor-content .hljs-regexp {
+  color: #009926;
+}
+#editor-content .hljs-symbol,
+#editor-content .ruby .hljs-symbol .hljs-string,
+#editor-content .lisp .hljs-keyword,
+#editor-content .clojure .hljs-keyword,
+#editor-content .scheme .hljs-keyword,
+#editor-content .tex .hljs-special,
+#editor-content .hljs-prompt {
+  color: #990073;
+}
+#editor-content .hljs-built_in {
+  color: #0086b3;
+}
+#editor-content .hljs-preprocessor,
+#editor-content .hljs-pragma,
+#editor-content .hljs-pi,
+#editor-content .hljs-doctype,
+#editor-content .hljs-shebang,
+#editor-content .hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+#editor-content .hljs-deletion {
+  background: #fdd;
+}
+#editor-content .hljs-addition {
+  background: #dfd;
+}
+#editor-content .diff .hljs-change {
+  background: #0086b3;
+}
+#editor-content .hljs-chunk {
+  color: #aaa;
+}

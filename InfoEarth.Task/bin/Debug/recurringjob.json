@@ -1,0 +1,22 @@
+﻿[
+  {
+    "job-name": "ThumbnailInitialize",
+    "job-type": "InfoEarth.Task.ThumbnailInitialize, InfoEarth.Task",
+    "cron-expression": "*/10 * * * *",
+    "timezone": "China Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "id": "8b5bbd55-8c6c-479c-952d-764773ee7a08"
+    }
+  },
+  {
+    "job-name": "ShpFileRead",
+    "job-type": "InfoEarth.Task.ShpFileRead, InfoEarth.Task",
+    "cron-expression": "*/10 * * * *",
+    "timezone": "China Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "id": "d0eec7b1-5dbc-4ffc-b89f-daa5b5b797c0"
+    }
+  }
+]

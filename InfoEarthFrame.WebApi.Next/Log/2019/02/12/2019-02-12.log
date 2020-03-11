@@ -1,0 +1,338 @@
+2019-02-12 09:20:29,868 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [54] ERROR System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: Exception while writing to stream ---> System.IO.IOException: 无法将数据写入传输连接: 远程主机强迫关闭了一个现有的连接。。 ---> System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.NetworkStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.Sockets.NetworkStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   在 Npgsql.WriteBuffer.Flush()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Npgsql.WriteBuffer.Flush()
+   在 Npgsql.NpgsqlConnector.SendBuffer()
+   在 Npgsql.NpgsqlCommand.Send(PopulateMethod populateMethod)
+   在 Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   在 Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   在 Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.LayerManagerAppService.GetServiceSelectTreeData(String name) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\LayerManager\LayerManagerAppService.cs:行号 285
+   在 InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetServiceTreeData(String keyword) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\SystemManageController.cs:行号 351
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-12 10:15:09,601 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [59] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 280
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 258
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 333
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-12 16:15:56,101 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [13] ERROR FluentFTP.FtpException: Error while downloading the file from the server. See InnerException for more info. ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.SetDataTypeInternal(FtpDataType type)
+   在 FluentFTP.FtpClient.SetDataType(FtpDataType type)
+   在 FluentFTP.FtpClient.OpenRead(String path, FtpDataType type, Int64 restart, Boolean checkIfFileExists)
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFileToFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 InfoEarthFrame.Common.FtpHelper.Get(String localPath, String remotePath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 59
+   在 InfoEarthFrame.Common.Metadata.GetInstance(String mainId, String folderName, String ftpPath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\MetaDataFileXml\Metadata.cs:行号 67
+   在 InfoEarthFrame.Application.DataManageAppService.GetMetaData(String mainId, String folderName) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2184
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetMetaData(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 383
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-12 17:01:06,370 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [13] ERROR FluentFTP.FtpException: Error while downloading the file from the server. See InnerException for more info. ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.SetDataTypeInternal(FtpDataType type)
+   在 FluentFTP.FtpClient.SetDataType(FtpDataType type)
+   在 FluentFTP.FtpClient.OpenRead(String path, FtpDataType type, Int64 restart, Boolean checkIfFileExists)
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFileToFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 InfoEarthFrame.Common.FtpHelper.Get(String localPath, String remotePath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 59
+   在 InfoEarthFrame.Common.Metadata.GetInstance(String mainId, String folderName, String ftpPath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\MetaDataFileXml\Metadata.cs:行号 67
+   在 InfoEarthFrame.Application.DataManageAppService.GetMetaData(String mainId, String folderName) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2184
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetMetaData(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 383
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-12 17:01:30,989 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [47] ERROR FluentFTP.FtpException: Error while downloading the file from the server. See InnerException for more info. ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.SetDataTypeInternal(FtpDataType type)
+   在 FluentFTP.FtpClient.SetDataType(FtpDataType type)
+   在 FluentFTP.FtpClient.OpenRead(String path, FtpDataType type, Int64 restart, Boolean checkIfFileExists)
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFileToFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 InfoEarthFrame.Common.FtpHelper.Get(String localPath, String remotePath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 59
+   在 InfoEarthFrame.Common.Metadata.GetInstance(String mainId, String folderName, String ftpPath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\MetaDataFileXml\Metadata.cs:行号 67
+   在 InfoEarthFrame.Application.DataManageAppService.GetMetaData(String mainId, String folderName) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2184
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetMetaData(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 383
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-12 17:02:21,936 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [48] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 280
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 258
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 333
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-12 18:14:29,436 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [20] ERROR System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: Exception while writing to stream ---> System.IO.IOException: 无法将数据写入传输连接: 远程主机强迫关闭了一个现有的连接。。 ---> System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   在 System.Net.Sockets.NetworkStream.BeginWrite(Byte[] buffer, Int32 offset, Int32 size, AsyncCallback callback, Object state)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.Sockets.NetworkStream.BeginWrite(Byte[] buffer, Int32 offset, Int32 size, AsyncCallback callback, Object state)
+   在 System.IO.Stream.<>c.<BeginEndWriteAsync>b__53_0(Stream stream, ReadWriteParameters args, AsyncCallback callback, Object state)
+   在 System.Threading.Tasks.TaskFactory`1.FromAsyncTrim[TInstance,TArgs](TInstance thisRef, TArgs args, Func`5 beginMethod, Func`3 endMethod)
+   在 System.IO.Stream.BeginEndWriteAsync(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.IO.Stream.WriteAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   在 Npgsql.WriteBuffer.<FlushAsync>d__0.MoveNext()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Npgsql.WriteBuffer.<FlushAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Npgsql.NpgsqlConnector.<SendBufferAsync>d__4.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Npgsql.NpgsqlCommand.<SendAsync>d__1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Npgsql.NpgsqlCommand.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Npgsql.NpgsqlCommand.<ExecuteDbDataReaderInternalAsync>d__4.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Npgsql.NpgsqlCommand.<ExecuteDbDataReaderAsync>d__98.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   在 System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   在 System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Abp.EntityFramework.Repositories.EfRepositoryBase`3.<GetAllListAsync>d__7.MoveNext() 位置 D:\Halil\GitHub\aspnetboilerplate\src\Abp.EntityFramework\EntityFramework\Repositories\EfRepositoryBaseOfTEntityAndTPrimaryKey.cs:行号 0
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 InfoEarthFrame.Application.GeologyMappingTypeAppService.<GetMappingTree>d__9.MoveNext() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\GeologyMappingType\GeologyMappingTypeAppService.cs:行号 97
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.<GetMappingTree>d__6.MoveNext() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 51
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

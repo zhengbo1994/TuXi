@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "发布地图展示";
+    Layout = "~/Views/Shared/CommonMap.cshtml";
+}
+@section css{
+    <style>
+        #home-map {
+            position: relative;
+            overflow: hidden;
+            height:100%;
+        }
+        /* 显示鼠标信息的自定义样式设置 */
+        #mouse-position {
+            position: absolute;
+            bottom: 15px;
+            right: 0;
+            width: 120px;
+            height: 20px;
+            z-index: 2000;
+            font-size: 16px;
+            font-family: "微软雅黑";
+        }
+
+        .main-content {
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .main-content > div {
+                box-sizing: border-box;
+                width: 100%;
+            }
+
+        .home-map {
+            height: 66%;
+        }
+
+        .home-echarts {
+            height: 33%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .item {
+            width: 33%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 1px solid gray;
+        }
+
+        .toggle-panel {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            position: absolute;
+            width: 390px;
+            height: 150px;
+            right: 0;
+            top: 0;
+            z-index: 100;
+        }
+
+        .toggle-title {
+            box-sizing: border-box;
+            background: #1e9fff;
+            color: white;
+            width: 31px;
+            font-size: 15px;
+            padding: 6px 8px;
+            cursor: pointer;
+        }
+
+        .toggle-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            background: white;
+        }
+
+        .select-wrap {
+            height: 38px;
+        }
+
+        .desc-title {
+            margin: 5px 5px 0;
+            line-height: 22px;
+            font-size: 15px;
+            font-weight: bold;
+            color: gray;
+        }
+
+        ul.desc-content {
+            flex: 1;
+            margin-left: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+            ul.desc-content > li:nth-child(odd) {
+                box-sizing: border-box;
+                width: 58%;
+            }
+
+            ul.desc-content > li:nth-child(even) {
+                box-sizing: border-box;
+                width: 42%;
+            }
+
+        .desc-value {
+            font-size: 13px;
+            color: gray;
+        }
+    </style>
+}
+<div class="main-content">
+    <div id="home-map" class="home-map">
+        <div id='mouse-position' class="custom-mouse-position"></div>
+
+    </div>
+</div>
+
+@section script{
+    <script>
+        var mapObj = initMap('home-map');
+        mapObj.mousePosition();
+
+        function addLayer(url, dataServerKey, zeroLevelSize,serviceType)
+        {
+            mapObj.addLayer.iTelluro(url, dataServerKey, zeroLevelSize, serviceType)
+        }
+
+        function removeLayer(dataServerKey) {
+            mapObj.removeLayer(dataServerKey)
+        }
+
+
+    </script>
+}

@@ -1,0 +1,747 @@
+﻿/* ------左侧图层树------ */
+.ui-layout{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+}
+.ui-layout .ui-layout-west{
+    position:relative;
+    flex:1;
+}
+.ui-layout .map_container{
+    flex:9;
+}
+.ui-layout .ui-layout-west .add-layer {
+    position: absolute;
+    top: 4px;
+    right: 2px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.ui-layout .ui-layout-west .panel-Title {
+    border-color: #c5c5c5;
+    background-color: #fff;
+    color: #666;
+    height: 38px;
+    line-height: 35px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+    border-bottom: 1px solid #ededed;
+    border-top: 1px solid #ededed;
+    padding-left: 9px;
+    margin: 2px 0;
+    position: relative;
+}
+.ui-layout .sidebar-shutup,.ui-layout .sidebar-showon {
+    border: 1px solid #eee;
+    position: absolute;
+    top: 38%;
+    z-index: 1;
+    height: 150px;
+    text-align: center;
+    line-height: 142px;
+    width: 15px;
+    outline: 0;
+    color: #475059;
+    cursor: pointer;
+}
+.ui-layout .sidebar-shutup {
+    border-radius: 5em 0 0 5em;
+    right:-2%;
+}
+.ui-layout .sidebar-showon {
+    border-radius: 0 5em 5em 0;
+    left: 0;
+    display:none;
+}
+.ui-layout .sidebar-shutup:hover,.ui-layout .sidebar-showon:hover{
+    background: rgba(0,122,255,0.2);
+    opacity:0.5;
+}
+/* ------地图控件------ */
+.map_mouse-position {
+    right: 0px;
+    position: absolute;
+    bottom: 0px;
+}
+.map_container{
+     width: 100%; position:relative; border-radius:10px;
+}
+.map_container>.mapDiv{
+    width: 100%; border:2px solid #fff; border-radius:10px;position:relative;overflow:hidden;
+}
+.map_container>.mapDivBtn {
+   box-sizing:border-box; position:absolute;z-index:101;top:10px; left:10px;width:98px;border-radius:5px;height:30px;overflow:hidden;background:#ffffff;font-size:0;border:1px solid #007AFF;
+}
+.map_container>.mapDivBtn span{
+  display:inline-block;width:48px;height:30px;text-align:center;cursor:pointer;font-size:14px;line-height:29px;color:#007AFF;
+}
+
+.map_container>.mapPaintBtn{
+   position:absolute;top:-5.3em; left:8em;line-height:31px;border-radius:5px;border: 1px solid #007AFF;
+}
+.map_container .mapPaintBtn span {
+    display:inline-block;width:48px;height:30px;cursor:pointer;font-size:14px;text-align:center;
+    }
+.map_container .mapPaintBtn span i{
+    color:#007AFF;
+    font-size:18px;
+}
+    /*mapControllerBtn样式*/
+.map_container .mapControllerBtn {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    margin:0;
+    padding:0;
+    background: #fff;
+    border: 1px solid #007AFF;
+    border-radius:5px;
+}
+
+.map_container .mapControllerBtn span {
+    float: left;
+    width: 30px;
+    cursor: pointer;
+    border-right: 1px solid #007AFF;
+    text-align: center;
+    line-height: 29px; 
+    height: 27px;  
+}
+.map_container .mapControllerBtn span.active{
+    background: #007AFF;
+}
+.map_container .mapControllerBtn span:first-child{
+    border-radius:4px 0 0 4px;
+    overflow:hidden;
+    margin:0px;
+    padding:0px;
+}
+.map_container .mapControllerBtn span:last-child{
+    border-right:none;
+    border-radius:0 4px 4px 0;
+}
+.map_container .mapControllerBtn span i {
+    display:block;
+    width:100%;
+    height:100%;
+    font-size: 14px;
+    color:#007AFF;
+    line-height:29px;
+}
+.map_container .set_box{
+    position:absolute;
+    width:240px;
+    height:auto;
+    background-color:#fff;
+    display:none;
+    border: solid 1px #007AFF;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+}
+/*map_controller_btn样式*/
+.map_container .map_controller_btn{
+    position:absolute;
+    top:20px;
+    left:94%;
+    box-shadow: darkgrey 3px 3px 3px -1px;
+}
+.map_container .map_controller_btn .drag_bar{
+    text-align:center;
+    border-radius:5px 5px 0 0;
+    background:rgba(255,255,255,0.7);
+    border-bottom:1px solid #e7e7e7;
+    overflow:hidden;
+    padding:2px 9px;
+    cursor:move;
+}
+.map_container .map_controller_btn .drag_bar .fa{
+    transform:rotate(90deg);
+    color:#e7e7e7;
+    float:left;
+}
+.map_container .map_controller_btn .btn_group{
+    cursor:pointer;
+    position:relative;
+    background:rgba(255,255,255,0.7);
+}
+.map_container .map_controller_btn .btn_group span{
+    font-size:28px;
+    color:#007aff;
+}
+.map_container .map_controller_btn .btn_group .btn_item{
+    width: 60px;
+    height: 57px;
+    text-align: center;
+    padding: 5px 3px 5px;
+    position:relative;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list{
+    display:none;
+    position:absolute;
+    top:0;
+    left:-111px;
+    border-radius:3px;
+    box-shadow: darkgrey 3px 3px 3px -1px;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list li{
+    width:110px;
+    /*overflow:hidden;*/
+    padding:5px 14px 5px 20px;
+    background:rgba(255,255,255,0.7);
+    border-bottom: 1px solid #f5f5f5;
+    position:relative;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list li:first-child{
+    border-radius:3px 3px 0 0;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list li:last-child{
+    border-radius:0 0 3px 3px;
+    border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.map_container .map_controller_btn .btn_group .btn_item_list li.active,
+.map_container .map_controller_btn .btn_group .btn_item.active{
+    background:#007aff;
+    color:#fff;
+    border-color:#007aff;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list li span,
+.map_container .map_controller_btn .btn_group .btn_item_list li p{
+    float:left;
+    line-height:28px;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list li p{
+    margin-left:10px;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list .map_setpoint{
+    width:220px;
+    background: rgba(255,255,255,0.7);
+}
+.map_container .map_controller_btn .btn_group .btn_item_list .map_setpoint p{
+    line-height:35px;
+    border-bottom:1px solid #e5e8ee;
+    padding:0 20px;
+    color:#007aff;
+    font-size:14px;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list .map_setpoint .set_item{
+    margin:16px 0;
+    overflow:hidden;
+    padding:0 20px;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list .map_setpoint .set_item label{
+    float:left;
+    line-height: 20px;
+    margin-right:5px;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list .map_setpoint .set_item input{
+    float:left;
+    width:150px;
+    line-height: 20px;
+    border:1px solid #e5e8ee ;
+    background:#fff;
+    box-shadow:none;
+}
+.map_container .map_controller_btn .btn_group .btn_item_list .map_setpoint .set_item button{
+    background:#007aff;
+    border:none;
+    width:180px;
+    height:25px;
+    padding:0;
+}
+
+/*地图切换样式动态添加*/
+.map_active {
+    color:#fff !important;
+    background: #007AFF;
+}
+.mapBtn_active {
+    color: #fff;
+    background: #007AFF;
+}
+.fontColor {
+    color: #fff;
+}
+/*重新定义地图+-的样式及位置*/
+
+ .map_container  .map_zoom {
+    width: 30px;
+    height: 52px;
+    border: 1px solid #007AFF;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    bottom: 8px;
+    left: 0.8em;
+    }
+
+.map_container  .map_zoom button {
+    display: block;
+    width: 100%;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    color: #007AFF;
+    text-align: center;
+    background: none;
+}
+.map_container  .map_zoom button:hover{
+    color: #ffffff;
+    background: #007AFF;
+}
+.map_container  .map_zoom  button:first-child {
+    border-bottom: 1px solid #007AFF;
+}
+
+ /*微调整ol-scale-line位置 */
+.map_container  .ol-viewport .ol-overlaycontainer-stopevent .ol-scale-line {
+    left:3.8em;
+}
+/*隐藏地图右下角图标*/
+.map_container  .ol-attribution ul li a {
+    visibility: hidden;
+}
+
+/*popup样式*/
+.ol-popup{
+			position: absolute;
+			background-color: white;
+			-webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+			filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+			padding: 5px;
+			border-radius: 10px;
+			border: 1px solid #ccc;
+			bottom: 12px;
+			left: -50px;
+			min-width: 90px;
+            text-align:center;
+		}
+		.ol-popup:after,.ol-popup:before{
+			top:100%;
+			border: solid transparent;
+			content: "";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		.ol-popup:after{
+			border-top-color: white;
+			border-width: 10px;
+			left: 48px;
+			margin-left: -10px;
+		}
+		.ol-popup:after{
+			border-top-color: #fff;
+			border-width: 11px;
+			left: 48px;
+			margin-left: -11px;
+		}
+		.ol-popup-closer{
+			text-decoration: none;
+			position: absolute;
+			top: 2px;
+			right: 8px;
+		}
+		.ol-popup-closer:after{
+			content: "×";
+		}
+
+#css_animation{
+				height:20px;
+				width:20px;
+				border-radius: 25px;
+				background: rgb(255, 106, 0);
+                border: solid 1px red ;
+				transform: scale(0);
+				animation: myfirst 3s;
+				animation-iteration-count: infinite;
+			}
+
+			@keyframes myfirst{
+				to{
+					transform: scale(1.6);
+					background: rgba(0, 0, 0, 0);
+				}
+			}
+
+/*设置框样式*/
+.set_box .set_item{
+    padding: 0px 10px;
+    margin:10px 0;
+    display: flex;
+}
+.set_box .set_item>select{
+    width: 48px;
+}
+.set_box .set_item label{
+    flex: 2;
+    line-height: 24px;
+}
+.set_box .set_item .checkbox-wrap{
+    flex: 6;
+    line-height: 24px;
+}
+.set_box .set_item .checkbox-wrap>input[type="checkbox"]{
+    float: left;
+    margin-top: 6px;
+    width: 15px;
+    height: 14px;
+    cursor:pointer;
+}
+/*.set_box .set_item>input[type="checkbox"]{
+    flex: 6;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    border: #999 solid 1px;
+    outline: 0!important;
+    line-height: 20px;
+    -webkit-appearance: none;
+    margin-top: 0;
+    min-width: 12px;
+    min-height: 12px;
+    position:relative;
+}
+.set_box .set_item>input[type="checkbox"]:checked{
+    background:#007AFF;
+}
+.set_box .set_item>input[type="checkbox"]:checked::after{
+    content:'';
+    top: 50%;
+    left: 50%;
+    margin-top: -7px;
+    margin-left: -7px;
+    position:absolute;
+    background:transparent;
+    border:#fff solid 2px;
+    border-top:none;
+    border-right:none;
+    height:6px;
+    width:10px;
+    -moz-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -webkit-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}*/
+.set_box .set_item>input[type="text"]{
+    flex: 5;
+}
+.set_box .set_item button{
+    padding: 4px;
+    width: 35%;
+    margin: 0 auto;
+    border-color:#A9A9A9;
+}
+
+/*颜色设置弹框样式*/
+.layui-layer .layui-layer-title{
+    text-align:center;
+    padding:0 20px;
+    border-color:#e6e6e6;
+    color:#007aff;
+}
+.layui-layer .layui-layer-btn.layui-layer-btn-{
+    padding:0;
+    background:#f8f8f8;
+}
+.layui-layer.layui-layer-page .layui-layer-btn{
+    padding-top:3px;
+}
+.layui-layer .layui-layer-btn a{
+    line-height: 26px;
+}
+.layui-layer .layui-layer-content table th{
+    border-bottom:none;
+    padding:8px 20px;
+}
+.layui-layer .layui-layer-content table tr td.Features-id{
+    max-width: 60px;
+}
+.layui-layer .layui-layer-content table tr td.Features-id>span {
+    display:block;
+    height: 30px;
+    width: 52px;
+    margin:0 auto;
+    padding: 0 2px;
+    overflow: hidden;
+}
+.layui-layer .layui-layer-content table td{
+    padding:0;
+    height:30px;
+    line-height:30px;
+}
+.layui-layer .layui-layer-content table td div.color-fix{
+    width:100%;
+    height:100%;
+    cursor:pointer;
+}
+.layui-layer .layui-layer-content table td input{
+    border:none;
+    height:30px;
+    width: 100%;   
+}
+.layui-layer .layui-layer-content table td input[type="checkbox"]{
+    width:16px;
+    height:16px;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+
+/*添加图层弹窗样式*/
+.layui-layer .layui-layer-content ul{
+    padding:5px 10px 0;
+}
+.layui-layer .layui-layer-content ul li{
+    padding:10px;
+}
+.layui-layer .layui-layer-content ul li input[type=radio]{
+    float:left;
+    cursor:pointer;
+}
+.layui-layer .layui-layer-content .tab-content .tab-item{
+    padding:5px 10px;
+    height:40px;
+    display:flex;
+}
+.layui-layer .layui-layer-content .tab-content .tab-item label{
+    flex:3;
+    line-height:30px;
+    display:flex;
+    -webkit-box-pack:justify;
+    -webkit-justify-content:space-between;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+}
+.layui-layer .layui-layer-content .tab-content .tab-item label.geo{
+    flex:2;
+}
+.layui-layer .layui-layer-content .tab-content .tab-item input{
+    flex:7;
+}
+.layui-layer .layui-layer-content .tab-content .tab-item label>i{
+    display:block;
+    font-style:normal;
+}
+
+/*feature修改删除按钮样式*/
+.edit-box span{
+    display:inline-block;
+    padding:2px 3px;
+    width:20px;
+    height:20px;
+    border-radius:2px;
+}
+.edit-box .fa{
+    color:#ed625e;
+    font-size:14px;
+}
+.click{
+    background:#ff3447;
+}
+.map_editend .map-editor-icon-uniE902 .path1,.map_editend .map-editor-icon-uniE902 .path2{
+    font-size:36px;
+}
+
+/*属性弹框样式*/
+.layui-layer-page.feature-style-edit .layui-layer-setwin{
+    right:20px;
+}
+
+.layui-layer-page.feature-style-edit .layui-layer-btn{
+    padding:10px 20px;
+    text-align:center;
+    height: auto;
+    background:#fff;
+}
+.layui-layer-page.feature-style-edit .layui-layer-btn a{
+    width:100%;
+    height:25px;
+    margin:0;
+    border-color:#007aff;
+    background:#007aff;
+    line-height:23px;
+    border-radius:2px;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content {
+    padding: 0;
+    border-color: #e6e6e6;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul{
+    padding:0;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li{
+    padding-left:20px;
+    padding-right:20px;
+    display:flex;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li.b_title{
+    font-size:14px;
+    background:#f6f7f8;
+    border-top:solid 1px #eaebeb;
+    border-bottom:solid 1px #eaebeb;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li.fill-wrap{
+    line-height:21px;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li>label{
+    flex:1.6;
+    line-height: 20px;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li>input{
+    flex:8.4;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li input[type="text"],
+.layui-layer-page.feature-style-edit .layui-layer-content ul li input[type="number"],
+.layui-layer-page.feature-style-edit .layui-layer-content ul li button{
+    border:solid 1px #f6f7f8;
+    background:#f6f7f8;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li input.hover:hover{
+    border-color:#007aff;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li button{
+    width: 100%;
+    height: 25px;
+    padding: 0;
+    border-radius: 2px;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li button:hover{
+    border-color:#007aff;
+    color:#007aff;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap{
+    flex:1;
+    display:flex;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap .color-fix{
+    cursor:pointer;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap:last-child{
+    padding-left:10%;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap>label{
+    flex:3.6;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap>div{
+    flex:6.4;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap>.color-fix,
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap>.color-fix-x{
+    box-shadow:lightgrey 0px 0px 2px;
+    border:solid 1px #f6f7f8;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap input[type="checkbox"]{
+    -webkit-appearance:none;
+    vertical-align:middle;
+    margin-top:2px;
+    background:#fff;
+    border:solid 1px #e8e8e8;/*#007aff*/
+    width:18px;
+    height:18px;
+    position:relative;
+    cursor:pointer;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap input[type="checkbox"]:hover,
+.yh_wrap input[type="checkbox"]:hover{
+    border:solid 1px #007aff;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap input[type="checkbox"]:checked,
+.yh_wrap input[type="checkbox"]:checked{
+    background:#007aff;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li .item_wrap input[type="checkbox"]:checked::after,
+.yh_wrap input[type="checkbox"]:checked::after{
+    content:'';
+    top:2px;
+    left:2px;
+    position:absolute;
+    background:transparent;
+    border:#fff solid 2px;
+    border-top:none;
+    border-right:none;
+    height:6px;
+    width:10px;
+    -moz-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -webkit-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li:last-child > label {
+    flex:2;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li:last-child>input[type="range"]{
+    flex:5;
+    margin:9px 10%;
+    height:3px;
+    cursor:pointer;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li:last-child>input[type="number"]{
+    flex:2;
+}
+input[type="range"]{
+    -webkit-appearance:none;
+    border-radius:3px;
+    background:-webkit-linear-gradient(#007aff,#007aff) no-repeat;
+    background-size:0% 100%;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    height:10px;
+    width:10px;
+    margin-top:-4px;
+    background:#fff;
+    border-radius:50%;
+    border:solid 0.125em rgba(205,224,230,0.5);
+    box-shadow:0 0 0.125em 0.125em #e3e3e3;/*#3b4547*/
+}
+input[type="range"]::-webkit-slider-runnable-track{
+    height:3px;
+    border-radius:3px;
+    box-shadow:0 0 1px 1px #def3f8;
+}
+input[type="range"]:focus{
+    outline:none;
+}
+.layui-layer-page.feature-style-edit .layui-layer-content ul li:last-child>input[type="number"]::-webkit-inner-spin-button,
+.layui-layer-page.feature-style-edit .layui-layer-content ul li:last-child>input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+}
+
+.tooltip-inner{
+    white-space: nowrap;
+}
+
+.yh_wrap {
+    top: 0;
+    left: 0;
+    /*background: rgba(255,255,255,0.7);*/
+    width: 100px;
+    height: 30px;
+    border-radius: 3px;
+    display: none;
+}
+.yh_inner{
+    background: rgba(255,255,255,0.7);
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    color:#000 !important;
+    padding:0 5px;
+    box-shadow: darkgrey 3px 3px 3px -1px;
+}
+.yh_wrap input[type="checkbox"]{
+    -webkit-appearance:none;
+    background:#fff;
+    border:solid 1px #e8e8e8;/*#007aff*/
+    width:18px;
+    height:18px;
+    position:relative;
+    cursor:pointer;
+    float: left;
+    margin-top: 6px;
+}

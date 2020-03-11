@@ -1,0 +1,377 @@
+/* 
+   abn-tree.css
+
+   style for the angular-bootstrap-nav-tree
+   for both Bootstrap 2 and Bootstrap 3
+
+*/
+
+
+
+/* ------------------------------------------
+AngularJS Animations...
+
+The first selector is for Angular 1.1.5
+The second selector is for Angular 1.2.0
+
+*/
+.abn-tree-animate-enter,
+li.abn-tree-row.ng-enter,
+tr.abn-tree-row.ng-enter  {
+  transition: 200ms linear all;
+  position: relative;
+  display: block;
+  opacity: 0;
+  max-height:0px;
+  height: 0px;
+}
+.abn-tree-animate-enter.abn-tree-animate-enter-active,
+li.abn-tree-row.ng-enter-active,
+tr.abn-tree-row.ng-enter-active{
+  opacity: 1;
+  max-height:34px;
+  height: 34px;
+}
+
+.abn-tree-animate-leave,
+li.abn-tree-row.ng-leave,
+tr.abn-tree-row.ng-leave {
+  transition: 200ms linear all;
+  position: relative;
+  display: block;
+  height:34px;
+  max-height: 34px;
+  opacity: 1;
+}
+.abn-tree-animate-leave.abn-tree-animate-leave-active,
+li.abn-tree-row.ng-leave-active,
+tr.abn-tree-row.ng-leave-active {  
+  height: 0px;
+  max-height:0px;
+  opacity: 0;
+}
+
+tr.abn-tree-row.ng-leave > td,
+tr.abn-tree-row.ng-enter > td:not(:nth-child(2))  {
+  display: table-column;
+  border:solid 2px red;
+}
+
+tr.abn-tree-row.ng-enter > td:nth-child(2){
+  display: none;
+}
+tr.abn-tree-row.ng-enter-active > td:nth-child(2){
+   display: block;
+}
+tr.abn-tree-row.ng-enter-active > td:nth-child(2) a{
+   display: none;
+}
+
+/* 
+------------------------------------------
+Angular 1.2.0 Animation 
+*/
+
+
+.abn-tree-animate.ng-enter{
+
+}
+.abn-tree-animate.ng-enter{
+
+}
+
+
+
+
+/*
+   end animation stuff
+-----------------------------------------
+   begin normal css stuff
+*/
+/*tbody.abn-tree {
+  display:  block;
+  overflow:auto;
+  height:100px;
+  width:200px;
+  border:solid 2px red;
+}*/
+
+ul.abn-tree li.abn-tree-row,
+tbody.abn-tree tr.abn-tree-row  {  
+  padding: 0px;
+  margin:0px;
+}
+
+ul.abn-tree li.abn-tree-row a {
+  padding: 3px 10px;
+}
+
+ul.abn-tree i.indented 
+tbody.abn-tree i.indented{
+  padding: 2px;
+}
+
+.abn-tree {
+  /*cursor: pointer;*/
+}
+.abntb-tree {
+  cursor: pointer;
+}
+ul.nav.abn-tree .level-1 .indented,
+tbody.nav.abn-tree .level-1 .indented  {
+  position: relative;
+  left: 0px;
+}
+ul.nav.abn-tree .level-2 .indented,
+tbody.nav.abn-tree .level-2 .indented {
+  position: relative;
+  left: 20px;
+}
+ul.nav.abn-tree .level-2 .info-check {
+    margin-left: 20px !important;
+}
+
+ul.nav.abn-tree .level-3 .indented,
+tbody.nav.abn-tree .level-3 .indented  {
+  position: relative;
+  left: 40px;
+}
+ul.nav.abn-tree .level-3 .info-check {
+    margin-left: 40px !important;
+}
+
+ul.nav.abn-tree .level-4 .indented,
+tbody.nav.abn-tree .level-4 .indented {
+  position: relative;
+  left: 60px;
+}
+ul.nav.abn-tree .level-4 .info-check {
+    margin-left: 60px !important;
+}
+
+ul.nav.abn-tree .level-5 .indented,
+tbody.nav.abn-tree .level-5 .indented {
+  position: relative;
+  left: 80px;
+}
+ul.nav.abn-tree .level-5 .info-check {
+    margin-left: 80px !important;
+}
+
+ul.nav.abn-tree .level-6 .indented,
+tbody.nav.abn-tree .level-6 .indented {
+  position: relative;
+  left: 100px;
+}
+ul.nav.abn-tree .level-6 .info-check {
+    margin-left: 100px !important;
+}
+
+ul.nav.nav-list.abn-tree .level-7 .indented,
+tbody.nav.nav-list.abn-tree .level-7 .indented {
+  position: relative;
+  left: 120px;
+}
+ul.nav.abn-tree .level-7 .info-check {
+    margin-left: 120px !important;
+}
+
+ul.nav.nav-list.abn-tree .level-8 .indented,
+tbody.nav.nav-list.abn-tree .level-8 .indented {
+  position: relative;
+  left: 140px;
+}
+ul.nav.abn-tree .level-8 .info-check {
+    margin-left: 140px !important;
+}
+
+ul.nav.nav-list.abn-tree .level-9 .indented,
+tbody.nav.nav-list.abn-tree .level-9 .indented {
+  position: relative;
+  left: 160px;
+}
+ul.nav.abn-tree .level-9 .info-check {
+    margin-left: 160px !important;
+}
+
+ul.nav.abn-tree .tree-label{
+    top: 0px;
+}
+ul.nav.abn-tree .tree-icon{
+    top: 1px;
+}
+
+ul.nav.abn-tree .info-check {
+  position: relative;
+  left: 0px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding-left: 0;
+}
+ul.nav.abn-tree .info-check label {
+    cursor: pointer;
+    display: inline;
+    font-size: 13px;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding-left: 25px !important;
+    position: relative;
+    line-height: 28px;
+    transition: border 0.2s linear 0s, color 0.2s linear 0s;
+    white-space: nowrap;
+}
+.blue-label {
+  color:#007AFF;
+}
+ul.nav.abn-tree .info-check label:before {
+  background-color: #ffffff;
+  border: 1px solid #c8c7cc;
+  content: "";
+  display: inline-block;
+  height: 16px;
+  left: 1px;
+  margin-right: 5px;
+  position: absolute;
+  width: 16px;
+  border-radius: 0;
+  top: 0px;
+  transition: border 0.2s linear 0s, color 0.2s linear 0s;
+}
+ul.nav.abn-tree .info-check label:after {
+  display: inline-block;
+  font-size: 11px;
+  height: 16px;
+  left: 3px;
+  position: absolute;
+  top: -6px;
+  transition: border 0.2s linear 0s, color 0.2s linear 0s;
+  width: 16px;
+}
+.info-check.check-primary input[type="checkbox"]:checked + label::before {
+    border-color: #007AFF;
+}
+.info-check.check-success input[type="checkbox"]:checked + label::before {
+    border-color: #5cb85c;
+}
+.info-check input[type="checkbox"] {
+  display: none;
+}
+.info-check input[type="checkbox"]:checked + label:before {
+  border-width: 8px;
+}
+.info-check input[type="checkbox"]:checked + label:after {
+  color: #fff;
+  content: "\f00c";
+  font-family: "FontAwesome";
+}
+.info-check input[type="checkbox"][disabled] + label {
+  opacity: 0.65;
+}
+.info-check input[type="checkbox"][disabled] + label:before {
+  background-color: #F8F8F8;
+}
+.infoAfter input[type="checkbox"]:checked + label:before {
+  border-width: 1px;
+}
+.infoAfter input[type="checkbox"]:checked + label:after {
+  content: "";
+}
+.no-check{
+display: inline-block;
+cursor: pointer;
+}
+.no-check label {
+cursor: pointer;
+}
+.no-check input[type="checkbox"] {
+display: none;
+}
+.laber-color1 {
+    color:#007AFF
+}
+.laber-color2 {
+    color:#fff;
+}
+
+.margin-left18 {
+    margin-left: 18px !important;
+}
+.margin-sx5-a a {
+    padding-top: 7px !important;
+    padding-bottom: 8px !important;
+}
+.tree-icon {
+    font-size:14px;
+}
+.margin-right5 {
+  margin-right: 5px;
+}
+.abn-tree.mic-treetables {
+    border:solid 1px #ddd !important;
+}
+.abn-tree.mic-treetables > .mic-treetables-div {
+    border-top: solid 1px #ddd !important;
+}
+.abn-tree.mic-treetables > .th-treetables , .abn-tree.mic-treetables > .mic-treetables-div > table {
+    margin-bottom: 0;
+    border-left:none;
+    border-top:none;
+    border-bottom:none;
+}
+.abn-tree.mic-treetables > .th-treetables > thead > tr th:last-child,
+.abn-tree.mic-treetables > .mic-treetables-div > table > tbody tr td:last-child{
+    border-right:none;
+}
+.abn-tree.mic-treetables > .mic-treetables-div > table > tbody tr td:first-child{
+    border-left:none;
+}
+.abn-tree.mic-treetables > .th-treetables > thead > tr th,
+.abn-tree.mic-treetableswww > .mic-treetables-div > table > tbody tr:last-child > td{
+    border-bottom: none;
+}
+
+
+.trees-combos-select{
+    border-top:1px solid #c8c7cc;
+    border-left:1px solid #c8c7cc;
+    border-right:1px solid #c8c7cc;
+    position: relative;
+}
+.trees-combobody {
+    padding: 10px;
+    display: none;
+}
+.trees-combos-select.trees-combos-act .trees-combobody{
+    display:block;
+}
+.trees-combos-select .trees-combospan {
+    display: block;
+    height:34px;
+    line-height: 2.4;
+    font-family:" Helvetica, Arial, sans-serif themify";
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 3em;
+    border-bottom:1px solid #c8c7cc;
+}
+.trees-combos-select.trees-combos-act{
+    border-bottom:1px solid #c8c7cc;
+}
+.trees-combos-select > .trees-combospan::after{
+    font-family: 'themify';
+    content: '\e64b';
+    speak: none;
+    position: absolute;
+    top: 4px;
+    color: #007AFF;
+    background-color: #fff;
+    line-height: 26px;
+    padding: 0 1em;
+    right: 0em;
+}
+.trees-combos-select.trees-combos-act .trees-combospan::after {
+    transform: translateY(-50%) rotate(180deg);
+    top: 17px;
+}

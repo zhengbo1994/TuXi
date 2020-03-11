@@ -1,0 +1,189 @@
+<!-- start: Show Or Hide Menu -->
+<!--<div class="visible-md visible-lg" style="position: relative; padding: 12px 0; margin: 0; background-color: #646E7A; border-bottom: solid 1px #75808e; ">
+    <a href="#" class="sidebar-toggler-a pull-right-a" ng-class="{'menu-show-btn':!app.layout.isSidebarClosed,'menu-hide-btn':app.layout.isSidebarClosed}" ng-click="app.layout.isSidebarClosed = !app.layout.isSidebarClosed">
+        <i class="ti-align-justify" tooltip="菜单" tooltip-append-to-body></i>
+    </a>
+</div>-->
+
+<!-- end: Show Or Hide Menu -->
+<!-- start: MAIN NAVIGATION MENU -->
+<ul class="main-navigation-menu" style="margin: 0;">
+    <li ui-sref-active="active">
+        <a ui-sref="app.home">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-home" style="margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.dashboard.MAIN">首页</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.layerManager">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-layers-alt" style="margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.layerManager.MAIN">图层管理</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- testPage -->
+    <li ui-sref-active="active">
+        <a ui-sref="app.mapManager">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-map" style="margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.mapManager.MAIN">地图管理</span>
+                </div>
+            </div>
+        </a>
+    </li>
+
+    <li ui-sref-active="active">
+        <a ui-sref="app.styleManager">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="mdi-layers" style="font-size: 17px; margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.styleManager.MAIN">样式管理</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.dataManage">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="mdi-layers" style="font-size: 17px; margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.dataManager.MAIN">数据管理</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.mapEditor">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="mdi-layers" style="font-size: 17px; margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.mapEditor.MAIN">数据编辑</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.thematicMapping">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="mdi-layers" style="font-size: 17px; margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.thematicMapping.MAIN">专题制作</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.dataInterface2">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-link" style="margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.dataInterface.MAIN">服务接口</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!--<li ui-sref-active="active">
+        <a ui-sref="app.dataInterface">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-link"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title">服务接口</span>
+                </div>
+            </div>
+        </a>
+    </li>-->
+
+    <!-- 工具集 -->
+    <li ng-class="{'active':$state.includes('app.tools')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-text" style="margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.tools.MAIN">工具集</span>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.tools.formatConversion">
+                    <span class="title font-content-small" translate="sidebar.nav.tools.toolsOne">格式转换</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.tools.coordinateConversion">
+                    <span class="title font-content-small" translate="sidebar.nav.tools.toolsTwo">坐标转换</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.tools.shadowConversion">
+                    <span class="title font-content-small" translate="sidebar.nav.tools.toolsThr">投影转换</span>
+                </a>
+            </li>
+            <!--<li ui-sref-active="active">
+                <a ui-sref="app.tools.propertyCheck">
+                    <span class="title">属性检查</span>
+                </a>
+            </li>-->
+        </ul>
+    </li>
+
+
+    <li ng-class="{'active':$state.includes('app.sysSet')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="mdi-settings" style="font-size: 17px; margin-right: 0;"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title font-content-middle" translate="sidebar.nav.sysManager.MAIN">系统管理</span>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active" ng-if="app.user=='admin'">
+                <a ui-sref="app.sysSet.setSys">
+                    <span class="title font-content-small" translate="sidebar.nav.sysManager.setSys">设置</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.sysSet.userManager">
+                    <span class="title font-content-small" translate="sidebar.nav.sysManager.userManager">用户管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.sysSet.sysLog">
+                    <span class="title font-content-small" translate="sidebar.nav.sysManager.log">系统日志</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- end: MAIN NAVIGATION MENU -->

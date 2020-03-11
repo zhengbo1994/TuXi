@@ -1,0 +1,128 @@
+	#mapDiv{
+		margin:auto 50px; 
+		height:90%;
+	}
+	.lblstyle {
+		width: 25px;
+		padding-left:100px;
+	}
+	.ol-mouse-position{
+	color:red;
+	margin-right:50px;
+	}
+	#GPS{
+        margin:5px 5px 5px 5px;
+		position:absolute;
+        background-color:rgba(128, 128, 128, 0.50);
+		color:white;
+		width:180px;
+		height:105px;
+        left:100px;
+        top:75px;
+		display:none;
+	}
+    text{
+        position:absolute;
+    }
+	#GPS .degree{
+        margin:5px 5px 5px 5px;
+		/*display:none;*/
+	}
+    .Del{
+        position:absolute;
+        right:0px;
+        top:0px;
+        width:15px;
+        text-align:center;
+    }
+    .Del:hover{       
+        background-color:white;
+    }
+	#Label{
+        margin:5px 5px 5px 5px;
+		position:absolute;
+        background-color:rgba(128, 128, 128, 0.50);
+		color:white;
+		width:180px;
+		height:135px;
+        left:100px;
+        top:75px;
+		display:none;
+	}
+    #Label .lbl{
+      margin:5px 5px 5px 5px;
+    }
+	#leftTool{
+		border:1px solid #00ffff;/*边界线*/
+		position:absolute;
+		width:45px;
+		min-height:500px;
+		height:auto!important;
+		color:red;
+		background-color:#0786c7;
+		top:65px;
+		left:10px;
+		text-align:center;
+	}
+	a{		
+		text-decoration:none;
+	}
+	a img{
+	    margin-top:5px;
+	}
+    a img:hover{
+        border:1px solid #00ffff;/*边界线*/
+    }
+    a img:active{
+        border:2px solid red;
+    }
+    #MassageShow{
+        position:absolute;
+        color: #ff0000; 
+        top:93%;
+        left:150px;
+        /*margin-left: 20px;*/
+    }
+    h6{
+        margin:0px;
+    }
+    #contextmenu_container{
+        display:none;
+    }
+    #VectorEdit{
+        margin:5px 5px 5px 5px;
+		position:absolute;
+        background-color:rgba(128, 128, 128, 0.50);
+		color:white;
+		width:120px;
+		height:100px;
+        left:100px;
+        top:75px;
+        display :none;
+    }
+    #VectorEdit .Select{
+        color:white;
+        list-style:none;
+    }
+
+    #Layers{
+        margin:5px 5px 5px 5px;
+		position:absolute;
+        background-color:rgba(128, 128, 128, 0.50);
+		color:white;
+		min-width:100px;
+        width:auto!important;
+		min-height:100px;
+        height:auto!important;
+        left:100px;
+        top:75px;
+        display :none;
+    }
+    #Layers .Lists{
+        margin-top:10px;
+        position:absolute;
+        left:10px;
+    }
+    #Layers .List{
+        text-decoration:none;
+    }

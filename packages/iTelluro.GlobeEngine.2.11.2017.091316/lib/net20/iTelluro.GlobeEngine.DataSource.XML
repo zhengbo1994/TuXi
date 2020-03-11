@@ -1,0 +1,4543 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iTelluro.GlobeEngine.DataSource</name>
+    </assembly>
+    <members>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.Feature">
+            <summary>
+            Feature对象，线、面、模型的基类
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.IFeature">
+            <summary>
+            要素接口
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IFeature.Id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IFeature.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IFeature.Parent">
+            <summary>
+            所属图层对象
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IFeature.Tag">
+            <summary>
+            tag
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IFeature.FeatureType">
+            <summary>
+            要素类型，只读
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Data.IFeature.FeatureVisibleChanged">
+            <summary>
+            要素visible变化事件
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Data.IFeature.FeatureMoved">
+            <summary>
+            要素位置变化事件
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.Feature._id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.Feature._name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.Feature._parent">
+            <summary>
+            图层对象
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.Feature._type">
+            <summary>
+            要素类型
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.Feature._tag">
+            <summary>
+            tag
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Feature.#ctor(System.Int64)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Feature.Dispose">
+            <summary>
+            释放内存
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Feature.OnFeatureVisibleChanged(System.Boolean)">
+            <summary>
+            visible变更事件触发公共方法
+            </summary>
+            <param name="visible"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Feature.OnFeatureMoved">
+            <summary>
+            位置变更事件触发公共方法
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Feature.Tag">
+            <summary>
+            tag
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Feature.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Feature.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Feature.Parent">
+            <summary>
+            图层对象
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Feature.FeatureType">
+            <summary>
+            要素类型，只读
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Feature.Visible">
+            <summary>
+            要素是否可视
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Data.Feature.FeatureVisibleChanged">
+            <summary>
+            要素visible变化事件
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Data.Feature.FeatureMoved">
+            <summary>
+            要素位置变化事件
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.FeatureType">
+            <summary>
+            要素类型
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.FeatureType.Point">
+            <summary>
+            矢量点
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.FeatureType.Line">
+            <summary>
+            矢量线
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.FeatureType.Polygon">
+            <summary>
+            矢量面
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.FeatureType.Model">
+            <summary>
+            三维模型
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.FeatureType.Icon">
+            <summary>
+            PoiIcon
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.FeatureType.Label">
+            <summary>
+            标注
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.FeatureType.Pointset">
+            <summary>
+            点集
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.IModel">
+            <summary>
+            模型基类
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.IModel.#ctor(System.Int64)">
+            <summary>
+            构造
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.IModel.UpdatePosition">
+            <summary>
+            更新位置
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.Latitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.Altitude">
+            <summary>
+            高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.Scale">
+            <summary>
+            缩放系数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.RotationX">
+            <summary>
+            模型X轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.RotationY">
+            <summary>
+            模型Y轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.RotationZ">
+            <summary>
+            模型Z轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.Category">
+            <summary>
+            模型分组
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.IsBad">
+            <summary>
+            场景是否已损坏
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.IsLoaded">
+            <summary>
+            场景是否已加载
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.IsRendered">
+            <summary>
+            场景是否渲染状态，如果当前没有渲染返回false
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.IModel.Pointer">
+            <summary>
+            内部数据
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.Line">
+            <summary>
+            线对象，小于2000个（同时在界面显示，可以通过显示范围优化）
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Line.#ctor(System.Int64,iTelluro.GlobeEngine.DataSource.Geometry.Point3d[])">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Line.AddPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Adds a point to the end of the line.
+            </summary>
+            <param name="x">Lon</param>
+            <param name="y">Lat</param>
+            <param name="z">Alt (米)</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Line.AddPoint(iTelluro.GlobeEngine.DataSource.Geometry.Point3d)">
+            <summary>
+            Adds a point to the line at the end of the line.
+            </summary>
+            <param name="point">The Point3d object to add.</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Line.Update">
+            <summary>
+            当数据更新后，更新当前的线
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Line.GetGeographicBoundingBox">
+            <summary>
+            返回外接矩形
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Line.IsRelativeToGround">
+            <summary>
+            是否绝对高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Line.LineColor">
+            <summary>
+            线颜色
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Line.LineWidth">
+            <summary>
+            线宽
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Line.Points">
+            <summary>
+            线的形状点序列
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Line.PointsList">
+            <summary>
+            形状点序列
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Line.NumPoints">
+            <summary>
+            形状点数量
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Line.UseZBuffer">
+            <summary>
+            是否使用 Zbuffer。缺省为true。如果为 false，
+            则在摄像机镜头视角较大时，不使用遮挡计算，线始终可见。
+            用于解决矢量线和三维地形“贴合”的问题。
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.LODModel">
+            <summary>
+            组成场景的模型分片
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODModel.op_Equality(iTelluro.GlobeEngine.DataSource.Data.LODModel,iTelluro.GlobeEngine.DataSource.Data.LODModel)">
+            <summary>
+            判断两个对象是否相同
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODModel.op_Inequality(iTelluro.GlobeEngine.DataSource.Data.LODModel,iTelluro.GlobeEngine.DataSource.Data.LODModel)">
+            <summary>
+            判断两个对象是否相同
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODModel.Equals(System.Object)">
+            <summary>
+            判断两个对象是否相同
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODModel.GetHashCode">
+            <summary>
+            GetHashCode
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODModel.IsLeaf">
+            <summary>
+            是否叶子节点，即最详细的模型，没有细分子模型
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODModel.IsInitialed">
+            <summary>
+            是否初始化完成,只有初始化完成的才可以绘制
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODModel.FullPath">
+            <summary>
+            瓦片文件完整路径，可能是http开头的网络路径
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODModel.Name">
+            <summary>
+            瓦片文件名
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODModel.Level">
+            <summary>
+            层级
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODModel.Center">
+            <summary>
+            瓦片的中心坐标，模型坐标系
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODModel.Radius">
+            <summary>
+            瓦片的外接球半径
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.LODScene">
+            <summary>
+            适合倾斜摄影采用的自带LOD的一个场景
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.#ctor(System.Int64,System.String,System.String,System.Double,System.Double,System.Double,System.Boolean,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            定义三维场景
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="scenefilepath"></param>
+            <param name="longitude"></param>
+            <param name="latitude"></param>
+            <param name="altitude"></param>
+            <param name="relativeToGround"></param>
+            <param name="scale"></param>
+            <param name="rotX"></param>
+            <param name="rotY"></param>
+            <param name="rotZ"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.#ctor(System.Int64,System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Boolean,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            定义三维场景
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="scenefilepath"></param>
+            <param name="longitude"></param>
+            <param name="latitude"></param>
+            <param name="altitude"></param>
+            <param name="relativeToGround"></param>
+            <param name="scale"></param>
+            <param name="rotX"></param>
+            <param name="rotY"></param>
+            <param name="rotZ"></param>
+            <param name="dataDir">数据目录，可以是网络请求地址</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.#ctor(iTelluro.GlobeEngine.Graphics3D.Renderable.Model.SceneFeature)">
+            <summary>
+            内部使用
+            </summary>
+            <param name="sf"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.GetBoundingRect">
+            <summary>
+            获取场景的经纬度范围
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.GetBoundingPoints">
+            <summary>
+            获取场景的边界坐标点
+            </summary>
+            <returns>返回经纬度格式的坐标序列</returns>
+            <remarks>该方法是个耗时操作，建议调用方做缓存；<br />
+            场景如果没有初始化，将不能得到正确结果</remarks>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.IsDisplaying">
+            <summary>
+            是否正在屏幕中显示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.IsInitialed">
+            <summary>
+            场景是否已初始化
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.GetRoots">
+            <summary>
+            获取场景中的所有根节点
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.FilterItems(iTelluro.GlobeEngine.DataSource.Geometry.GeoRect,System.Single)">
+            <summary>
+            获取指定范围内的所有模型瓦片
+            </summary>
+            <param name="CameraHeight">相对模型中心的高度</param>
+            <param name="rc">过滤范围，经纬度</param>
+            <remarks>耗时操作</remarks>
+            <returns>如果场景损坏或者其他场景不在指定范围内，则返回null</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.FilterItems(iTelluro.GlobeEngine.DataSource.Geometry.GeoRect)">
+            <summary>
+            获取指定范围内的所有模型瓦片
+            </summary>
+            <remarks>耗时操作</remarks>
+            <returns>如果场景损坏或者其他场景不在指定范围内，则返回null</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.SphereToModel(System.Double,System.Double,System.Double)">
+            <summary>
+            经纬度转模型坐标
+            </summary>
+            <param name="lon">经度</param>
+            <param name="lat">纬度</param>
+            <param name="alt">高程</param>
+            <returns>模型坐标系内坐标</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.ModelToSphere(System.Single,System.Single,System.Single)">
+            <summary>
+            模型坐标转经纬度
+            </summary>
+            <param name="x">模型坐标x</param>
+            <param name="y">模型坐标y</param>
+            <param name="z">模型坐标z</param>
+            <returns>x是经度，y是纬度，z是高程</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.UpdatePosition">
+            <summary>
+            通知场景坐标被外部修改
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.SplitModelIndex(System.Collections.Generic.List{iTelluro.GlobeEngine.DataSource.Geometry.Point3d},System.String)">
+            <summary>
+            模型裁剪,生成新的索引文件
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.LODScene.SplitModelMesh(System.Collections.Generic.List{iTelluro.GlobeEngine.DataSource.Geometry.Point3d})">
+            <summary>
+            模型裁剪,生成新的Mesh数据
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.Pointer">
+            <summary>
+            内部数据指针
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.Latitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.Altitude">
+            <summary>
+            高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.RealAltitude">
+            <summary>
+            场景原点的实际高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.Scale">
+            <summary>
+            缩放系数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.RotationX">
+            <summary>
+            模型X轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.Visible">
+            <summary>
+            是否可视
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.RotationY">
+            <summary>
+            模型Y轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.RotationZ">
+            <summary>
+            模型Z轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.Category">
+            <summary>
+            模型分组
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.SceneFilePath">
+            <summary>
+            场景文件路径
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.IsBad">
+            <summary>
+            是否场景已损坏
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.IsLoaded">
+            <summary>
+            是否场景已加载
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.IsRendered">
+            <summary>
+            场景是否渲染状态，如果当前没有渲染返回false
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.ModelFeature">
+            <summary>
+            模型对象, 返回内部的ModelFeature
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.LODScene.RenderableObject">
+            <summary>
+            模型对象, 返回内部的RenderableObject
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.Model">
+            <summary>
+            三维模型，.X格式，适合大量的，面数较小的模型
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Model.#ctor(System.Int64,System.String,System.Double,System.Double,System.Double,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            三维模型构造函数
+            </summary>
+            <param name="id"></param>
+            <param name="fileName"></param>
+            <param name="longitude"></param>
+            <param name="latitude"></param>
+            <param name="altitude"></param>
+            <param name="scale"></param>
+            <param name="rotX"></param>
+            <param name="rotY"></param>
+            <param name="rotZ"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Model.#ctor(System.Int64,System.String,System.Double,System.Double)">
+            <summary>
+            三维模型构造函数
+            </summary>
+            <param name="id"></param>
+            <param name="fileName"></param>
+            <param name="longitude"></param>
+            <param name="latitude"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Model.ResetAnimation">
+            <summary>
+            重置模型动画播放等
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Model.UpdatePosition">
+            <summary>
+            通知模型坐标被外部修改
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.Pointer">
+            <summary>
+            内部数据指针
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.TextureQulity">
+            <summary>
+            模型材质的质量
+            大于等于0小于3，三个等级，分别对材质使用最近、线性、三次插值
+            静态属性，只影响设置属性之后的材质
+            0, 最差质量，最好效率
+            2, 最好质量，最差效率
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.Latitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.Altitude">
+            <summary>
+            高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.Scale">
+            <summary>
+            缩放系数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.OriginalFilePath">
+            <summary>
+            模型原始文件路径
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.ModelFilename">
+            <summary>
+            .X模型文件全路径、名称
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.RotationX">
+            <summary>
+            模型X轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.RotationY">
+            <summary>
+            模型Y轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.RotationZ">
+            <summary>
+            模型Z轴旋转角度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.IsRelativeToGround">
+            <summary>
+            是否绝对高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.IsSelect">
+            <summary>
+            是否选择状态
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.SelectColor">
+            <summary>
+            选中状态的颜色
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.Category">
+            <summary>
+            模型分组
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.MinDisplayAltitude">
+            <summary>
+            模型最小显示高度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.MaxDisplayAltitude">
+            <summary>
+            模型最大显示高度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.Visible">
+            <summary>
+            模型是否显示
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.MoveSpeedX">
+            <summary>
+            x方向移动速度，单位米/秒
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.MoveSpeedY">
+            <summary>
+            y方向移动速度，单位米/秒
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.MoveSpeedZ">
+            <summary>
+            Z方向移动速度，单位米/秒
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.PlayingRate">
+            <summary>
+            动作播放速率，默认1.0
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.PlayingName">
+            <summary>
+            要播放的动作名
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.AnimationNames">
+            <summary>
+            动画中包含的动作名，如果不是骨骼动画，返回null
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.IsBad">
+            <summary>
+            是否模型已损坏
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.IsLoaded">
+            <summary>
+            是否模型已加载
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.IsRendered">
+            <summary>
+            是否模型已渲染
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.ModelFeature">
+            <summary>
+            模型对象, 返回内部的ModelFeature
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.RenderableObject">
+            <summary>
+            模型对象, 返回内部的RenderableObject
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.XMLConfig">
+            <summary>
+            返回模型的XML序列化字符串
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Model.TxtConfig">
+            <summary>
+            返回模型的Txt格式序列化字符串
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.POIIcon">
+            <summary>
+            POI点对象 限制1000－2000个（同时在界面显示，可以通过设置显示范围优化）
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.OnFeatureVisibleChanged(System.Boolean)">
+            <summary>
+            visible变更事件触发公共方法
+            </summary>
+            <param name="visible"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.OnFeatureMoved">
+            <summary>
+            位置变更事件触发公共方法
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.#ctor(System.Int64,System.String,System.Double,System.Double)">
+            <summary>
+            新建POI对象
+            </summary>
+            <param name="id">id</param>
+            <param name="name">名称</param>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.#ctor(System.Int64,System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            新建POI点对象
+            </summary>
+            <param name="id">id</param>
+            <param name="name">名称</param>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="altitude">高程（单位：米）</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Dispose">
+            <summary>
+            释放内存
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.SetPosition(System.Double,System.Double)">
+            <summary>
+            改变图标位置到指定的经纬度。 
+            </summary>
+            <param name="longitude"></param>
+            <param name="latitude"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.SetPosition(System.Double,System.Double,System.Double)">
+            <summary>
+            改变图标位置到指定的经纬度以及高程
+            </summary>
+            <param name="longitude"></param>
+            <param name="latitude"></param>
+            <param name="altitude"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.POIIcon.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Data.POIIcon.FeatureVisibleChanged">
+            <summary>
+            visible变化事件
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Data.POIIcon.FeatureMoved">
+            <summary>
+            要素位置变化事件
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionSetting">
+            <summary>
+            详情页的设置
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.NameAlwaysVisible">
+            <summary>
+            名称是否一直可见，缺省为 false，鼠标移动到名称上时可见；
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.FontColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Latitude">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Longitude">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Altitude">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.AbsoluteElevation">
+            <summary>
+            是否是绝对高程，默认为相对高程；
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.IconFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.IconWidth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.IconHeight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Clickable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.IsAutoScale">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.IsRotated">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.NameKeepUpward">
+            <summary>
+            文字是否始终朝上，默认true朝上
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Rotation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.IsAbsoluteElevation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.Parent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.POIIcon.FeatureType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting">
+            <summary>
+            描述文字的绘制参数
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting.BgImgPath">
+            <summary>
+            背景图片完整路径
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting.NamePadding">
+            <summary>
+            名称的补白，上右下左顺序
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting.DescriptionPadding">
+            <summary>
+            描述信息的补白，上右下左顺序
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting.Offset">
+            <summary>
+            背景图片的绘制起点偏移量
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting.TopLeftTag">
+            <summary>
+            背景图片九宫格的左上锚点坐标，图片内坐标
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting.BottomRightTag">
+            <summary>
+            背景图片九宫格的右下锚点坐标，图片内坐标
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.POIIcon.DescriptionPanelSetting.DescriptionColor">
+            <summary>
+            描述信息的文字字色
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.PointCloud">
+            <summary>
+            点云数据
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.Pointset">
+            <summary>
+            散列点集对象，通过散列点集绘制矢量面
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.Pointset._pointset">
+            <summary>
+            数据集对象
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.#ctor(System.Int64,System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d},System.Drawing.Color)">
+            <summary>
+            散列点集对象
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+            <param name="color">点位的统一绘制颜色</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.#ctor(System.Int64,System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d},System.Drawing.Color,System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d})">
+            <summary>
+            散列点集对象,带范围边界
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+            <param name="color">点位的统一绘制颜色</param>
+            <param name="boundary">点集的范围边界，点集是凹多边形时比较有用</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.#ctor(System.Int64,System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d},System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            散列点集对象
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+            <param name="colors">每个点位的颜色</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.#ctor(System.Int64,System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d},System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d})">
+            <summary>
+            散列点集对象
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+            <param name="colors">每个点位的颜色</param>
+            <param name="boundary">点集的范围边界，点集是凹多边形时比较有用</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.Dispose">
+            <summary>
+            释放内存
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.AddPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Adds a point to the end of the line.
+            </summary>
+            <param name="x">Lon</param>
+            <param name="y">Lat</param>
+            <param name="z">Alt (米)</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.AddPoint(iTelluro.GlobeEngine.DataSource.Geometry.Point3d)">
+            <summary>
+            Adds a point to the line at the end of the line.
+            </summary>
+            <param name="point">The Point3d object to add.</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.AddPoints(System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d})">
+            <summary>
+            添加多个点
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Pointset.Update">
+            <summary>
+            当数据更新后，更新当前的线
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Pointset.UsePolygonStyle">
+            <summary>
+            true时根据点集整体绘制成面，false时将点集画成散列点
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Pointset.PointSize">
+            <summary>
+            以点的形式绘制点集时，点大小，单位像素
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Pointset.AbsoluteAltitude">
+            <summary>
+            是否绝对高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Pointset.Points">
+            <summary>
+            散列点集
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Pointset.Boundary">
+            <summary>
+            散列点集的边界，创建时没有设定则返回null
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Pointset.NumPoints">
+            <summary>
+            散列点数量,不包括边界线上点
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Pointset.UseZBuffer">
+            <summary>
+            是否使用 Zbuffer。缺省为true。如果为 false，
+            则在摄像机镜头视角较大时，不使用遮挡计算，线始终可见。
+            用于解决矢量线和三维地形“贴合”的问题。
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.PointCloud.#ctor(System.Int64,System.String)">
+            <summary>
+            点云数据
+            </summary>
+            <param name="id"></param>
+            <param name="lasFilePath">las文件完整路径</param>
+            <remarks>只定义数据对象，数据实际加载需要调用LoadData方法</remarks>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.PointCloud.LoadData(iTelluro.GlobeEngine.DataSource.Data.PointCloud.RenderMode,System.Int32[])">
+            <summary>
+            加载点云数据
+            </summary>
+            <param name="renderMode">渲染模式，0数据内置颜色,1回波强度，2高度值，3回波次数，</param>
+            <param name="colors">renderMode!=0时，必须设置自定义颜色值序列</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.PointCloud.LoadData(System.Drawing.Color)">
+            <summary>
+            加载点云数据
+            </summary>
+            <param name="pointColor">点云中所有点都使用同一种颜色</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.PointCloud.GetLASFileEPSG(System.String)">
+            <summary>
+            获取LAS文件内坐标系的EPSG码
+            </summary>
+            <param name="path">完整的文件路径</param>
+            <returns>如果文件内有坐标系，返回EPSG码，如果没有则返回0；如果文件加载失败，返回-1.</returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.PointCloud.BatchTransform">
+            <summary>
+            批量坐标转换委托函数，将原始坐标转换成经纬度坐标
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.PointCloud.CoordTransform">
+            <summary>
+            坐标转换委托函数，将原始坐标转换成经纬度坐标
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.PointCloud.RenderMode">
+            <summary>
+            渲染模式
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.PointCloud.RenderMode.Builtin">
+            <summary>
+            内置颜色
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.PointCloud.RenderMode.Intensity">
+            <summary>
+            使用回波强度
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.PointCloud.RenderMode.Height">
+            <summary>
+            使用高度
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.PointCloud.RenderMode.ReturnNumber">
+            <summary>
+            使用回波次数序号
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Data.PointCloud.RenderMode.Default">
+            <summary>
+            使用自带颜色，可能会没有
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.PointCloud.FuncCoordTransform">
+            <summary>
+            点云坐标处理
+            </summary>
+            <param name="sender">发起转换的点云对象</param>
+            <param name="EPSG">原始数据的EPSG码，但注意有些文件内没有投影系，EPSG是0</param>
+            <param name="p">原始数据中的坐标</param>
+            <returns>转换后的经纬度坐标</returns>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.PointCloud.FuncCoordsTransform">
+            <summary>
+            点云坐标批量处理
+            </summary>
+            <param name="sender">发起转换的点云对象</param>
+            <param name="EPSG">原始数据的EPSG码，但注意有些文件内没有投影系，EPSG是0</param>
+            <param name="p">原始数据中的所有坐标</param>
+            <returns>转换后的经纬度坐标</returns>
+            <remarks>转换前后的数组长度需要一致</remarks>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.Surface">
+            <summary>
+            矢量面,数量尽量少，不切片，直接绘制
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Surface.#ctor(System.Int64,System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d})">
+            <summary>
+            不规则多边形
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Surface.#ctor(System.Int64,System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d},System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Geometry.Point3d[]})">
+            <summary>
+            不规则多边形
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+            <param name="holes">内洞边线</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Surface.Update">
+            <summary>
+            当数据更新后，更新面
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.Surface.GetGeographicBoundingBox">
+            <summary>
+            获取多边形的外接矩形
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.AbsoluteAltitude">
+            <summary>
+            是否绝对高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.FloatHeight">
+            <summary>
+            整个面距地面高度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.MinDisplayAltitude">
+            <summary>
+            最小显示高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.MaxDisplayAltitude">
+            <summary>
+            最大显示高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.OutlineColor">
+            <summary>
+            外边线颜色
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.PolygonColor">
+            <summary>
+            多边形填充颜色
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.LineWidth">
+            <summary>
+            线宽，像素为单位 
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.Outline">
+            <summary>
+            是否绘制边框，默认为 true
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.Fill">
+            <summary>
+            是否填充，默认为 true 
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.Points">
+            <summary>
+            外边界线的形状点序列
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.NumHoles">
+            <summary>
+            面内洞数量
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.Holes">
+            <summary>
+            面内洞数量
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.NumPoints">
+            <summary>
+            形状点数量
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.Surface.UseZBuffer">
+            <summary>
+            是否使用 Zbuffer。缺省为true。如果为 false，
+            则在摄像机镜头视角较大时，不使用遮挡计算，面始终可见。
+            用于解决矢量面和三维地形“贴合”的问题。
+            如非必要，尽量设置为false，可大幅提升性能。
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Data.TerrainLine">
+            <summary>
+            地形线
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.#ctor(System.Int64,iTelluro.GlobeEngine.DataSource.Geometry.Point2d[])">
+            <summary>
+            使用二维点构造地形线
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.#ctor(System.Int64,iTelluro.GlobeEngine.DataSource.Geometry.Point3d[])">
+            <summary>
+            使用三维点构造地形线，z会自动略过
+            </summary>
+            <param name="id"></param>
+            <param name="points"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.AddPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Adds a point to the end of the line.
+            </summary>
+            <param name="x">Lon</param>
+            <param name="y">Lat</param>
+            <param name="z">Alt (米)</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.AddPoint(iTelluro.GlobeEngine.DataSource.Geometry.Point2d)">
+            <summary>
+            Adds a point to the line at the end of the line.
+            </summary>
+            <param name="point">The Point3d object to add.</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.Update">
+            <summary>
+            当数据更新后，更新当前的线
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.LineColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.PointsList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.Points">
+            <summary>
+            返回三维点的列表，z值自动获取
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.NumPoints">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Data.TerrainLine.UseZBuffer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer">
+            <summary>
+            所以图层对象的父对象
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer._name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer._category">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer._visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer._rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer._maxDisplayDistance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer._minDisplayDistance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer._layerType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="category"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.OnLayerVisibleChanged(iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.OnDisplayDistanceChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.LayerVisibleChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.Category">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.LayerType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.MaxDisplayDistance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.MinDisplayDistance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer.Rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.DataLayer">
+            <summary>
+            数据图层，贴于地表
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.DataLayer._projectType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.DataLayer._north">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.DataLayer._south">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.DataLayer._west">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.DataLayer._east">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.DataLayer._ro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.DataLayer._lengendFilePath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.#ctor(System.String)">
+            <summary>
+            创建图层
+            </summary>
+            <param name="name">图层名称，同一图层组图层名称不能重复</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.Clone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.RenderableObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.Visible">
+            <summary>
+            图层是否可见
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.ProjectType">
+            <summary>
+            图层投影
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.East">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.West">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.South">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.North">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.Rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.Opacity">
+            <summary>
+            透明度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayer.LengendFilePath">
+            <summary>
+            图例图片
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList">
+            <summary>
+            数据图层的集合
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.#ctor(iTelluro.GlobeEngine.Graphics3D.Renderable.RenderableObjectArrayList)">
+            <summary>
+            
+            </summary>
+            <param name="renderableList"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.FindLayer(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.OnLayerAdded(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.OnLayerRemoved(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.OnLayerChanged(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.OnLayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.layer_LayerVisibleChanged(System.Object,iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.IndexOf(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Insert(System.Int32,iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.RemoveAt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Add(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Contains(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.CopyTo(iTelluro.GlobeEngine.DataSource.Layer.DataLayer[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <param name="arrayIndex"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Remove(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.InsertByOverWrite(System.Int32,iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            插入替换已有图层，顺序按照后来的索引为准
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.AddByOverWrite(iTelluro.GlobeEngine.DataSource.Layer.DataLayer)">
+            <summary>
+            添加并替换已有图层，添加到最后
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.LayerAdded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.LayerRemoved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.LayerChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.LayerVisibleChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.LayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.RenderableObjectList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.DataLayerList.IsReadOnly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer">
+            <summary>
+            Globe Control管理的数据的基类
+            Globe Control的数据包括通过作为底图存在的一些数据和可以通过程序代码管理的一些
+            数据，后者都继承自本类
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.OnFeatureAdded(iTelluro.GlobeEngine.DataSource.Data.IFeature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.OnFeatureBeforeAdded(iTelluro.GlobeEngine.DataSource.Data.IFeature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.OnFeatureEdit(iTelluro.GlobeEngine.DataSource.Data.IFeature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.OnFeatureBeforeEdit(iTelluro.GlobeEngine.DataSource.Data.IFeature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.OnFeatureRemoved(iTelluro.GlobeEngine.DataSource.Data.IFeature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.OnFeatureBeforeRemoved(iTelluro.GlobeEngine.DataSource.Data.IFeature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.OnFeatureCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.FeatureAdded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.FeatureEdit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.FeatureRemoved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.FeatureBeforeAdded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.FeatureBeforeEdit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.FeatureBeforeRemoved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.FeatureCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FloatLayer.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.GetEnumerator">
+            <summary>
+            获取每个Feature
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.Add(System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Data.Feature})">
+            <summary>
+            添加一些要素
+            </summary>
+            <param name="features"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.Add(iTelluro.GlobeEngine.DataSource.Data.Feature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.Remove(iTelluro.GlobeEngine.DataSource.Data.Feature)">
+            <summary>
+            
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.Remove(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.GetPolygons">
+            <summary>
+            获取所有面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.GetLines">
+            <summary>
+            获取所有线
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.GetPointsets">
+            <summary>
+            获取所有点集
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.GetPolygon(System.Int32)">
+            <summary>
+            获取面，index必须在PolygonCount范围内
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.GetLine(System.Int32)">
+            <summary>
+            获取线，index必须在LineCount范围内
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.GetPointset(System.Int32)">
+            <summary>
+            获取线，index必须在LineCount范围内
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.ContainFeatureKeys(System.Int64)">
+            <summary>
+            是否包含指定id的对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.OnRenderableObjectSelect(System.Object,System.Int64,System.Windows.Forms.MouseButtons)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="id"></param>
+            <param name="buttons"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.OnDisplayDistanceChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.SetDisplayDistance(iTelluro.GlobeEngine.DataSource.Data.Feature)">
+            <summary>
+            设置对象的显示高程
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.Item(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.PolygonCount">
+            <summary>
+            图层中面总数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.LineCount">
+            <summary>
+            图层中线总数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureLayer.PointsetCount">
+            <summary>
+            图层中点集总数
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList">
+            <summary>
+            数据的集合，类似于传统GIS的图层的集合
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.#ctor(iTelluro.GlobeEngine.Graphics3D.Renderable.RenderableObjectArrayList)">
+            <summary>
+            
+            </summary>
+            <param name="renderableList"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.FindLayer(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.IndexOf(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Insert(System.Int32,iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.RemoveAt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Add(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Contains(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.CopyTo(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <param name="arrayIndex"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Remove(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.OnLayerAdded(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.OnLayerRemoved(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.OnLayerChanged(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.OnLayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.layer_LayerVisibleChanged(System.Object,iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.LayerAdded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.LayerRemoved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.LayerChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.LayerVisibleChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.LayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FloatLayerList.IsReadOnly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.IconLayer">
+            <summary>
+            POI点对象 限制1000－2000个（同时在界面显示，可以通过设置显示范围优化）
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.#ctor(System.String)">
+            <summary>
+            点图层构造函数
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.Add(iTelluro.GlobeEngine.DataSource.Data.POIIcon)">
+            <summary>
+            添加一个POIIcon
+            </summary>
+            <param name="icon"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.Remove(iTelluro.GlobeEngine.DataSource.Data.POIIcon)">
+            <summary>
+            删除一个POIIcon
+            </summary>
+            <param name="icon"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.Remove(System.Int64)">
+            <summary>
+            通过id删除一个POIIcon
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.Clear">
+            <summary>
+            清空所有POIIcon
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.ContainIconsKeys(System.Int64)">
+            <summary>
+            是否包含指定id的Icon对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.OnDisplayDistanceChanged">
+            <summary>
+            显示距离变化事件
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.POIIconClicked">
+            <summary>
+            图标点击事件
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.Item(System.Int32)">
+            <summary>
+            根据索引获取POIIcon
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.Item(System.Int64)">
+            <summary>
+            根据id获取POIIcon
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.IconLayer.count">
+            <summary>
+            图层中POIIcon的数量
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine">
+            <summary>
+            POI点对象 限制1000－2000个（同时在界面显示，可以通过设置显示范围优化）
+            点对象会有一条线投影到地面
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.Add(iTelluro.GlobeEngine.DataSource.Data.POIIcon)">
+            <summary>
+            
+            </summary>
+            <param name="icon"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.Remove(iTelluro.GlobeEngine.DataSource.Data.POIIcon)">
+            <summary>
+            
+            </summary>
+            <param name="icon"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.Remove(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.OnDisplayDistanceChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.POIIconClicked">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.Item(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.IconLayerWithLine.count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer">
+            <summary>
+            构建全球视图的遥感影像或其他空间数据
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer._ro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer.#ctor(System.String,iTelluro.GlobeEngine.DataSource.Layer.TileDataset,iTelluro.GlobeEngine.DataSource.Layer.TileDataset)">
+            <summary>
+            
+            </summary>
+            <param name="imgPath"></param>
+            <param name="ds1"></param>
+            <param name="ds2"></param>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer.BaseImagePath">
+            <summary>
+            初始三维地球视图的图片文件路径. <br />
+            为配置文件指定的文件，或者是SDK默认图片文件（临时路径）
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer.TileDataset1">
+            <summary>
+            初始三维地球视图的切片数据集1, 不为空
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer.TileDataset2">
+            <summary>
+            初始三维地球视图的切片数据集2, 可以为空
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer.RenderableObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ImageLayer.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer">
+            <summary>
+            标注图层
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.#ctor(iTelluro.GlobeEngine.DataSource.Providers.ILabelDataProvider,iTelluro.GlobeEngine.DataSource.Layer.LabelLayerDescriptor)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="labelDataProvider"></param>
+            <param name="layerDescriptor"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.UpdateLayerDescriptor">
+            <summary>
+            更新图层设置后调用
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.Refresh">
+            <summary>
+            刷新该数据层，从服务器或数据源重新加载数据
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.SelectAll">
+            <summary>
+            返回所有对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.SelectByName(System.String)">
+            <summary>
+            按名字查询（模糊查询，返回数组）
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.SelectByNameExact(System.String)">
+            <summary>
+            按名字查询（精确查询，返回数组）
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.SelectById(System.Int32)">
+            <summary>
+            按照ID查询，返回对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.SelectByRect(iTelluro.GlobeEngine.DataSource.Geometry.GeoRect)">
+            <summary>
+            按照范围查询，返回数组
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.GetMemoById(System.Int32)">
+            <summary>
+            获取某个id的标注的memo信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.LabelObject)">
+            <summary>
+            增加一个新对象
+            </summary>
+            <param name="labelObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.Update(System.Int32,iTelluro.GlobeEngine.DataSource.Geometry.LabelObject)">
+            <summary>
+            按照ID更新对象
+            </summary>
+            <param name="id"></param>
+            <param name="labelObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.Delete(System.Int32)">
+            <summary>
+            按照ID删除一个对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.OnLabelClickedEvent(System.Object,iTelluro.GlobeEngine.DataSource.Layer.LabelLayerEventArgs)">
+            <summary>
+            标注点击事件处理
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.LabelClicked">
+            <summary>
+            图标单击事件，sender为图层对象
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.LabelLayerDescriptor">
+            <summary>
+            返回该图层对象的描述
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.Visible">
+            <summary>
+            图层是否可见
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.MaxDisplayDistance">
+            <summary>
+            最大显示距离
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.MinDisplayDistance">
+            <summary>
+            最小显示距离
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.LayerEditStatus">
+            <summary>
+            是否编辑状态
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayer.LabelRenderObject">
+            <summary>
+            图层的渲染对象
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList">
+            <summary>
+            标注图层，支持图层获取，可视修改，不支持图层添加、增删、修改
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.#ctor(iTelluro.GlobeEngine.Graphics3D.Renderable.RenderableObjectArrayList)">
+            <summary>
+            
+            </summary>
+            <param name="renderableList"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.FindLayer(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.FindLayer(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="labelClass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.IndexOf(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Insert(System.Int32,iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.RemoveAt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Add(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Contains(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.CopyTo(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <param name="arrayIndex"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Remove(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.OnLayerAdded(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.OnLayerRemoved(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.OnLayerChanged(iTelluro.GlobeEngine.DataSource.Layer.LabelLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.OnLayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.layer_LayerVisibleChanged(System.Object,iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.LayerAdded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.LayerRemoved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.LayerChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.LayerVisibleChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.LayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LabelLayerList.IsReadOnly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LayerVisibleChangedEventHandler">
+            <summary>
+             图层是否Visible改变事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LayerAddedEventHandler">
+            <summary>
+             增加图层事件；
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LayerRemovedEventHandler">
+            <summary>
+             删除图层事件； 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LayerChangedEventHandler">
+            <summary>
+             图层被修改事件； 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LayerClearedEventHandler">
+            <summary>
+             清除所有图层事件；
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureAddedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureEditEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureRemovedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureBeforeAddedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureBeforeEditEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureBeforeRemovedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureClearedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.POIIconClickedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureSelectEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureVisibleChangedEventHandler">
+            <summary>
+            要素是否Visible改变事件
+            </summary>
+            <param name="visible">变化后的visible值</param>
+            <param name="sender">发生变化的要素对象</param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureMovedEventHandler">
+            <summary>
+            要素位置改变事件
+            </summary>
+            <param name="sender">发生变化的要素对象</param>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.POIIconClickEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.POIIconClickEventArgs.#ctor(iTelluro.GlobeEngine.DataSource.Data.POIIcon,System.Windows.Forms.MouseButtons)">
+            <summary>
+            
+            </summary>
+            <param name="icon"></param>
+            <param name="buttons"></param>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.POIIconClickEventArgs.Buttons">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.POIIconClickEventArgs.Icon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.FeatureEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureEventArgs.#ctor(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer,iTelluro.GlobeEngine.DataSource.Data.IFeature,System.Windows.Forms.MouseButtons)">
+            <summary>
+            
+            </summary>
+            <param name="lyr"></param>
+            <param name="feature"></param>
+            <param name="buttons"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.FeatureEventArgs.#ctor(iTelluro.GlobeEngine.DataSource.Layer.FloatLayer,iTelluro.GlobeEngine.DataSource.Data.IFeature)">
+            <summary>
+            
+            </summary>
+            <param name="lyr"></param>
+            <param name="feature"></param>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureEventArgs.Buttons">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureEventArgs.Canceled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureEventArgs.Feature">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.FeatureEventArgs.Layer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.layerEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.layerEventArgs.#ctor(iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.layerEventArgs.Layer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs.#ctor(iTelluro.GlobeEngine.DataSource.Layer.AbstractLayer,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+            <param name="visible"></param>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs.Layer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LayerType">
+            <summary>
+            图层类型
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.Terrain">
+            <summary>
+            地形
+            </summary> 
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.ImageLayer">
+            <summary>
+            基本影像图层，可以包含多个图片，Plate Carree Projection
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.DataLayer">
+            <summary>
+            切片数据，WMS服务图层，Plate Carree Projection
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.FeatureLayer">
+            <summary>
+            几何对象图层，可以包含点？，线，面，三维空间数据
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.ModelLayer">
+            <summary>
+            模型图层
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.IconLayer">
+            <summary>
+            图标（POI）
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.LabelLayer">
+            <summary>
+            地标，标注
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.ParticleLayer">
+            <summary>
+            粒子系统图层
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LayerType.GroupLayer">
+            <summary>
+            图层组
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer">
+            <summary>
+            LOD场景图层
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.#ctor(System.String,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            构造函数，创建空模型层
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Add(iTelluro.GlobeEngine.DataSource.Data.LODScene)">
+            <summary>
+            增加新模型到图层
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Remove(iTelluro.GlobeEngine.DataSource.Data.LODScene)">
+            <summary>
+            从图层移除一个模型, 按照对象
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Remove(System.Int64)">
+            <summary>
+            从图层移除一个模型, 按照ID
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Clear">
+            <summary>
+            清除所有对象
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.ContainModelKeys(System.Int64)">
+            <summary>
+            是否包含该ID的对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Internal">
+            <summary>
+            仅SDK内部使用
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Extent">
+            <summary>
+            图层地理范围
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Item(System.Int32)">
+            <summary>
+            根据index返回或者设置模型
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Item(System.Int64)">
+            <summary>
+            根据ID返回模型
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Count">
+            <summary>
+            图层中的模型数目
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.MaxDisplayDistance">
+            <summary>
+            模型层的最大显示高程（m）
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.MinDisplayDistance">
+            <summary>
+            模型层的最小显示高程（m）
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Visible">
+            <summary>
+            图层是否可见
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.LocalPath">
+            <summary>
+            数据集的本地路径；
+            如果本地数据集存在，则使用本地数据集，否则使用网络数据集
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.Url">
+            <summary>
+            数据集的网络服务路径；
+            如果本地数据集存在，则使用本地数据集，否则使用网络数据集
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LODSceneLayer.DataSeviceName">
+            <summary>
+            数据集或数据服务的名称（针对网络路径）
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer">
+            <summary>
+            经纬度投影的GIS数据图层，可为切片数据等
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer._qts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.TurnOnPrivateTerrain(iTelluro.GlobeEngine.DataSource.Terrain.TerrainDataset)">
+            <summary>
+            设置图层使用自己的高程数据集
+            </summary>
+            <param name="terrain">高程数据集</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.TurnOffPrivateTerrain">
+            <summary>
+            关闭图层私有高程数据集
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.ResetCache">
+            <summary>
+            更新本地缓存
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LoadDataLayer(iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor)">
+            <summary>
+            
+            </summary>
+            <param name="layerDes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LoadQuadTileSetData(iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor)">
+            <summary>
+            经纬度投影GIS数据
+            </summary>
+            <param name="layerDes"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.RenderableObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.QuadTileSet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.IsPrivateTerrain">
+            <summary>
+            是否使用图层单独的高程数据集
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.TerrainMapped">
+            <summary>
+            是否贴地图层，贴地图层在创建图层时指定
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.DistanceAboveSurface">
+            <summary>
+            图层距离地面的高程
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LocalPath">
+            <summary>
+            切片数据集的本地路径；
+            如果本地数据集存在，则使用本地数据集，否则使用网络数据集
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.Url">
+            <summary>
+            切片数据集的网络服务路径；
+            如果本地数据集存在，则使用本地数据集，否则使用网络数据集
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.FileExtension">
+            <summary>
+            数据集的文件类型
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.NumLevels">
+            <summary>
+            切片数据集的级数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LevelZeroTileSizeDegrees">
+            <summary>
+            切片数据集的0级大小
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.DataSeviceName">
+            <summary>
+            数据集或数据服务的名称（针对网络路径）
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.IsBackgroundUpdate">
+            <summary>
+            是否后台更新数据图层，设置后台更新后，即使图层Visible是关闭状态，也可更新图层，加快打开速度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.Visible">
+            <summary>
+            图层是否可见
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.East">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.West">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.South">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.North">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.Rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor">
+            <summary>
+            如果不存在则为空 ""
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.LayerName">
+            <summary>
+            图层名
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.DataName">
+            <summary>
+            数据集名称，用于指在服务器端定义的名称
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.LevelZeroTileSizeDegrees">
+            <summary>
+            数据集0级大小，度为单位 
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.NumLevels">
+            <summary>
+            数据集级数 
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.FileExtension">
+            <summary>
+            文件类型，缺省为png
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.LocalPath">
+            <summary>
+            本地路径，如果不为空，则数据集为本地数据集 
+            否则数据集为网络数据集，从Url指定路径下载数据
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.Url">
+            <summary>
+            网络数据集请求地址
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.West">
+            <summary>
+            数据范围： 西
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.South">
+            <summary>
+            数据范围：南
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.East">
+            <summary>
+            数据范围：东
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.North">
+            <summary>
+            数据范围：北
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.Visible">
+            <summary>
+            数据是否可见，缺省为false
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.Category">
+            <summary>
+            Category可以显示为多级目录，例如：地名/乡镇， 其中“/”为树目录分割符号
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.Opacity">
+            <summary>
+            数据集透明度，缺省为255，不透明 
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.TerrainMapped">
+            <summary>
+            是否贴于地表的数据，默认为true，只读
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.DistanceAboveSurface">
+            <summary>
+            距离海平面的高度，对于TerrainMapped未false的数据，可以设置其距离海平面的距离，
+            可用于模拟云层、水面等对象。默认为0. 
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatDataLayer.LonLatDataLayerDescriptor.PixelSize">
+            <summary>
+            切片像素尺寸
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer">
+            <summary>
+            经纬度投影数据图层，可接受线、面等对象
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer._qts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.LineString)">
+            <summary>
+            添加线对象
+            </summary>
+            <param name="lineString"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.Polygon)">
+            <summary>
+            添加多边形对象
+            </summary>
+            <param name="polygon"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.LineString[])">
+            <summary>
+            添加线对象数组
+            </summary>
+            <param name="lineStrings"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.Polygon[])">
+            <summary>
+            添加多边形对象数组
+            </summary>
+            <param name="polygons"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.RemoveLineString(System.Int64)">
+            <summary>
+            移除线对象
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.RemovePolygon(System.Int64)">
+            <summary>
+            移除多边形
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Clear">
+            <summary>
+            清除所有对象
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.GetPolygon(System.Int64)">
+            <summary>
+            根据ID得到多边形对象
+            </summary>
+            <param name="id"></param>
+            <returns>有该id的对象则返回对象，否则返回null</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.GetLineString(System.Int64)">
+            <summary>
+            根据ID得到线对象
+            </summary>
+            <param name="id">有该id的对象则返回对象，否则返回null</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.GetPolygon(System.Int32)">
+            <summary>
+            根据索引得到多边形对象
+            </summary>
+            <param name="index"></param>
+            <returns>有该index的对象则返回对象，否则返回null</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.GetLineString(System.Int32)">
+            <summary>
+            根据索引得到线对象
+            </summary>
+            <param name="index">有该index的对象则返回对象，否则返回null</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.ContainGeometry(iTelluro.GlobeEngine.DataSource.Geometry.Polygon)">
+            <summary>
+            是否包含该ID的对象
+            </summary>
+            <param name="polygon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.ContainGeometry(iTelluro.GlobeEngine.DataSource.Geometry.LineString)">
+            <summary>
+            是否包含该ID的对象
+            </summary>
+            <param name="lineString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.ContainLineString(System.Int64)">
+            <summary>
+            是否包含该ID的线对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.ContainPolygon(System.Int64)">
+            <summary>
+            是否包含该ID的面对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.ResetCache">
+            <summary>
+            更新本地缓存
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LoadVectorDataLayer(iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor)">
+            <summary>
+            
+            </summary>
+            <param name="layerDes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LoadQuadTileSetData(iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor)">
+            <summary>
+            经纬度投影GIS数据
+            </summary>
+            <param name="layerDes"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.RenderableObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.DrawMode">
+            <summary>
+            是否绘制模式，True：在UI线程更新数据，可用于绘制; false: 在后台线程更新.
+            <br />在后台添加数据时一般使用false, 用户绘制交互时使用true.
+            <br />默认为flase.
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.PolygonCount">
+            <summary>
+            图层中的多边形对象的数目
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LineStringCount">
+            <summary>
+            图层中线对象的数目
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.QuadTileSet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.TerrainMapped">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.DistanceAboveSurface">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.IsBackgroundUpdate">
+            <summary>
+            是否后台更新数据图层，设置后台更新后，即使图层Visible是关闭状态，也可更新图层，加快打开速度
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.East">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.West">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.South">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.North">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.NumLevels">
+            <summary>
+            切片数据集的级数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LevelZeroTileSizeDegrees">
+            <summary>
+            切片数据集的0级大小
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor">
+            <summary>
+            如果不存在则为空 ""
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.LayerName">
+            <summary>
+            图层名
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.DataName">
+            <summary>
+            图层数据集名称，赋值为空字符串即可
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.LevelZeroTileSizeDegrees">
+            <summary>
+            0级大小，默认为36.0
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.NumLevels">
+            <summary>
+            数据的级数级数，默认为19
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.Category">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.TerrainMapped">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.LonLatVectorDataLayer.LonLatVectorDataLayerDescriptor.DistanceAboveSurface">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer">
+            <summary>
+            数据图层，墨卡托投影
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer._qts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.ResetCache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.LoadDataLayer(iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor)">
+            <summary>
+            
+            </summary>
+            <param name="layerDes"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.RenderableObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.GoogleDataTileSet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.East">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.West">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.South">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.North">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.Rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor">
+            <summary>
+            如果不存在则为空 ""
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.LayerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.TextureSource">
+            <summary>
+            数据所在目录
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.TextureSourceType">
+            <summary>
+            数据的类型，必须为file或者db
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.LevelBegin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.LevelEnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.West">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.South">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.East">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.North">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.FileExtension">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.Category">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorDataLayer.MercatorDataLayerDescriptor.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer">
+            <summary>
+            矢量数据图层，墨卡托投影
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer._qts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.ResetCache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.LineString)">
+            <summary>
+            添加线对象
+            </summary>
+            <param name="lineString"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.Polygon)">
+            <summary>
+            添加多边形对象
+            </summary>
+            <param name="polygon"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.LineString[])">
+            <summary>
+            添加线对象数组
+            </summary>
+            <param name="lineStrings"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Add(iTelluro.GlobeEngine.DataSource.Geometry.Polygon[])">
+            <summary>
+            添加多边形对象数组
+            </summary>
+            <param name="polygons"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.RemoveLineString(System.Int64)">
+            <summary>
+            移除线对象
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.RemovePolygon(System.Int64)">
+            <summary>
+            移除多边形
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Clear">
+            <summary>
+            清除所有对象
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.GetPolygon(System.Int64)">
+            <summary>
+            根据ID得到多边形对象
+            </summary>
+            <param name="id"></param>
+            <returns>有该id的对象则返回对象，否则返回null</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.GetLineString(System.Int64)">
+            <summary>
+            根据ID得到线对象
+            </summary>
+            <param name="id">有该id的对象则返回对象，否则返回null</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.GetPolygon(System.Int32)">
+            <summary>
+            根据索引得到多边形对象
+            </summary>
+            <param name="index"></param>
+            <returns>有该index的对象则返回对象，否则返回null</returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.GetLineString(System.Int32)">
+            <summary>
+            根据索引得到线对象
+            </summary>
+            <param name="index">有该index的对象则返回对象，否则返回null</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.ContainGeometry(iTelluro.GlobeEngine.DataSource.Geometry.Polygon)">
+            <summary>
+            是否包含该ID的对象
+            </summary>
+            <param name="polygon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.ContainGeometry(iTelluro.GlobeEngine.DataSource.Geometry.LineString)">
+            <summary>
+            是否包含该ID的对象
+            </summary>
+            <param name="lineString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.ContainLineString(System.Int64)">
+            <summary>
+            是否包含该ID的线对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.ContainPolygon(System.Int64)">
+            <summary>
+            是否包含该ID的面对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.LoadVectorDataLayer(iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor)">
+            <summary>
+            
+            </summary>
+            <param name="layerDes"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.RenderableObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.GoogleVectorTileSet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.East">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.West">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.South">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.North">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.PolygonCount">
+            <summary>
+            图层中的多边形对象的数目
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.LineStringCount">
+            <summary>
+            图层中线对象的数目
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor">
+            <summary>
+            如果不存在则为空 ""
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.LayerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.LevelBegin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.LevelEnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.West">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.South">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.East">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.North">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.Visible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.Category">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.MercatorVectorDataLayer.MercatorVectorDataLayerDescriptor.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer">
+            <summary>
+            3维模型图层
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.#ctor(System.String)">
+            <summary>
+            构造函数，创建空模型层
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.Add(iTelluro.GlobeEngine.DataSource.Data.Model)">
+            <summary>
+            增加新模型到图层
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.Remove(iTelluro.GlobeEngine.DataSource.Data.Model)">
+            <summary>
+            从图层移除一个模型, 按照对象
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.Remove(System.Int64)">
+            <summary>
+            从图层移除一个模型, 按照ID
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.Clear">
+            <summary>
+            清除所有对象
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.ContainModelKeys(System.Int64)">
+            <summary>
+            是否包含该ID的对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.CreatNewModel">
+            <summary>
+            调用模型编辑对话框创建模型
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.EditModel(System.Int64)">
+            <summary>
+            调用模型对话框编辑此ID号的模型
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.GetXMLModelConfig">
+            <summary>
+            返回图层XML模型配置字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.WriteXMLModelConfig(System.String)">
+            <summary>
+            将XML模型配置写入一个文件,该文件如果使用必须放入Config文件夹
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.GetTxtModelConfig">
+            <summary>
+            返回Txt格式的模型配置字符串数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.WriteTxtModelConfig(System.String)">
+            <summary>
+            将Txt格式的模型配置写入文件
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.CreatModelLayerFromConfig(System.String,System.String)">
+            <summary>
+            静态方法，根据Txt模型配置创建一个图层
+            </summary>
+            <param name="filename"></param>
+            <param name="layerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.CreatModelFromString(System.String)">
+            <summary>
+            根据txt模型配置创建模型
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.OnRenderableObjectSelect(System.Object,System.Int64,System.Windows.Forms.MouseButtons)">
+            <summary>
+            模型选中事件
+            </summary>
+            <param name="sender"></param>
+            <param name="id"></param>
+            <param name="buttons"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.OnDisplayDistanceChanged">
+            <summary>
+            模型高程变化改变事件
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.SetDisplayDistance(iTelluro.GlobeEngine.DataSource.Data.Feature)">
+            <summary>
+            设置对象的显示高程
+            </summary>
+            <param name="feature"></param>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.FeatureSelect">
+            <summary>
+            模型对象被选中事件
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.Item(System.Int32)">
+            <summary>
+            根据index返回或者设置模型
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.Item(System.Int64)">
+            <summary>
+            根据ID返回模型
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.count">
+            <summary>
+            图层中的模型数目
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.EditMode">
+            <summary>
+            是否编辑模式，编辑模式下，点击模型弹出模型编辑对话框
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.MaxDisplayDistance">
+            <summary>
+            模型层的最大显示高程（m）
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.MinDisplayDistance">
+            <summary>
+            模型层的最小显示高程（m）
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.MaxViewDistance">
+            <summary>
+            模型层水平显示距离（m）
+            相当于从摄像机在地面的投影为中心，该值为半径的圆
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ModelLayer.Visible">
+            <summary>
+            图层是否可见
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.ParticleType">
+            <summary>
+            粒子类型
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.ParticleType.Firework">
+            <summary>
+            烟花
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.ParticleType.Fire">
+            <summary>
+            火
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.ParticleType.Gun">
+            <summary>
+            粒子枪
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.ParticleType.Snow">
+            <summary>
+            雪花
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.Particle">
+            <summary>
+            一个粒子系统定义
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.Particle.#ctor(System.Int64,iTelluro.GlobeEngine.DataSource.Layer.ParticleType,iTelluro.GlobeEngine.DataSource.Geometry.Point3d)">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.Particle.SetConfig(System.String)">
+            <summary>
+            特定参数
+            </summary>
+            <param name="config">keyval对之间以分号分隔，keyval间以等号分隔</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.Particle.FixedUpdate">
+            <summary>
+            固定间隔刷新
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.Particle.Dispose">
+            <summary>
+            释放
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.Particle.Enable">
+            <summary>
+            粒子系统是否使用
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.Particle.TextureFile">
+            <summary>
+            粒子的材质图片路径
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.Particle.LifeTime">
+            <summary>
+            粒子的最大生命周期，单位秒，负数时随机且以绝对值作为最大生命周期
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.Particle.ParticleSize">
+            <summary>
+            粒子大小
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.Particle.ParticleNum">
+            <summary>
+            粒子数
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.Particle.VelocityRate">
+            <summary>
+            粒子的运动速度倍率，默认1
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer">
+            <summary>
+            构建全球视图的DEM数据集
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.#ctor(iTelluro.GlobeEngine.Graphics3D.Terrain.TerrainAccessor)">
+            <summary>
+            
+            </summary>
+            <param name="terrainAccessor"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.GetElevationAt(System.Double,System.Double,System.Double)">
+            <summary>
+            根据分辨率获取DEM数据
+            </summary>
+            <param name="latitude"></param>
+            <param name="longitude"></param>
+            <param name="targetSamplesPerDegree">分辨率</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.GetElevationAt(System.Double,System.Double)">
+            <summary>
+            获取DEM数据，自动获取最大分辨率
+            </summary>
+            <param name="latitude"></param>
+            <param name="longitude"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.GetCachedElevationAt(System.Double,System.Double)">
+            <summary>
+            获取DEM数据，在缓存中获取，如果缓存不存在，则获取较低分辨率
+            </summary>
+            <param name="latitude"></param>
+            <param name="longitude"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.GetCachedElevationAt(System.Double,System.Double,System.Double)">
+            <summary>
+            获取指定分辨率的DEM数据，在缓存中获取，如果缓存不存在，则获取较低分辨率
+            </summary>
+            <param name="latitude"></param>
+            <param name="longitude"></param>
+            <param name="targetSamplesPerDegree"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.GetElevationArray(System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            获取DEM数据块，自动获取最合适分辨率
+            </summary>
+            <param name="north"></param>
+            <param name="south"></param>
+            <param name="west"></param>
+            <param name="east"></param>
+            <param name="samples">DEM数据块的大小，长宽一致</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.UpdateTerrain">
+            <summary>
+            更新地形高程，在设置矩形窗口等操作后执行
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.Accessor">
+            <summary>
+            地形获取接口
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.Descriptor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainTileLoaded">
+            <summary>
+            有新的地形数据加载（或下载）后发生
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.Resolution">
+            <summary>
+            DEM数据分辨率，当前DEM数据最大分辨率数据点间隔（度为单位）
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.MaxSamplePerDegree">
+            <summary>
+            最大分辨率下每度有多少个数据点
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.Visible">
+            <summary>
+            附加DEM图层是否可用
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainWindowList">
+            <summary>
+            矩形窗口的集合. 
+            <br /> 可设置多个矩形窗口，并设置其高程，类似在地表打开一个窗口. 可用于显示地下的模型等数据.
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainDataFmt">
+            <summary>
+            dem数据类型，默认16
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainDataFmt.Int_16">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainDataFmt.Float_32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor">
+            <summary>
+            dem图层描述
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.Category">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.LayerName">
+            <summary>
+            图层名
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.DataName">
+            <summary>
+            数据集key
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.LocalPath">
+            <summary>
+            使用本地数据集时本地路径
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.Url">
+            <summary>
+            使用服务地址时服务路径
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.East">
+            <summary>
+            最小x
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.South">
+            <summary>
+            最小y
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.West">
+            <summary>
+            最大x
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.North">
+            <summary>
+            最大y
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.NumLevels">
+            <summary>
+            数据集级数
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.MinLevel">
+            <summary>
+            数据集起始级别，基于0
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor.DataFormat">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList">
+            <summary>
+            DEM图层集合，两个图层的范围有重合时，
+            重合部分DEM值采用最后加入的图层
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.IndexOf(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.Insert(System.Int32,iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.RemoveAt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.Add(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.Contains(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.CopyTo(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <param name="arrayIndex"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.Remove(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.OnLayerAdded(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.OnLayerRemoved(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer)">
+            <summary>
+            
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.OnLayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.layer_LayerVisibleChanged(System.Object,iTelluro.GlobeEngine.DataSource.Layer.layerVisibleEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.FindLayer(System.String)">
+            <summary>
+            按名称查找图层
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.LoadTerrainLayer(iTelluro.GlobeEngine.DataSource.Layer.TerrainLayer.TerrainLayerDescriptor)">
+            <summary>
+            动态加载一个dem图层
+            </summary>
+            <param name="des"></param>
+            <returns></returns>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.LayerAdded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.LayerRemoved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.LayerCleared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.LayerVisibleChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.TerrainLayerList.IsReadOnly">
+            <summary>
+            只读的
+            </summary>
+        </member>
+        <member name="T:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer">
+            <summary>
+            粒子系统图层
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.#ctor(System.String)">
+            <summary>
+            粒子系统图层
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.GetEnumerator">
+            <summary>
+            获取每个Particle
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Add(System.Collections.Generic.IEnumerable{iTelluro.GlobeEngine.DataSource.Layer.Particle})">
+            <summary>
+            添加一些要素
+            </summary>
+            <param name="Particles"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Add(iTelluro.GlobeEngine.DataSource.Layer.Particle)">
+            <summary>
+            
+            </summary>
+            <param name="Particle"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Remove(iTelluro.GlobeEngine.DataSource.Layer.Particle)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Remove(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Contain(System.Int64)">
+            <summary>
+            是否包含指定id的对象
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.OnDisplayDistanceChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.SetDisplayDistance(iTelluro.GlobeEngine.DataSource.Layer.Particle)">
+            <summary>
+            设置对象的显示高程
+            </summary>
+            <param name="Particle"></param>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Visible">
+            <summary>
+            图层是否可见
+            </summary>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.Item(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:iTelluro.GlobeEngine.DataSource.Layer.ParticleLayer.count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.UI.ModelEditor.ModelFeaureEditor.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.UI.ModelEditor.ModelFeaureEditor.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.UI.ModelEditor.ModelFeaureEditor.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:iTelluro.GlobeEngine.DataSource.UI.ModelEditor.NewModelFeatureEditor.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.UI.ModelEditor.NewModelFeatureEditor.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:iTelluro.GlobeEngine.DataSource.UI.ModelEditor.NewModelFeatureEditor.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+    </members>
+</doc>

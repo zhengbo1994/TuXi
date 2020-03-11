@@ -1,0 +1,332 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/eleTree/eleTree.css")" media="all">
+    <style>
+        .layui-body {
+            overflow-y: scroll !important;
+        }
+
+
+
+        body {
+            overflow:auto !important
+        }
+
+        /*.layui-table-cell p {
+         font-size:12px !important;
+        }*/
+    </style>
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs6 layui-col-md2">
+            <!-- 填充内容 -->
+            <div class="layui-card">
+                <div class="layui-card-header">用户组列表<a href="javascript:void(0)" title="刷新" onclick="initTree()"><i class="layui-icon">&#xe9aa;</i></a> </div>
+                <div class="layui-card-body"><div class="eleTree ele3" lay-filter="data3"></div></div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md10">
+            <div class="layui-card">
+                <div class="layui-card-header">权限设置</div>
+                <div class="layui-card-body">
+                    <div class="layui-tab layui-tab-brief" lay-filter="component-tabs-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">图件分类权限</li>
+                            <li>菜单权限</li>
+
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show" style="position:relative;">
+            
+                                <form class="layui-form" action="" lay-filter="basic-form" id="basic-form">
+
+                                    <table id="permession-table" lay-filter="permession-table"></table>
+                                </form>
+                                <script type="text/html" id="permession-table-toolbar">
+                                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                                </script>
+                                <script type="text/html" id="permession-table-toolbar1">
+                                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid1()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                                </script>
+                            </div>
+                            <div class="layui-tab-item" style="position:relative;">
+                                <table id="permession-table1" lay-filter="permession-table1"></table>
+                            </div>
+      
+                        </div>
+
+
+
+                    </div>
+
+                   
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+@section script
+{
+    <script>
+        var currentCode = '';
+        var tabIndex = 0;
+        layui.initModule(['jquery', 'eleTree', 'treeGrid', 'layer', 'form','element'], function () {
+            initTree();
+
+            layui.form.render();
+
+            layui.element.on('tab(component-tabs-brief)', function (obj) {
+                tabIndex = obj.index;
+                if (tabIndex == 0) {
+                    initGrid();
+                }
+                else {
+                    initGrid1();
+                }
+            });
+        });
+
+        function initTree() {
+
+            layui.initTree({
+                elem: '.ele3',
+                url: Base.getApiUrl("/SystemManage/GetAllGroup")
+            });
+            layui.eleTree.on("nodeClick(data3)", function (d) {
+                currentCode = d.data.currentData.id;
+                if (tabIndex == 0) {
+                    initGrid();
+                }
+                else {
+                    initGrid1();
+                }
+            })
+        }
+
+        function initGrid() {
+            if (currentCode) {
+                layui.initTreeGird({
+                    id: 'permession-table'
+                    , elem: '#permession-table'
+                    , url: Base.getApiUrl("/SystemManage/GetGroupMapPermession")
+                    , where: {
+                        groupId: currentCode,
+                    }
+                    , cols: [[
+                        //{ type: 'numbers' }
+                        { field: 'name', width: 300, title: '图件分类', event: 'setSign' },
+                {
+                    field: 'CanBrowse', title: '浏览', align: 'center', event: 'setSign', templet: function (d) {
+                        var checked = '';
+                        if (d.CanBrowse==1) {
+                            checked = "checked";
+                        }
+                        else {
+                            checked = '';
+                        }
+                        return "  <input type=\"checkbox\" " + (checked) + " data-parent-id='" + d.Paths + "' data-mapping-type-id='" + d.id + "' data-flag='browse'  lay-filter=\"browse-filter\" lay-skin=\"switch\" title=\"是否浏览\" lay-text=\"ON|OFF\">"
+                    }
+                },
+                        {
+                            field: 'CanDownload', title: '下载', align: 'center', event: 'setSign', templet: function (d) {
+                                var checked = '';
+                                if (d.CanDownload== 1) {
+                                    checked = "checked";
+                                }
+                                else {
+                                    checked = '';
+                                }
+                                return "  <input type=\"checkbox\" " + (checked) + " data-parent-id='" + d.Paths + "'  data-mapping-type-id='" + d.id + "' data-flag='download'  lay-filter=\"download-filter\" lay-skin=\"switch\" title=\"是否下载\" lay-text=\"ON|OFF\">"
+                            }
+                        }
+                    ]],
+                    toolbar: "#permession-table-toolbar",
+                    done: function (res, curr, count) {
+                        layui.form.render();
+
+                        layui.form.on('switch(browse-filter)', function (data) {
+       
+                            var isBrowse = $(data.elem).parent().parent().parent().find("em:eq(0)").text() == 'ON';
+                            var isDownload = $(data.elem).parent().parent().parent().next().find("em:eq(0)").text() == 'ON';
+    
+                            setRight(data, isBrowse, isDownload,"browse");
+                        });
+
+                        layui.form.on('switch(download-filter)', function (data) {
+
+                            var isBrowse = $(data.elem).parent().parent().parent().prev().find("em:eq(0)").text() == 'ON';
+                            var isDownload = $(data.elem).parent().parent().parent().find("em:eq(0)").text() == 'ON';
+
+                            setRight(data, isBrowse, isDownload,'download');
+                        });
+
+                 
+                    }
+                });
+            }
+        }
+
+
+        function initGrid1() {
+            if (currentCode) {
+                layui.initTreeGird({
+                    id: 'permession-table1'
+                    , elem: '#permession-table1'
+                    , url: Base.getApiUrl("/SystemManage/GetGroupMenuPermession")
+                    , where: {
+                        groupId: currentCode,
+                    }
+                    , cols: [[
+                        //{ type: 'numbers' }
+                        { field: 'name', title: '菜单名称', event: 'setSign' },
+                       { field: 'Tag', title: '链接地址', event: 'setSign' },
+                {
+                    field: 'HasPermession', title: '开放', align: 'center', event: 'setSign', templet: function (d) {
+                        var checked = '';
+                        if (d.HasPermession) {
+                            checked = "checked";
+                        }
+                        else {
+                            checked = '';
+                        }
+                        return "  <input type=\"checkbox\" " + (checked) + " data-parent-id='" + d.pId + "' data-current-path='" + d.Path + "' data-current-type='" + d.Tag1 + "' data-id='" + d.id + "' data-flag='permession'  lay-filter=\"permession-filter\" lay-skin=\"switch\" title=\"是否拥有权限\" lay-text=\"ON|OFF\">"
+                    }
+                },
+                {
+                    field: 'Buttons', title: '按钮权限', event: 'setSign', templet: function (d) {
+                        var s = '';
+                        if (d.Buttons && d.Buttons.length > 0)
+                        {
+                            $.each(d.Buttons, function (index, element) {
+                                var checked = '';
+                                if (element.HasPermession) {
+                                    checked = "checked";
+                                }
+                                else {
+                                    checked = '';
+                                }
+                                s += "  <input type=\"checkbox\" " + (checked) + " data-button-name='" + element.Name + "' data-menu-url='" + d.Tag + "'  data-parent-id='" + d.pId + "' data-current-path='" + d.Path + "' data-current-type='" + d.Tag1 + "' data-id='" + d.id + "' data-flag='button-permession'  lay-filter=\"button-permession-filter\" lay-skin=\"primary\"  >" + element.Name + ""
+                            })
+                        }
+                        return s;
+                    }
+                }
+                    ]],
+                    toolbar: "#permession-table-toolbar1",
+                    done: function (res, curr, count) {
+                        debugger
+                        layui.form.render();
+
+                        layui.form.on('switch(permession-filter)', function (data) {
+                            $.post({
+                                url: Base.getApiUrl("/SystemManage/SetMenuRight"),
+                                data: {
+                                    groupId: currentCode,
+                                    id: $(data.elem).attr('data-id'),
+                                    parentId: $(data.elem).attr('data-parent-id'),
+                                    currentType:$(data.elem).attr('data-current-type'),
+                                    hasPermession: data.elem.checked,
+                                    currentPath: $(data.elem).attr('data-current-path')
+                                },
+                                success: function (resp) {
+                                    if (resp.code != 0) {
+                                        alert('操作失败');
+                                    }
+                                    else {
+                                        var parentId = $(data.elem).attr('data-id');
+                                            $('input[lay-skin=switch][data-flag=permession]').each(function () {
+                                                var currentPid = $(this).attr("data-parent-id");
+                                                if (currentPid.indexOf(parentId) >= 0) {
+                                                    $(this).attr("checked", data.elem.checked);
+                                                }
+                                            });
+
+                                        //判断父节点是否有多个子节点
+                                            var length = $("input[lay-skin=switch][data-flag=permession][data-parent-id='" + $(data.elem).attr('data-parent-id') + "']").length;
+                                            if (length == 1)
+                                            {
+                                                $("input[lay-skin=switch][data-flag=permession][data-id='" + $(data.elem).attr('data-parent-id') + "']").attr("checked", data.elem.checked);
+                                            }
+
+                                        layui.form.render();
+                                    }
+                                }
+                            })
+                        });
+
+                        layui.form.on('checkbox(button-permession-filter)', function (data) {
+
+                            $.post({
+                                url: Base.getApiUrl("/SystemManage/SetMenuButtonRight"),
+                                data: {
+                                    groupId: currentCode,
+                                    moduleId: $(data.elem).attr('data-parent-id'),
+                                    menuId:encodeURIComponent($(data.elem).attr('data-id')),
+                                    buttonName: $(data.elem).attr('data-button-name'),
+                                    hasPermession: data.elem.checked
+                                },
+                                success: function (resp) {
+                                    if (resp.code != 0) {
+                                        alert(resp.message);
+                                    }
+                                    else {
+
+                                        layui.form.render();
+                                    }
+                                }
+                            })
+                        });
+                    }
+                });
+            }
+        }
+
+        function setRight(data, isBrowse, isDownload,flag)
+        {
+            $.post({
+                url: Base.getApiUrl("/SystemManage/SetMapRight"),
+                data: {
+                    groupId: currentCode,
+                    layerId: $(data.elem).attr('data-mapping-type-id'),
+                    isBrowse: isBrowse,
+                    isDownload: isDownload
+                },
+                success: function (resp) {
+                    debugger
+                    if (resp.code != 0) {
+                        alert('操作失败');
+                    }
+                    else {
+                        // initGrid();
+                        var parentId = $(data.elem).attr('data-mapping-type-id');
+                        if (flag=="browse") {
+                            $('input[lay-skin=switch][data-flag=browse]').each(function () {
+                                var currentPid = $(this).attr("data-parent-id");
+                                if (currentPid.indexOf(parentId) >= 0) {
+                                    console.log(parentId);
+                                    $(this).attr("checked", isBrowse);
+                                }
+                            });
+                        }
+                        else if (flag == "download") {
+                            $('input[lay-skin=switch][data-flag=download]').each(function () {
+                                var currentPid = $(this).attr("data-parent-id");
+                                if (currentPid.indexOf(parentId) >= 0) {
+                                    console.log(parentId);
+                                    $(this).attr("checked", isDownload);
+                                }
+                            });
+                        }
+
+                        layui.form.render();
+                    }
+                }
+            })
+        }
+    </script>
+}

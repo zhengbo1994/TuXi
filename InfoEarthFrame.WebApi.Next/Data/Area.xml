@@ -1,0 +1,3704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <node Code="110000" Name="北京">
+    <node Code="110100" Name="北京市">
+      <node Code="110101" Name="东城区" />
+      <node Code="110102" Name="西城区" />
+      <node Code="110103" Name="崇文区" />
+      <node Code="110104" Name="宣武区" />
+      <node Code="110105" Name="朝阳区" />
+      <node Code="110106" Name="丰台区" />
+      <node Code="110107" Name="石景山区" />
+      <node Code="110108" Name="海淀区" />
+      <node Code="110109" Name="门头沟区" />
+      <node Code="110111" Name="房山区" />
+      <node Code="110112" Name="通州区" />
+      <node Code="110113" Name="顺义区" />
+      <node Code="110114" Name="昌平区" />
+      <node Code="110115" Name="大兴区" />
+      <node Code="110116" Name="怀柔区" />
+      <node Code="110117" Name="平谷区" />
+      <node Code="110228" Name="密云县" />
+      <node Code="110229" Name="延庆县" />
+    </node>
+  </node>
+  <node Code="120000" Name="天津">
+    <node Code="120100" Name="天津市">
+      <node Code="120101" Name="和平区" />
+      <node Code="120102" Name="河东区" />
+      <node Code="120103" Name="河西区" />
+      <node Code="120104" Name="南开区" />
+      <node Code="120105" Name="河北区" />
+      <node Code="120106" Name="红桥区" />
+      <node Code="120107" Name="大港区" />
+      <node Code="120108" Name="塘沽区" />
+      <node Code="120109" Name="汉沽区" />
+      <node Code="120110" Name="东丽区" />
+      <node Code="120111" Name="西青区" />
+      <node Code="120112" Name="津南区" />
+      <node Code="120113" Name="北辰区" />
+      <node Code="120114" Name="武清区" />
+      <node Code="120115" Name="宝坻区" />
+      <node Code="120116" Name="滨海新区" />
+      <node Code="120221" Name="宁河县" />
+      <node Code="120223" Name="静海县" />
+      <node Code="120225" Name="蓟县" />
+    </node>
+  </node>
+  <node Code="130000" Name="河北省">
+    <node Code="130100" Name="石家庄市">
+      <node Code="130102" Name="长安区" />
+      <node Code="130103" Name="桥东区" />
+      <node Code="130104" Name="桥西区" />
+      <node Code="130105" Name="新华区" />
+      <node Code="130106" Name="其它区" />
+      <node Code="130107" Name="井陉矿区" />
+      <node Code="130108" Name="裕华区" />
+      <node Code="130121" Name="井陉县" />
+      <node Code="130123" Name="正定县" />
+      <node Code="130124" Name="栾城县" />
+      <node Code="130125" Name="行唐县" />
+      <node Code="130126" Name="灵寿县" />
+      <node Code="130127" Name="高邑县" />
+      <node Code="130128" Name="深泽县" />
+      <node Code="130129" Name="赞皇县" />
+      <node Code="130130" Name="无极县" />
+      <node Code="130131" Name="平山县" />
+      <node Code="130132" Name="元氏县" />
+      <node Code="130133" Name="赵县" />
+      <node Code="130181" Name="辛集市" />
+      <node Code="130182" Name="藁城市" />
+      <node Code="130183" Name="晋州市" />
+      <node Code="130184" Name="新乐市" />
+      <node Code="130185" Name="鹿泉市" />
+    </node>
+    <node Code="130200" Name="唐山市">
+      <node Code="130202" Name="路南区" />
+      <node Code="130203" Name="路北区" />
+      <node Code="130204" Name="古冶区" />
+      <node Code="130205" Name="开平区" />
+      <node Code="130207" Name="丰南区" />
+      <node Code="130208" Name="丰润区" />
+      <node Code="130223" Name="滦县" />
+      <node Code="130224" Name="滦南县" />
+      <node Code="130225" Name="乐亭县" />
+      <node Code="130227" Name="迁西县" />
+      <node Code="130229" Name="玉田县" />
+      <node Code="130230" Name="曹妃甸区" />
+      <node Code="130281" Name="遵化市" />
+      <node Code="130283" Name="迁安市" />
+    </node>
+    <node Code="130300" Name="秦皇岛市">
+      <node Code="130302" Name="海港区" />
+      <node Code="130303" Name="山海关区" />
+      <node Code="130304" Name="北戴河区" />
+      <node Code="130321" Name="青龙满族自治县" />
+      <node Code="130322" Name="昌黎县" />
+      <node Code="130323" Name="抚宁县" />
+      <node Code="130324" Name="卢龙县" />
+      <node Code="130399" Name="经济技术开发区" />
+    </node>
+    <node Code="130400" Name="邯郸市">
+      <node Code="130402" Name="邯山区" />
+      <node Code="130403" Name="丛台区" />
+      <node Code="130404" Name="复兴区" />
+      <node Code="130406" Name="峰峰矿区" />
+      <node Code="130421" Name="邯郸县" />
+      <node Code="130423" Name="临漳县" />
+      <node Code="130424" Name="成安县" />
+      <node Code="130425" Name="大名县" />
+      <node Code="130426" Name="涉县" />
+      <node Code="130427" Name="磁县" />
+      <node Code="130428" Name="肥乡县" />
+      <node Code="130429" Name="永年县" />
+      <node Code="130430" Name="邱县" />
+      <node Code="130431" Name="鸡泽县" />
+      <node Code="130432" Name="广平县" />
+      <node Code="130433" Name="馆陶县" />
+      <node Code="130434" Name="魏县" />
+      <node Code="130435" Name="曲周县" />
+      <node Code="130481" Name="武安市" />
+    </node>
+    <node Code="130500" Name="邢台市">
+      <node Code="130502" Name="桥东区" />
+      <node Code="130503" Name="桥西区" />
+      <node Code="130521" Name="邢台县" />
+      <node Code="130522" Name="临城县" />
+      <node Code="130523" Name="内丘县" />
+      <node Code="130524" Name="柏乡县" />
+      <node Code="130525" Name="隆尧县" />
+      <node Code="130526" Name="任县" />
+      <node Code="130527" Name="南和县" />
+      <node Code="130528" Name="宁晋县" />
+      <node Code="130529" Name="巨鹿县" />
+      <node Code="130530" Name="新河县" />
+      <node Code="130531" Name="广宗县" />
+      <node Code="130532" Name="平乡县" />
+      <node Code="130533" Name="威县" />
+      <node Code="130534" Name="清河县" />
+      <node Code="130535" Name="临西县" />
+      <node Code="130581" Name="南宫市" />
+      <node Code="130582" Name="沙河市" />
+    </node>
+    <node Code="130600" Name="保定市">
+      <node Code="130602" Name="新市区" />
+      <node Code="130603" Name="北市区" />
+      <node Code="130604" Name="南市区" />
+      <node Code="130621" Name="满城县" />
+      <node Code="130622" Name="清苑县" />
+      <node Code="130623" Name="涞水县" />
+      <node Code="130624" Name="阜平县" />
+      <node Code="130625" Name="徐水县" />
+      <node Code="130626" Name="定兴县" />
+      <node Code="130627" Name="唐县" />
+      <node Code="130628" Name="高阳县" />
+      <node Code="130629" Name="容城县" />
+      <node Code="130630" Name="涞源县" />
+      <node Code="130631" Name="望都县" />
+      <node Code="130632" Name="安新县" />
+      <node Code="130633" Name="易县" />
+      <node Code="130634" Name="曲阳县" />
+      <node Code="130635" Name="蠡县" />
+      <node Code="130636" Name="顺平县" />
+      <node Code="130637" Name="博野县" />
+      <node Code="130638" Name="雄县" />
+      <node Code="130681" Name="涿州市" />
+      <node Code="130682" Name="定州市" />
+      <node Code="130683" Name="安国市" />
+      <node Code="130684" Name="高碑店市" />
+      <node Code="130698" Name="高开区" />
+    </node>
+    <node Code="130700" Name="张家口市">
+      <node Code="130702" Name="桥东区" />
+      <node Code="130703" Name="桥西区" />
+      <node Code="130705" Name="宣化区" />
+      <node Code="130706" Name="下花园区" />
+      <node Code="130721" Name="宣化县" />
+      <node Code="130722" Name="张北县" />
+      <node Code="130723" Name="康保县" />
+      <node Code="130724" Name="沽源县" />
+      <node Code="130725" Name="尚义县" />
+      <node Code="130726" Name="蔚县" />
+      <node Code="130727" Name="阳原县" />
+      <node Code="130728" Name="怀安县" />
+      <node Code="130729" Name="万全县" />
+      <node Code="130730" Name="怀来县" />
+      <node Code="130731" Name="涿鹿县" />
+      <node Code="130732" Name="赤城县" />
+      <node Code="130733" Name="崇礼县" />
+    </node>
+    <node Code="130800" Name="承德市">
+      <node Code="130802" Name="双桥区" />
+      <node Code="130803" Name="双滦区" />
+      <node Code="130804" Name="鹰手营子矿区" />
+      <node Code="130821" Name="承德县" />
+      <node Code="130822" Name="兴隆县" />
+      <node Code="130823" Name="平泉县" />
+      <node Code="130824" Name="滦平县" />
+      <node Code="130825" Name="隆化县" />
+      <node Code="130826" Name="丰宁满族自治县" />
+      <node Code="130827" Name="宽城满族自治县" />
+      <node Code="130828" Name="围场满族蒙古族自治县" />
+    </node>
+    <node Code="130900" Name="沧州市">
+      <node Code="130902" Name="新华区" />
+      <node Code="130903" Name="运河区" />
+      <node Code="130921" Name="沧县" />
+      <node Code="130922" Name="青县" />
+      <node Code="130923" Name="东光县" />
+      <node Code="130924" Name="海兴县" />
+      <node Code="130925" Name="盐山县" />
+      <node Code="130926" Name="肃宁县" />
+      <node Code="130927" Name="南皮县" />
+      <node Code="130928" Name="吴桥县" />
+      <node Code="130929" Name="献县" />
+      <node Code="130930" Name="孟村回族自治县" />
+      <node Code="130981" Name="泊头市" />
+      <node Code="130982" Name="任丘市" />
+      <node Code="130983" Name="黄骅市" />
+      <node Code="130984" Name="河间市" />
+    </node>
+    <node Code="131000" Name="廊坊市">
+      <node Code="131002" Name="安次区" />
+      <node Code="131003" Name="广阳区" />
+      <node Code="131022" Name="固安县" />
+      <node Code="131023" Name="永清县" />
+      <node Code="131024" Name="香河县" />
+      <node Code="131025" Name="大城县" />
+      <node Code="131026" Name="文安县" />
+      <node Code="131028" Name="大厂回族自治县" />
+      <node Code="131051" Name="开发区" />
+      <node Code="131052" Name="燕郊经济技术开发区" />
+      <node Code="131081" Name="霸州市" />
+      <node Code="131082" Name="三河市" />
+    </node>
+    <node Code="131100" Name="衡水市">
+      <node Code="131102" Name="桃城区" />
+      <node Code="131121" Name="枣强县" />
+      <node Code="131122" Name="武邑县" />
+      <node Code="131123" Name="武强县" />
+      <node Code="131124" Name="饶阳县" />
+      <node Code="131125" Name="安平县" />
+      <node Code="131126" Name="故城县" />
+      <node Code="131127" Name="景县" />
+      <node Code="131128" Name="阜城县" />
+      <node Code="131181" Name="冀州市" />
+      <node Code="131182" Name="深州市" />
+    </node>
+  </node>
+  <node Code="140000" Name="山西省">
+    <node Code="140100" Name="太原市">
+      <node Code="140105" Name="小店区" />
+      <node Code="140106" Name="迎泽区" />
+      <node Code="140107" Name="杏花岭区" />
+      <node Code="140108" Name="尖草坪区" />
+      <node Code="140109" Name="万柏林区" />
+      <node Code="140110" Name="晋源区" />
+      <node Code="140121" Name="清徐县" />
+      <node Code="140122" Name="阳曲县" />
+      <node Code="140123" Name="娄烦县" />
+      <node Code="140181" Name="古交市" />
+    </node>
+    <node Code="140200" Name="大同市">
+      <node Code="140202" Name="城区" />
+      <node Code="140203" Name="矿区" />
+      <node Code="140211" Name="南郊区" />
+      <node Code="140212" Name="新荣区" />
+      <node Code="140221" Name="阳高县" />
+      <node Code="140222" Name="天镇县" />
+      <node Code="140223" Name="广灵县" />
+      <node Code="140224" Name="灵丘县" />
+      <node Code="140225" Name="浑源县" />
+      <node Code="140226" Name="左云县" />
+      <node Code="140227" Name="大同县" />
+    </node>
+    <node Code="140300" Name="阳泉市">
+      <node Code="140302" Name="城区" />
+      <node Code="140303" Name="矿区" />
+      <node Code="140311" Name="郊区" />
+      <node Code="140321" Name="平定县" />
+      <node Code="140322" Name="盂县" />
+    </node>
+    <node Code="140400" Name="长治市">
+      <node Code="140421" Name="长治县" />
+      <node Code="140423" Name="襄垣县" />
+      <node Code="140424" Name="屯留县" />
+      <node Code="140425" Name="平顺县" />
+      <node Code="140426" Name="黎城县" />
+      <node Code="140427" Name="壶关县" />
+      <node Code="140428" Name="长子县" />
+      <node Code="140429" Name="武乡县" />
+      <node Code="140430" Name="沁县" />
+      <node Code="140431" Name="沁源县" />
+      <node Code="140481" Name="潞城市" />
+      <node Code="140482" Name="城区" />
+      <node Code="140483" Name="郊区" />
+      <node Code="140484" Name="高新区" />
+    </node>
+    <node Code="140500" Name="晋城市">
+      <node Code="140502" Name="城区" />
+      <node Code="140521" Name="沁水县" />
+      <node Code="140522" Name="阳城县" />
+      <node Code="140524" Name="陵川县" />
+      <node Code="140525" Name="泽州县" />
+      <node Code="140581" Name="高平市" />
+    </node>
+    <node Code="140600" Name="朔州市">
+      <node Code="140602" Name="朔城区" />
+      <node Code="140603" Name="平鲁区" />
+      <node Code="140621" Name="山阴县" />
+      <node Code="140622" Name="应县" />
+      <node Code="140623" Name="右玉县" />
+      <node Code="140624" Name="怀仁县" />
+    </node>
+    <node Code="140700" Name="晋中市">
+      <node Code="140702" Name="榆次区" />
+      <node Code="140721" Name="榆社县" />
+      <node Code="140722" Name="左权县" />
+      <node Code="140723" Name="和顺县" />
+      <node Code="140724" Name="昔阳县" />
+      <node Code="140725" Name="寿阳县" />
+      <node Code="140726" Name="太谷县" />
+      <node Code="140727" Name="祁县" />
+      <node Code="140728" Name="平遥县" />
+      <node Code="140729" Name="灵石县" />
+      <node Code="140781" Name="介休市" />
+    </node>
+    <node Code="140800" Name="运城市">
+      <node Code="140802" Name="盐湖区" />
+      <node Code="140821" Name="临猗县" />
+      <node Code="140822" Name="万荣县" />
+      <node Code="140823" Name="闻喜县" />
+      <node Code="140824" Name="稷山县" />
+      <node Code="140825" Name="新绛县" />
+      <node Code="140826" Name="绛县" />
+      <node Code="140827" Name="垣曲县" />
+      <node Code="140828" Name="夏县" />
+      <node Code="140829" Name="平陆县" />
+      <node Code="140830" Name="芮城县" />
+      <node Code="140831" Name="风陵渡经济开发区" />
+      <node Code="140881" Name="永济市" />
+      <node Code="140882" Name="河津市" />
+    </node>
+    <node Code="140900" Name="忻州市">
+      <node Code="140902" Name="忻府区" />
+      <node Code="140921" Name="定襄县" />
+      <node Code="140922" Name="五台县" />
+      <node Code="140923" Name="代县" />
+      <node Code="140924" Name="繁峙县" />
+      <node Code="140925" Name="宁武县" />
+      <node Code="140926" Name="静乐县" />
+      <node Code="140927" Name="神池县" />
+      <node Code="140928" Name="五寨县" />
+      <node Code="140929" Name="岢岚县" />
+      <node Code="140930" Name="河曲县" />
+      <node Code="140931" Name="保德县" />
+      <node Code="140932" Name="偏关县" />
+      <node Code="140981" Name="原平市" />
+    </node>
+    <node Code="141000" Name="临汾市">
+      <node Code="141002" Name="尧都区" />
+      <node Code="141021" Name="曲沃县" />
+      <node Code="141022" Name="翼城县" />
+      <node Code="141023" Name="襄汾县" />
+      <node Code="141024" Name="洪洞县" />
+      <node Code="141025" Name="古县" />
+      <node Code="141026" Name="安泽县" />
+      <node Code="141027" Name="浮山县" />
+      <node Code="141028" Name="吉县" />
+      <node Code="141029" Name="乡宁县" />
+      <node Code="141030" Name="大宁县" />
+      <node Code="141031" Name="隰县" />
+      <node Code="141032" Name="永和县" />
+      <node Code="141033" Name="蒲县" />
+      <node Code="141034" Name="汾西县" />
+      <node Code="141081" Name="侯马市" />
+      <node Code="141082" Name="霍州市" />
+    </node>
+    <node Code="141100" Name="吕梁市">
+      <node Code="141102" Name="离石区" />
+      <node Code="141121" Name="文水县" />
+      <node Code="141122" Name="交城县" />
+      <node Code="141123" Name="兴县" />
+      <node Code="141124" Name="临县" />
+      <node Code="141125" Name="柳林县" />
+      <node Code="141126" Name="石楼县" />
+      <node Code="141127" Name="岚县" />
+      <node Code="141128" Name="方山县" />
+      <node Code="141129" Name="中阳县" />
+      <node Code="141130" Name="交口县" />
+      <node Code="141181" Name="孝义市" />
+      <node Code="141182" Name="汾阳市" />
+    </node>
+  </node>
+  <node Code="150000" Name="内蒙古自治区">
+    <node Code="150100" Name="呼和浩特市">
+      <node Code="150102" Name="新城区" />
+      <node Code="150103" Name="回民区" />
+      <node Code="150104" Name="玉泉区" />
+      <node Code="150105" Name="赛罕区" />
+      <node Code="150106" Name="其它区" />
+      <node Code="150121" Name="土默特左旗" />
+      <node Code="150122" Name="托克托县" />
+      <node Code="150123" Name="和林格尔县" />
+      <node Code="150124" Name="清水河县" />
+      <node Code="150125" Name="武川县" />
+    </node>
+    <node Code="150200" Name="包头市">
+      <node Code="150202" Name="东河区" />
+      <node Code="150203" Name="昆都仑区" />
+      <node Code="150204" Name="青山区" />
+      <node Code="150205" Name="石拐区" />
+      <node Code="150206" Name="白云鄂博矿区" />
+      <node Code="150207" Name="九原区" />
+      <node Code="150221" Name="土默特右旗" />
+      <node Code="150222" Name="固阳县" />
+      <node Code="150223" Name="达尔罕茂明安联合旗" />
+    </node>
+    <node Code="150300" Name="乌海市">
+      <node Code="150302" Name="海勃湾区" />
+      <node Code="150303" Name="海南区" />
+      <node Code="150304" Name="乌达区" />
+    </node>
+    <node Code="150400" Name="赤峰市">
+      <node Code="150402" Name="红山区" />
+      <node Code="150403" Name="元宝山区" />
+      <node Code="150404" Name="松山区" />
+      <node Code="150421" Name="阿鲁科尔沁旗" />
+      <node Code="150422" Name="巴林左旗" />
+      <node Code="150423" Name="巴林右旗" />
+      <node Code="150424" Name="林西县" />
+      <node Code="150425" Name="克什克腾旗" />
+      <node Code="150426" Name="翁牛特旗" />
+      <node Code="150428" Name="喀喇沁旗" />
+      <node Code="150429" Name="宁城县" />
+      <node Code="150430" Name="敖汉旗" />
+    </node>
+    <node Code="150500" Name="通辽市">
+      <node Code="150502" Name="科尔沁区" />
+      <node Code="150521" Name="科尔沁左翼中旗" />
+      <node Code="150522" Name="科尔沁左翼后旗" />
+      <node Code="150523" Name="开鲁县" />
+      <node Code="150524" Name="库伦旗" />
+      <node Code="150525" Name="奈曼旗" />
+      <node Code="150526" Name="扎鲁特旗" />
+      <node Code="150581" Name="霍林郭勒市" />
+    </node>
+    <node Code="150600" Name="鄂尔多斯市">
+      <node Code="150602" Name="东胜区" />
+      <node Code="150603" Name="其它区" />
+      <node Code="150621" Name="达拉特旗" />
+      <node Code="150622" Name="准格尔旗" />
+      <node Code="150623" Name="鄂托克前旗" />
+      <node Code="150624" Name="鄂托克旗" />
+      <node Code="150625" Name="杭锦旗" />
+      <node Code="150626" Name="乌审旗" />
+      <node Code="150627" Name="伊金霍洛旗" />
+    </node>
+    <node Code="150700" Name="呼伦贝尔市">
+      <node Code="150702" Name="海拉尔区" />
+      <node Code="150703" Name="扎赉诺尔区" />
+      <node Code="150721" Name="阿荣旗" />
+      <node Code="150722" Name="莫力达瓦达斡尔族自治旗" />
+      <node Code="150723" Name="鄂伦春自治旗" />
+      <node Code="150724" Name="鄂温克族自治旗" />
+      <node Code="150725" Name="陈巴尔虎旗" />
+      <node Code="150726" Name="新巴尔虎左旗" />
+      <node Code="150727" Name="新巴尔虎右旗" />
+      <node Code="150781" Name="满洲里市" />
+      <node Code="150782" Name="牙克石市" />
+      <node Code="150783" Name="扎兰屯市" />
+      <node Code="150784" Name="额尔古纳市" />
+      <node Code="150785" Name="根河市" />
+    </node>
+    <node Code="150800" Name="巴彦淖尔市">
+      <node Code="150802" Name="临河区" />
+      <node Code="150821" Name="五原县" />
+      <node Code="150822" Name="磴口县" />
+      <node Code="150823" Name="乌拉特前旗" />
+      <node Code="150824" Name="乌拉特中旗" />
+      <node Code="150825" Name="乌拉特后旗" />
+      <node Code="150826" Name="杭锦后旗" />
+    </node>
+    <node Code="150900" Name="乌兰察布市">
+      <node Code="150902" Name="集宁区" />
+      <node Code="150921" Name="卓资县" />
+      <node Code="150922" Name="化德县" />
+      <node Code="150923" Name="商都县" />
+      <node Code="150924" Name="兴和县" />
+      <node Code="150925" Name="凉城县" />
+      <node Code="150926" Name="察哈尔右翼前旗" />
+      <node Code="150927" Name="察哈尔右翼中旗" />
+      <node Code="150928" Name="察哈尔右翼后旗" />
+      <node Code="150929" Name="四子王旗" />
+      <node Code="150981" Name="丰镇市" />
+    </node>
+    <node Code="152200" Name="兴安盟">
+      <node Code="152201" Name="乌兰浩特市" />
+      <node Code="152202" Name="阿尔山市" />
+      <node Code="152221" Name="科尔沁右翼前旗" />
+      <node Code="152222" Name="科尔沁右翼中旗" />
+      <node Code="152223" Name="扎赉特旗" />
+      <node Code="152224" Name="突泉县" />
+    </node>
+    <node Code="152500" Name="锡林郭勒盟">
+      <node Code="152501" Name="二连浩特市" />
+      <node Code="152502" Name="锡林浩特市" />
+      <node Code="152522" Name="阿巴嘎旗" />
+      <node Code="152523" Name="苏尼特左旗" />
+      <node Code="152524" Name="苏尼特右旗" />
+      <node Code="152525" Name="东乌珠穆沁旗" />
+      <node Code="152526" Name="西乌珠穆沁旗" />
+      <node Code="152527" Name="太仆寺旗" />
+      <node Code="152528" Name="镶黄旗" />
+      <node Code="152529" Name="正镶白旗" />
+      <node Code="152530" Name="正蓝旗" />
+      <node Code="152531" Name="多伦县" />
+    </node>
+    <node Code="152900" Name="阿拉善盟">
+      <node Code="152921" Name="阿拉善左旗" />
+      <node Code="152922" Name="阿拉善右旗" />
+      <node Code="152923" Name="额济纳旗" />
+    </node>
+  </node>
+  <node Code="210000" Name="辽宁省">
+    <node Code="210100" Name="沈阳市">
+      <node Code="210102" Name="和平区" />
+      <node Code="210103" Name="沈河区" />
+      <node Code="210104" Name="大东区" />
+      <node Code="210105" Name="皇姑区" />
+      <node Code="210106" Name="铁西区" />
+      <node Code="210111" Name="苏家屯区" />
+      <node Code="210112" Name="东陵区" />
+      <node Code="210113" Name="新城子区" />
+      <node Code="210114" Name="于洪区" />
+      <node Code="210122" Name="辽中县" />
+      <node Code="210123" Name="康平县" />
+      <node Code="210124" Name="法库县" />
+      <node Code="210181" Name="新民市" />
+      <node Code="210182" Name="浑南新区" />
+      <node Code="210183" Name="张士开发区" />
+      <node Code="210184" Name="沈北新区" />
+    </node>
+    <node Code="210200" Name="大连市">
+      <node Code="210202" Name="中山区" />
+      <node Code="210203" Name="西岗区" />
+      <node Code="210204" Name="沙河口区" />
+      <node Code="210211" Name="甘井子区" />
+      <node Code="210212" Name="旅顺口区" />
+      <node Code="210213" Name="金州区" />
+      <node Code="210224" Name="长海县" />
+      <node Code="210205" Name="开发区" />
+      <node Code="210281" Name="瓦房店市" />
+      <node Code="210282" Name="普兰店市" />
+      <node Code="210283" Name="庄河市" />
+      <node Code="210297" Name="岭前区" />
+    </node>
+    <node Code="210300" Name="鞍山市">
+      <node Code="210302" Name="铁东区" />
+      <node Code="210303" Name="铁西区" />
+      <node Code="210304" Name="立山区" />
+      <node Code="210311" Name="千山区" />
+      <node Code="210321" Name="台安县" />
+      <node Code="210323" Name="岫岩满族自治县" />
+      <node Code="210351" Name="高新区" />
+      <node Code="210381" Name="海城市" />
+    </node>
+    <node Code="210400" Name="抚顺市">
+      <node Code="210402" Name="新抚区" />
+      <node Code="210403" Name="东洲区" />
+      <node Code="210404" Name="望花区" />
+      <node Code="210411" Name="顺城区" />
+      <node Code="210421" Name="抚顺县" />
+      <node Code="210422" Name="新宾满族自治县" />
+      <node Code="210423" Name="清原满族自治县" />
+    </node>
+    <node Code="210500" Name="本溪市">
+      <node Code="210502" Name="平山区" />
+      <node Code="210503" Name="溪湖区" />
+      <node Code="210504" Name="明山区" />
+      <node Code="210505" Name="南芬区" />
+      <node Code="210521" Name="本溪满族自治县" />
+      <node Code="210522" Name="桓仁满族自治县" />
+    </node>
+    <node Code="210600" Name="丹东市">
+      <node Code="210602" Name="元宝区" />
+      <node Code="210603" Name="振兴区" />
+      <node Code="210604" Name="振安区" />
+      <node Code="210624" Name="宽甸满族自治县" />
+      <node Code="210681" Name="东港市" />
+      <node Code="210682" Name="凤城市" />
+    </node>
+    <node Code="210700" Name="锦州市">
+      <node Code="210702" Name="古塔区" />
+      <node Code="210703" Name="凌河区" />
+      <node Code="210711" Name="太和区" />
+      <node Code="210726" Name="黑山县" />
+      <node Code="210727" Name="义县" />
+      <node Code="210781" Name="凌海市" />
+      <node Code="210782" Name="北镇市" />
+    </node>
+    <node Code="210800" Name="营口市">
+      <node Code="210802" Name="站前区" />
+      <node Code="210803" Name="西市区" />
+      <node Code="210804" Name="鲅鱼圈区" />
+      <node Code="210811" Name="老边区" />
+      <node Code="210881" Name="盖州市" />
+      <node Code="210882" Name="大石桥市" />
+    </node>
+    <node Code="210900" Name="阜新市">
+      <node Code="210902" Name="海州区" />
+      <node Code="210903" Name="新邱区" />
+      <node Code="210904" Name="太平区" />
+      <node Code="210905" Name="清河门区" />
+      <node Code="210906" Name="其它区" />
+      <node Code="210911" Name="细河区" />
+      <node Code="210921" Name="阜新蒙古族自治县" />
+      <node Code="210922" Name="彰武县" />
+    </node>
+    <node Code="211000" Name="辽阳市">
+      <node Code="211002" Name="白塔区" />
+      <node Code="211003" Name="文圣区" />
+      <node Code="211004" Name="宏伟区" />
+      <node Code="211005" Name="弓长岭区" />
+      <node Code="211011" Name="太子河区" />
+      <node Code="211021" Name="辽阳县" />
+      <node Code="211081" Name="灯塔市" />
+    </node>
+    <node Code="211100" Name="盘锦市">
+      <node Code="211102" Name="双台子区" />
+      <node Code="211103" Name="兴隆台区" />
+      <node Code="211121" Name="大洼县" />
+      <node Code="211122" Name="盘山县" />
+    </node>
+    <node Code="211200" Name="铁岭市">
+      <node Code="211202" Name="银州区" />
+      <node Code="211204" Name="清河区" />
+      <node Code="211221" Name="铁岭县" />
+      <node Code="211223" Name="西丰县" />
+      <node Code="211224" Name="昌图县" />
+      <node Code="211281" Name="调兵山市" />
+      <node Code="211282" Name="开原市" />
+    </node>
+    <node Code="211300" Name="朝阳市">
+      <node Code="211302" Name="双塔区" />
+      <node Code="211303" Name="龙城区" />
+      <node Code="211321" Name="朝阳县" />
+      <node Code="211322" Name="建平县" />
+      <node Code="211324" Name="喀喇沁左翼蒙古族自治县" />
+      <node Code="211381" Name="北票市" />
+      <node Code="211382" Name="凌源市" />
+    </node>
+    <node Code="211400" Name="葫芦岛市">
+      <node Code="211402" Name="连山区" />
+      <node Code="211403" Name="龙港区" />
+      <node Code="211404" Name="南票区" />
+      <node Code="211421" Name="绥中县" />
+      <node Code="211422" Name="建昌县" />
+      <node Code="211481" Name="兴城市" />
+    </node>
+  </node>
+  <node Code="220000" Name="吉林省">
+    <node Code="220100" Name="长春市">
+      <node Code="220102" Name="南关区" />
+      <node Code="220103" Name="宽城区" />
+      <node Code="220104" Name="朝阳区" />
+      <node Code="220105" Name="二道区" />
+      <node Code="220106" Name="绿园区" />
+      <node Code="220112" Name="双阳区" />
+      <node Code="220122" Name="农安县" />
+      <node Code="220181" Name="九台市" />
+      <node Code="220182" Name="榆树市" />
+      <node Code="220183" Name="德惠市" />
+      <node Code="220184" Name="高新技术产业开发区" />
+      <node Code="220185" Name="汽车产业开发区" />
+      <node Code="220186" Name="经济技术开发区" />
+      <node Code="220187" Name="净月旅游开发区" />
+    </node>
+    <node Code="220200" Name="吉林市">
+      <node Code="220202" Name="昌邑区" />
+      <node Code="220203" Name="龙潭区" />
+      <node Code="220204" Name="船营区" />
+      <node Code="220211" Name="丰满区" />
+      <node Code="220221" Name="永吉县" />
+      <node Code="220281" Name="蛟河市" />
+      <node Code="220282" Name="桦甸市" />
+      <node Code="220283" Name="舒兰市" />
+      <node Code="220284" Name="磐石市" />
+    </node>
+    <node Code="220300" Name="四平市">
+      <node Code="220302" Name="铁西区" />
+      <node Code="220303" Name="铁东区" />
+      <node Code="220322" Name="梨树县" />
+      <node Code="220323" Name="伊通满族自治县" />
+      <node Code="220381" Name="公主岭市" />
+      <node Code="220382" Name="双辽市" />
+    </node>
+    <node Code="220400" Name="辽源市">
+      <node Code="220402" Name="龙山区" />
+      <node Code="220403" Name="西安区" />
+      <node Code="220421" Name="东丰县" />
+      <node Code="220422" Name="东辽县" />
+    </node>
+    <node Code="220500" Name="通化市">
+      <node Code="220502" Name="东昌区" />
+      <node Code="220503" Name="二道江区" />
+      <node Code="220521" Name="通化县" />
+      <node Code="220523" Name="辉南县" />
+      <node Code="220524" Name="柳河县" />
+      <node Code="220581" Name="梅河口市" />
+      <node Code="220582" Name="集安市" />
+    </node>
+    <node Code="220600" Name="白山市">
+      <node Code="220602" Name="浑江区" />
+      <node Code="220621" Name="抚松县" />
+      <node Code="220622" Name="靖宇县" />
+      <node Code="220623" Name="长白朝鲜族自治县" />
+      <node Code="220625" Name="江源区" />
+      <node Code="220681" Name="临江市" />
+    </node>
+    <node Code="220700" Name="松原市">
+      <node Code="220702" Name="宁江区" />
+      <node Code="220721" Name="前郭尔罗斯蒙古族自治县" />
+      <node Code="220722" Name="长岭县" />
+      <node Code="220723" Name="乾安县" />
+      <node Code="220724" Name="扶余市" />
+    </node>
+    <node Code="220800" Name="白城市">
+      <node Code="220802" Name="洮北区" />
+      <node Code="220821" Name="镇赉县" />
+      <node Code="220822" Name="通榆县" />
+      <node Code="220881" Name="洮南市" />
+      <node Code="220882" Name="大安市" />
+    </node>
+    <node Code="222400" Name="延边朝鲜族自治州">
+      <node Code="222401" Name="延吉市" />
+      <node Code="222402" Name="图们市" />
+      <node Code="222403" Name="敦化市" />
+      <node Code="222404" Name="珲春市" />
+      <node Code="222405" Name="龙井市" />
+      <node Code="222406" Name="和龙市" />
+      <node Code="222424" Name="汪清县" />
+      <node Code="222426" Name="安图县" />
+    </node>
+  </node>
+  <node Code="230000" Name="黑龙江省">
+    <node Code="230100" Name="哈尔滨市">
+      <node Code="230102" Name="道里区" />
+      <node Code="230103" Name="南岗区" />
+      <node Code="230104" Name="道外区" />
+      <node Code="230106" Name="香坊区" />
+      <node Code="230107" Name="动力区" />
+      <node Code="230108" Name="平房区" />
+      <node Code="230109" Name="松北区" />
+      <node Code="230111" Name="呼兰区" />
+      <node Code="230123" Name="依兰县" />
+      <node Code="230124" Name="方正县" />
+      <node Code="230125" Name="宾县" />
+      <node Code="230126" Name="巴彦县" />
+      <node Code="230127" Name="木兰县" />
+      <node Code="230128" Name="通河县" />
+      <node Code="230129" Name="延寿县" />
+      <node Code="230182" Name="双城市" />
+      <node Code="230183" Name="尚志市" />
+      <node Code="230184" Name="五常市" />
+      <node Code="230185" Name="阿城区" />
+    </node>
+    <node Code="230200" Name="齐齐哈尔市">
+      <node Code="230202" Name="龙沙区" />
+      <node Code="230203" Name="建华区" />
+      <node Code="230204" Name="铁锋区" />
+      <node Code="230205" Name="昂昂溪区" />
+      <node Code="230206" Name="富拉尔基区" />
+      <node Code="230207" Name="碾子山区" />
+      <node Code="230208" Name="梅里斯达斡尔族区" />
+      <node Code="230221" Name="龙江县" />
+      <node Code="230223" Name="依安县" />
+      <node Code="230224" Name="泰来县" />
+      <node Code="230225" Name="甘南县" />
+      <node Code="230227" Name="富裕县" />
+      <node Code="230229" Name="克山县" />
+      <node Code="230230" Name="克东县" />
+      <node Code="230231" Name="拜泉县" />
+      <node Code="230281" Name="讷河市" />
+    </node>
+    <node Code="230300" Name="鸡西市">
+      <node Code="230302" Name="鸡冠区" />
+      <node Code="230303" Name="恒山区" />
+      <node Code="230304" Name="滴道区" />
+      <node Code="230305" Name="梨树区" />
+      <node Code="230306" Name="城子河区" />
+      <node Code="230307" Name="麻山区" />
+      <node Code="230321" Name="鸡东县" />
+      <node Code="230381" Name="虎林市" />
+      <node Code="230382" Name="密山市" />
+    </node>
+    <node Code="230400" Name="鹤岗市">
+      <node Code="230402" Name="向阳区" />
+      <node Code="230403" Name="工农区" />
+      <node Code="230404" Name="南山区" />
+      <node Code="230405" Name="兴安区" />
+      <node Code="230406" Name="东山区" />
+      <node Code="230407" Name="兴山区" />
+      <node Code="230421" Name="萝北县" />
+      <node Code="230422" Name="绥滨县" />
+    </node>
+    <node Code="230500" Name="双鸭山市">
+      <node Code="230502" Name="尖山区" />
+      <node Code="230503" Name="岭东区" />
+      <node Code="230505" Name="四方台区" />
+      <node Code="230506" Name="宝山区" />
+      <node Code="230521" Name="集贤县" />
+      <node Code="230522" Name="友谊县" />
+      <node Code="230523" Name="宝清县" />
+      <node Code="230524" Name="饶河县" />
+    </node>
+    <node Code="230600" Name="大庆市">
+      <node Code="230602" Name="萨尔图区" />
+      <node Code="230603" Name="龙凤区" />
+      <node Code="230604" Name="让胡路区" />
+      <node Code="230605" Name="红岗区" />
+      <node Code="230606" Name="大同区" />
+      <node Code="230621" Name="肇州县" />
+      <node Code="230622" Name="肇源县" />
+      <node Code="230623" Name="林甸县" />
+      <node Code="230624" Name="杜尔伯特蒙古族自治县" />
+    </node>
+    <node Code="230700" Name="伊春市">
+      <node Code="230702" Name="伊春区" />
+      <node Code="230703" Name="南岔区" />
+      <node Code="230704" Name="友好区" />
+      <node Code="230705" Name="西林区" />
+      <node Code="230706" Name="翠峦区" />
+      <node Code="230707" Name="新青区" />
+      <node Code="230708" Name="美溪区" />
+      <node Code="230709" Name="金山屯区" />
+      <node Code="230710" Name="五营区" />
+      <node Code="230711" Name="乌马河区" />
+      <node Code="230712" Name="汤旺河区" />
+      <node Code="230713" Name="带岭区" />
+      <node Code="230714" Name="乌伊岭区" />
+      <node Code="230715" Name="红星区" />
+      <node Code="230716" Name="上甘岭区" />
+      <node Code="230722" Name="嘉荫县" />
+      <node Code="230781" Name="铁力市" />
+    </node>
+    <node Code="230800" Name="佳木斯市">
+      <node Code="230802" Name="永红区" />
+      <node Code="230803" Name="向阳区" />
+      <node Code="230804" Name="前进区" />
+      <node Code="230805" Name="东风区" />
+      <node Code="230811" Name="郊区" />
+      <node Code="230822" Name="桦南县" />
+      <node Code="230826" Name="桦川县" />
+      <node Code="230828" Name="汤原县" />
+      <node Code="230833" Name="抚远县" />
+      <node Code="230881" Name="同江市" />
+      <node Code="230882" Name="富锦市" />
+    </node>
+    <node Code="230900" Name="七台河市">
+      <node Code="230902" Name="新兴区" />
+      <node Code="230903" Name="桃山区" />
+      <node Code="230904" Name="茄子河区" />
+      <node Code="230921" Name="勃利县" />
+    </node>
+    <node Code="231000" Name="牡丹江市">
+      <node Code="231002" Name="东安区" />
+      <node Code="231003" Name="阳明区" />
+      <node Code="231004" Name="爱民区" />
+      <node Code="231005" Name="西安区" />
+      <node Code="231024" Name="东宁县" />
+      <node Code="231025" Name="林口县" />
+      <node Code="231081" Name="绥芬河市" />
+      <node Code="231083" Name="海林市" />
+      <node Code="231084" Name="宁安市" />
+      <node Code="231085" Name="穆棱市" />
+    </node>
+    <node Code="231100" Name="黑河市">
+      <node Code="231102" Name="爱辉区" />
+      <node Code="231121" Name="嫩江县" />
+      <node Code="231123" Name="逊克县" />
+      <node Code="231124" Name="孙吴县" />
+      <node Code="231181" Name="北安市" />
+      <node Code="231182" Name="五大连池市" />
+    </node>
+    <node Code="231200" Name="绥化市">
+      <node Code="231202" Name="北林区" />
+      <node Code="231221" Name="望奎县" />
+      <node Code="231222" Name="兰西县" />
+      <node Code="231223" Name="青冈县" />
+      <node Code="231224" Name="庆安县" />
+      <node Code="231225" Name="明水县" />
+      <node Code="231226" Name="绥棱县" />
+      <node Code="231281" Name="安达市" />
+      <node Code="231282" Name="肇东市" />
+      <node Code="231283" Name="海伦市" />
+    </node>
+    <node Code="232700" Name="大兴安岭地区">
+      <node Code="232702" Name="松岭区" />
+      <node Code="232703" Name="新林区" />
+      <node Code="232704" Name="呼中区" />
+      <node Code="232721" Name="呼玛县" />
+      <node Code="232722" Name="塔河县" />
+      <node Code="232723" Name="漠河县" />
+      <node Code="232724" Name="加格达奇区" />
+    </node>
+  </node>
+  <node Code="310000" Name="上海">
+    <node Code="310100" Name="上海市">
+      <node Code="310101" Name="黄浦区" />
+      <node Code="310103" Name="卢湾区" />
+      <node Code="310104" Name="徐汇区" />
+      <node Code="310105" Name="长宁区" />
+      <node Code="310106" Name="静安区" />
+      <node Code="310107" Name="普陀区" />
+      <node Code="310108" Name="闸北区" />
+      <node Code="310109" Name="虹口区" />
+      <node Code="310110" Name="杨浦区" />
+      <node Code="310112" Name="闵行区" />
+      <node Code="310113" Name="宝山区" />
+      <node Code="310114" Name="嘉定区" />
+      <node Code="310115" Name="浦东新区" />
+      <node Code="310116" Name="金山区" />
+      <node Code="310117" Name="松江区" />
+      <node Code="310118" Name="青浦区" />
+      <node Code="310119" Name="南汇区" />
+      <node Code="310120" Name="奉贤区" />
+      <node Code="310152" Name="川沙区" />
+      <node Code="310230" Name="崇明县" />
+    </node>
+  </node>
+  <node Code="320000" Name="江苏省">
+    <node Code="320100" Name="南京市">
+      <node Code="320102" Name="玄武区" />
+      <node Code="320103" Name="白下区" />
+      <node Code="320104" Name="秦淮区" />
+      <node Code="320105" Name="建邺区" />
+      <node Code="320106" Name="鼓楼区" />
+      <node Code="320107" Name="下关区" />
+      <node Code="320111" Name="浦口区" />
+      <node Code="320113" Name="栖霞区" />
+      <node Code="320114" Name="雨花台区" />
+      <node Code="320115" Name="江宁区" />
+      <node Code="320116" Name="六合区" />
+      <node Code="320124" Name="溧水区" />
+      <node Code="320125" Name="高淳区" />
+    </node>
+    <node Code="320200" Name="无锡市">
+      <node Code="320202" Name="崇安区" />
+      <node Code="320203" Name="南长区" />
+      <node Code="320204" Name="北塘区" />
+      <node Code="320205" Name="锡山区" />
+      <node Code="320206" Name="惠山区" />
+      <node Code="320211" Name="滨湖区" />
+      <node Code="320281" Name="江阴市" />
+      <node Code="320282" Name="宜兴市" />
+      <node Code="320296" Name="新区" />
+    </node>
+    <node Code="320300" Name="徐州市">
+      <node Code="320302" Name="鼓楼区" />
+      <node Code="320303" Name="云龙区" />
+      <node Code="320304" Name="九里区" />
+      <node Code="320305" Name="贾汪区" />
+      <node Code="320311" Name="泉山区" />
+      <node Code="320321" Name="丰县" />
+      <node Code="320322" Name="沛县" />
+      <node Code="320323" Name="铜山区" />
+      <node Code="320324" Name="睢宁县" />
+      <node Code="320381" Name="新沂市" />
+      <node Code="320382" Name="邳州市" />
+    </node>
+    <node Code="320400" Name="常州市">
+      <node Code="320402" Name="天宁区" />
+      <node Code="320404" Name="钟楼区" />
+      <node Code="320405" Name="戚墅堰区" />
+      <node Code="320411" Name="新北区" />
+      <node Code="320412" Name="武进区" />
+      <node Code="320481" Name="溧阳市" />
+      <node Code="320482" Name="金坛市" />
+    </node>
+    <node Code="320500" Name="苏州市">
+      <node Code="320502" Name="沧浪区" />
+      <node Code="320503" Name="平江区" />
+      <node Code="320504" Name="金阊区" />
+      <node Code="320505" Name="虎丘区" />
+      <node Code="320506" Name="吴中区" />
+      <node Code="320507" Name="相城区" />
+      <node Code="320508" Name="姑苏区" />
+      <node Code="320581" Name="常熟市" />
+      <node Code="320582" Name="张家港市" />
+      <node Code="320583" Name="昆山市" />
+      <node Code="320584" Name="吴江区" />
+      <node Code="320585" Name="太仓市" />
+      <node Code="320594" Name="新区" />
+      <node Code="320595" Name="园区" />
+    </node>
+    <node Code="320600" Name="南通市">
+      <node Code="320602" Name="崇川区" />
+      <node Code="320611" Name="港闸区" />
+      <node Code="320612" Name="通州区" />
+      <node Code="320621" Name="海安县" />
+      <node Code="320623" Name="如东县" />
+      <node Code="320681" Name="启东市" />
+      <node Code="320682" Name="如皋市" />
+      <node Code="320683" Name="通州市" />
+      <node Code="320684" Name="海门市" />
+      <node Code="320693" Name="开发区" />
+    </node>
+    <node Code="320700" Name="连云港市">
+      <node Code="320703" Name="连云区" />
+      <node Code="320705" Name="新浦区" />
+      <node Code="320706" Name="海州区" />
+      <node Code="320721" Name="赣榆县" />
+      <node Code="320722" Name="东海县" />
+      <node Code="320723" Name="灌云县" />
+      <node Code="320724" Name="灌南县" />
+    </node>
+    <node Code="320800" Name="淮安市">
+      <node Code="320802" Name="清河区" />
+      <node Code="320803" Name="淮安区" />
+      <node Code="320804" Name="淮阴区" />
+      <node Code="320811" Name="清浦区" />
+      <node Code="320826" Name="涟水县" />
+      <node Code="320829" Name="洪泽县" />
+      <node Code="320830" Name="盱眙县" />
+      <node Code="320831" Name="金湖县" />
+    </node>
+    <node Code="320900" Name="盐城市">
+      <node Code="320902" Name="亭湖区" />
+      <node Code="320903" Name="盐都区" />
+      <node Code="320921" Name="响水县" />
+      <node Code="320922" Name="滨海县" />
+      <node Code="320923" Name="阜宁县" />
+      <node Code="320924" Name="射阳县" />
+      <node Code="320925" Name="建湖县" />
+      <node Code="320981" Name="东台市" />
+      <node Code="320982" Name="大丰市" />
+    </node>
+    <node Code="321000" Name="扬州市">
+      <node Code="321002" Name="广陵区" />
+      <node Code="321003" Name="邗江区" />
+      <node Code="321011" Name="维扬区" />
+      <node Code="321023" Name="宝应县" />
+      <node Code="321081" Name="仪征市" />
+      <node Code="321084" Name="高邮市" />
+      <node Code="321088" Name="江都区" />
+      <node Code="321092" Name="经济开发区" />
+    </node>
+    <node Code="321100" Name="镇江市">
+      <node Code="321102" Name="京口区" />
+      <node Code="321111" Name="润州区" />
+      <node Code="321112" Name="丹徒区" />
+      <node Code="321181" Name="丹阳市" />
+      <node Code="321182" Name="扬中市" />
+      <node Code="321183" Name="句容市" />
+    </node>
+    <node Code="321200" Name="泰州市">
+      <node Code="321202" Name="海陵区" />
+      <node Code="321203" Name="高港区" />
+      <node Code="321281" Name="兴化市" />
+      <node Code="321282" Name="靖江市" />
+      <node Code="321283" Name="泰兴市" />
+      <node Code="321284" Name="姜堰区" />
+    </node>
+    <node Code="321300" Name="宿迁市">
+      <node Code="321302" Name="宿城区" />
+      <node Code="321311" Name="宿豫区" />
+      <node Code="321322" Name="沭阳县" />
+      <node Code="321323" Name="泗阳县" />
+      <node Code="321324" Name="泗洪县" />
+    </node>
+  </node>
+  <node Code="330000" Name="浙江省">
+    <node Code="330100" Name="杭州市">
+      <node Code="330102" Name="上城区" />
+      <node Code="330103" Name="下城区" />
+      <node Code="330104" Name="江干区" />
+      <node Code="330105" Name="拱墅区" />
+      <node Code="330106" Name="西湖区" />
+      <node Code="330108" Name="滨江区" />
+      <node Code="330109" Name="萧山区" />
+      <node Code="330110" Name="余杭区" />
+      <node Code="330122" Name="桐庐县" />
+      <node Code="330127" Name="淳安县" />
+      <node Code="330182" Name="建德市" />
+      <node Code="330183" Name="富阳市" />
+      <node Code="330185" Name="临安市" />
+    </node>
+    <node Code="330200" Name="宁波市">
+      <node Code="330203" Name="海曙区" />
+      <node Code="330204" Name="江东区" />
+      <node Code="330205" Name="江北区" />
+      <node Code="330206" Name="北仑区" />
+      <node Code="330211" Name="镇海区" />
+      <node Code="330212" Name="鄞州区" />
+      <node Code="330225" Name="象山县" />
+      <node Code="330226" Name="宁海县" />
+      <node Code="330281" Name="余姚市" />
+      <node Code="330282" Name="慈溪市" />
+      <node Code="330283" Name="奉化市" />
+    </node>
+    <node Code="330300" Name="温州市">
+      <node Code="330302" Name="鹿城区" />
+      <node Code="330303" Name="龙湾区" />
+      <node Code="330304" Name="瓯海区" />
+      <node Code="330322" Name="洞头县" />
+      <node Code="330324" Name="永嘉县" />
+      <node Code="330326" Name="平阳县" />
+      <node Code="330327" Name="苍南县" />
+      <node Code="330328" Name="文成县" />
+      <node Code="330329" Name="泰顺县" />
+      <node Code="330381" Name="瑞安市" />
+      <node Code="330382" Name="乐清市" />
+    </node>
+    <node Code="330400" Name="嘉兴市">
+      <node Code="330402" Name="南湖区" />
+      <node Code="330411" Name="秀洲区" />
+      <node Code="330421" Name="嘉善县" />
+      <node Code="330424" Name="海盐县" />
+      <node Code="330481" Name="海宁市" />
+      <node Code="330482" Name="平湖市" />
+      <node Code="330483" Name="桐乡市" />
+    </node>
+    <node Code="330500" Name="湖州市">
+      <node Code="330502" Name="吴兴区" />
+      <node Code="330503" Name="南浔区" />
+      <node Code="330521" Name="德清县" />
+      <node Code="330522" Name="长兴县" />
+      <node Code="330523" Name="安吉县" />
+    </node>
+    <node Code="330600" Name="绍兴市">
+      <node Code="330602" Name="越城区" />
+      <node Code="330621" Name="绍兴县" />
+      <node Code="330624" Name="新昌县" />
+      <node Code="330681" Name="诸暨市" />
+      <node Code="330682" Name="上虞市" />
+      <node Code="330683" Name="嵊州市" />
+    </node>
+    <node Code="330700" Name="金华市">
+      <node Code="330702" Name="婺城区" />
+      <node Code="330703" Name="金东区" />
+      <node Code="330723" Name="武义县" />
+      <node Code="330726" Name="浦江县" />
+      <node Code="330727" Name="磐安县" />
+      <node Code="330781" Name="兰溪市" />
+      <node Code="330782" Name="义乌市" />
+      <node Code="330783" Name="东阳市" />
+      <node Code="330784" Name="永康市" />
+    </node>
+    <node Code="330800" Name="衢州市">
+      <node Code="330802" Name="柯城区" />
+      <node Code="330803" Name="衢江区" />
+      <node Code="330822" Name="常山县" />
+      <node Code="330824" Name="开化县" />
+      <node Code="330825" Name="龙游县" />
+      <node Code="330881" Name="江山市" />
+    </node>
+    <node Code="330900" Name="舟山市">
+      <node Code="330902" Name="定海区" />
+      <node Code="330903" Name="普陀区" />
+      <node Code="330921" Name="岱山县" />
+      <node Code="330922" Name="嵊泗县" />
+    </node>
+    <node Code="331000" Name="台州市">
+      <node Code="331002" Name="椒江区" />
+      <node Code="331003" Name="黄岩区" />
+      <node Code="331004" Name="路桥区" />
+      <node Code="331021" Name="玉环县" />
+      <node Code="331022" Name="三门县" />
+      <node Code="331023" Name="天台县" />
+      <node Code="331024" Name="仙居县" />
+      <node Code="331081" Name="温岭市" />
+      <node Code="331082" Name="临海市" />
+    </node>
+    <node Code="331100" Name="丽水市">
+      <node Code="331102" Name="莲都区" />
+      <node Code="331121" Name="青田县" />
+      <node Code="331122" Name="缙云县" />
+      <node Code="331123" Name="遂昌县" />
+      <node Code="331124" Name="松阳县" />
+      <node Code="331125" Name="云和县" />
+      <node Code="331126" Name="庆元县" />
+      <node Code="331127" Name="景宁畲族自治县" />
+      <node Code="331181" Name="龙泉市" />
+    </node>
+  </node>
+  <node Code="340000" Name="安徽省">
+    <node Code="340100" Name="合肥市">
+      <node Code="340102" Name="瑶海区" />
+      <node Code="340103" Name="庐阳区" />
+      <node Code="340104" Name="蜀山区" />
+      <node Code="340111" Name="包河区" />
+      <node Code="340121" Name="长丰县" />
+      <node Code="340122" Name="肥东县" />
+      <node Code="340123" Name="肥西县" />
+      <node Code="340151" Name="高新区" />
+      <node Code="340191" Name="中区" />
+      <node Code="341400" Name="巢湖市" />
+      <node Code="341402" Name="居巢区" />
+      <node Code="341421" Name="庐江县" />
+    </node>
+    <node Code="340200" Name="芜湖市">
+      <node Code="340202" Name="镜湖区" />
+      <node Code="340203" Name="弋江区" />
+      <node Code="340204" Name="其它区" />
+      <node Code="340207" Name="鸠江区" />
+      <node Code="340208" Name="三山区" />
+      <node Code="340221" Name="芜湖县" />
+      <node Code="340222" Name="繁昌县" />
+      <node Code="340223" Name="南陵县" />
+      <node Code="341422" Name="无为县" />
+    </node>
+    <node Code="340300" Name="蚌埠市">
+      <node Code="340302" Name="龙子湖区" />
+      <node Code="340303" Name="蚌山区" />
+      <node Code="340304" Name="禹会区" />
+      <node Code="340305" Name="其它区" />
+      <node Code="340311" Name="淮上区" />
+      <node Code="340321" Name="怀远县" />
+      <node Code="340322" Name="五河县" />
+      <node Code="340323" Name="固镇县" />
+    </node>
+    <node Code="340400" Name="淮南市">
+      <node Code="340402" Name="大通区" />
+      <node Code="340403" Name="田家庵区" />
+      <node Code="340404" Name="谢家集区" />
+      <node Code="340405" Name="八公山区" />
+      <node Code="340406" Name="潘集区" />
+      <node Code="340407" Name="其它区" />
+      <node Code="340421" Name="凤台县" />
+    </node>
+    <node Code="340500" Name="马鞍山市">
+      <node Code="340502" Name="金家庄区" />
+      <node Code="340503" Name="花山区" />
+      <node Code="340504" Name="雨山区" />
+      <node Code="340505" Name="其它区" />
+      <node Code="340506" Name="博望区" />
+      <node Code="340521" Name="当涂县" />
+      <node Code="341423" Name="含山县" />
+      <node Code="341424" Name="和县" />
+    </node>
+    <node Code="340600" Name="淮北市">
+      <node Code="340602" Name="杜集区" />
+      <node Code="340603" Name="相山区" />
+      <node Code="340604" Name="烈山区" />
+      <node Code="340621" Name="濉溪县" />
+    </node>
+    <node Code="340700" Name="铜陵市">
+      <node Code="340702" Name="铜官山区" />
+      <node Code="340703" Name="狮子山区" />
+      <node Code="340711" Name="郊区" />
+      <node Code="340721" Name="铜陵县" />
+    </node>
+    <node Code="340800" Name="安庆市">
+      <node Code="340802" Name="迎江区" />
+      <node Code="340803" Name="大观区" />
+      <node Code="340811" Name="宜秀区" />
+      <node Code="340822" Name="怀宁县" />
+      <node Code="340823" Name="枞阳县" />
+      <node Code="340824" Name="潜山县" />
+      <node Code="340825" Name="太湖县" />
+      <node Code="340826" Name="宿松县" />
+      <node Code="340827" Name="望江县" />
+      <node Code="340828" Name="岳西县" />
+      <node Code="340881" Name="桐城市" />
+    </node>
+    <node Code="341000" Name="黄山市">
+      <node Code="341002" Name="屯溪区" />
+      <node Code="341003" Name="黄山区" />
+      <node Code="341004" Name="徽州区" />
+      <node Code="341021" Name="歙县" />
+      <node Code="341022" Name="休宁县" />
+      <node Code="341023" Name="黟县" />
+      <node Code="341024" Name="祁门县" />
+    </node>
+    <node Code="341100" Name="滁州市">
+      <node Code="341102" Name="琅琊区" />
+      <node Code="341103" Name="南谯区" />
+      <node Code="341122" Name="来安县" />
+      <node Code="341124" Name="全椒县" />
+      <node Code="341125" Name="定远县" />
+      <node Code="341126" Name="凤阳县" />
+      <node Code="341181" Name="天长市" />
+      <node Code="341182" Name="明光市" />
+    </node>
+    <node Code="341200" Name="阜阳市">
+      <node Code="341202" Name="颍州区" />
+      <node Code="341203" Name="颍东区" />
+      <node Code="341204" Name="颍泉区" />
+      <node Code="341221" Name="临泉县" />
+      <node Code="341222" Name="太和县" />
+      <node Code="341225" Name="阜南县" />
+      <node Code="341226" Name="颍上县" />
+      <node Code="341282" Name="界首市" />
+    </node>
+    <node Code="341300" Name="宿州市">
+      <node Code="341302" Name="埇桥区" />
+      <node Code="341321" Name="砀山县" />
+      <node Code="341322" Name="萧县" />
+      <node Code="341323" Name="灵璧县" />
+      <node Code="341324" Name="泗县" />
+    </node>
+    <node Code="341500" Name="六安市">
+      <node Code="341502" Name="金安区" />
+      <node Code="341503" Name="裕安区" />
+      <node Code="341504" Name="其它区" />
+      <node Code="341521" Name="寿县" />
+      <node Code="341522" Name="霍邱县" />
+      <node Code="341523" Name="舒城县" />
+      <node Code="341524" Name="金寨县" />
+      <node Code="341525" Name="霍山县" />
+    </node>
+    <node Code="341600" Name="亳州市">
+      <node Code="341602" Name="谯城区" />
+      <node Code="341603" Name="其它区" />
+      <node Code="341621" Name="涡阳县" />
+      <node Code="341622" Name="蒙城县" />
+      <node Code="341623" Name="利辛县" />
+    </node>
+    <node Code="341700" Name="池州市">
+      <node Code="341702" Name="贵池区" />
+      <node Code="341721" Name="东至县" />
+      <node Code="341722" Name="石台县" />
+      <node Code="341723" Name="青阳县" />
+    </node>
+    <node Code="341800" Name="宣城市">
+      <node Code="341802" Name="宣州区" />
+      <node Code="341821" Name="郎溪县" />
+      <node Code="341822" Name="广德县" />
+      <node Code="341823" Name="泾县" />
+      <node Code="341824" Name="绩溪县" />
+      <node Code="341825" Name="旌德县" />
+      <node Code="341881" Name="宁国市" />
+    </node>
+  </node>
+  <node Code="350000" Name="福建省">
+    <node Code="350100" Name="福州市">
+      <node Code="350102" Name="鼓楼区" />
+      <node Code="350103" Name="台江区" />
+      <node Code="350104" Name="仓山区" />
+      <node Code="350105" Name="马尾区" />
+      <node Code="350111" Name="晋安区" />
+      <node Code="350121" Name="闽侯县" />
+      <node Code="350122" Name="连江县" />
+      <node Code="350123" Name="罗源县" />
+      <node Code="350124" Name="闽清县" />
+      <node Code="350125" Name="永泰县" />
+      <node Code="350128" Name="平潭县" />
+      <node Code="350181" Name="福清市" />
+      <node Code="350182" Name="长乐市" />
+    </node>
+    <node Code="350200" Name="厦门市">
+      <node Code="350203" Name="思明区" />
+      <node Code="350205" Name="海沧区" />
+      <node Code="350206" Name="湖里区" />
+      <node Code="350211" Name="集美区" />
+      <node Code="350212" Name="同安区" />
+      <node Code="350213" Name="翔安区" />
+    </node>
+    <node Code="350300" Name="莆田市">
+      <node Code="350302" Name="城厢区" />
+      <node Code="350303" Name="涵江区" />
+      <node Code="350304" Name="荔城区" />
+      <node Code="350305" Name="秀屿区" />
+      <node Code="350322" Name="仙游县" />
+    </node>
+    <node Code="350400" Name="三明市">
+      <node Code="350402" Name="梅列区" />
+      <node Code="350403" Name="三元区" />
+      <node Code="350421" Name="明溪县" />
+      <node Code="350423" Name="清流县" />
+      <node Code="350424" Name="宁化县" />
+      <node Code="350425" Name="大田县" />
+      <node Code="350426" Name="尤溪县" />
+      <node Code="350427" Name="沙县" />
+      <node Code="350428" Name="将乐县" />
+      <node Code="350429" Name="泰宁县" />
+      <node Code="350430" Name="建宁县" />
+      <node Code="350481" Name="永安市" />
+    </node>
+    <node Code="350500" Name="泉州市">
+      <node Code="350502" Name="鲤城区" />
+      <node Code="350503" Name="丰泽区" />
+      <node Code="350504" Name="洛江区" />
+      <node Code="350505" Name="泉港区" />
+      <node Code="350521" Name="惠安县" />
+      <node Code="350524" Name="安溪县" />
+      <node Code="350525" Name="永春县" />
+      <node Code="350526" Name="德化县" />
+      <node Code="350581" Name="石狮市" />
+      <node Code="350582" Name="晋江市" />
+      <node Code="350583" Name="南安市" />
+    </node>
+    <node Code="350600" Name="漳州市">
+      <node Code="350602" Name="芗城区" />
+      <node Code="350603" Name="龙文区" />
+      <node Code="350622" Name="云霄县" />
+      <node Code="350623" Name="漳浦县" />
+      <node Code="350624" Name="诏安县" />
+      <node Code="350625" Name="长泰县" />
+      <node Code="350626" Name="东山县" />
+      <node Code="350627" Name="南靖县" />
+      <node Code="350628" Name="平和县" />
+      <node Code="350629" Name="华安县" />
+      <node Code="350681" Name="龙海市" />
+    </node>
+    <node Code="350700" Name="南平市">
+      <node Code="350702" Name="延平区" />
+      <node Code="350721" Name="顺昌县" />
+      <node Code="350722" Name="浦城县" />
+      <node Code="350723" Name="光泽县" />
+      <node Code="350724" Name="松溪县" />
+      <node Code="350725" Name="政和县" />
+      <node Code="350781" Name="邵武市" />
+      <node Code="350782" Name="武夷山市" />
+      <node Code="350783" Name="建瓯市" />
+      <node Code="350784" Name="建阳市" />
+    </node>
+    <node Code="350800" Name="龙岩市">
+      <node Code="350802" Name="新罗区" />
+      <node Code="350821" Name="长汀县" />
+      <node Code="350822" Name="永定县" />
+      <node Code="350823" Name="上杭县" />
+      <node Code="350824" Name="武平县" />
+      <node Code="350825" Name="连城县" />
+      <node Code="350881" Name="漳平市" />
+    </node>
+    <node Code="350900" Name="宁德市">
+      <node Code="350902" Name="蕉城区" />
+      <node Code="350921" Name="霞浦县" />
+      <node Code="350922" Name="古田县" />
+      <node Code="350923" Name="屏南县" />
+      <node Code="350924" Name="寿宁县" />
+      <node Code="350925" Name="周宁县" />
+      <node Code="350926" Name="柘荣县" />
+      <node Code="350981" Name="福安市" />
+      <node Code="350982" Name="福鼎市" />
+    </node>
+  </node>
+  <node Code="360000" Name="江西省">
+    <node Code="360100" Name="南昌市">
+      <node Code="360102" Name="东湖区" />
+      <node Code="360103" Name="西湖区" />
+      <node Code="360104" Name="青云谱区" />
+      <node Code="360105" Name="湾里区" />
+      <node Code="360111" Name="青山湖区" />
+      <node Code="360121" Name="南昌县" />
+      <node Code="360122" Name="新建县" />
+      <node Code="360123" Name="安义县" />
+      <node Code="360124" Name="进贤县" />
+      <node Code="360125" Name="红谷滩新区" />
+      <node Code="360126" Name="经济技术开发区" />
+    </node>
+    <node Code="360200" Name="景德镇市">
+      <node Code="360202" Name="昌江区" />
+      <node Code="360203" Name="珠山区" />
+      <node Code="360222" Name="浮梁县" />
+      <node Code="360281" Name="乐平市" />
+    </node>
+    <node Code="360300" Name="萍乡市">
+      <node Code="360302" Name="安源区" />
+      <node Code="360313" Name="湘东区" />
+      <node Code="360321" Name="莲花县" />
+      <node Code="360322" Name="上栗县" />
+      <node Code="360323" Name="芦溪县" />
+    </node>
+    <node Code="360400" Name="九江市">
+      <node Code="360402" Name="庐山区" />
+      <node Code="360403" Name="浔阳区" />
+      <node Code="360421" Name="九江县" />
+      <node Code="360423" Name="武宁县" />
+      <node Code="360424" Name="修水县" />
+      <node Code="360425" Name="永修县" />
+      <node Code="360426" Name="德安县" />
+      <node Code="360427" Name="星子县" />
+      <node Code="360428" Name="都昌县" />
+      <node Code="360429" Name="湖口县" />
+      <node Code="360430" Name="彭泽县" />
+      <node Code="360481" Name="瑞昌市" />
+      <node Code="360482" Name="共青城市" />
+    </node>
+    <node Code="360500" Name="新余市">
+      <node Code="360502" Name="渝水区" />
+      <node Code="360521" Name="分宜县" />
+    </node>
+    <node Code="360600" Name="鹰潭市">
+      <node Code="360602" Name="月湖区" />
+      <node Code="360622" Name="余江县" />
+      <node Code="360681" Name="贵溪市" />
+    </node>
+    <node Code="360700" Name="赣州市">
+      <node Code="360702" Name="章贡区" />
+      <node Code="360721" Name="赣县" />
+      <node Code="360722" Name="信丰县" />
+      <node Code="360723" Name="大余县" />
+      <node Code="360724" Name="上犹县" />
+      <node Code="360725" Name="崇义县" />
+      <node Code="360726" Name="安远县" />
+      <node Code="360727" Name="龙南县" />
+      <node Code="360728" Name="定南县" />
+      <node Code="360729" Name="全南县" />
+      <node Code="360730" Name="宁都县" />
+      <node Code="360731" Name="于都县" />
+      <node Code="360732" Name="兴国县" />
+      <node Code="360733" Name="会昌县" />
+      <node Code="360734" Name="寻乌县" />
+      <node Code="360735" Name="石城县" />
+      <node Code="360751" Name="黄金区" />
+      <node Code="360781" Name="瑞金市" />
+      <node Code="360782" Name="南康市" />
+    </node>
+    <node Code="360800" Name="吉安市">
+      <node Code="360802" Name="吉州区" />
+      <node Code="360803" Name="青原区" />
+      <node Code="360821" Name="吉安县" />
+      <node Code="360822" Name="吉水县" />
+      <node Code="360823" Name="峡江县" />
+      <node Code="360824" Name="新干县" />
+      <node Code="360825" Name="永丰县" />
+      <node Code="360826" Name="泰和县" />
+      <node Code="360827" Name="遂川县" />
+      <node Code="360828" Name="万安县" />
+      <node Code="360829" Name="安福县" />
+      <node Code="360830" Name="永新县" />
+      <node Code="360881" Name="井冈山市" />
+    </node>
+    <node Code="360900" Name="宜春市">
+      <node Code="360902" Name="袁州区" />
+      <node Code="360921" Name="奉新县" />
+      <node Code="360922" Name="万载县" />
+      <node Code="360923" Name="上高县" />
+      <node Code="360924" Name="宜丰县" />
+      <node Code="360925" Name="靖安县" />
+      <node Code="360926" Name="铜鼓县" />
+      <node Code="360981" Name="丰城市" />
+      <node Code="360982" Name="樟树市" />
+      <node Code="360983" Name="高安市" />
+    </node>
+    <node Code="361000" Name="抚州市">
+      <node Code="361002" Name="临川区" />
+      <node Code="361021" Name="南城县" />
+      <node Code="361022" Name="黎川县" />
+      <node Code="361023" Name="南丰县" />
+      <node Code="361024" Name="崇仁县" />
+      <node Code="361025" Name="乐安县" />
+      <node Code="361026" Name="宜黄县" />
+      <node Code="361027" Name="金溪县" />
+      <node Code="361028" Name="资溪县" />
+      <node Code="361029" Name="东乡县" />
+      <node Code="361030" Name="广昌县" />
+    </node>
+    <node Code="361100" Name="上饶市">
+      <node Code="361102" Name="信州区" />
+      <node Code="361121" Name="上饶县" />
+      <node Code="361122" Name="广丰县" />
+      <node Code="361123" Name="玉山县" />
+      <node Code="361124" Name="铅山县" />
+      <node Code="361125" Name="横峰县" />
+      <node Code="361126" Name="弋阳县" />
+      <node Code="361127" Name="余干县" />
+      <node Code="361128" Name="鄱阳县" />
+      <node Code="361129" Name="万年县" />
+      <node Code="361130" Name="婺源县" />
+      <node Code="361181" Name="德兴市" />
+    </node>
+  </node>
+  <node Code="370000" Name="山东省">
+    <node Code="370100" Name="济南市">
+      <node Code="370102" Name="历下区" />
+      <node Code="370103" Name="市中区" />
+      <node Code="370104" Name="槐荫区" />
+      <node Code="370105" Name="天桥区" />
+      <node Code="370106" Name="其它区" />
+      <node Code="370112" Name="历城区" />
+      <node Code="370113" Name="长清区" />
+      <node Code="370124" Name="平阴县" />
+      <node Code="370125" Name="济阳县" />
+      <node Code="370126" Name="商河县" />
+      <node Code="370181" Name="章丘市" />
+    </node>
+    <node Code="370200" Name="青岛市">
+      <node Code="370202" Name="市南区" />
+      <node Code="370203" Name="市北区" />
+      <node Code="370205" Name="四方区" />
+      <node Code="370211" Name="黄岛区" />
+      <node Code="370212" Name="崂山区" />
+      <node Code="370213" Name="李沧区" />
+      <node Code="370214" Name="城阳区" />
+      <node Code="370251" Name="开发区" />
+      <node Code="370281" Name="胶州市" />
+      <node Code="370282" Name="即墨市" />
+      <node Code="370283" Name="平度市" />
+      <node Code="370284" Name="胶南市" />
+      <node Code="370285" Name="莱西市" />
+    </node>
+    <node Code="370300" Name="淄博市">
+      <node Code="370302" Name="淄川区" />
+      <node Code="370303" Name="张店区" />
+      <node Code="370304" Name="博山区" />
+      <node Code="370305" Name="临淄区" />
+      <node Code="370306" Name="周村区" />
+      <node Code="370307" Name="其它区" />
+      <node Code="370321" Name="桓台县" />
+      <node Code="370322" Name="高青县" />
+      <node Code="370323" Name="沂源县" />
+    </node>
+    <node Code="370400" Name="枣庄市">
+      <node Code="370402" Name="市中区" />
+      <node Code="370403" Name="薛城区" />
+      <node Code="370404" Name="峄城区" />
+      <node Code="370405" Name="台儿庄区" />
+      <node Code="370406" Name="山亭区" />
+      <node Code="370481" Name="滕州市" />
+    </node>
+    <node Code="370500" Name="东营市">
+      <node Code="370502" Name="东营区" />
+      <node Code="370503" Name="河口区" />
+      <node Code="370521" Name="垦利县" />
+      <node Code="370522" Name="利津县" />
+      <node Code="370523" Name="广饶县" />
+      <node Code="370589" Name="西城区" />
+      <node Code="370590" Name="东城区" />
+    </node>
+    <node Code="370600" Name="烟台市">
+      <node Code="370602" Name="芝罘区" />
+      <node Code="370603" Name="其它区" />
+      <node Code="370611" Name="福山区" />
+      <node Code="370612" Name="牟平区" />
+      <node Code="370613" Name="莱山区" />
+      <node Code="370634" Name="长岛县" />
+      <node Code="370681" Name="龙口市" />
+      <node Code="370682" Name="莱阳市" />
+      <node Code="370683" Name="莱州市" />
+      <node Code="370684" Name="蓬莱市" />
+      <node Code="370685" Name="招远市" />
+      <node Code="370686" Name="栖霞市" />
+      <node Code="370687" Name="海阳市" />
+    </node>
+    <node Code="370700" Name="潍坊市">
+      <node Code="370702" Name="潍城区" />
+      <node Code="370703" Name="寒亭区" />
+      <node Code="370704" Name="坊子区" />
+      <node Code="370705" Name="奎文区" />
+      <node Code="370724" Name="临朐县" />
+      <node Code="370725" Name="昌乐县" />
+      <node Code="370751" Name="开发区" />
+      <node Code="370781" Name="青州市" />
+      <node Code="370782" Name="诸城市" />
+      <node Code="370783" Name="寿光市" />
+      <node Code="370784" Name="安丘市" />
+      <node Code="370785" Name="高密市" />
+      <node Code="370786" Name="昌邑市" />
+    </node>
+    <node Code="370800" Name="济宁市">
+      <node Code="370802" Name="市中区" />
+      <node Code="370811" Name="任城区" />
+      <node Code="370826" Name="微山县" />
+      <node Code="370827" Name="鱼台县" />
+      <node Code="370828" Name="金乡县" />
+      <node Code="370829" Name="嘉祥县" />
+      <node Code="370830" Name="汶上县" />
+      <node Code="370831" Name="泗水县" />
+      <node Code="370832" Name="梁山县" />
+      <node Code="370881" Name="曲阜市" />
+      <node Code="370882" Name="兖州市" />
+      <node Code="370883" Name="邹城市" />
+    </node>
+    <node Code="370900" Name="泰安市">
+      <node Code="370902" Name="泰山区" />
+      <node Code="370903" Name="岱岳区" />
+      <node Code="370921" Name="宁阳县" />
+      <node Code="370923" Name="东平县" />
+      <node Code="370982" Name="新泰市" />
+      <node Code="370983" Name="肥城市" />
+    </node>
+    <node Code="371000" Name="威海市">
+      <node Code="371002" Name="环翠区" />
+      <node Code="371081" Name="文登市" />
+      <node Code="371082" Name="荣成市" />
+      <node Code="371083" Name="乳山市" />
+    </node>
+    <node Code="371100" Name="日照市">
+      <node Code="371102" Name="东港区" />
+      <node Code="371103" Name="岚山区" />
+      <node Code="371104" Name="其它区" />
+      <node Code="371121" Name="五莲县" />
+      <node Code="371122" Name="莒县" />
+    </node>
+    <node Code="371200" Name="莱芜市">
+      <node Code="371202" Name="莱城区" />
+      <node Code="371203" Name="钢城区" />
+    </node>
+    <node Code="371300" Name="临沂市">
+      <node Code="371302" Name="兰山区" />
+      <node Code="371311" Name="罗庄区" />
+      <node Code="371312" Name="河东区" />
+      <node Code="371321" Name="沂南县" />
+      <node Code="371322" Name="郯城县" />
+      <node Code="371323" Name="沂水县" />
+      <node Code="371324" Name="苍山县" />
+      <node Code="371325" Name="费县" />
+      <node Code="371326" Name="平邑县" />
+      <node Code="371327" Name="莒南县" />
+      <node Code="371328" Name="蒙阴县" />
+      <node Code="371329" Name="临沭县" />
+    </node>
+    <node Code="371400" Name="德州市">
+      <node Code="371402" Name="德城区" />
+      <node Code="371421" Name="陵县" />
+      <node Code="371422" Name="宁津县" />
+      <node Code="371423" Name="庆云县" />
+      <node Code="371424" Name="临邑县" />
+      <node Code="371425" Name="齐河县" />
+      <node Code="371426" Name="平原县" />
+      <node Code="371427" Name="夏津县" />
+      <node Code="371428" Name="武城县" />
+      <node Code="371451" Name="开发区" />
+      <node Code="371481" Name="乐陵市" />
+      <node Code="371482" Name="禹城市" />
+    </node>
+    <node Code="371500" Name="聊城市">
+      <node Code="371502" Name="东昌府区" />
+      <node Code="371521" Name="阳谷县" />
+      <node Code="371522" Name="莘县" />
+      <node Code="371523" Name="茌平县" />
+      <node Code="371524" Name="东阿县" />
+      <node Code="371525" Name="冠县" />
+      <node Code="371526" Name="高唐县" />
+      <node Code="371581" Name="临清市" />
+    </node>
+    <node Code="371600" Name="滨州市">
+      <node Code="371602" Name="滨城区" />
+      <node Code="371621" Name="惠民县" />
+      <node Code="371622" Name="阳信县" />
+      <node Code="371623" Name="无棣县" />
+      <node Code="371624" Name="沾化县" />
+      <node Code="371625" Name="博兴县" />
+      <node Code="371626" Name="邹平县" />
+    </node>
+    <node Code="371700" Name="菏泽市">
+      <node Code="371702" Name="牡丹区" />
+      <node Code="371721" Name="曹县" />
+      <node Code="371722" Name="单县" />
+      <node Code="371723" Name="成武县" />
+      <node Code="371724" Name="巨野县" />
+      <node Code="371725" Name="郓城县" />
+      <node Code="371726" Name="鄄城县" />
+      <node Code="371727" Name="定陶县" />
+      <node Code="371728" Name="东明县" />
+    </node>
+  </node>
+  <node Code="410000" Name="河南省">
+    <node Code="410100" Name="郑州市">
+      <node Code="410102" Name="中原区" />
+      <node Code="410103" Name="二七区" />
+      <node Code="410104" Name="管城回族区" />
+      <node Code="410105" Name="金水区" />
+      <node Code="410106" Name="上街区" />
+      <node Code="410108" Name="惠济区" />
+      <node Code="410122" Name="中牟县" />
+      <node Code="410181" Name="巩义市" />
+      <node Code="410182" Name="荥阳市" />
+      <node Code="410183" Name="新密市" />
+      <node Code="410184" Name="新郑市" />
+      <node Code="410185" Name="登封市" />
+      <node Code="410186" Name="郑东新区" />
+      <node Code="410187" Name="高新区" />
+      <node Code="410188" Name="航空港区" />
+    </node>
+    <node Code="410200" Name="开封市">
+      <node Code="410202" Name="龙亭区" />
+      <node Code="410203" Name="顺河回族区" />
+      <node Code="410204" Name="鼓楼区" />
+      <node Code="410205" Name="禹王台区" />
+      <node Code="410211" Name="金明区" />
+      <node Code="410221" Name="杞县" />
+      <node Code="410222" Name="通许县" />
+      <node Code="410223" Name="尉氏县" />
+      <node Code="410224" Name="开封县" />
+      <node Code="410225" Name="兰考县" />
+    </node>
+    <node Code="410300" Name="洛阳市">
+      <node Code="410302" Name="老城区" />
+      <node Code="410303" Name="西工区" />
+      <node Code="410304" Name="瀍河回族区" />
+      <node Code="410305" Name="涧西区" />
+      <node Code="410306" Name="吉利区" />
+      <node Code="410307" Name="洛龙区" />
+      <node Code="410322" Name="孟津县" />
+      <node Code="410323" Name="新安县" />
+      <node Code="410324" Name="栾川县" />
+      <node Code="410325" Name="嵩县" />
+      <node Code="410326" Name="汝阳县" />
+      <node Code="410327" Name="宜阳县" />
+      <node Code="410328" Name="洛宁县" />
+      <node Code="410329" Name="伊川县" />
+      <node Code="410381" Name="偃师市" />
+      <node Code="471004" Name="高新区" />
+    </node>
+    <node Code="410400" Name="平顶山市">
+      <node Code="410402" Name="新华区" />
+      <node Code="410403" Name="卫东区" />
+      <node Code="410404" Name="石龙区" />
+      <node Code="410405" Name="其它区" />
+      <node Code="410411" Name="湛河区" />
+      <node Code="410421" Name="宝丰县" />
+      <node Code="410422" Name="叶县" />
+      <node Code="410423" Name="鲁山县" />
+      <node Code="410425" Name="郏县" />
+      <node Code="410481" Name="舞钢市" />
+      <node Code="410482" Name="汝州市" />
+    </node>
+    <node Code="410500" Name="安阳市">
+      <node Code="410502" Name="文峰区" />
+      <node Code="410503" Name="北关区" />
+      <node Code="410505" Name="殷都区" />
+      <node Code="410506" Name="龙安区" />
+      <node Code="410522" Name="安阳县" />
+      <node Code="410523" Name="汤阴县" />
+      <node Code="410526" Name="滑县" />
+      <node Code="410527" Name="内黄县" />
+      <node Code="410581" Name="林州市" />
+    </node>
+    <node Code="410600" Name="鹤壁市">
+      <node Code="410602" Name="鹤山区" />
+      <node Code="410603" Name="山城区" />
+      <node Code="410611" Name="淇滨区" />
+      <node Code="410621" Name="浚县" />
+      <node Code="410622" Name="淇县" />
+    </node>
+    <node Code="410700" Name="新乡市">
+      <node Code="410702" Name="红旗区" />
+      <node Code="410703" Name="卫滨区" />
+      <node Code="410704" Name="凤泉区" />
+      <node Code="410705" Name="其它区" />
+      <node Code="410711" Name="牧野区" />
+      <node Code="410721" Name="新乡县" />
+      <node Code="410724" Name="获嘉县" />
+      <node Code="410725" Name="原阳县" />
+      <node Code="410726" Name="延津县" />
+      <node Code="410727" Name="封丘县" />
+      <node Code="410728" Name="长垣县" />
+      <node Code="410781" Name="卫辉市" />
+      <node Code="410782" Name="辉县市" />
+    </node>
+    <node Code="410800" Name="焦作市">
+      <node Code="410802" Name="解放区" />
+      <node Code="410803" Name="中站区" />
+      <node Code="410804" Name="马村区" />
+      <node Code="410811" Name="山阳区" />
+      <node Code="410821" Name="修武县" />
+      <node Code="410822" Name="博爱县" />
+      <node Code="410823" Name="武陟县" />
+      <node Code="410825" Name="温县" />
+      <node Code="410882" Name="沁阳市" />
+      <node Code="410883" Name="孟州市" />
+    </node>
+    <node Code="410881" Name="济源市">
+      <node Code="410802" Name="解放区" />
+      <node Code="410803" Name="中站区" />
+      <node Code="410804" Name="马村区" />
+      <node Code="410811" Name="山阳区" />
+      <node Code="410821" Name="修武县" />
+      <node Code="410822" Name="博爱县" />
+      <node Code="410823" Name="武陟县" />
+      <node Code="410825" Name="温县" />
+      <node Code="410882" Name="沁阳市" />
+      <node Code="410883" Name="孟州市" />
+    </node>
+    <node Code="410900" Name="濮阳市">
+      <node Code="410902" Name="华龙区" />
+      <node Code="410922" Name="清丰县" />
+      <node Code="410923" Name="南乐县" />
+      <node Code="410926" Name="范县" />
+      <node Code="410927" Name="台前县" />
+      <node Code="410928" Name="濮阳县" />
+    </node>
+    <node Code="411000" Name="许昌市">
+      <node Code="411002" Name="魏都区" />
+      <node Code="411023" Name="许昌县" />
+      <node Code="411024" Name="鄢陵县" />
+      <node Code="411025" Name="襄城县" />
+      <node Code="411081" Name="禹州市" />
+      <node Code="411082" Name="长葛市" />
+    </node>
+    <node Code="411100" Name="漯河市">
+      <node Code="411102" Name="源汇区" />
+      <node Code="411103" Name="郾城区" />
+      <node Code="411104" Name="召陵区" />
+      <node Code="411121" Name="舞阳县" />
+      <node Code="411122" Name="临颍县" />
+    </node>
+    <node Code="411200" Name="三门峡市">
+      <node Code="411202" Name="湖滨区" />
+      <node Code="411203" Name="其它区" />
+      <node Code="411221" Name="渑池县" />
+      <node Code="411222" Name="陕县" />
+      <node Code="411224" Name="卢氏县" />
+      <node Code="411281" Name="义马市" />
+      <node Code="411282" Name="灵宝市" />
+    </node>
+    <node Code="411300" Name="南阳市">
+      <node Code="411302" Name="宛城区" />
+      <node Code="411303" Name="卧龙区" />
+      <node Code="411304" Name="其它区" />
+      <node Code="411321" Name="南召县" />
+      <node Code="411322" Name="方城县" />
+      <node Code="411323" Name="西峡县" />
+      <node Code="411324" Name="镇平县" />
+      <node Code="411325" Name="内乡县" />
+      <node Code="411326" Name="淅川县" />
+      <node Code="411327" Name="社旗县" />
+      <node Code="411328" Name="唐河县" />
+      <node Code="411329" Name="新野县" />
+      <node Code="411330" Name="桐柏县" />
+      <node Code="411381" Name="邓州市" />
+    </node>
+    <node Code="411400" Name="商丘市">
+      <node Code="411402" Name="梁园区" />
+      <node Code="411403" Name="睢阳区" />
+      <node Code="411421" Name="民权县" />
+      <node Code="411422" Name="睢县" />
+      <node Code="411423" Name="宁陵县" />
+      <node Code="411424" Name="柘城县" />
+      <node Code="411425" Name="虞城县" />
+      <node Code="411426" Name="夏邑县" />
+      <node Code="411481" Name="永城市" />
+    </node>
+    <node Code="411500" Name="信阳市">
+      <node Code="411502" Name="浉河区" />
+      <node Code="411503" Name="平桥区" />
+      <node Code="411521" Name="罗山县" />
+      <node Code="411522" Name="光山县" />
+      <node Code="411523" Name="新县" />
+      <node Code="411524" Name="商城县" />
+      <node Code="411525" Name="固始县" />
+      <node Code="411526" Name="潢川县" />
+      <node Code="411527" Name="淮滨县" />
+      <node Code="411528" Name="息县" />
+    </node>
+    <node Code="411600" Name="周口市">
+      <node Code="411602" Name="川汇区" />
+      <node Code="411621" Name="扶沟县" />
+      <node Code="411622" Name="西华县" />
+      <node Code="411623" Name="商水县" />
+      <node Code="411624" Name="沈丘县" />
+      <node Code="411625" Name="郸城县" />
+      <node Code="411626" Name="淮阳县" />
+      <node Code="411627" Name="太康县" />
+      <node Code="411628" Name="鹿邑县" />
+      <node Code="411681" Name="项城市" />
+    </node>
+    <node Code="411700" Name="驻马店市">
+      <node Code="411702" Name="驿城区" />
+      <node Code="411721" Name="西平县" />
+      <node Code="411722" Name="上蔡县" />
+      <node Code="411723" Name="平舆县" />
+      <node Code="411724" Name="正阳县" />
+      <node Code="411725" Name="确山县" />
+      <node Code="411726" Name="泌阳县" />
+      <node Code="411727" Name="汝南县" />
+      <node Code="411728" Name="遂平县" />
+      <node Code="411729" Name="新蔡县" />
+    </node>
+  </node>
+  <node Code="420000" Name="湖北省">
+    <node Code="420100" Name="武汉市">
+      <node Code="420102" Name="江岸区" />
+      <node Code="420103" Name="江汉区" />
+      <node Code="420104" Name="硚口区" />
+      <node Code="420105" Name="汉阳区" />
+      <node Code="420106" Name="武昌区" />
+      <node Code="420107" Name="青山区" />
+      <node Code="420111" Name="洪山区" />
+      <node Code="420112" Name="东西湖区" />
+      <node Code="420113" Name="汉南区" />
+      <node Code="420114" Name="蔡甸区" />
+      <node Code="420115" Name="江夏区" />
+      <node Code="420116" Name="黄陂区" />
+      <node Code="420117" Name="新洲区" />
+    </node>
+    <node Code="420200" Name="黄石市">
+      <node Code="420202" Name="黄石港区" />
+      <node Code="420203" Name="西塞山区" />
+      <node Code="420204" Name="下陆区" />
+      <node Code="420205" Name="铁山区" />
+      <node Code="420222" Name="阳新县" />
+      <node Code="420281" Name="大冶市" />
+    </node>
+    <node Code="420300" Name="十堰市">
+      <node Code="420302" Name="茅箭区" />
+      <node Code="420303" Name="张湾区" />
+      <node Code="420321" Name="郧县" />
+      <node Code="420322" Name="郧西县" />
+      <node Code="420323" Name="竹山县" />
+      <node Code="420324" Name="竹溪县" />
+      <node Code="420325" Name="房县" />
+      <node Code="420381" Name="丹江口市" />
+      <node Code="420382" Name="城区" />
+    </node>
+    <node Code="420500" Name="宜昌市">
+      <node Code="420502" Name="西陵区" />
+      <node Code="420503" Name="伍家岗区" />
+      <node Code="420504" Name="点军区" />
+      <node Code="420505" Name="猇亭区" />
+      <node Code="420506" Name="夷陵区" />
+      <node Code="420525" Name="远安县" />
+      <node Code="420526" Name="兴山县" />
+      <node Code="420527" Name="秭归县" />
+      <node Code="420528" Name="长阳土家族自治县" />
+      <node Code="420529" Name="五峰土家族自治县" />
+      <node Code="420551" Name="葛洲坝区" />
+      <node Code="420552" Name="开发区" />
+      <node Code="420581" Name="宜都市" />
+      <node Code="420582" Name="当阳市" />
+      <node Code="420583" Name="枝江市" />
+    </node>
+    <node Code="420600" Name="襄阳市">
+      <node Code="420602" Name="襄城区" />
+      <node Code="420606" Name="樊城区" />
+      <node Code="420607" Name="襄州区" />
+      <node Code="420624" Name="南漳县" />
+      <node Code="420625" Name="谷城县" />
+      <node Code="420626" Name="保康县" />
+      <node Code="420682" Name="老河口市" />
+      <node Code="420683" Name="枣阳市" />
+      <node Code="420684" Name="宜城市" />
+    </node>
+    <node Code="420700" Name="鄂州市">
+      <node Code="420702" Name="梁子湖区" />
+      <node Code="420703" Name="华容区" />
+      <node Code="420704" Name="鄂城区" />
+    </node>
+    <node Code="420800" Name="荆门市">
+      <node Code="420802" Name="东宝区" />
+      <node Code="420804" Name="掇刀区" />
+      <node Code="420821" Name="京山县" />
+      <node Code="420822" Name="沙洋县" />
+      <node Code="420881" Name="钟祥市" />
+    </node>
+    <node Code="420900" Name="孝感市">
+      <node Code="420902" Name="孝南区" />
+      <node Code="420921" Name="孝昌县" />
+      <node Code="420922" Name="大悟县" />
+      <node Code="420923" Name="云梦县" />
+      <node Code="420981" Name="应城市" />
+      <node Code="420982" Name="安陆市" />
+      <node Code="420984" Name="汉川市" />
+    </node>
+    <node Code="421000" Name="荆州市">
+      <node Code="421002" Name="沙市区" />
+      <node Code="421003" Name="荆州区" />
+      <node Code="421022" Name="公安县" />
+      <node Code="421023" Name="监利县" />
+      <node Code="421024" Name="江陵县" />
+      <node Code="421081" Name="石首市" />
+      <node Code="421083" Name="洪湖市" />
+      <node Code="421087" Name="松滋市" />
+    </node>
+    <node Code="421100" Name="黄冈市">
+      <node Code="421102" Name="黄州区" />
+      <node Code="421121" Name="团风县" />
+      <node Code="421122" Name="红安县" />
+      <node Code="421123" Name="罗田县" />
+      <node Code="421124" Name="英山县" />
+      <node Code="421125" Name="浠水县" />
+      <node Code="421126" Name="蕲春县" />
+      <node Code="421127" Name="黄梅县" />
+      <node Code="421181" Name="麻城市" />
+      <node Code="421182" Name="武穴市" />
+    </node>
+    <node Code="421200" Name="咸宁市">
+      <node Code="421202" Name="咸安区" />
+      <node Code="421221" Name="嘉鱼县" />
+      <node Code="421222" Name="通城县" />
+      <node Code="421223" Name="崇阳县" />
+      <node Code="421224" Name="通山县" />
+      <node Code="421281" Name="赤壁市" />
+      <node Code="421282" Name="温泉城区" />
+    </node>
+    <node Code="421300" Name="随州市">
+      <node Code="421302" Name="曾都区" />
+      <node Code="421321" Name="随县" />
+      <node Code="421381" Name="广水市" />
+    </node>
+    <node Code="422800" Name="恩施土家族苗族自治州">
+      <node Code="422801" Name="恩施市" />
+      <node Code="422802" Name="利川市" />
+      <node Code="422822" Name="建始县" />
+      <node Code="422823" Name="巴东县" />
+      <node Code="422825" Name="宣恩县" />
+      <node Code="422826" Name="咸丰县" />
+      <node Code="422827" Name="来凤县" />
+      <node Code="422828" Name="鹤峰县" />
+    </node>
+    <node Code="429004" Name="仙桃市">
+      <node Code="422801" Name="恩施市" />
+      <node Code="422802" Name="利川市" />
+      <node Code="422822" Name="建始县" />
+      <node Code="422823" Name="巴东县" />
+      <node Code="422825" Name="宣恩县" />
+      <node Code="422826" Name="咸丰县" />
+      <node Code="422827" Name="来凤县" />
+      <node Code="422828" Name="鹤峰县" />
+    </node>
+    <node Code="429005" Name="潜江市">
+      <node Code="422801" Name="恩施市" />
+      <node Code="422802" Name="利川市" />
+      <node Code="422822" Name="建始县" />
+      <node Code="422823" Name="巴东县" />
+      <node Code="422825" Name="宣恩县" />
+      <node Code="422826" Name="咸丰县" />
+      <node Code="422827" Name="来凤县" />
+      <node Code="422828" Name="鹤峰县" />
+    </node>
+    <node Code="429006" Name="天门市">
+      <node Code="422801" Name="恩施市" />
+      <node Code="422802" Name="利川市" />
+      <node Code="422822" Name="建始县" />
+      <node Code="422823" Name="巴东县" />
+      <node Code="422825" Name="宣恩县" />
+      <node Code="422826" Name="咸丰县" />
+      <node Code="422827" Name="来凤县" />
+      <node Code="422828" Name="鹤峰县" />
+    </node>
+    <node Code="429021" Name="神农架林区">
+      <node Code="422801" Name="恩施市" />
+      <node Code="422802" Name="利川市" />
+      <node Code="422822" Name="建始县" />
+      <node Code="422823" Name="巴东县" />
+      <node Code="422825" Name="宣恩县" />
+      <node Code="422826" Name="咸丰县" />
+      <node Code="422827" Name="来凤县" />
+      <node Code="422828" Name="鹤峰县" />
+    </node>
+  </node>
+  <node Code="430000" Name="湖南省">
+    <node Code="430100" Name="长沙市">
+      <node Code="430102" Name="芙蓉区" />
+      <node Code="430103" Name="天心区" />
+      <node Code="430104" Name="岳麓区" />
+      <node Code="430105" Name="开福区" />
+      <node Code="430111" Name="雨花区" />
+      <node Code="430121" Name="长沙县" />
+      <node Code="430122" Name="望城区" />
+      <node Code="430124" Name="宁乡县" />
+      <node Code="430181" Name="浏阳市" />
+    </node>
+    <node Code="430200" Name="株洲市">
+      <node Code="430202" Name="荷塘区" />
+      <node Code="430203" Name="芦淞区" />
+      <node Code="430204" Name="石峰区" />
+      <node Code="430211" Name="天元区" />
+      <node Code="430221" Name="株洲县" />
+      <node Code="430223" Name="攸县" />
+      <node Code="430224" Name="茶陵县" />
+      <node Code="430225" Name="炎陵县" />
+      <node Code="430281" Name="醴陵市" />
+    </node>
+    <node Code="430300" Name="湘潭市">
+      <node Code="430302" Name="雨湖区" />
+      <node Code="430304" Name="岳塘区" />
+      <node Code="430321" Name="湘潭县" />
+      <node Code="430381" Name="湘乡市" />
+      <node Code="430382" Name="韶山市" />
+    </node>
+    <node Code="430400" Name="衡阳市">
+      <node Code="430405" Name="珠晖区" />
+      <node Code="430406" Name="雁峰区" />
+      <node Code="430407" Name="石鼓区" />
+      <node Code="430408" Name="蒸湘区" />
+      <node Code="430412" Name="南岳区" />
+      <node Code="430421" Name="衡阳县" />
+      <node Code="430422" Name="衡南县" />
+      <node Code="430423" Name="衡山县" />
+      <node Code="430424" Name="衡东县" />
+      <node Code="430426" Name="祁东县" />
+      <node Code="430481" Name="耒阳市" />
+      <node Code="430482" Name="常宁市" />
+    </node>
+    <node Code="430500" Name="邵阳市">
+      <node Code="430502" Name="双清区" />
+      <node Code="430503" Name="大祥区" />
+      <node Code="430511" Name="北塔区" />
+      <node Code="430521" Name="邵东县" />
+      <node Code="430522" Name="新邵县" />
+      <node Code="430523" Name="邵阳县" />
+      <node Code="430524" Name="隆回县" />
+      <node Code="430525" Name="洞口县" />
+      <node Code="430527" Name="绥宁县" />
+      <node Code="430528" Name="新宁县" />
+      <node Code="430529" Name="城步苗族自治县" />
+      <node Code="430581" Name="武冈市" />
+    </node>
+    <node Code="430600" Name="岳阳市">
+      <node Code="430602" Name="岳阳楼区" />
+      <node Code="430603" Name="云溪区" />
+      <node Code="430611" Name="君山区" />
+      <node Code="430621" Name="岳阳县" />
+      <node Code="430623" Name="华容县" />
+      <node Code="430624" Name="湘阴县" />
+      <node Code="430626" Name="平江县" />
+      <node Code="430681" Name="汨罗市" />
+      <node Code="430682" Name="临湘市" />
+    </node>
+    <node Code="430700" Name="常德市">
+      <node Code="430702" Name="武陵区" />
+      <node Code="430703" Name="鼎城区" />
+      <node Code="430721" Name="安乡县" />
+      <node Code="430722" Name="汉寿县" />
+      <node Code="430723" Name="澧县" />
+      <node Code="430724" Name="临澧县" />
+      <node Code="430725" Name="桃源县" />
+      <node Code="430726" Name="石门县" />
+      <node Code="430781" Name="津市市" />
+    </node>
+    <node Code="430800" Name="张家界市">
+      <node Code="430802" Name="永定区" />
+      <node Code="430811" Name="武陵源区" />
+      <node Code="430821" Name="慈利县" />
+      <node Code="430822" Name="桑植县" />
+    </node>
+    <node Code="430900" Name="益阳市">
+      <node Code="430902" Name="资阳区" />
+      <node Code="430903" Name="赫山区" />
+      <node Code="430921" Name="南县" />
+      <node Code="430922" Name="桃江县" />
+      <node Code="430923" Name="安化县" />
+      <node Code="430981" Name="沅江市" />
+    </node>
+    <node Code="431000" Name="郴州市">
+      <node Code="431002" Name="北湖区" />
+      <node Code="431003" Name="苏仙区" />
+      <node Code="431021" Name="桂阳县" />
+      <node Code="431022" Name="宜章县" />
+      <node Code="431023" Name="永兴县" />
+      <node Code="431024" Name="嘉禾县" />
+      <node Code="431025" Name="临武县" />
+      <node Code="431026" Name="汝城县" />
+      <node Code="431027" Name="桂东县" />
+      <node Code="431028" Name="安仁县" />
+      <node Code="431081" Name="资兴市" />
+    </node>
+    <node Code="431100" Name="永州市">
+      <node Code="431102" Name="零陵区" />
+      <node Code="431103" Name="冷水滩区" />
+      <node Code="431121" Name="祁阳县" />
+      <node Code="431122" Name="东安县" />
+      <node Code="431123" Name="双牌县" />
+      <node Code="431124" Name="道县" />
+      <node Code="431125" Name="江永县" />
+      <node Code="431126" Name="宁远县" />
+      <node Code="431127" Name="蓝山县" />
+      <node Code="431128" Name="新田县" />
+      <node Code="431129" Name="江华瑶族自治县" />
+    </node>
+    <node Code="431200" Name="怀化市">
+      <node Code="431202" Name="鹤城区" />
+      <node Code="431221" Name="中方县" />
+      <node Code="431222" Name="沅陵县" />
+      <node Code="431223" Name="辰溪县" />
+      <node Code="431224" Name="溆浦县" />
+      <node Code="431225" Name="会同县" />
+      <node Code="431226" Name="麻阳苗族自治县" />
+      <node Code="431227" Name="新晃侗族自治县" />
+      <node Code="431228" Name="芷江侗族自治县" />
+      <node Code="431229" Name="靖州苗族侗族自治县" />
+      <node Code="431230" Name="通道侗族自治县" />
+      <node Code="431281" Name="洪江市" />
+    </node>
+    <node Code="431300" Name="娄底市">
+      <node Code="431302" Name="娄星区" />
+      <node Code="431303" Name="其它区" />
+      <node Code="431321" Name="双峰县" />
+      <node Code="431322" Name="新化县" />
+      <node Code="431381" Name="冷水江市" />
+      <node Code="431382" Name="涟源市" />
+    </node>
+    <node Code="433100" Name="湘西土家族苗族自治州">
+      <node Code="433101" Name="吉首市" />
+      <node Code="433122" Name="泸溪县" />
+      <node Code="433123" Name="凤凰县" />
+      <node Code="433124" Name="花垣县" />
+      <node Code="433125" Name="保靖县" />
+      <node Code="433126" Name="古丈县" />
+      <node Code="433127" Name="永顺县" />
+      <node Code="433130" Name="龙山县" />
+    </node>
+  </node>
+  <node Code="440000" Name="广东省">
+    <node Code="440100" Name="广州市">
+      <node Code="440103" Name="荔湾区" />
+      <node Code="440104" Name="越秀区" />
+      <node Code="440105" Name="海珠区" />
+      <node Code="440106" Name="天河区" />
+      <node Code="440111" Name="白云区" />
+      <node Code="440112" Name="黄埔区" />
+      <node Code="440113" Name="番禺区" />
+      <node Code="440114" Name="花都区" />
+      <node Code="440115" Name="南沙区" />
+      <node Code="440116" Name="萝岗区" />
+      <node Code="440183" Name="增城市" />
+      <node Code="440184" Name="从化市" />
+      <node Code="440188" Name="东山区" />
+    </node>
+    <node Code="440200" Name="韶关市">
+      <node Code="440203" Name="武江区" />
+      <node Code="440204" Name="浈江区" />
+      <node Code="440205" Name="曲江区" />
+      <node Code="440222" Name="始兴县" />
+      <node Code="440224" Name="仁化县" />
+      <node Code="440229" Name="翁源县" />
+      <node Code="440232" Name="乳源瑶族自治县" />
+      <node Code="440233" Name="新丰县" />
+      <node Code="440281" Name="乐昌市" />
+      <node Code="440282" Name="南雄市" />
+    </node>
+    <node Code="440300" Name="深圳市">
+      <node Code="440302" Name="大鹏新区" />
+      <node Code="440303" Name="罗湖区" />
+      <node Code="440304" Name="福田区" />
+      <node Code="440305" Name="南山区" />
+      <node Code="440306" Name="宝安区" />
+      <node Code="440307" Name="龙岗区" />
+      <node Code="440308" Name="盐田区" />
+      <node Code="440309" Name="龙华新区" />
+    </node>
+    <node Code="440400" Name="珠海市">
+      <node Code="440402" Name="香洲区" />
+      <node Code="440403" Name="斗门区" />
+      <node Code="440404" Name="金湾区" />
+      <node Code="440486" Name="金唐区" />
+      <node Code="440487" Name="南湾区" />
+    </node>
+    <node Code="440500" Name="汕头市">
+      <node Code="440507" Name="龙湖区" />
+      <node Code="440511" Name="金平区" />
+      <node Code="440512" Name="濠江区" />
+      <node Code="440513" Name="潮阳区" />
+      <node Code="440514" Name="潮南区" />
+      <node Code="440515" Name="澄海区" />
+      <node Code="440523" Name="南澳县" />
+    </node>
+    <node Code="440600" Name="佛山市">
+      <node Code="440603" Name="其它区" />
+      <node Code="440604" Name="禅城区" />
+      <node Code="440605" Name="南海区" />
+      <node Code="440606" Name="顺德区" />
+      <node Code="440607" Name="三水区" />
+      <node Code="440608" Name="高明区" />
+    </node>
+    <node Code="440700" Name="江门市">
+      <node Code="440703" Name="蓬江区" />
+      <node Code="440704" Name="江海区" />
+      <node Code="440705" Name="新会区" />
+      <node Code="440781" Name="台山市" />
+      <node Code="440783" Name="开平市" />
+      <node Code="440784" Name="鹤山市" />
+      <node Code="440785" Name="恩平市" />
+    </node>
+    <node Code="440800" Name="湛江市">
+      <node Code="440802" Name="赤坎区" />
+      <node Code="440803" Name="霞山区" />
+      <node Code="440804" Name="坡头区" />
+      <node Code="440811" Name="麻章区" />
+      <node Code="440823" Name="遂溪县" />
+      <node Code="440825" Name="徐闻县" />
+      <node Code="440881" Name="廉江市" />
+      <node Code="440882" Name="雷州市" />
+      <node Code="440883" Name="吴川市" />
+    </node>
+    <node Code="440900" Name="茂名市">
+      <node Code="440902" Name="茂南区" />
+      <node Code="440903" Name="茂港区" />
+      <node Code="440923" Name="电白县" />
+      <node Code="440981" Name="高州市" />
+      <node Code="440982" Name="化州市" />
+      <node Code="440983" Name="信宜市" />
+    </node>
+    <node Code="441200" Name="肇庆市">
+      <node Code="441202" Name="端州区" />
+      <node Code="441203" Name="鼎湖区" />
+      <node Code="441223" Name="广宁县" />
+      <node Code="441224" Name="怀集县" />
+      <node Code="441225" Name="封开县" />
+      <node Code="441226" Name="德庆县" />
+      <node Code="441283" Name="高要市" />
+      <node Code="441284" Name="四会市" />
+    </node>
+    <node Code="441300" Name="惠州市">
+      <node Code="441302" Name="惠城区" />
+      <node Code="441303" Name="惠阳区" />
+      <node Code="441322" Name="博罗县" />
+      <node Code="441323" Name="惠东县" />
+      <node Code="441324" Name="龙门县" />
+    </node>
+    <node Code="441400" Name="梅州市">
+      <node Code="441402" Name="梅江区" />
+      <node Code="441421" Name="梅县" />
+      <node Code="441422" Name="大埔县" />
+      <node Code="441423" Name="丰顺县" />
+      <node Code="441424" Name="五华县" />
+      <node Code="441426" Name="平远县" />
+      <node Code="441427" Name="蕉岭县" />
+      <node Code="441481" Name="兴宁市" />
+    </node>
+    <node Code="441500" Name="汕尾市">
+      <node Code="441502" Name="城区" />
+      <node Code="441521" Name="海丰县" />
+      <node Code="441523" Name="陆河县" />
+      <node Code="441581" Name="陆丰市" />
+    </node>
+    <node Code="441600" Name="河源市">
+      <node Code="441602" Name="源城区" />
+      <node Code="441621" Name="紫金县" />
+      <node Code="441622" Name="龙川县" />
+      <node Code="441623" Name="连平县" />
+      <node Code="441624" Name="和平县" />
+      <node Code="441625" Name="东源县" />
+    </node>
+    <node Code="441700" Name="阳江市">
+      <node Code="441702" Name="江城区" />
+      <node Code="441721" Name="阳西县" />
+      <node Code="441723" Name="阳东县" />
+      <node Code="441781" Name="阳春市" />
+    </node>
+    <node Code="441800" Name="清远市">
+      <node Code="441802" Name="清城区" />
+      <node Code="441821" Name="佛冈县" />
+      <node Code="441823" Name="阳山县" />
+      <node Code="441825" Name="连山壮族瑶族自治县" />
+      <node Code="441826" Name="连南瑶族自治县" />
+      <node Code="441827" Name="清新区" />
+      <node Code="441881" Name="英德市" />
+      <node Code="441882" Name="连州市" />
+    </node>
+    <node Code="441900" Name="东莞市">
+      <node Code="441802" Name="清城区" />
+      <node Code="441821" Name="佛冈县" />
+      <node Code="441823" Name="阳山县" />
+      <node Code="441825" Name="连山壮族瑶族自治县" />
+      <node Code="441826" Name="连南瑶族自治县" />
+      <node Code="441827" Name="清新区" />
+      <node Code="441881" Name="英德市" />
+      <node Code="441882" Name="连州市" />
+    </node>
+    <node Code="442000" Name="中山市">
+      <node Code="441802" Name="清城区" />
+      <node Code="441821" Name="佛冈县" />
+      <node Code="441823" Name="阳山县" />
+      <node Code="441825" Name="连山壮族瑶族自治县" />
+      <node Code="441826" Name="连南瑶族自治县" />
+      <node Code="441827" Name="清新区" />
+      <node Code="441881" Name="英德市" />
+      <node Code="441882" Name="连州市" />
+    </node>
+    <node Code="445100" Name="潮州市">
+      <node Code="445102" Name="湘桥区" />
+      <node Code="445121" Name="潮安区" />
+      <node Code="445122" Name="饶平县" />
+      <node Code="445185" Name="枫溪区" />
+    </node>
+    <node Code="445200" Name="揭阳市">
+      <node Code="445202" Name="榕城区" />
+      <node Code="445221" Name="揭东区" />
+      <node Code="445222" Name="揭西县" />
+      <node Code="445224" Name="惠来县" />
+      <node Code="445281" Name="普宁市" />
+      <node Code="445284" Name="东山区" />
+    </node>
+    <node Code="445300" Name="云浮市">
+      <node Code="445302" Name="云城区" />
+      <node Code="445321" Name="新兴县" />
+      <node Code="445322" Name="郁南县" />
+      <node Code="445323" Name="云安县" />
+      <node Code="445381" Name="罗定市" />
+    </node>
+  </node>
+  <node Code="450000" Name="广西壮族自治区">
+    <node Code="450100" Name="南宁市">
+      <node Code="450102" Name="兴宁区" />
+      <node Code="450103" Name="青秀区" />
+      <node Code="450105" Name="江南区" />
+      <node Code="450107" Name="西乡塘区" />
+      <node Code="450108" Name="良庆区" />
+      <node Code="450109" Name="邕宁区" />
+      <node Code="450122" Name="武鸣县" />
+      <node Code="450123" Name="隆安县" />
+      <node Code="450124" Name="马山县" />
+      <node Code="450125" Name="上林县" />
+      <node Code="450126" Name="宾阳县" />
+      <node Code="450127" Name="横县" />
+    </node>
+    <node Code="450200" Name="柳州市">
+      <node Code="450202" Name="城中区" />
+      <node Code="450203" Name="鱼峰区" />
+      <node Code="450204" Name="柳南区" />
+      <node Code="450205" Name="柳北区" />
+      <node Code="450221" Name="柳江县" />
+      <node Code="450222" Name="柳城县" />
+      <node Code="450223" Name="鹿寨县" />
+      <node Code="450224" Name="融安县" />
+      <node Code="450225" Name="融水苗族自治县" />
+      <node Code="450226" Name="三江侗族自治县" />
+    </node>
+    <node Code="450300" Name="桂林市">
+      <node Code="450302" Name="秀峰区" />
+      <node Code="450303" Name="叠彩区" />
+      <node Code="450304" Name="象山区" />
+      <node Code="450305" Name="七星区" />
+      <node Code="450311" Name="雁山区" />
+      <node Code="450321" Name="阳朔县" />
+      <node Code="450322" Name="临桂区" />
+      <node Code="450323" Name="灵川县" />
+      <node Code="450324" Name="全州县" />
+      <node Code="450325" Name="兴安县" />
+      <node Code="450326" Name="永福县" />
+      <node Code="450327" Name="灌阳县" />
+      <node Code="450328" Name="龙胜各族自治县" />
+      <node Code="450329" Name="资源县" />
+      <node Code="450330" Name="平乐县" />
+      <node Code="450331" Name="荔浦县" />
+      <node Code="450332" Name="恭城瑶族自治县" />
+    </node>
+    <node Code="450400" Name="梧州市">
+      <node Code="450403" Name="万秀区" />
+      <node Code="450404" Name="蝶山区" />
+      <node Code="450405" Name="长洲区" />
+      <node Code="450406" Name="龙圩区" />
+      <node Code="450421" Name="苍梧县" />
+      <node Code="450422" Name="藤县" />
+      <node Code="450423" Name="蒙山县" />
+      <node Code="450481" Name="岑溪市" />
+    </node>
+    <node Code="450500" Name="北海市">
+      <node Code="450502" Name="海城区" />
+      <node Code="450503" Name="银海区" />
+      <node Code="450512" Name="铁山港区" />
+      <node Code="450521" Name="合浦县" />
+    </node>
+    <node Code="450600" Name="防城港市">
+      <node Code="450602" Name="港口区" />
+      <node Code="450603" Name="防城区" />
+      <node Code="450621" Name="上思县" />
+      <node Code="450681" Name="东兴市" />
+    </node>
+    <node Code="450700" Name="钦州市">
+      <node Code="450702" Name="钦南区" />
+      <node Code="450703" Name="钦北区" />
+      <node Code="450721" Name="灵山县" />
+      <node Code="450722" Name="浦北县" />
+    </node>
+    <node Code="450800" Name="贵港市">
+      <node Code="450802" Name="港北区" />
+      <node Code="450803" Name="港南区" />
+      <node Code="450804" Name="覃塘区" />
+      <node Code="450821" Name="平南县" />
+      <node Code="450881" Name="桂平市" />
+    </node>
+    <node Code="450900" Name="玉林市">
+      <node Code="450902" Name="玉州区" />
+      <node Code="450903" Name="福绵区" />
+      <node Code="450921" Name="容县" />
+      <node Code="450922" Name="陆川县" />
+      <node Code="450923" Name="博白县" />
+      <node Code="450924" Name="兴业县" />
+      <node Code="450981" Name="北流市" />
+    </node>
+    <node Code="451000" Name="百色市">
+      <node Code="451002" Name="右江区" />
+      <node Code="451021" Name="田阳县" />
+      <node Code="451022" Name="田东县" />
+      <node Code="451023" Name="平果县" />
+      <node Code="451024" Name="德保县" />
+      <node Code="451025" Name="靖西县" />
+      <node Code="451026" Name="那坡县" />
+      <node Code="451027" Name="凌云县" />
+      <node Code="451028" Name="乐业县" />
+      <node Code="451029" Name="田林县" />
+      <node Code="451030" Name="西林县" />
+      <node Code="451031" Name="隆林各族自治县" />
+    </node>
+    <node Code="451100" Name="贺州市">
+      <node Code="451102" Name="八步区" />
+      <node Code="451119" Name="平桂管理区" />
+      <node Code="451121" Name="昭平县" />
+      <node Code="451122" Name="钟山县" />
+      <node Code="451123" Name="富川瑶族自治县" />
+    </node>
+    <node Code="451200" Name="河池市">
+      <node Code="451202" Name="金城江区" />
+      <node Code="451221" Name="南丹县" />
+      <node Code="451222" Name="天峨县" />
+      <node Code="451223" Name="凤山县" />
+      <node Code="451224" Name="东兰县" />
+      <node Code="451225" Name="罗城仫佬族自治县" />
+      <node Code="451226" Name="环江毛南族自治县" />
+      <node Code="451227" Name="巴马瑶族自治县" />
+      <node Code="451228" Name="都安瑶族自治县" />
+      <node Code="451229" Name="大化瑶族自治县" />
+      <node Code="451281" Name="宜州市" />
+    </node>
+    <node Code="451300" Name="来宾市">
+      <node Code="451302" Name="兴宾区" />
+      <node Code="451321" Name="忻城县" />
+      <node Code="451322" Name="象州县" />
+      <node Code="451323" Name="武宣县" />
+      <node Code="451324" Name="金秀瑶族自治县" />
+      <node Code="451381" Name="合山市" />
+    </node>
+    <node Code="451400" Name="崇左市">
+      <node Code="451402" Name="江州区" />
+      <node Code="451421" Name="扶绥县" />
+      <node Code="451422" Name="宁明县" />
+      <node Code="451423" Name="龙州县" />
+      <node Code="451424" Name="大新县" />
+      <node Code="451425" Name="天等县" />
+      <node Code="451481" Name="凭祥市" />
+    </node>
+  </node>
+  <node Code="460000" Name="海南省">
+    <node Code="460100" Name="海口市">
+      <node Code="460104" Name="其它区" />
+      <node Code="460105" Name="秀英区" />
+      <node Code="460106" Name="龙华区" />
+      <node Code="460107" Name="琼山区" />
+      <node Code="460108" Name="美兰区" />
+    </node>
+    <node Code="460200" Name="三亚市">
+      <node Code="460104" Name="其它区" />
+      <node Code="460105" Name="秀英区" />
+      <node Code="460106" Name="龙华区" />
+      <node Code="460107" Name="琼山区" />
+      <node Code="460108" Name="美兰区" />
+    </node>
+    <node Code="460321" Name="三沙市">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469001" Name="五指山市">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469002" Name="琼海市">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469003" Name="儋州市">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469005" Name="文昌市">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469006" Name="万宁市">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469007" Name="东方市">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469025" Name="定安县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469026" Name="屯昌县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469027" Name="澄迈县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469028" Name="临高县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469030" Name="白沙黎族自治县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469031" Name="昌江黎族自治县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469033" Name="乐东黎族自治县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469034" Name="陵水黎族自治县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469035" Name="保亭黎族苗族自治县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+    <node Code="469036" Name="琼中黎族苗族自治县">
+      <node Code="469037" Name="西沙群岛" />
+      <node Code="469038" Name="南沙群岛" />
+      <node Code="469039" Name="中沙群岛的岛礁及其海域" />
+    </node>
+  </node>
+  <node Code="500000" Name="重庆">
+    <node Code="500100" Name="重庆市">
+      <node Code="500101" Name="万州区" />
+      <node Code="500102" Name="涪陵区" />
+      <node Code="500103" Name="渝中区" />
+      <node Code="500104" Name="大渡口区" />
+      <node Code="500105" Name="江北区" />
+      <node Code="500106" Name="沙坪坝区" />
+      <node Code="500107" Name="九龙坡区" />
+      <node Code="500108" Name="南岸区" />
+      <node Code="500109" Name="北碚区" />
+      <node Code="500110" Name="万盛区" />
+      <node Code="500111" Name="双桥区" />
+      <node Code="500112" Name="渝北区" />
+      <node Code="500113" Name="巴南区" />
+      <node Code="500114" Name="黔江区" />
+      <node Code="500115" Name="长寿区" />
+      <node Code="500222" Name="綦江区" />
+      <node Code="500223" Name="潼南县" />
+      <node Code="500224" Name="铜梁县" />
+      <node Code="500225" Name="大足区" />
+      <node Code="500226" Name="荣昌县" />
+      <node Code="500227" Name="璧山县" />
+      <node Code="500228" Name="梁平县" />
+      <node Code="500229" Name="城口县" />
+      <node Code="500230" Name="丰都县" />
+      <node Code="500231" Name="垫江县" />
+      <node Code="500232" Name="武隆县" />
+      <node Code="500233" Name="忠县" />
+      <node Code="500234" Name="开县" />
+      <node Code="500235" Name="云阳县" />
+      <node Code="500236" Name="奉节县" />
+      <node Code="500237" Name="巫山县" />
+      <node Code="500238" Name="巫溪县" />
+      <node Code="500240" Name="石柱土家族自治县" />
+      <node Code="500241" Name="秀山土家族苗族自治县" />
+      <node Code="500242" Name="酉阳土家族苗族自治县" />
+      <node Code="500243" Name="彭水苗族土家族自治县" />
+      <node Code="500381" Name="江津区" />
+      <node Code="500382" Name="合川区" />
+      <node Code="500383" Name="永川区" />
+      <node Code="500384" Name="南川区" />
+    </node>
+  </node>
+  <node Code="510000" Name="四川省">
+    <node Code="510100" Name="成都市">
+      <node Code="510104" Name="锦江区" />
+      <node Code="510105" Name="青羊区" />
+      <node Code="510106" Name="金牛区" />
+      <node Code="510107" Name="武侯区" />
+      <node Code="510108" Name="成华区" />
+      <node Code="510112" Name="龙泉驿区" />
+      <node Code="510113" Name="青白江区" />
+      <node Code="510114" Name="新都区" />
+      <node Code="510115" Name="温江区" />
+      <node Code="510121" Name="金堂县" />
+      <node Code="510122" Name="双流县" />
+      <node Code="510124" Name="郫县" />
+      <node Code="510129" Name="大邑县" />
+      <node Code="510131" Name="蒲江县" />
+      <node Code="510132" Name="新津县" />
+      <node Code="510181" Name="都江堰市" />
+      <node Code="510182" Name="彭州市" />
+      <node Code="510183" Name="邛崃市" />
+      <node Code="510184" Name="崇州市" />
+    </node>
+    <node Code="510300" Name="自贡市">
+      <node Code="510302" Name="自流井区" />
+      <node Code="510303" Name="贡井区" />
+      <node Code="510304" Name="大安区" />
+      <node Code="510311" Name="沿滩区" />
+      <node Code="510321" Name="荣县" />
+      <node Code="510322" Name="富顺县" />
+    </node>
+    <node Code="510400" Name="攀枝花市">
+      <node Code="510402" Name="东区" />
+      <node Code="510403" Name="西区" />
+      <node Code="510411" Name="仁和区" />
+      <node Code="510421" Name="米易县" />
+      <node Code="510422" Name="盐边县" />
+    </node>
+    <node Code="510500" Name="泸州市">
+      <node Code="510502" Name="江阳区" />
+      <node Code="510503" Name="纳溪区" />
+      <node Code="510504" Name="龙马潭区" />
+      <node Code="510521" Name="泸县" />
+      <node Code="510522" Name="合江县" />
+      <node Code="510524" Name="叙永县" />
+      <node Code="510525" Name="古蔺县" />
+    </node>
+    <node Code="510600" Name="德阳市">
+      <node Code="510603" Name="旌阳区" />
+      <node Code="510623" Name="中江县" />
+      <node Code="510626" Name="罗江县" />
+      <node Code="510681" Name="广汉市" />
+      <node Code="510682" Name="什邡市" />
+      <node Code="510683" Name="绵竹市" />
+    </node>
+    <node Code="510700" Name="绵阳市">
+      <node Code="510703" Name="涪城区" />
+      <node Code="510704" Name="游仙区" />
+      <node Code="510705" Name="其它区" />
+      <node Code="510722" Name="三台县" />
+      <node Code="510723" Name="盐亭县" />
+      <node Code="510724" Name="安县" />
+      <node Code="510725" Name="梓潼县" />
+      <node Code="510726" Name="北川羌族自治县" />
+      <node Code="510727" Name="平武县" />
+      <node Code="510751" Name="高新区" />
+      <node Code="510781" Name="江油市" />
+    </node>
+    <node Code="510800" Name="广元市">
+      <node Code="510802" Name="利州区" />
+      <node Code="510811" Name="昭化区" />
+      <node Code="510812" Name="朝天区" />
+      <node Code="510821" Name="旺苍县" />
+      <node Code="510822" Name="青川县" />
+      <node Code="510823" Name="剑阁县" />
+      <node Code="510824" Name="苍溪县" />
+    </node>
+    <node Code="510900" Name="遂宁市">
+      <node Code="510903" Name="船山区" />
+      <node Code="510904" Name="安居区" />
+      <node Code="510921" Name="蓬溪县" />
+      <node Code="510922" Name="射洪县" />
+      <node Code="510923" Name="大英县" />
+    </node>
+    <node Code="511000" Name="内江市">
+      <node Code="511002" Name="市中区" />
+      <node Code="511011" Name="东兴区" />
+      <node Code="511024" Name="威远县" />
+      <node Code="511025" Name="资中县" />
+      <node Code="511028" Name="隆昌县" />
+    </node>
+    <node Code="511100" Name="乐山市">
+      <node Code="511102" Name="市中区" />
+      <node Code="511111" Name="沙湾区" />
+      <node Code="511112" Name="五通桥区" />
+      <node Code="511113" Name="金口河区" />
+      <node Code="511123" Name="犍为县" />
+      <node Code="511124" Name="井研县" />
+      <node Code="511126" Name="夹江县" />
+      <node Code="511129" Name="沐川县" />
+      <node Code="511132" Name="峨边彝族自治县" />
+      <node Code="511133" Name="马边彝族自治县" />
+      <node Code="511181" Name="峨眉山市" />
+    </node>
+    <node Code="511300" Name="南充市">
+      <node Code="511302" Name="顺庆区" />
+      <node Code="511303" Name="高坪区" />
+      <node Code="511304" Name="嘉陵区" />
+      <node Code="511321" Name="南部县" />
+      <node Code="511322" Name="营山县" />
+      <node Code="511323" Name="蓬安县" />
+      <node Code="511324" Name="仪陇县" />
+      <node Code="511325" Name="西充县" />
+      <node Code="511381" Name="阆中市" />
+    </node>
+    <node Code="511400" Name="眉山市">
+      <node Code="511402" Name="东坡区" />
+      <node Code="511421" Name="仁寿县" />
+      <node Code="511422" Name="彭山县" />
+      <node Code="511423" Name="洪雅县" />
+      <node Code="511424" Name="丹棱县" />
+      <node Code="511425" Name="青神县" />
+    </node>
+    <node Code="511500" Name="宜宾市">
+      <node Code="511502" Name="翠屏区" />
+      <node Code="511521" Name="宜宾县" />
+      <node Code="511522" Name="南溪区" />
+      <node Code="511523" Name="江安县" />
+      <node Code="511524" Name="长宁县" />
+      <node Code="511525" Name="高县" />
+      <node Code="511526" Name="珙县" />
+      <node Code="511527" Name="筠连县" />
+      <node Code="511528" Name="兴文县" />
+      <node Code="511529" Name="屏山县" />
+    </node>
+    <node Code="511600" Name="广安市">
+      <node Code="511602" Name="广安区" />
+      <node Code="511603" Name="前锋区" />
+      <node Code="511621" Name="岳池县" />
+      <node Code="511622" Name="武胜县" />
+      <node Code="511623" Name="邻水县" />
+      <node Code="511681" Name="华蓥市" />
+    </node>
+    <node Code="511700" Name="达州市">
+      <node Code="511702" Name="通川区" />
+      <node Code="511721" Name="达川区" />
+      <node Code="511722" Name="宣汉县" />
+      <node Code="511723" Name="开江县" />
+      <node Code="511724" Name="大竹县" />
+      <node Code="511725" Name="渠县" />
+      <node Code="511781" Name="万源市" />
+    </node>
+    <node Code="511800" Name="雅安市">
+      <node Code="511802" Name="雨城区" />
+      <node Code="511821" Name="名山区" />
+      <node Code="511822" Name="荥经县" />
+      <node Code="511823" Name="汉源县" />
+      <node Code="511824" Name="石棉县" />
+      <node Code="511825" Name="天全县" />
+      <node Code="511826" Name="芦山县" />
+      <node Code="511827" Name="宝兴县" />
+    </node>
+    <node Code="511900" Name="巴中市">
+      <node Code="511902" Name="巴州区" />
+      <node Code="511903" Name="恩阳区" />
+      <node Code="511921" Name="通江县" />
+      <node Code="511922" Name="南江县" />
+      <node Code="511923" Name="平昌县" />
+    </node>
+    <node Code="512000" Name="资阳市">
+      <node Code="512002" Name="雁江区" />
+      <node Code="512021" Name="安岳县" />
+      <node Code="512022" Name="乐至县" />
+      <node Code="512081" Name="简阳市" />
+    </node>
+    <node Code="513200" Name="阿坝藏族羌族自治州">
+      <node Code="513221" Name="汶川县" />
+      <node Code="513222" Name="理县" />
+      <node Code="513223" Name="茂县" />
+      <node Code="513224" Name="松潘县" />
+      <node Code="513225" Name="九寨沟县" />
+      <node Code="513226" Name="金川县" />
+      <node Code="513227" Name="小金县" />
+      <node Code="513228" Name="黑水县" />
+      <node Code="513229" Name="马尔康县" />
+      <node Code="513230" Name="壤塘县" />
+      <node Code="513231" Name="阿坝县" />
+      <node Code="513232" Name="若尔盖县" />
+      <node Code="513233" Name="红原县" />
+    </node>
+    <node Code="513300" Name="甘孜藏族自治州">
+      <node Code="513321" Name="康定县" />
+      <node Code="513322" Name="泸定县" />
+      <node Code="513323" Name="丹巴县" />
+      <node Code="513324" Name="九龙县" />
+      <node Code="513325" Name="雅江县" />
+      <node Code="513326" Name="道孚县" />
+      <node Code="513327" Name="炉霍县" />
+      <node Code="513328" Name="甘孜县" />
+      <node Code="513329" Name="新龙县" />
+      <node Code="513330" Name="德格县" />
+      <node Code="513331" Name="白玉县" />
+      <node Code="513332" Name="石渠县" />
+      <node Code="513333" Name="色达县" />
+      <node Code="513334" Name="理塘县" />
+      <node Code="513335" Name="巴塘县" />
+      <node Code="513336" Name="乡城县" />
+      <node Code="513337" Name="稻城县" />
+      <node Code="513338" Name="得荣县" />
+    </node>
+    <node Code="513400" Name="凉山彝族自治州">
+      <node Code="513401" Name="西昌市" />
+      <node Code="513422" Name="木里藏族自治县" />
+      <node Code="513423" Name="盐源县" />
+      <node Code="513424" Name="德昌县" />
+      <node Code="513425" Name="会理县" />
+      <node Code="513426" Name="会东县" />
+      <node Code="513427" Name="宁南县" />
+      <node Code="513428" Name="普格县" />
+      <node Code="513429" Name="布拖县" />
+      <node Code="513430" Name="金阳县" />
+      <node Code="513431" Name="昭觉县" />
+      <node Code="513432" Name="喜德县" />
+      <node Code="513433" Name="冕宁县" />
+      <node Code="513434" Name="越西县" />
+      <node Code="513435" Name="甘洛县" />
+      <node Code="513436" Name="美姑县" />
+      <node Code="513437" Name="雷波县" />
+    </node>
+  </node>
+  <node Code="520000" Name="贵州省">
+    <node Code="520100" Name="贵阳市">
+      <node Code="520102" Name="南明区" />
+      <node Code="520103" Name="云岩区" />
+      <node Code="520111" Name="花溪区" />
+      <node Code="520112" Name="乌当区" />
+      <node Code="520113" Name="白云区" />
+      <node Code="520114" Name="小河区" />
+      <node Code="520121" Name="开阳县" />
+      <node Code="520122" Name="息烽县" />
+      <node Code="520123" Name="修文县" />
+      <node Code="520151" Name="观山湖区" />
+      <node Code="520181" Name="清镇市" />
+    </node>
+    <node Code="520200" Name="六盘水市">
+      <node Code="520201" Name="钟山区" />
+      <node Code="520203" Name="六枝特区" />
+      <node Code="520221" Name="水城县" />
+      <node Code="520222" Name="盘县" />
+    </node>
+    <node Code="520300" Name="遵义市">
+      <node Code="520302" Name="红花岗区" />
+      <node Code="520303" Name="汇川区" />
+      <node Code="520321" Name="遵义县" />
+      <node Code="520322" Name="桐梓县" />
+      <node Code="520323" Name="绥阳县" />
+      <node Code="520324" Name="正安县" />
+      <node Code="520325" Name="道真仡佬族苗族自治县" />
+      <node Code="520326" Name="务川仡佬族苗族自治县" />
+      <node Code="520327" Name="凤冈县" />
+      <node Code="520328" Name="湄潭县" />
+      <node Code="520329" Name="余庆县" />
+      <node Code="520330" Name="习水县" />
+      <node Code="520381" Name="赤水市" />
+      <node Code="520382" Name="仁怀市" />
+    </node>
+    <node Code="520400" Name="安顺市">
+      <node Code="520402" Name="西秀区" />
+      <node Code="520421" Name="平坝县" />
+      <node Code="520422" Name="普定县" />
+      <node Code="520423" Name="镇宁布依族苗族自治县" />
+      <node Code="520424" Name="关岭布依族苗族自治县" />
+      <node Code="520425" Name="紫云苗族布依族自治县" />
+    </node>
+    <node Code="522200" Name="铜仁市">
+      <node Code="522201" Name="碧江区" />
+      <node Code="522222" Name="江口县" />
+      <node Code="522223" Name="玉屏侗族自治县" />
+      <node Code="522224" Name="石阡县" />
+      <node Code="522225" Name="思南县" />
+      <node Code="522226" Name="印江土家族苗族自治县" />
+      <node Code="522227" Name="德江县" />
+      <node Code="522228" Name="沿河土家族自治县" />
+      <node Code="522229" Name="松桃苗族自治县" />
+      <node Code="522230" Name="万山区" />
+    </node>
+    <node Code="522300" Name="黔西南布依族苗族自治州">
+      <node Code="522301" Name="兴义市" />
+      <node Code="522322" Name="兴仁县" />
+      <node Code="522323" Name="普安县" />
+      <node Code="522324" Name="晴隆县" />
+      <node Code="522325" Name="贞丰县" />
+      <node Code="522326" Name="望谟县" />
+      <node Code="522327" Name="册亨县" />
+      <node Code="522328" Name="安龙县" />
+    </node>
+    <node Code="522400" Name="毕节市">
+      <node Code="522401" Name="七星关区" />
+      <node Code="522422" Name="大方县" />
+      <node Code="522423" Name="黔西县" />
+      <node Code="522424" Name="金沙县" />
+      <node Code="522425" Name="织金县" />
+      <node Code="522426" Name="纳雍县" />
+      <node Code="522427" Name="威宁彝族回族苗族自治县" />
+      <node Code="522428" Name="赫章县" />
+    </node>
+    <node Code="522600" Name="黔东南苗族侗族自治州">
+      <node Code="522601" Name="凯里市" />
+      <node Code="522622" Name="黄平县" />
+      <node Code="522623" Name="施秉县" />
+      <node Code="522624" Name="三穗县" />
+      <node Code="522625" Name="镇远县" />
+      <node Code="522626" Name="岑巩县" />
+      <node Code="522627" Name="天柱县" />
+      <node Code="522628" Name="锦屏县" />
+      <node Code="522629" Name="剑河县" />
+      <node Code="522630" Name="台江县" />
+      <node Code="522631" Name="黎平县" />
+      <node Code="522632" Name="榕江县" />
+      <node Code="522633" Name="从江县" />
+      <node Code="522634" Name="雷山县" />
+      <node Code="522635" Name="麻江县" />
+      <node Code="522636" Name="丹寨县" />
+    </node>
+    <node Code="522700" Name="黔南布依族苗族自治州">
+      <node Code="522701" Name="都匀市" />
+      <node Code="522702" Name="福泉市" />
+      <node Code="522722" Name="荔波县" />
+      <node Code="522723" Name="贵定县" />
+      <node Code="522725" Name="瓮安县" />
+      <node Code="522726" Name="独山县" />
+      <node Code="522727" Name="平塘县" />
+      <node Code="522728" Name="罗甸县" />
+      <node Code="522729" Name="长顺县" />
+      <node Code="522730" Name="龙里县" />
+      <node Code="522731" Name="惠水县" />
+      <node Code="522732" Name="三都水族自治县" />
+    </node>
+  </node>
+  <node Code="530000" Name="云南省">
+    <node Code="530100" Name="昆明市">
+      <node Code="530102" Name="五华区" />
+      <node Code="530103" Name="盘龙区" />
+      <node Code="530111" Name="官渡区" />
+      <node Code="530112" Name="西山区" />
+      <node Code="530113" Name="东川区" />
+      <node Code="530121" Name="呈贡区" />
+      <node Code="530122" Name="晋宁县" />
+      <node Code="530124" Name="富民县" />
+      <node Code="530125" Name="宜良县" />
+      <node Code="530126" Name="石林彝族自治县" />
+      <node Code="530127" Name="嵩明县" />
+      <node Code="530128" Name="禄劝彝族苗族自治县" />
+      <node Code="530129" Name="寻甸回族彝族自治县" />
+      <node Code="530181" Name="安宁市" />
+    </node>
+    <node Code="530300" Name="曲靖市">
+      <node Code="530302" Name="麒麟区" />
+      <node Code="530321" Name="马龙县" />
+      <node Code="530322" Name="陆良县" />
+      <node Code="530323" Name="师宗县" />
+      <node Code="530324" Name="罗平县" />
+      <node Code="530325" Name="富源县" />
+      <node Code="530326" Name="会泽县" />
+      <node Code="530328" Name="沾益县" />
+      <node Code="530381" Name="宣威市" />
+    </node>
+    <node Code="530400" Name="玉溪市">
+      <node Code="530402" Name="红塔区" />
+      <node Code="530421" Name="江川县" />
+      <node Code="530422" Name="澄江县" />
+      <node Code="530423" Name="通海县" />
+      <node Code="530424" Name="华宁县" />
+      <node Code="530425" Name="易门县" />
+      <node Code="530426" Name="峨山彝族自治县" />
+      <node Code="530427" Name="新平彝族傣族自治县" />
+      <node Code="530428" Name="元江哈尼族彝族傣族自治县" />
+    </node>
+    <node Code="530500" Name="保山市">
+      <node Code="530502" Name="隆阳区" />
+      <node Code="530521" Name="施甸县" />
+      <node Code="530522" Name="腾冲县" />
+      <node Code="530523" Name="龙陵县" />
+      <node Code="530524" Name="昌宁县" />
+    </node>
+    <node Code="530600" Name="昭通市">
+      <node Code="530602" Name="昭阳区" />
+      <node Code="530621" Name="鲁甸县" />
+      <node Code="530622" Name="巧家县" />
+      <node Code="530623" Name="盐津县" />
+      <node Code="530624" Name="大关县" />
+      <node Code="530625" Name="永善县" />
+      <node Code="530626" Name="绥江县" />
+      <node Code="530627" Name="镇雄县" />
+      <node Code="530628" Name="彝良县" />
+      <node Code="530629" Name="威信县" />
+      <node Code="530630" Name="水富县" />
+    </node>
+    <node Code="530700" Name="丽江市">
+      <node Code="530702" Name="古城区" />
+      <node Code="530721" Name="玉龙纳西族自治县" />
+      <node Code="530722" Name="永胜县" />
+      <node Code="530723" Name="华坪县" />
+      <node Code="530724" Name="宁蒗彝族自治县" />
+    </node>
+    <node Code="530800" Name="普洱市">
+      <node Code="530802" Name="思茅区" />
+      <node Code="530821" Name="宁洱哈尼族彝族自治县" />
+      <node Code="530822" Name="墨江哈尼族自治县" />
+      <node Code="530823" Name="景东彝族自治县" />
+      <node Code="530824" Name="景谷傣族彝族自治县" />
+      <node Code="530825" Name="镇沅彝族哈尼族拉祜族自治县" />
+      <node Code="530826" Name="江城哈尼族彝族自治县" />
+      <node Code="530827" Name="孟连傣族拉祜族佤族自治县" />
+      <node Code="530828" Name="澜沧拉祜族自治县" />
+      <node Code="530829" Name="西盟佤族自治县" />
+    </node>
+    <node Code="530900" Name="临沧市">
+      <node Code="530902" Name="临翔区" />
+      <node Code="530921" Name="凤庆县" />
+      <node Code="530922" Name="云县" />
+      <node Code="530923" Name="永德县" />
+      <node Code="530924" Name="镇康县" />
+      <node Code="530925" Name="双江拉祜族佤族布朗族傣族自治县" />
+      <node Code="530926" Name="耿马傣族佤族自治县" />
+      <node Code="530927" Name="沧源佤族自治县" />
+    </node>
+    <node Code="532300" Name="楚雄彝族自治州">
+      <node Code="532301" Name="楚雄市" />
+      <node Code="532322" Name="双柏县" />
+      <node Code="532323" Name="牟定县" />
+      <node Code="532324" Name="南华县" />
+      <node Code="532325" Name="姚安县" />
+      <node Code="532326" Name="大姚县" />
+      <node Code="532327" Name="永仁县" />
+      <node Code="532328" Name="元谋县" />
+      <node Code="532329" Name="武定县" />
+      <node Code="532331" Name="禄丰县" />
+    </node>
+    <node Code="532500" Name="红河哈尼族彝族自治州">
+      <node Code="532501" Name="个旧市" />
+      <node Code="532502" Name="开远市" />
+      <node Code="532522" Name="蒙自市" />
+      <node Code="532523" Name="屏边苗族自治县" />
+      <node Code="532524" Name="建水县" />
+      <node Code="532525" Name="石屏县" />
+      <node Code="532526" Name="弥勒市" />
+      <node Code="532527" Name="泸西县" />
+      <node Code="532528" Name="元阳县" />
+      <node Code="532529" Name="红河县" />
+      <node Code="532530" Name="金平苗族瑶族傣族自治县" />
+      <node Code="532531" Name="绿春县" />
+      <node Code="532532" Name="河口瑶族自治县" />
+    </node>
+    <node Code="532600" Name="文山壮族苗族自治州">
+      <node Code="532621" Name="文山市" />
+      <node Code="532622" Name="砚山县" />
+      <node Code="532623" Name="西畴县" />
+      <node Code="532624" Name="麻栗坡县" />
+      <node Code="532625" Name="马关县" />
+      <node Code="532626" Name="丘北县" />
+      <node Code="532627" Name="广南县" />
+      <node Code="532628" Name="富宁县" />
+    </node>
+    <node Code="532800" Name="西双版纳傣族自治州">
+      <node Code="532801" Name="景洪市" />
+      <node Code="532822" Name="勐海县" />
+      <node Code="532823" Name="勐腊县" />
+    </node>
+    <node Code="532900" Name="大理白族自治州">
+      <node Code="532901" Name="大理市" />
+      <node Code="532922" Name="漾濞彝族自治县" />
+      <node Code="532923" Name="祥云县" />
+      <node Code="532924" Name="宾川县" />
+      <node Code="532925" Name="弥渡县" />
+      <node Code="532926" Name="南涧彝族自治县" />
+      <node Code="532927" Name="巍山彝族回族自治县" />
+      <node Code="532928" Name="永平县" />
+      <node Code="532929" Name="云龙县" />
+      <node Code="532930" Name="洱源县" />
+      <node Code="532931" Name="剑川县" />
+      <node Code="532932" Name="鹤庆县" />
+    </node>
+    <node Code="533100" Name="德宏傣族景颇族自治州">
+      <node Code="533102" Name="瑞丽市" />
+      <node Code="533103" Name="芒市" />
+      <node Code="533122" Name="梁河县" />
+      <node Code="533123" Name="盈江县" />
+      <node Code="533124" Name="陇川县" />
+    </node>
+    <node Code="533300" Name="怒江傈僳族自治州">
+      <node Code="533321" Name="泸水县" />
+      <node Code="533323" Name="福贡县" />
+      <node Code="533324" Name="贡山独龙族怒族自治县" />
+      <node Code="533325" Name="兰坪白族普米族自治县" />
+    </node>
+    <node Code="533400" Name="迪庆藏族自治州">
+      <node Code="533421" Name="香格里拉县" />
+      <node Code="533422" Name="德钦县" />
+      <node Code="533423" Name="维西傈僳族自治县" />
+    </node>
+  </node>
+  <node Code="540000" Name="西藏自治区">
+    <node Code="540100" Name="拉萨市">
+      <node Code="540102" Name="城关区" />
+      <node Code="540121" Name="林周县" />
+      <node Code="540122" Name="当雄县" />
+      <node Code="540123" Name="尼木县" />
+      <node Code="540124" Name="曲水县" />
+      <node Code="540125" Name="堆龙德庆县" />
+      <node Code="540126" Name="达孜县" />
+      <node Code="540127" Name="墨竹工卡县" />
+    </node>
+    <node Code="542100" Name="昌都地区">
+      <node Code="542121" Name="昌都县" />
+      <node Code="542122" Name="江达县" />
+      <node Code="542123" Name="贡觉县" />
+      <node Code="542124" Name="类乌齐县" />
+      <node Code="542125" Name="丁青县" />
+      <node Code="542126" Name="察雅县" />
+      <node Code="542127" Name="八宿县" />
+      <node Code="542128" Name="左贡县" />
+      <node Code="542129" Name="芒康县" />
+      <node Code="542132" Name="洛隆县" />
+      <node Code="542133" Name="边坝县" />
+    </node>
+    <node Code="542200" Name="山南地区">
+      <node Code="542221" Name="乃东县" />
+      <node Code="542222" Name="扎囊县" />
+      <node Code="542223" Name="贡嘎县" />
+      <node Code="542224" Name="桑日县" />
+      <node Code="542225" Name="琼结县" />
+      <node Code="542226" Name="曲松县" />
+      <node Code="542227" Name="措美县" />
+      <node Code="542228" Name="洛扎县" />
+      <node Code="542229" Name="加查县" />
+      <node Code="542231" Name="隆子县" />
+      <node Code="542232" Name="错那县" />
+      <node Code="542233" Name="浪卡子县" />
+    </node>
+    <node Code="542300" Name="日喀则地区">
+      <node Code="542301" Name="日喀则市" />
+      <node Code="542322" Name="南木林县" />
+      <node Code="542323" Name="江孜县" />
+      <node Code="542324" Name="定日县" />
+      <node Code="542325" Name="萨迦县" />
+      <node Code="542326" Name="拉孜县" />
+      <node Code="542327" Name="昂仁县" />
+      <node Code="542328" Name="谢通门县" />
+      <node Code="542329" Name="白朗县" />
+      <node Code="542330" Name="仁布县" />
+      <node Code="542331" Name="康马县" />
+      <node Code="542332" Name="定结县" />
+      <node Code="542333" Name="仲巴县" />
+      <node Code="542334" Name="亚东县" />
+      <node Code="542335" Name="吉隆县" />
+      <node Code="542336" Name="聂拉木县" />
+      <node Code="542337" Name="萨嘎县" />
+      <node Code="542338" Name="岗巴县" />
+    </node>
+    <node Code="542400" Name="那曲地区">
+      <node Code="542421" Name="那曲县" />
+      <node Code="542422" Name="嘉黎县" />
+      <node Code="542423" Name="比如县" />
+      <node Code="542424" Name="聂荣县" />
+      <node Code="542425" Name="安多县" />
+      <node Code="542426" Name="申扎县" />
+      <node Code="542427" Name="索县" />
+      <node Code="542428" Name="班戈县" />
+      <node Code="542429" Name="巴青县" />
+      <node Code="542430" Name="尼玛县" />
+      <node Code="542431" Name="双湖县" />
+    </node>
+    <node Code="542500" Name="阿里地区">
+      <node Code="542521" Name="普兰县" />
+      <node Code="542522" Name="札达县" />
+      <node Code="542523" Name="噶尔县" />
+      <node Code="542524" Name="日土县" />
+      <node Code="542525" Name="革吉县" />
+      <node Code="542526" Name="改则县" />
+      <node Code="542527" Name="措勤县" />
+    </node>
+    <node Code="542600" Name="林芝地区">
+      <node Code="542621" Name="林芝县" />
+      <node Code="542622" Name="工布江达县" />
+      <node Code="542623" Name="米林县" />
+      <node Code="542624" Name="墨脱县" />
+      <node Code="542625" Name="波密县" />
+      <node Code="542626" Name="察隅县" />
+      <node Code="542627" Name="朗县" />
+    </node>
+  </node>
+  <node Code="610000" Name="陕西省">
+    <node Code="610100" Name="西安市">
+      <node Code="610102" Name="新城区" />
+      <node Code="610103" Name="碑林区" />
+      <node Code="610104" Name="莲湖区" />
+      <node Code="610111" Name="灞桥区" />
+      <node Code="610112" Name="未央区" />
+      <node Code="610113" Name="雁塔区" />
+      <node Code="610114" Name="阎良区" />
+      <node Code="610115" Name="临潼区" />
+      <node Code="610116" Name="长安区" />
+      <node Code="610122" Name="蓝田县" />
+      <node Code="610124" Name="周至县" />
+      <node Code="610125" Name="户县" />
+      <node Code="610126" Name="高陵县" />
+    </node>
+    <node Code="610200" Name="铜川市">
+      <node Code="610202" Name="王益区" />
+      <node Code="610203" Name="印台区" />
+      <node Code="610204" Name="耀州区" />
+      <node Code="610222" Name="宜君县" />
+    </node>
+    <node Code="610300" Name="宝鸡市">
+      <node Code="610302" Name="渭滨区" />
+      <node Code="610303" Name="金台区" />
+      <node Code="610304" Name="陈仓区" />
+      <node Code="610322" Name="凤翔县" />
+      <node Code="610323" Name="岐山县" />
+      <node Code="610324" Name="扶风县" />
+      <node Code="610326" Name="眉县" />
+      <node Code="610327" Name="陇县" />
+      <node Code="610328" Name="千阳县" />
+      <node Code="610329" Name="麟游县" />
+      <node Code="610330" Name="凤县" />
+      <node Code="610331" Name="太白县" />
+    </node>
+    <node Code="610400" Name="咸阳市">
+      <node Code="610402" Name="秦都区" />
+      <node Code="610403" Name="杨陵区" />
+      <node Code="610404" Name="渭城区" />
+      <node Code="610422" Name="三原县" />
+      <node Code="610423" Name="泾阳县" />
+      <node Code="610424" Name="乾县" />
+      <node Code="610425" Name="礼泉县" />
+      <node Code="610426" Name="永寿县" />
+      <node Code="610427" Name="彬县" />
+      <node Code="610428" Name="长武县" />
+      <node Code="610429" Name="旬邑县" />
+      <node Code="610430" Name="淳化县" />
+      <node Code="610431" Name="武功县" />
+      <node Code="610481" Name="兴平市" />
+    </node>
+    <node Code="610500" Name="渭南市">
+      <node Code="610502" Name="临渭区" />
+      <node Code="610521" Name="华县" />
+      <node Code="610522" Name="潼关县" />
+      <node Code="610523" Name="大荔县" />
+      <node Code="610524" Name="合阳县" />
+      <node Code="610525" Name="澄城县" />
+      <node Code="610526" Name="蒲城县" />
+      <node Code="610527" Name="白水县" />
+      <node Code="610528" Name="富平县" />
+      <node Code="610581" Name="韩城市" />
+      <node Code="610582" Name="华阴市" />
+    </node>
+    <node Code="610600" Name="延安市">
+      <node Code="610602" Name="宝塔区" />
+      <node Code="610621" Name="延长县" />
+      <node Code="610622" Name="延川县" />
+      <node Code="610623" Name="子长县" />
+      <node Code="610624" Name="安塞县" />
+      <node Code="610625" Name="志丹县" />
+      <node Code="610626" Name="吴起县" />
+      <node Code="610627" Name="甘泉县" />
+      <node Code="610628" Name="富县" />
+      <node Code="610629" Name="洛川县" />
+      <node Code="610630" Name="宜川县" />
+      <node Code="610631" Name="黄龙县" />
+      <node Code="610632" Name="黄陵县" />
+    </node>
+    <node Code="610700" Name="汉中市">
+      <node Code="610702" Name="汉台区" />
+      <node Code="610721" Name="南郑县" />
+      <node Code="610722" Name="城固县" />
+      <node Code="610723" Name="洋县" />
+      <node Code="610724" Name="西乡县" />
+      <node Code="610725" Name="勉县" />
+      <node Code="610726" Name="宁强县" />
+      <node Code="610727" Name="略阳县" />
+      <node Code="610728" Name="镇巴县" />
+      <node Code="610729" Name="留坝县" />
+      <node Code="610730" Name="佛坪县" />
+    </node>
+    <node Code="610800" Name="榆林市">
+      <node Code="610802" Name="榆阳区" />
+      <node Code="610821" Name="神木县" />
+      <node Code="610822" Name="府谷县" />
+      <node Code="610823" Name="横山县" />
+      <node Code="610824" Name="靖边县" />
+      <node Code="610825" Name="定边县" />
+      <node Code="610826" Name="绥德县" />
+      <node Code="610827" Name="米脂县" />
+      <node Code="610828" Name="佳县" />
+      <node Code="610829" Name="吴堡县" />
+      <node Code="610830" Name="清涧县" />
+      <node Code="610831" Name="子洲县" />
+    </node>
+    <node Code="610900" Name="安康市">
+      <node Code="610902" Name="汉滨区" />
+      <node Code="610921" Name="汉阴县" />
+      <node Code="610922" Name="石泉县" />
+      <node Code="610923" Name="宁陕县" />
+      <node Code="610924" Name="紫阳县" />
+      <node Code="610925" Name="岚皋县" />
+      <node Code="610926" Name="平利县" />
+      <node Code="610927" Name="镇坪县" />
+      <node Code="610928" Name="旬阳县" />
+      <node Code="610929" Name="白河县" />
+    </node>
+    <node Code="611000" Name="商洛市">
+      <node Code="611002" Name="商州区" />
+      <node Code="611021" Name="洛南县" />
+      <node Code="611022" Name="丹凤县" />
+      <node Code="611023" Name="商南县" />
+      <node Code="611024" Name="山阳县" />
+      <node Code="611025" Name="镇安县" />
+      <node Code="611026" Name="柞水县" />
+    </node>
+  </node>
+  <node Code="620000" Name="甘肃省">
+    <node Code="620100" Name="兰州市">
+      <node Code="620124" Name="兰州新区" />
+      <node Code="620102" Name="城关区" />
+      <node Code="620103" Name="七里河区" />
+      <node Code="620104" Name="西固区" />
+      <node Code="620105" Name="安宁区" />
+      <node Code="620111" Name="红古区" />
+      <node Code="620121" Name="永登县" />
+      <node Code="620122" Name="皋兰县" />
+      <node Code="620123" Name="榆中县" />
+    </node>
+    <node Code="620200" Name="嘉峪关市">
+      <node Code="620124" Name="兰州新区" />
+      <node Code="620102" Name="城关区" />
+      <node Code="620103" Name="七里河区" />
+      <node Code="620104" Name="西固区" />
+      <node Code="620105" Name="安宁区" />
+      <node Code="620111" Name="红古区" />
+      <node Code="620121" Name="永登县" />
+      <node Code="620122" Name="皋兰县" />
+      <node Code="620123" Name="榆中县" />
+    </node>
+    <node Code="620300" Name="金昌市">
+      <node Code="620302" Name="金川区" />
+      <node Code="620321" Name="永昌县" />
+    </node>
+    <node Code="620400" Name="白银市">
+      <node Code="620402" Name="白银区" />
+      <node Code="620403" Name="平川区" />
+      <node Code="620421" Name="靖远县" />
+      <node Code="620422" Name="会宁县" />
+      <node Code="620423" Name="景泰县" />
+    </node>
+    <node Code="620500" Name="天水市">
+      <node Code="620502" Name="秦州区" />
+      <node Code="620503" Name="麦积区" />
+      <node Code="620521" Name="清水县" />
+      <node Code="620522" Name="秦安县" />
+      <node Code="620523" Name="甘谷县" />
+      <node Code="620524" Name="武山县" />
+      <node Code="620525" Name="张家川回族自治县" />
+    </node>
+    <node Code="620600" Name="武威市">
+      <node Code="620602" Name="凉州区" />
+      <node Code="620621" Name="民勤县" />
+      <node Code="620622" Name="古浪县" />
+      <node Code="620623" Name="天祝藏族自治县" />
+    </node>
+    <node Code="620700" Name="张掖市">
+      <node Code="620702" Name="甘州区" />
+      <node Code="620721" Name="肃南裕固族自治县" />
+      <node Code="620722" Name="民乐县" />
+      <node Code="620723" Name="临泽县" />
+      <node Code="620724" Name="高台县" />
+      <node Code="620725" Name="山丹县" />
+    </node>
+    <node Code="620800" Name="平凉市">
+      <node Code="620802" Name="崆峒区" />
+      <node Code="620821" Name="泾川县" />
+      <node Code="620822" Name="灵台县" />
+      <node Code="620823" Name="崇信县" />
+      <node Code="620824" Name="华亭县" />
+      <node Code="620825" Name="庄浪县" />
+      <node Code="620826" Name="静宁县" />
+    </node>
+    <node Code="620900" Name="酒泉市">
+      <node Code="620902" Name="肃州区" />
+      <node Code="620921" Name="金塔县" />
+      <node Code="620922" Name="瓜州县" />
+      <node Code="620923" Name="肃北蒙古族自治县" />
+      <node Code="620924" Name="阿克塞哈萨克族自治县" />
+      <node Code="620981" Name="玉门市" />
+      <node Code="620982" Name="敦煌市" />
+    </node>
+    <node Code="621000" Name="庆阳市">
+      <node Code="621002" Name="西峰区" />
+      <node Code="621021" Name="庆城县" />
+      <node Code="621022" Name="环县" />
+      <node Code="621023" Name="华池县" />
+      <node Code="621024" Name="合水县" />
+      <node Code="621025" Name="正宁县" />
+      <node Code="621026" Name="宁县" />
+      <node Code="621027" Name="镇原县" />
+    </node>
+    <node Code="621100" Name="定西市">
+      <node Code="621102" Name="安定区" />
+      <node Code="621121" Name="通渭县" />
+      <node Code="621122" Name="陇西县" />
+      <node Code="621123" Name="渭源县" />
+      <node Code="621124" Name="临洮县" />
+      <node Code="621125" Name="漳县" />
+      <node Code="621126" Name="岷县" />
+    </node>
+    <node Code="621200" Name="陇南市">
+      <node Code="621202" Name="武都区" />
+      <node Code="621221" Name="成县" />
+      <node Code="621222" Name="文县" />
+      <node Code="621223" Name="宕昌县" />
+      <node Code="621224" Name="康县" />
+      <node Code="621225" Name="西和县" />
+      <node Code="621226" Name="礼县" />
+      <node Code="621227" Name="徽县" />
+      <node Code="621228" Name="两当县" />
+    </node>
+    <node Code="622900" Name="临夏回族自治州">
+      <node Code="622901" Name="临夏市" />
+      <node Code="622921" Name="临夏县" />
+      <node Code="622922" Name="康乐县" />
+      <node Code="622923" Name="永靖县" />
+      <node Code="622924" Name="广河县" />
+      <node Code="622925" Name="和政县" />
+      <node Code="622926" Name="东乡族自治县" />
+      <node Code="622927" Name="积石山保安族东乡族撒拉族自治县" />
+    </node>
+    <node Code="623000" Name="甘南藏族自治州">
+      <node Code="623001" Name="合作市" />
+      <node Code="623021" Name="临潭县" />
+      <node Code="623022" Name="卓尼县" />
+      <node Code="623023" Name="舟曲县" />
+      <node Code="623024" Name="迭部县" />
+      <node Code="623025" Name="玛曲县" />
+      <node Code="623026" Name="碌曲县" />
+      <node Code="623027" Name="夏河县" />
+    </node>
+  </node>
+  <node Code="630000" Name="青海省">
+    <node Code="630100" Name="西宁市">
+      <node Code="630102" Name="城东区" />
+      <node Code="630103" Name="城中区" />
+      <node Code="630104" Name="城西区" />
+      <node Code="630105" Name="城北区" />
+      <node Code="630121" Name="大通回族土族自治县" />
+      <node Code="630122" Name="湟中县" />
+      <node Code="630123" Name="湟源县" />
+    </node>
+    <node Code="632100" Name="海东市">
+      <node Code="632121" Name="平安县" />
+      <node Code="632122" Name="民和回族土族自治县" />
+      <node Code="632123" Name="乐都区" />
+      <node Code="632126" Name="互助土族自治县" />
+      <node Code="632127" Name="化隆回族自治县" />
+      <node Code="632128" Name="循化撒拉族自治县" />
+    </node>
+    <node Code="632200" Name="海北藏族自治州">
+      <node Code="632221" Name="门源回族自治县" />
+      <node Code="632222" Name="祁连县" />
+      <node Code="632223" Name="海晏县" />
+      <node Code="632224" Name="刚察县" />
+    </node>
+    <node Code="632300" Name="黄南藏族自治州">
+      <node Code="632321" Name="同仁县" />
+      <node Code="632322" Name="尖扎县" />
+      <node Code="632323" Name="泽库县" />
+      <node Code="632324" Name="河南蒙古族自治县" />
+    </node>
+    <node Code="632500" Name="海南藏族自治州">
+      <node Code="632521" Name="共和县" />
+      <node Code="632522" Name="同德县" />
+      <node Code="632523" Name="贵德县" />
+      <node Code="632524" Name="兴海县" />
+      <node Code="632525" Name="贵南县" />
+    </node>
+    <node Code="632600" Name="果洛藏族自治州">
+      <node Code="632621" Name="玛沁县" />
+      <node Code="632622" Name="班玛县" />
+      <node Code="632623" Name="甘德县" />
+      <node Code="632624" Name="达日县" />
+      <node Code="632625" Name="久治县" />
+      <node Code="632626" Name="玛多县" />
+    </node>
+    <node Code="632700" Name="玉树藏族自治州">
+      <node Code="632721" Name="玉树市" />
+      <node Code="632722" Name="杂多县" />
+      <node Code="632723" Name="称多县" />
+      <node Code="632724" Name="治多县" />
+      <node Code="632725" Name="囊谦县" />
+      <node Code="632726" Name="曲麻莱县" />
+    </node>
+    <node Code="632800" Name="海西蒙古族藏族自治州">
+      <node Code="632801" Name="格尔木市" />
+      <node Code="632802" Name="德令哈市" />
+      <node Code="632821" Name="乌兰县" />
+      <node Code="632822" Name="都兰县" />
+      <node Code="632823" Name="天峻县" />
+    </node>
+  </node>
+  <node Code="640000" Name="宁夏回族自治区">
+    <node Code="640100" Name="银川市">
+      <node Code="640104" Name="兴庆区" />
+      <node Code="640105" Name="西夏区" />
+      <node Code="640106" Name="金凤区" />
+      <node Code="640121" Name="永宁县" />
+      <node Code="640122" Name="贺兰县" />
+      <node Code="640181" Name="灵武市" />
+    </node>
+    <node Code="640200" Name="石嘴山市">
+      <node Code="640202" Name="大武口区" />
+      <node Code="640205" Name="惠农区" />
+      <node Code="640221" Name="平罗县" />
+    </node>
+    <node Code="640300" Name="吴忠市">
+      <node Code="640302" Name="利通区" />
+      <node Code="640303" Name="红寺堡区" />
+      <node Code="640323" Name="盐池县" />
+      <node Code="640324" Name="同心县" />
+      <node Code="640381" Name="青铜峡市" />
+    </node>
+    <node Code="640400" Name="固原市">
+      <node Code="640402" Name="原州区" >
+        <node Code="640422" Name="西吉县" />
+        <node Code="640423" Name="隆德县" />
+        <node Code="640424" Name="泾源县" />
+        <node Code="640425" Name="彭阳县" />
+      </node>
+    </node>
+    <node Code="640500" Name="中卫市" />
+  </node>
+  <node Code="650000" Name="新疆维吾尔自治区" />
+</root>

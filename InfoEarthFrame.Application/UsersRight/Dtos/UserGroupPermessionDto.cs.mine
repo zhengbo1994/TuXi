@@ -1,0 +1,56 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace InfoEarthFrame.UsersRight.Dtos
+{
+    public class UserGroupMapPermessionDto
+    {
+
+        public string GroupId { get; set; }
+
+        [JsonProperty("id")]
+        public string MappingTypeId { get; set; }
+
+        [JsonProperty("name")]
+        public string MappingTypeName { get; set; }
+
+        public int? CanBrowse { get; set; }
+
+        public int? CanDownload { get; set; }
+
+
+        [JsonProperty("pId")]
+        public string ParentId { get; set; }
+
+        public string Paths { get; set; }
+    }
+
+
+    public class UserGroupMenuPermessionDto
+    {
+
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        public bool HasPermession { get; set; }
+
+
+        [JsonProperty("pId")]
+        public string ParentId { get; set; }
+
+        public string Tag { get; set; }
+
+        public string Tag1 { get; set; }
+
+        public string Path { get; set; }
+        public string Icon { get; set; }
+    }
+}

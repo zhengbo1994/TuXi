@@ -1,0 +1,287 @@
+﻿<!-- 图层编辑页面 create by huqr /// controller:  'layerEditCtrl' -  localtion: App/Main/assets/js/controllers/layerEditCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" style="margin-top: 65px;" ng-controller="layerEditCtrl">
+    <div style="padding: 5px; position: relative;">
+        <!--面包屑-->
+        <ol class="breadcrumb breadgreater" style="padding: 6px 15px 2px 15px; background-color: #fff;">
+            <span>当前位置：</span>
+            <li><a href="/#/app/dataInterface2" style="color: #5b5b60;">服务接口</a></li>
+            <li>图层编辑</li>
+        </ol>
+
+        <div class="righttag" style="top: 40%; right: 15px; border: 1px solid #007AFF; border-radius: 5px;">
+            <div class="r-left" ng-click="showRightWin(1)" ng-class="{'active-show-btn':activeShowBtn===1}" style="color: #fff; padding: 10px 10px 8px 10px; cursor: pointer; border-top-left-radius: 5px; border-top-right-radius: 5px; " tooltip="OGC服务">
+                <i class="icon-fuwu" ng-style="qiehuanBorderStyle" style="font-size: 18px; border-bottom: 1px solid #007AFF;" />
+            </div>
+            <div class="r-left" ng-click="showRightWin(2)" ng-class="{'active-show-btn':activeShowBtn===2}" style="color: #fff; padding: 10px 10px 8px 10px; cursor: pointer; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; " tooltip="数据接口">
+                <i class="icon-xinxi" style="font-size: 18px;" />
+            </div>
+        </div>
+
+        <div class="righttag" style="top: 10%; right: 15px;" ng-if="showWFS">
+            <div>
+                <button class="btn btn-primary" ng-click="addLayerEdit()">添加</button>
+                <button class="btn btn-primary" ng-click="showLayerEdit()">编辑</button>
+                <button class="btn btn-primary" ng-click="saveLayerEdit()">保存</button>
+                <button class="btn btn-primary" ng-click="hideLayerEdit()">结束编辑</button>
+            </div>
+            <div ng-if="showAllDraw">
+                <button class="btn btn-primary" ng-click="draw('point')">画点</button>
+                <button class="btn btn-primary" ng-click="draw('line')">画线</button>
+                <button class="btn btn-primary" ng-click="draw('polygon')">画面</button>
+
+                <button class="btn btn-primary" ng-click="deleteAll()">清除</button>
+                <button class="btn btn-primary" ng-click="addtestLayer()">addlayer</button>
+            </div>
+            <div ng-if="showAllEdit">
+                <button class="btn btn-primary" ng-click="shape()">形变</button>
+                <button class="btn btn-primary" ng-click="chose()">选择</button>
+                <button class="btn btn-primary" ng-click="cut()">切割线</button>
+                <button class="btn btn-primary" ng-click="deleteTwo()">删除</button>
+                <button class="btn btn-primary" ng-click="choseOne()">test</button>
+            </div>
+        </div>
+
+        <div class="righttag modal-content" ng-if="activeShowBtn===1" style="top: 40%; right: 59px; border-radius: 5px;">
+            <div style="position: relative;">
+                <div style="border-bottom: 1px solid #e5e5e5; padding: 10px;">
+                    <span class="font-title-middle" style="margin-bottom: 0px;">OGC服务</span>
+                    <a href="javascript:;" ng-click="closeWin()" style="font-size: 14px; float: right;" tooltip="关闭"><i class="ti-close"></i></a>
+                </div>
+                <div style="padding: 10px; overflow: auto;">
+                    <dl ng-click="getServerInterface1('WMS')">
+                        <dd><img src="/App/Main/assets/images/WMS.png" class="dd-img" ng-class="{'dd-active':'WMS'===serviceType}" /></dd>
+                        <dd style="padding-top: 10px;"><a href="javascript:;">WMS</a></dd>
+                    </dl>
+                    <dl ng-click="getServerInterface1('WMTS')" style="margin-left: 6px;">
+                        <dd><img src="/App/Main/assets/images/WMTS.png" class="dd-img" ng-class="{'dd-active':'WMTS'===serviceType}" /></dd>
+                        <dd style="padding-top: 10px;"><a href="javascript:;">WMTS</a></dd>
+                    </dl>
+                    <dl ng-click="getServerInterface1('iTelluro')" style="margin-left: 6px;">
+                        <dd><img src="/App/Main/assets/images/ite.png" class="dd-img" ng-class="{'dd-active':'iTelluro'===serviceType}" /></dd>
+                        <dd style="padding-top: 10px;"><a href="javascript:;">iTelluro</a></dd>
+                    </dl>
+                    <dl ng-click="getServerInterface1('WFS')" style="margin-left: 6px;">
+                        <dd><img src="/App/Main/assets/images/WFS.png" class="dd-img" ng-class="{'dd-active':'WFS'===serviceType}" /></dd>
+                        <dd style="padding-top: 10px;"><a href="javascript:;">WFS</a></dd>
+                    </dl>
+                    <dl ng-click="getServerInterface1('KML')" style="margin-left: 6px;">
+                        <dd><img src="/App/Main/assets/images/KML.png" class="dd-img" ng-class="{'dd-active':'KML'===serviceType}" /></dd>
+                        <dd style="padding-top: 10px;"><a href="javascript:;">KML</a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <!--服务详情页面左上角图层列表-->
+        <div class="righttag" style="top: 100px; left: 25px; z-index: 1001;" ng-if="showWFS">
+            <div style="position: relative; background-color: #fff; width: 330px; ">
+                <div class="title">
+                    <span class="font-title-middle">选择图层</span>
+                    <a href="javascript:;" style="font-size: 18px; float: right; line-height: 1.2;" ng-click="hideChose()">
+                        <i ng-class="{'mdi-window-minimize':isShowChose,'mdi-window-maximize':!isShowChose}"></i>
+                    </a>
+                </div>
+                <div style="max-height: 140px; overflow: auto; padding: 0 10px;" ng-if="isShowChose">
+                    <div class="checkbox clip-check check-primary check-column" ng-repeat="a in wfsLayerData">
+                        <input type="checkbox" id="{{a.id}}" value="{{a.value}}" ng-checked="a.ischecked" ng-click="wfsCheckedOne(a)">
+                        <label class="font-content-small" for="{{a.id}}">
+                            {{a.value}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--服务详情页面左侧OGC服务列表-->
+        <div class="righttag" style="left: 25px; z-index: 1000;" ng-if="isShowOGC" ng-style="OGCStyle">
+            <div style="position: relative; background-color: #fff; width: 500px; border: 1px solid rgba(0,0,0,.25); ">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle">{{OGCTitle}}</span>
+                    <a href="javascript:;" ng-click="closeLeftWin()" style="font-size: 14px; float: right;" tooltip="关闭">
+                        <i class="ti-close"></i>
+                    </a>
+                </div>
+                <div class="panel-body panel-fixed" ng-style="leftWinStyle" style="min-height: 200px;">
+                    <div class="seviceDataShow">
+                        <div class="seviceDataContent" ng-repeat="item in currentLayerInfo">
+                            <p style="margin: 5px 0 5px; white-space: normal; word-wrap: break-word;">
+                                <span class="font-title-little">接口地址:</span>
+                                <span class="font-content-small">{{item.serverPath}}</span>
+                            </p>
+                            <p style="margin: 5px 0 5px; white-space: normal; word-wrap: break-word;">
+                                <span class="font-title-little">接口描述:</span><span class="font-content-small">{{item.serverDesc}}</span>
+                            </p>
+                            <p style="margin: 0 0 5px;"><span class="font-title-little">请求方法:</span><span class="font-content-small">{{item.requestType}}</span></p>
+                            <p style="margin: 0 0 5px;"><span class="font-title-little">请求参数:</span></p>
+                            <table class="font-content-small" style="width: 100%; table-layout: fixed;" border="1">
+                                <tr class="tableTitle" style="background: #CCCCCC;">
+                                    <th>参数名</th>
+                                    <th>参数值</th>
+                                    <th>必填</th>
+                                    <th>描述</th>
+                                </tr>
+                                <tr class="tableTitle" ng-repeat="item2 in item.serverRequestParameters.items">
+                                    <td>{{item2.parameterName}}</td>
+                                    <td style="word-wrap:break-word;">{{item2.parameterValue}}</td>
+                                    <td>{{item2.parameterIsMust}}</td>
+                                    <td>{{item2.parameterDesc}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--服务详情页面左侧数据接口列表-->
+        <div class="righttag" style="top: 100px; left: 25px; z-index: 1000;" ng-if="isShowData">
+            <div style="position: relative; background-color: #fff; width: 600px; border: 1px solid rgba(0,0,0,.25);">
+                <div class="col-sm-4" style="padding: 0;">
+                    <div class="panel panel-bottom0">
+                        <div class="panel-heading border-bottom">
+                            <span class="font-title-middle">数据接口</span>
+                        </div>
+                        <div class="panel-body panel-fixed" ng-style="leftWinStyle" style="min-height: 200px;">
+                            <!-- 内容 -->
+                            <div class="disaster-tgfx serviceTree">
+                                <abn-tree class="font-title-btn" tree-data="typeTreeData3" selected-data="selectedData3" initial-selection="查询地图的图层api" on-select="onSelected3" tree-control="treeQueryCtrl" icon-leaf=""></abn-tree>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-8" style="border-left: 1px solid rgba(0,0,0,.15);">
+                    <div class="panel panel-bottom0">
+                        <div class="panel-heading border-bottom">
+                            <span class="font-title-middle">服务信息</span>
+                            <a href="javascript:;" ng-click="closeWin()" style="font-size: 14px; float: right;" tooltip="关闭">
+                                <i class="ti-close"></i>
+                            </a>
+                        </div>
+                        <div class="panel-body panel-fixed" ng-style="leftWinStyle" style="min-height: 200px;">
+                            <div class="seviceDataShow">
+                                <div class="seviceDataContent" ng-repeat="item in currentLayerInfo">
+                                    <p style="margin: 5px 0 5px; white-space: normal; word-wrap: break-word;">
+                                        <span class="font-title-little">接口地址:</span>
+                                        <a class="font-content-small" href="javascript:;" ng-click="serverPathClick(item)">{{item.serverPath}}</a>
+                                    </p>
+                                    <p style="margin: 5px 0 5px; white-space: normal; word-wrap: break-word;">
+                                        <span class="font-title-little">接口描述:</span><span class="font-content-small">{{item.serverDesc}}</span>
+                                    </p>
+                                    <p style="margin: 0 0 5px;"><span class="font-title-little">请求方法:</span><span class="font-content-small">{{item.requestType}}</span></p>
+                                    <p style="margin: 0 0 5px;"><span class="font-title-little">请求参数:</span></p>
+                                    <table class="font-content-small" style="width: 100%; table-layout: fixed;" border="1">
+                                        <tr class="tableTitle" style="background: #CCCCCC;">
+                                            <th>参数名</th>
+                                            <th>参数值</th>
+                                            <th>必填</th>
+                                            <th>描述</th>
+                                        </tr>
+                                        <tr class="tableTitle" ng-repeat="item2 in item.serverRequestParameters.items">
+                                            <td>{{item2.parameterName}}</td>
+                                            <td style="word-wrap:break-word;">{{item2.parameterValue}}</td>
+                                            <td>{{item2.parameterIsMust}}</td>
+                                            <td>{{item2.parameterDesc}}</td>
+                                        </tr>
+                                    </table>
+                                    <div>
+                                        <p style="margin: 5px 0 5px;"><span class="font-title-little">返回类型:</span><span class="font-content-small">JSON格式</span></p>
+                                        <p style="margin: 5px 0 5px;"><span class="font-title-little">返回参数:</span></p>
+                                        <table class="font-content-small" style="width: 100%; table-layout: fixed;" border="1">
+                                            <tr class="tableTitle" style="background: #CCCCCC;">
+                                                <th>参数名</th>
+                                                <th>描述</th>
+                                            </tr>
+                                            <tr class="tableTitle" ng-repeat="item2 in item.serverResponseParameters.items">
+                                                <td>{{item2.parameterName}}</td>
+                                                <td>{{item2.parameterDesc}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+
+        <!--数据接口查询结果列表-->
+        <div class="righttag" style="top: 100px; left: 625px; z-index: 1000;" ng-if="showInput">
+            <div style="position: relative; background-color: #fff; width: 600px; border: 1px solid rgba(0,0,0,.25); ">
+                <div class="panel panel-white panel-bottom0">
+                    <div class="panel-heading border-bottom">
+                        <span class="font-title-middle">查询结果</span>
+                        <a href="javascript:;" ng-click="closeResWin()" style="font-size: 14px; float: right;" tooltip="关闭">
+                            <i class="ti-close"></i>
+                        </a>
+                    </div>
+                    <div class="panel-body panel-fixed">
+                        <div style="margin-bottom: 0;">
+                            <div class="form-group">
+                                <label class="font-title-little">接口地址:</label>
+                                <input class="form-control" id="searchUrlInput" type="text" ng-model="searchServiceURL" ng-change="searchChanged(searchServiceURL)" style="height: 34px;" />
+                            </div>
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="font-title-little">请求参数:</label>
+                                <div>
+                                    <ul style="list-style: none; padding: 0;">
+                                        <li ng-repeat="(a,b) in params" style="margin-bottom: 10px;">
+                                            <div class="col-sm-3 col-lg-2" style="padding: 0;">
+                                                <label class="font-content-small" style="padding-top: 7px;">{{a}}:</label>
+                                            </div>
+                                            <div class="col-sm-9 col-lg-10">
+                                                <input class="" type="text" ng-model="b" ng-change="paramChanged(a,b)" style="height: 34px; width: 100%;" />
+                                            </div>
+                                            <div style="clear:both;"></div>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-primary btn-o font-title-btn" href="javascript:;" ng-click="searchService()" style="min-width: 70px;">查询</a>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+
+                        <div ng-if="showTable">
+                            <div style="overflow: auto;">
+                                <div ng-style="tableWidth">
+                                    <table class="th-tables table table-bordered font-content-small">
+                                        <thead>
+                                            <tr>
+                                                <th ng-repeat="th in tablePageData[0]" ng-if="tableDataType=='array'">{{th[0]}}</th>
+                                                <th ng-repeat="(a,b) in tablePageData[0]" ng-if="tableDataType=='object'">{{a}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="tr in tablePageData">
+                                                <td ng-repeat="td in tr" ng-if="tableDataType=='array'">{{td[1]}}</td>
+                                                <td ng-repeat="(a,b) in tr" ng-if="tableDataType=='object'">{{b}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div style="height: 30px;">
+                                <pagination style="float: left; margin: 0 !important;" first-text="首页" previous-text="上一页" next-text="下一页" last-text="末页" items-per-page="pageSize"
+                                            total-items="pageCounts" ng-model="pageIndex" max-size="maxSize" class="pagination-sm"
+                                            boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages" ng-change="pageChanged()"></pagination>
+                                <ul class="pagination" style="float: left; margin: 0 !important;">
+                                    <!--<li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage" ng-keydown="pageChanged(goPage,$event)" /></li>
+                                    <li><a style="padding: 4px 10px;" ng-click="pageChanged(goPage)">GO</a></li>-->
+                                    <li>
+                                        <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">第{{pageIndex}}页/共{{totalPages}}页，总计{{pageCounts}}条记录。</label>
+                                    </li>
+                                </ul>
+                                <div style="clear: both; height: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <open-maps dataset="mapDataset" map-tool-group map-search-tool="false" mapheight="mapheight" mapwidth="mapwidth" add-layer="addLayer" remove-layer="removeLayer" is-load-internet-tian-di-tu="isLoadTianDiTu"></open-maps>
+    </div>
+
+</div>

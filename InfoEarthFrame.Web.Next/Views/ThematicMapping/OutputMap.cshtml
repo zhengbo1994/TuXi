@@ -1,0 +1,514 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+    ViewBag.Title = "制图输出";
+}
+@section css
+{
+
+}
+
+<div class="layui-fluid" id="component-tabs" style="padding:0px">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card" id="app">
+                <div class="layui-card-body">
+                    <form class="layui-form" action="" lay-filter="basic-form" style="position:relative">
+                                <blockquote class="layui-elem-quote">基本信息</blockquote>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">制图名称</label>
+                                <div class="layui-input-block"> 
+                                    <input type="text" name="drawing_name" id="drawing_name" class="layui-input" lay-verify="required">
+                                </div>
+                            </div>
+                       
+
+                        </div>
+                     
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">比例尺</label>
+                                <div class="layui-input-block">
+                                    <select name="SCtype" id="SCtype" lay-filter="scale"></select>
+                                </div>
+                            </div>
+
+                        </div>
+                   <blockquote class="layui-elem-quote">地理范围</blockquote><button class="layui-btn layui-btn-normal layui-btn-sm" id="kuangxuan" style="position: absolute;
+    top: 24.4%;
+    right: 110px;">
+    <i class="layui-icon">&#xe630;</i>框选
+</button>    
+                        <button class="layui-btn layui-btn-danger layui-btn-sm btn-clear" style="position: absolute;
+    top: 24.4%;
+    right: 10px;">
+                            <i class="layui-icon">&#xe639;</i>清除框选
+                        </button>    
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">上北</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="latitude_N" id="latitude_N" class="layui-input" >
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">下南</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="latitude_S" id="latitude_S" class="layui-input" >
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">左西</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="longitude_W" id="longitude_W" class="layui-input">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">右东</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="longitude_E" id="longitude_E" class="layui-input">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <blockquote class="layui-elem-quote">标准图幅</blockquote><button class="layui-btn layui-btn-normal layui-btn-sm" onclick="getClickCoord(); return false;" style="position: absolute;
+    top: 60.6%;
+    right: 95px;">
+                            <i class="layui-icon">&#xe617;</i>拾取点
+                        </button>    
+                       <button class="layui-btn layui-btn-normal layui-btn-sm" onclick="calculateFormart();return false;" style="position: absolute;
+    top: 60.6%;
+    right: 10px;">
+                            <i class="layui-icon">&#xe629;</i>计算
+                        </button>    
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">标准图幅</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="formart-check" id="formart-check" value="1" title="是" >
+                                    <input type="radio" name="formart-check" id="formart-check" value="0" title="否" checked>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">经度</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="f_longitude" id="f_longitude" class="layui-input" >
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">纬度</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="f_latitude" id="f_latitude" class="layui-input" >
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">图幅号</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="formart_num" id="formart_num" class="layui-input" >
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3" style="text-align:right">
+                                <button class="layui-btn layui-btn-normal layui-btn-sm" onclick="setChutuData(); return false;" style="display:none">
+                                    出图数据
+                                </button>    
+                                <button class="layui-btn layui-btn-normal layui-btn-sm" onclick="setZhituData(); return false;" style="display:none">
+                                    详细制图参数
+                                </button>    
+                                <button class="layui-btn layui-btn-normal layui-btn-sm" onclick="getHistoryList(); return false;">
+                                    历史列表
+                                </button>    
+                            </div>
+
+
+                        </div>
+                        <button class="layui-btn" lay-submit="" lay-filter="basic-form" id="btnSubmit" style="display:none">立即提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section script
+{
+        <script>
+            var mainId='@Request.QueryString["mainid"]';
+            layui.initModule(['form'], function () {
+                var form = layui.form;
+                var element = layui.element;
+                element.render();
+
+                initControl();
+
+                form.render(null, 'basic-form');
+                /* 监听提交 */
+                form.on('submit(basic-form)', function (data) {
+                    formData = getFormData();
+                    if (!formData.DrawingName) {
+                        alert("制图名称不能为空！");
+                        return false;
+                    };
+                    if (formData.East == 0 || formData.North == 0 || formData.South == 0 || formData.West == 0) {
+                        alert("框选范围不能为空！");
+                        return false;
+                    };
+                    if (!chutuData || !chutuData.layerList) {
+                        alert("图层不能为空！");
+                        return false;
+                    };
+                    formData.UserId = '@UserIdentityContext.CurrentUserName';//用户名
+
+
+                    formData.Layers = chutuData.layerList;//图层                    formData.IsIconOverlay = chutuData.IsIconOverlay;//标注是否允许重叠
+                    if ($("input[name='formart-check']:checked").val() == "1") {
+                        formData.TFBH = $("#formart_num").val();
+                    } else {
+                        if (zhituData.basic) {
+                            formData.TFBH = zhituData.basic.TFBH;//图幅号
+                        }
+                    };
+                    if (zhituData.basic) {
+                        formData.GeoSystem = zhituData.basic.GeoSystem;//生成成果文件的坐标系
+                        formData.ResponsibilityTableInfomation = zhituData.basic.ResponsibilityTableInfomation;//责任人信息
+                        formData.Resolution = zhituData.basic.Resolution;//出图分辨率
+                    };
+                    formData.LengendInfo = zhituData.legend;//图例
+                    if (zhituData.scale) {
+                        formData.NorthArrowInfo = zhituData.scale.NorthArrowInfo;//指北针
+                        formData.ScaleBarInfo = zhituData.scale.ScaleBarInfo;//制图参数比例尺
+                    };
+
+                    formData.IconInfos = null;//Icon信息集合
+                    formData.PolygonInfos = getCustomFeatures();//矢量面集合
+                    formData.LabelInfos = null;//标注信息集合
+                    formData.WKTString = "";//WKT串
+                    formData.WKTScale = "";
+                    formData.AreaCode = "";//行政区划Code
+
+                    //console.log("提交", formData);
+
+                    //window.setTimeout(function () {
+                    //    $.ajax({
+                    //        url: "../../DrawingOutputManage/DrawingOutput/SaveDrawingInfo",
+                    //        data: formData,
+                    //        type: "post",
+                    //        dataType: "json",
+                    //        async: false,
+                    //        success: function (data) {
+                    //            $("#drawing_name").val("");//提交后清空制图输出名称
+                    //            learun.loading({ isShow: false });
+                    //            var _content = '<div style="text-align:center;padding:20px;"><p>提交成功！</p><p>正在出图，请耐心等待！</p><p>如需了解出图进度，可进入历史列表查看！</p></div>';
+                    //            layer.open({
+                    //                type: 1,
+                    //                skin: 'layui-layer-rim',
+                    //                area: ['330px', '180px'],
+                    //                btn: ['进入历史列表', '取消'],
+                    //                title: '提示',
+                    //                content: _content,
+                    //                yes: function (index, layero) {
+                    //                    getHistoryList();
+                    //                    layer.close(index);
+                    //                }
+                    //            });
+                    //        }
+                    //    });
+                    //}, 500);
+
+                    $.post({
+                        url: Base.getApiUrl("/ThematicMapping/SaveDrawingInfo"),
+                        data: formData,
+                        success: function (resp) {
+                            if (resp.code == 0) {
+
+                                layer.alert('后台系统已接收您的请求,请耐心等待...');
+                            }
+                        }
+                    });
+                    return false;
+                });
+
+
+            });
+
+
+
+            function initControl() {
+  
+                if (mainId) {
+                    $.get({
+                        url: Base.getApiUrl("/DataManager/GetMainData"),
+                        data: {
+                            id: mainId
+                        },
+                        async: false,
+                        success: function (resp) {
+                            $("#drawing_name").val(resp.data.Name);
+                            initScale(resp.data.Scale);
+                        }
+                    });
+                }
+
+            }
+
+
+            function doSubmit() {
+                $("#btnSubmit").click();
+            }
+            function initScale(value) {
+                layui.initSelect({
+                    valueField: "number",
+                    textField: "label",
+                    id: "#SCtype",
+                    data: Base.DataContext.scaleList,
+                    onSelect: function (data) {
+                    
+                    },
+                    selectedValue: value
+                });
+            }
+
+
+            var chutuData = {
+                layerList: (function () {
+                    var data = [];
+                    $.get({
+                        url: Base.getApiUrl("/ThematicMapping/GetMapDetail?id=") + mainId,
+                        async: false,
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                var element = resp.data;
+                                    data.push({
+                                        dataserverkey: element.Id,
+                                        layerName: element.MapName,
+                                        layerTyep: "WMS",
+                                        opacity:0.6,
+                                        tilesize:null,
+                                        url: Config['geoserver:WMS'],
+                                        zerolevelsize:null,
+                                        zoomlevel: null,
+                                        LayerEx: element.MapEnName
+                                    })
+                            }
+                        }
+                    });
+                    return data;
+                })(),
+                IsIconOverlay: false
+            };
+
+            var zhituData = {
+                basic: null,
+                scale:null
+            }
+     
+            $(function () {
+                //框选点击事件
+                $("#kuangxuan").click(function () {
+                    //绘制
+                    map.customDraw("Box", function (feature, drawTool) {
+                        var extent = feature.getGeometry().getExtent();
+                        $("#latitude_N").val(extent[3]);
+                        $("#latitude_S").val(extent[1]);
+                        $("#longitude_W").val(extent[0]);
+                        $("#longitude_E").val(extent[2]);
+                        //移除之前的绘制对象，结束绘制
+                        map.getMap().removeInteraction(drawTool);
+
+                    });
+
+                    return false;
+                });
+                //清除框选
+                $(".btn-clear").click(function () {
+                    map.clearRectLayer();
+                    $("#latitude_N").val(0);
+                    $("#latitude_S").val(0);
+                    $("#longitude_W").val(0);
+                    $("#longitude_E").val(0);
+
+                    return false;
+                });
+
+
+            });
+
+            //获取地图上自定义feature
+            function getCustomFeatures() {
+                var resultFeatures = map.getFeatrues();
+                var featureList = [];
+                resultFeatures.forEach(function (feature) {
+                    var shape = { PolyType: feature.GeoType, FillColorExt: feature.FillColor, LineColorExt: feature.LineColor, LineWidth: feature.LineWidth, Fill: true, Outline: true };
+                    if (feature.GeoType == "Circle") {
+                        var coordinate = feature.Coordinates;
+                        shape.Center = { X: parseFloat(coordinate.split(',')[1]), Y: parseFloat(coordinate.split(',')[2].split('"')[0]) };
+                        shape.Radius = parseFloat(coordinate.split(',')[0].split('"')[0]);
+                    } else {
+                        shape.PolyWKT = feature.Coordinates;
+                    };
+                    featureList.push(shape);
+                });
+                return featureList;
+            };
+            //拾取点
+            var isGetPoint = false;
+            function getClickCoord() {
+                isGetPoint = true;
+                map.getMap().on("click", function (evt) {
+                    if (isGetPoint) {
+                        var Coordinate = evt.coordinate;
+                        $("#f_longitude").val(Coordinate[0]);
+                        $("#f_latitude").val(Coordinate[1]);
+                    }
+                });
+            };
+
+            //根据经纬度,比例尺计算标准图幅号
+            function calculateFormart() {
+                isGetPoint = false;
+                var f_longitude = parseFloat($("#f_longitude").val());
+                var f_latitude = parseFloat($("#f_latitude").val());
+                var f_scale = parseInt($("#SCtype").val());
+                var mapCode = "";
+                if (!f_longitude || !f_latitude || !f_scale) { return; };
+                $.get({
+                    url: Base.getApiUrl("/tools/GetMapCode")+"?lon=" + f_longitude + "&lat=" + f_latitude + "&scale=" + f_scale,
+                    async: false,
+                    success: function (resp) {
+                        mapCode = resp.data;
+                        $("#formart_num").val(mapCode);
+                    },
+                    error: function (xhr, status, type) {
+                        if (xhr.status == 401) {
+                            warnning('api没有权限');
+                        }
+                        else if (xhr.status == 500) {
+                            var resp = eval("(" + xhr.responseText + ")");
+                            //换一下成error
+                            error(resp.message || '内部服务器错误');
+                        }
+
+                    }
+                });
+                //console.log('mapCode:  data ', mapCode);
+                getFormartArea(mapCode);
+
+                return false;
+            };
+            //根据标准图幅获取范围
+            function getFormartArea(mapcode) {
+                if (!mapcode) { return; };
+                var areaData = null;
+                $.get({
+                    url: Base.getApiUrl("/tools/GetMapRangeByMapCode") + "?mapcode=" + mapcode,
+                    async: false,
+                    success: function (resp) {
+                        var data = resp.data;
+                        areaData = data;
+                        $("#latitude_N").val(data.North);
+                        $("#latitude_S").val(data.South);
+                        $("#longitude_W").val(data.West);
+                        $("#longitude_E").val(data.East);
+                        var LongitudeTf = Number((data.East + data.West) / 2);
+                        var LatitudeTf = Number((data.North + data.South) / 2);
+            
+                        map.getMap().getView().animate({ center: [LongitudeTf, LatitudeTf], duration: 1500 });
+                        var polyWkt = "POLYGON((" + data.West + " " + data.North + "," + data.East + " " + data.North + "," + data.East + " " + data.South + "," + data.West + " " + data.South + "," + data.West + " " + data.North + "))";
+                        map.drawCustomPolygon(polyWkt);
+
+                        return false;
+                    }
+                });
+                return false;
+            };
+            //制图参数弹框
+            function setZhituData() {
+                //learun.dialogOpen({
+                //    id: "ZhituForm",
+                //    title: ['<i class="fa fa-cloud-upload"></i>&nbsp;制图参数设置<span id=' + _iframeId + '></span>', 'text-align:left;color:black;'],
+                //    url: '/DrawingOutputManage/DrawingOutput/drawingForm',
+                //    width: "900px",
+                //    height: "500px",
+                //    isClose: true,
+                //    callBack: function (iframeId) {
+                //        zhituData = getInfoTop().frames[iframeId].AcceptClick();
+                //        //console.log("145", zhituData);
+                //    }
+                //});
+                alert('正在制作当中');
+            };
+            //制图输出历史列表弹框
+            function getHistoryList() {
+               window.parent.layui.showDlg({
+                    title: "查看历史",
+                    content: '@Url.Action("HistoryList")',
+                    area: ['80%', '90%'],
+                    btn:[]
+                });
+            };
+            //出图数据弹框
+            function setChutuData() {
+                //learun.dialogOpen({
+                //    id: "ChutuForm",
+                //    title: ['<i class="fa fa-cloud-upload"></i>&nbsp;出图图层数据<span id=' + _iframeId + '></span>', 'text-align:left;color:black;'],
+                //    url: '/DrawingOutputManage/DrawingOutput/plotForm',
+                //    width: "900px",
+                //    height: "500px",
+                //    isClose: true,
+                //    callBack: function (iframeId) {
+                //        chutuData = getInfoTop().frames[iframeId].AcceptClick();
+                //        //console.log("130", chutuData);
+                //    }
+                //});
+                alert('正在制作当中');
+            };
+            //获取表单数据
+            function getFormData() {
+                var DrawingName = $("#drawing_name").val();//制图名称
+                var Scale = $("#SCtype").val();//比例尺
+                var East = parseFloat($("#longitude_E").val());//东
+                var North = parseFloat($("#latitude_N").val());//北
+                var South = parseFloat($("#latitude_S").val());//南
+                var West = parseFloat($("#longitude_W").val());//西
+                var IsBasicTF = $("input[name='formart-check']:checked").val() == "1";
+                var drawingData = { "DrawingName": DrawingName, "Scale": Scale, "East": East, "North": North, "South": South, "West": West, "IsBasicTF": IsBasicTF };
+                return drawingData;
+            };
+
+            var map = (function () {
+                return window.parent.frames["page-frame"].map;
+            })();
+        </script>
+    }

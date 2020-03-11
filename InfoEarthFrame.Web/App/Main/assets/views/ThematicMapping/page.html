@@ -1,0 +1,98 @@
+﻿<!-- 地图查询页面 create by huqr /// controller:  'styleManagerCtrl' -  localtion: App/Main/assets/js/controllers/styleManagerCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="thematicMappingCtrl">
+    <div class="row">
+        <!-- 左侧 -->
+        <div class="col-sm-3 container_padding container_cross_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Style.QueryConditions">查询条件</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <div style="padding-bottom: 10px;">
+                        <abn-tree class="font-title-btn" tree-data="typeTreeData" icon-leaf="" expand-level="2" selected-data="typeSelectedData" on-select="onTypeSelected" tree-control="treeQueryCtrl1" initial-selection="{{'setting.all'|translate}}"></abn-tree>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧 -->
+        <div class="col-sm-9 container_padding container_cross_padding">
+            <div class="panel panel-white panel-bottom0">
+                <!--<panel-header class="panel-heading" panel-title="样式列表"></panel-header>-->
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Style.StyleList">样式列表</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <!-- 内容 -->
+                    <div>
+                        <div style="margin-bottom: 15px;">
+                            <div class="col-sm-9" style="padding-left: 0;">
+                                <input type="text" ng-model="inputText" placeholder="{{'views.Style.SearchTips'|translate}}" style="width: 250px; height: 34px;" />
+                                <a class="btn btn-wide btn-default btn-o font-title-little" href="javascript:;" style="min-width: 70px; margin-left: 10px; margin-top: -3px;" ng-click="searchStyle()" translate="views.Style.search">
+                                    搜索
+                                </a>
+                            </div>
+                            <div class="col-sm-3">
+                                <div style="float:right;">
+                                    <a class="btn btn-primary font-title-btn" href="javascript:;" ng-click="addStyleWin(styleInit)" translate="views.Style.NewStyle">新建样式</a>
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+
+                        <div>
+                            <table class="table table-bordered table-hover table-stylemanag font-content-small">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 47px;" translate="views.Style.SerialNumber">序号</th>
+                                        <th translate="views.Style.Name">样式名称</th>
+                                        <th translate="views.Style.Type">样式类型</th>
+                                        <th translate="views.Style.Category">样式分类</th>
+                                        <th translate="views.Style.Description">样式描述</th>
+                                        <th translate="setting.operating" style="width: 150px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="tr in styleData">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{tr.styleName}}</td>
+                                        <td>{{tr.styleDataType | datatypeFilter}}</td>
+                                        <td>{{tr.styleTypeName}}</td>
+                                        <!--<td>{{tr.createDT | dateFilter}}</td>-->
+                                        <td>{{tr.styleDesc}}</td>
+                                        <td>
+                                            <!--<a href="javascript:;" ng-click="detail(tr)" style="border-right: solid 1px #000; padding-right: 4px;">详情</a>-->
+                                            <a href="javascript:;" ng-click="edit(tr,styleInit)" style="border-right: solid 1px #000; padding-right: 4px;" translate="setting.edit">编辑</a>
+                                            <a href="javascript:;" ng-click="del(tr.id)" translate="setting.delete">删除</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="height: 30px;">
+                                <pagination style="float: left; margin: 0 !important;" first-text="{{'paging.home'|translate}}" previous-text="{{'paging.previous'|translate}}" next-text="{{'paging.next'|translate}}" last-text="{{'paging.last'|translate}}" items-per-page="pageSize"
+                                            total-items="pageCounts" ng-model="pageIndex" max-size="maxSize" class="pagination-sm"
+                                            boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages" ng-change="pageChanged()"></pagination>
+                                <ul class="pagination" style="float: left; margin: 0 !important;">
+                                    <li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage" ng-keydown="pageChanged(goPage,$event)" /></li>
+                                    <li><a style="padding: 4px 10px;" ng-click="pageChanged(goPage)">GO</a></li>
+                                    <li>
+                                        <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">
+                                            <span translate="paging.word1">第</span>{{pageIndex}}<span translate="paging.word2">页</span>
+                                            /
+                                            <span translate="paging.word3">共</span>{{totalPages}}<span translate="paging.word2">页</span>
+                                            ，
+                                            <span translate="paging.word4">总计</span>{{pageCounts}}<span translate="paging.word5">条记录</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <div style="clear: both; height: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

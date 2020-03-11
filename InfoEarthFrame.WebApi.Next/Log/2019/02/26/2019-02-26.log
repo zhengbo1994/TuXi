@@ -1,0 +1,803 @@
+2019-02-26 12:10:02,302 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [25] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 89
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 334
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 312
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2134
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 341
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 12:10:11,322 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [21] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 89
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 334
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 312
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2134
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 341
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 12:10:20,445 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [23] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 89
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 334
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 312
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2134
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 341
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:42:47,514 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [40] ERROR System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: Exception while writing to stream ---> System.IO.IOException: 无法将数据写入传输连接: 远程主机强迫关闭了一个现有的连接。。 ---> System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.NetworkStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.Sockets.NetworkStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   在 Npgsql.WriteBuffer.Flush()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Npgsql.WriteBuffer.Flush()
+   在 Npgsql.NpgsqlConnector.SendBuffer()
+   在 Npgsql.NpgsqlCommand.Send(PopulateMethod populateMethod)
+   在 Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   在 Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   在 Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:43:17,720 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [43] ERROR System.Exception: 获取WebApi授权配置发生错误，请检查【configs/ApiAuthorize.xml】文件 ---> System.InvalidOperationException: XML 文档(47, 2)中有错误。 ---> System.Xml.XmlException: 名称不能以“<”字符(十六进制值 0x3C)开头。 第 47 行，位置 2。
+   在 System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   在 System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   在 System.Xml.XmlTextReaderImpl.ParseQName(Boolean isQName, Int32 startOffset, Int32& colonPos)
+   在 System.Xml.XmlTextReaderImpl.ParseElement()
+   在 System.Xml.XmlTextReaderImpl.ParseElementContent()
+   在 System.Xml.XmlTextReaderImpl.Read()
+   在 System.Xml.XmlTextReader.Read()
+   在 System.Xml.XmlReader.ReadEndElement()
+   在 System.Xml.Serialization.XmlSerializationReader.ReadEndElement()
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read2_ApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read3_ApiModuleOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read4_ApiProfileOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read5_ApiProfile()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   在 InfoEarthFrame.Common.XmlConvert.XmlDeserialize[T](String s, Encoding encoding) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\XmlConvert.cs:行号 32
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 42
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 54
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 62
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Filters\CustomAuthorizeAttribute.cs:行号 20
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:43:47,882 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [15] ERROR System.Exception: 获取WebApi授权配置发生错误，请检查【configs/ApiAuthorize.xml】文件 ---> System.InvalidOperationException: XML 文档(47, 2)中有错误。 ---> System.Xml.XmlException: 名称不能以“<”字符(十六进制值 0x3C)开头。 第 47 行，位置 2。
+   在 System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   在 System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   在 System.Xml.XmlTextReaderImpl.ParseQName(Boolean isQName, Int32 startOffset, Int32& colonPos)
+   在 System.Xml.XmlTextReaderImpl.ParseElement()
+   在 System.Xml.XmlTextReaderImpl.ParseElementContent()
+   在 System.Xml.XmlTextReaderImpl.Read()
+   在 System.Xml.XmlTextReader.Read()
+   在 System.Xml.XmlReader.ReadEndElement()
+   在 System.Xml.Serialization.XmlSerializationReader.ReadEndElement()
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read2_ApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read3_ApiModuleOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read4_ApiProfileOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read5_ApiProfile()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   在 InfoEarthFrame.Common.XmlConvert.XmlDeserialize[T](String s, Encoding encoding) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\XmlConvert.cs:行号 32
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 42
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 54
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 62
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Filters\CustomAuthorizeAttribute.cs:行号 20
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:44:17,594 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [12] ERROR System.Exception: 获取WebApi授权配置发生错误，请检查【configs/ApiAuthorize.xml】文件 ---> System.InvalidOperationException: XML 文档(47, 2)中有错误。 ---> System.Xml.XmlException: 名称不能以“<”字符(十六进制值 0x3C)开头。 第 47 行，位置 2。
+   在 System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   在 System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   在 System.Xml.XmlTextReaderImpl.ParseQName(Boolean isQName, Int32 startOffset, Int32& colonPos)
+   在 System.Xml.XmlTextReaderImpl.ParseElement()
+   在 System.Xml.XmlTextReaderImpl.ParseElementContent()
+   在 System.Xml.XmlTextReaderImpl.Read()
+   在 System.Xml.XmlTextReader.Read()
+   在 System.Xml.XmlReader.ReadEndElement()
+   在 System.Xml.Serialization.XmlSerializationReader.ReadEndElement()
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read2_ApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read3_ApiModuleOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read4_ApiProfileOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read5_ApiProfile()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   在 InfoEarthFrame.Common.XmlConvert.XmlDeserialize[T](String s, Encoding encoding) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\XmlConvert.cs:行号 32
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 42
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 54
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 62
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Filters\CustomAuthorizeAttribute.cs:行号 20
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:44:47,787 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [12] ERROR System.Exception: 获取WebApi授权配置发生错误，请检查【configs/ApiAuthorize.xml】文件 ---> System.InvalidOperationException: XML 文档(47, 2)中有错误。 ---> System.Xml.XmlException: 名称不能以“<”字符(十六进制值 0x3C)开头。 第 47 行，位置 2。
+   在 System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   在 System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   在 System.Xml.XmlTextReaderImpl.ParseQName(Boolean isQName, Int32 startOffset, Int32& colonPos)
+   在 System.Xml.XmlTextReaderImpl.ParseElement()
+   在 System.Xml.XmlTextReaderImpl.ParseElementContent()
+   在 System.Xml.XmlTextReaderImpl.Read()
+   在 System.Xml.XmlTextReader.Read()
+   在 System.Xml.XmlReader.ReadEndElement()
+   在 System.Xml.Serialization.XmlSerializationReader.ReadEndElement()
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read2_ApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read3_ApiModuleOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read4_ApiProfileOfApiAuthorize(Boolean isNullable, Boolean checkType)
+   在 Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderApiProfile1.Read5_ApiProfile()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   在 System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   在 InfoEarthFrame.Common.XmlConvert.XmlDeserialize[T](String s, Encoding encoding) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\XmlConvert.cs:行号 32
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 42
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.get_ApiAuthorizes() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 54
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\configs\ApiAuthorizeManager.cs:行号 62
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Filters\CustomAuthorizeAttribute.cs:行号 20
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:45:17,751 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [12] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:45:47,722 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [46] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:46:17,337 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [43] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:46:47,364 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [12] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:47:17,222 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [43] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:47:47,211 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [16] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:48:17,281 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [40] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:48:47,240 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [15] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:49:17,213 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [16] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 13:49:47,531 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [40] ERROR System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Net.Sockets.SocketException: 向一个无法连接的网络尝试了一个套接字操作。
+   在 Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout)
+   在 Npgsql.ConnectorPool.Allocate(NpgsqlConnection conn, NpgsqlTimeout timeout)
+   在 Npgsql.NpgsqlConnection.OpenInternal()
+   在 Npgsql.NpgsqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 InfoEarthFrame.Application.DataManageAppService.GetDataMainList(GetDataMainListParamDto param) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 320
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(GetDataMainListParamDto dto) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 221
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 16:26:36,997 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [26] ERROR Abp.AbpException: There is no such an entity with given primary key. Entity type: InfoEarthFrame.Core.Tbl_LayerManager, primary key: undefined
+   在 Abp.Domain.Repositories.AbpRepositoryBase`2.<GetAsync>d__16.MoveNext() 位置 D:\Halil\GitHub\aspnetboilerplate\src\Abp\Domain\Repositories\AbpRepositoryBase.cs:行号 81
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 InfoEarthFrame.Application.LayerManagerAppService.<GetDetailById>d__33.MoveNext() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\LayerManager\LayerManagerAppService.cs:行号 257
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.<GetService>d__15.MoveNext() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\SystemManageController.cs:行号 183
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-26 16:27:36,548 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [3] ERROR Abp.AbpException: There is no such an entity with given primary key. Entity type: InfoEarthFrame.Core.Tbl_LayerManager, primary key: 1
+   在 Abp.Domain.Repositories.AbpRepositoryBase`2.<GetAsync>d__16.MoveNext() 位置 D:\Halil\GitHub\aspnetboilerplate\src\Abp\Domain\Repositories\AbpRepositoryBase.cs:行号 81
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 InfoEarthFrame.Application.LayerManagerAppService.<GetDetailById>d__33.MoveNext() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\LayerManager\LayerManagerAppService.cs:行号 257
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.<GetService>d__15.MoveNext() 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\SystemManageController.cs:行号 183
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

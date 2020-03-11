@@ -1,0 +1,645 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InfoEarthFrame.WebApi.Next</name>
+    </assembly>
+    <members>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.AccountController.GetChangePassword(System.String,System.String,System.String,System.String)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="oldpassword">旧密码</param>
+            <param name="password">新密码</param>
+            <param name="repassword">确认新密码</param>
+            <param name="currentUserName">账号</param>
+            <returns></returns>
+        </member>
+        <member name="P:InfoEarthFrame.WebApi.Next.Controllers.BaseApiController.ModuleName">
+            <summary>
+            Api模块名称
+            </summary>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetLayers(System.String,System.String)">
+            <summary>
+            获取图层列表
+            </summary>
+            <param name="mainId">主数据ID</param>
+            <param name="layerName">图层名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetLayerTree(System.String)">
+            <summary>
+            获取图层树
+            </summary>
+            <param name="mappingTypeId">图件分类Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetGeoJsonByLayerName(System.String,System.String)">
+            <summary>
+            根据图层名称获取GEOJson
+            </summary>
+            <param name="layerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetStyles(System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取样式
+            </summary>
+            <param name="createBy">创建人</param>
+            <param name="styleName">样式名称</param>
+            <param name="styleType">样式类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.UpdateDefaultStyle(InfoEarthFrame.Application.DataStyleApp.Dtos.UpdateDefaultStyleDto)">
+            <summary>
+            修改图层默认样式
+            </summary>
+            <param name="layerID">图层ID</param>
+            <param name="styleID"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetDetailById(System.String)">
+            <summary>
+            获取图层详细信息
+            </summary>
+            <param name="layerId">图层ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetLayerFieldsById(System.String)">
+            <summary>
+            获取图层字段
+            </summary>
+            <param name="layerId">图层ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetLayerAttrTabledDetail(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取图层属性表
+            </summary>
+            <param name="layerId">图层ID</param>
+            <param name="pageSize"></param>
+            <param name="pageIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.AddLayerElementAttribute(InfoEarthFrame.ServerInterfaceApp.Dtos.LayerElementAttributeInputDto)">
+            <summary>
+            新增图层要素属性
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.UpdateLayerElementAttribute(InfoEarthFrame.ServerInterfaceApp.Dtos.LayerElementAttributeInputDto)">
+            <summary>
+            编辑图层要素属性
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.RemoveLayerElement(InfoEarthFrame.ServerInterfaceApp.Dtos.LayerElementAttributeInputDto)">
+            <summary>
+            删除图层要素
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataEditorController.GetLogsByLayerID(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取图层日志
+            </summary>
+            <param name="layerId">图层ID</param>
+            <param name="pageSize"></param>
+            <param name="pageIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetMappingTree(System.String)">
+            <summary>
+            获取图件分类树结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetType(System.String)">
+            <summary>
+            获取单个图件分类
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetClassNameStatus(System.String,System.String,System.String)">
+            <summary>
+            获取分类名称状态
+            </summary>
+            <param name="parentId">父级分类ID</param>
+            <param name="className">分类名称</param>
+            <param name="oldClassName">原始分类名称（主要是用作比较）</param>
+            <returns>-1000代表名称已存在</returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.AddOrEditType(InfoEarthFrame.Application.GeologyMappingTypeDto)">
+            <summary>
+            新增或编辑分类
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.AddOrEditMainData(InfoEarthFrame.DataManage.DTO.DataMainDto)">
+            <summary>
+            新增或编辑图件包
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetMainData(System.String)">
+            <summary>
+            获取图件包
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.RemoveType(System.String)">
+            <summary>
+            删除图件分类
+            </summary>
+            <param name="ids">主键字符串，多个请用,号隔开，例如:1,2,3,4</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.PostAllPageListByCondition(InfoEarthFrame.Application.GetDataMainListParamDto)">
+            <summary>
+            获取图件包列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetFolderTree">
+            <summary>
+            获取图件包内部树结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetUploadFiles(System.String,System.String)">
+            <summary>
+            获取上传文件
+            </summary>
+            <param name="mainId">主数据Id</param>
+            <param name="folderName">目录全名</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.RemoveFile(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="ids">主键字符串，多个请用,号隔开，例如:1,2,3,4</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.RemovePackageCategory(InfoEarthFrame.DataManage.DTO.PackageCategoryDto)">
+            <summary>
+            删除分类文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetMetaData(System.String,System.String)">
+            <summary>
+            获取元数据信息
+            </summary>
+            <param name="mainId">主数据Id</param>
+            <param name="folderName">目录全名</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.SaveMetaData(InfoEarthFrame.DataManage.DTO.PackageCategoryDto)">
+            <summary>
+            保存元数据信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.gb2312_utf8(System.String)">
+            <summary>
+            GB2312转换成UTF8
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.utf8_gb2312(System.String)">
+            <summary>
+            UTF8转换成GB2312
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadMetaDataFile(System.String,System.String)">
+            <summary>
+            上传元数据文件
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadMainDataPackage">
+            <summary>
+            上传图件压缩包
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.HandleMainDataPackage(InfoEarthFrame.DataManage.DTO.UploadPackagDto)">
+            <summary>
+            处理图件压缩包
+            </summary>
+            <param name="mainId"></param>
+            <param name="folderName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetErrorMsg(System.String)">
+            <summary>
+            获取上传包错误信息
+            </summary>
+            <param name="mainId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.ChangePackageStatus(System.String)">
+            <summary>
+            修改图件包状态
+            </summary>
+            <param name="mainId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.RemovePackage(System.String)">
+            <summary>
+            删除图件包
+            </summary>
+            <param name="mainId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataStyleController.GetDataStylePageListByCondition(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            根据条件获取分页数据
+            </summary>
+            <param name="input">查询条件的类</param>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataStyleController.AddOrEditStyle(InfoEarthFrame.Application.DataStyleApp.Dtos.DataStyleInputDto)">
+            <summary>
+            新增或编辑用户
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataStyleController.GetDataStyleById(System.String)">
+            <summary>
+            根据ID获取用户信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DataStyleController.RemoveStyle(System.String)">
+            <summary>
+            删除样式
+            </summary>
+            <param name="ids">主键字符串，多个请用,号隔开，例如:1,2,3,4</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DownloadController.Getlayers(System.String)">
+            <summary>
+            获取图层文件
+            </summary>
+            <param name="mainId">主数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DownloadController.GetResultMap(System.String)">
+            <summary>
+            获取成果图
+            </summary>
+            <param name="mainId">主数据id</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DownloadController.GetDrawingOutput(System.String)">
+            <summary>
+            获取制图文件(tif格式)
+            </summary>
+            <param name="mainId">主数据id</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DownloadController.GetItems(System.String,System.Collections.Generic.IEnumerable{System.String},InfoEarthFrame.Common.Ftp)">
+            <summary>
+            将FTP文件夹中的文件压缩并提供下载
+            </summary>
+            <param name="mainId">主数据ID</param>
+            <param name="files">文件列表</param>
+            <param name="ftp">FTP配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DrawingOutputController.GetDrawingInfoByTaskId(System.String)">
+            <summary>
+            根据制图ID获取制图信息
+            </summary>
+            <param name="drawId">制图ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.DrawingOutputController.UpdataDrawingInfo(Infoearth.Application.Entity.DrawingOutput.Dtos.DrawingUpdateInfoDTO)">
+            <summary>
+            更新制图信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.PublishSystemController.GetPublishedMapList(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取发布后的地图列表
+            </summary>
+            <param name="mappingTypeID">地图种类ID</param>
+            <param name="mappingClassName">地图种类名称</param>
+            <param name="name">地图名称</param>
+            <param name="pageSize"></param>
+            <param name="pageIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.PublishSystemController.GetPublishedMapTree">
+            <summary>
+            获取发布后的地图树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.PublishSystemController.GetPublishedMap(System.String)">
+            <summary>
+            获取发布后的地图服务
+            </summary>
+            <param name="mainId">主数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetAreaInfoByUserCode(System.String)">
+            <summary>
+            获取区域范围树结构
+            </summary>
+            <param name="userCode">用户编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetAllPageListByCondition(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取用户列表
+            </summary>
+            <param name="userCode">用户编码</param>
+            <param name="areaCode">区域编码</param>
+            <param name="userName">用户名</param>
+            <param name="pageSize"></param>
+            <param name="pageIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetUser(System.String)">
+            <summary>
+            根据ID获取用户信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetUserByName(System.String)">
+            <summary>
+            根据用户名获取用户信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetUserCodeStatus(System.String,System.String)">
+            <summary>
+            获取用户编码状态
+            </summary>
+            <param name="oldUserCode"></param>
+            <param name="userCode"></param>
+            <returns>-2001代表分类编码已存在</returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.AddOrEditUser(InfoEarthFrame.Application.SystemUserApp.Dtos.SystemUserDto)">
+            <summary>
+            新增或编辑用户
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.AddOrEditService(InfoEarthFrame.Core.Tbl_LayerManager)">
+            <summary>
+            新增或编辑服务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.RemoveUser(System.String)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="ids">主键字符串，多个请用,号隔开，例如:1,2,3,4</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.RemoveGroupUser(System.String)">
+            <summary>
+            删除用户组相关的用户
+            </summary>
+            <param name="ids">主键字符串，多个请用,号隔开，例如:1,2,3,4</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.RemoveService(System.String)">
+            <summary>
+            删除服务
+            </summary>
+            <param name="ids">主键字符串，多个请用,号隔开，例如:1,2,3,4</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.ResetPassword(InfoEarthFrame.WebApi.Next.Controllers.ChangePasswordDto)">
+            <summary>
+            重置密码
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetPageListByCondition(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            根据条件获取分页数据
+            </summary>
+            <param name="input">查询条件的类</param>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetPublishPageListByCondition(System.String,System.Int32,System.Int32)">
+            <summary>
+            根据条件获取分页数据
+            </summary>
+            <param name="input">查询条件的类</param>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetGeologgerPageListByCondition(System.String,System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            根据条件获取分页数据
+            </summary>
+            <param name="input">查询条件的类</param>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetAllGroup">
+            <summary>
+            获取所有用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetGroupRelatedUsers(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            根据用户组获取关联用户
+            </summary>
+            <param name="groupId">用户组ID</param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetGroupAlternativeUsers(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            根据用户组获取供选择的关联用户
+            </summary>
+            <param name="groupId">用户组ID</param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetDataStylePageListByCondition(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            根据条件获取分页数据
+            </summary>
+            <param name="input">查询条件的类</param>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.AddOrEditStyle(InfoEarthFrame.Application.DataStyleApp.Dtos.DataStyleInputDto)">
+            <summary>
+            新增或编辑用户
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetDataStyleById(System.String)">
+            <summary>
+            根据ID获取用户信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.RemoveStyle(System.String)">
+            <summary>
+            删除样式
+            </summary>
+            <param name="ids">主键字符串，多个请用,号隔开，例如:1,2,3,4</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.SystemManageController.GetDataStyleStatus(System.String,System.String)">
+             <summary>
+             获取样式名称状态
+             </summary>
+             <param  name="oldUserCode"></param>
+             <param  name="userCode"></param>
+             <returns>-2002代表分类编码已存在</returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.TestController.GetGreeting">
+            <summary>
+            授权测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ThematicMappingController.SaveDrawingInfo(Infoearth.Application.Entity.DrawingOutput.Dtos.DrawingConfigDTO)">
+            <summary>
+            保存制图信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ThematicMappingController.GetList(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            查询制图输出信息
+            </summary>
+            <param name="pagination">分页</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ToolsController.ImportMappingType(InfoEarthFrame.WebApi.Next.Controllers.XmlDto)">
+            <summary>
+            导入图层种类（来源于老的oracle TBL_GEOLOGYMAPPINGTYPE 表）
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ToolsController.UploadFile(System.String)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="mainId">文件夹ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ToolsController.FormatConversion(System.String,System.String)">
+            <summary>
+            格式转换
+            </summary>
+            <param name="mainId">主数据ID</param>
+            <param name="outputFormat">目标格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ToolsController.CoordinateConversion(System.String,System.String)">
+            <summary>
+            坐标转换
+            </summary>
+            <param name="mainId">主数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ToolsController.ShadowConversion(System.String,System.String)">
+            <summary>
+            投影转换
+            </summary>
+            <param name="mainId">主数据</param>
+            <param name="outputCoordName">坐标系</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ToolsController.GetMapCode(System.Double,System.Double,System.Int32)">
+            <summary>
+             根据经纬度,比例尺计算标准图幅号
+            </summary>
+            <param name="lon">精度</param>
+            <param name="lat">纬度</param>
+            <param name="scale">比例尺</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.ToolsController.GetMapRangeByMapCode(System.String)">
+            <summary>
+            根据标准图幅获取范围
+            </summary>
+            <param name="mapcode">图幅号</param>
+            <returns></returns>
+        </member>
+        <member name="M:InfoEarthFrame.WebApi.Next.Controllers.UploadZipController.Upload(InfoEarthFrame.DataManage.DTO.UploadZipDto)">
+            <summary>
+            上传arcgis图层文件到服务器
+            </summary>
+            <param name="dto">图层数据</param>
+            <returns></returns>
+        </member>
+        <member name="P:InfoEarthFrame.WebApi.Next.Models.ApiAuthorize.Page">
+            <summary>
+            请求页面
+            </summary>
+        </member>
+        <member name="P:InfoEarthFrame.WebApi.Next.Models.ApiAuthorize.NeedToken">
+            <summary>
+            是否需要令牌
+            </summary>
+        </member>
+        <member name="P:InfoEarthFrame.WebApi.Next.Models.ApiModule`1.Name">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:InfoEarthFrame.WebApi.Next.Models.ApiResult.Message">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+        <member name="F:InfoEarthFrame.WebApi.Next.Models.ApiResult._code">
+            <summary>
+            返回值
+            </summary>
+        </member>
+        <member name="P:InfoEarthFrame.WebApi.Next.Models.ApiResult.Data">
+            <summary>
+            额外信息
+            </summary>
+        </member>
+        <member name="T:InfoEarthFrame.WebApi.Next.CustomJwtFormat">
+            <summary> 
+            自定义 jwt token 的格式 
+            </summary>
+        </member>
+        <member name="T:InfoEarthFrame.WebApi.Next.CustomOAuthProvider">
+            <summary>
+            自定义 jwt oauth 的授权验证
+            </summary>
+        </member>
+    </members>
+</doc>

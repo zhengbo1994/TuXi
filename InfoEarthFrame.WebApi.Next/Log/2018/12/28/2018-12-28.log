@@ -1,0 +1,144 @@
+2018-12-28 14:15:56,108 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [19] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:16:37,000 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [19] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:17:13,626 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [9] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:17:56,356 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [14] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:18:41,358 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [15] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:20:13,016 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [28] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:39:26,302 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [5] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:47:13,484 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [25] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:47:26,741 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [25] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:49:26,096 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [24] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:49:57,564 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [21] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-12-28 14:52:35,373 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [14] ERROR System.Exception: 未能找到WebApi【/api/Account/GetChangePassword】的授权配置，请检查【configs/ApiAuthorize.xml】文件
+   在 InfoEarthFrame.WebApi.Next.Config.ApiAuthorizeManager.IsPageValid(String requestPath, Func`1 ValidTokenFunc)
+   在 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute.OnAuthorization(HttpActionContext context)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

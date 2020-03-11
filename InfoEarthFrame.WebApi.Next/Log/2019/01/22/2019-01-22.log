@@ -1,0 +1,543 @@
+2019-01-22 14:36:19,624 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [26] ERROR FluentFTP.FtpException: Error while downloading the file from the server. See InnerException for more info. ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.SetDataTypeInternal(FtpDataType type)
+   在 FluentFTP.FtpClient.SetDataType(FtpDataType type)
+   在 FluentFTP.FtpClient.OpenRead(String path, FtpDataType type, Int64 restart, Boolean checkIfFileExists)
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 FluentFTP.FtpClient.DownloadFileInternal(String remotePath, Stream outStream, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFileToFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 FluentFTP.FtpClient.DownloadFile(String localPath, String remotePath, Boolean overwrite, FtpVerify verifyOptions, IProgress`1 progress)
+   在 InfoEarthFrame.Common.FtpHelper.Get(String localPath, String remotePath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 59
+   在 InfoEarthFrame.Common.Metadata.GetInstance(String mainId, String folderName, String ftpPath) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\MetaDataFileXml\Metadata.cs:行号 67
+   在 InfoEarthFrame.Application.DataManageAppService.GetMetaData(String mainId, String folderName) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2165
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.GetMetaData(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 348
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:42:50,166 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [32] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:43:31,477 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [24] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:43:38,109 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [32] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:43:40,275 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [30] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:43:59,556 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [24] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:44:06,017 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [9] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:44:14,184 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [32] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:44:52,304 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [37] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 14:45:02,699 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [37] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 16:19:45,847 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [57] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 16:20:09,581 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [57] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 16:20:36,962 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [57] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 16:22:40,974 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [69] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-01-22 16:26:16,610 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [69] ERROR System.Net.Sockets.SocketException (0x80004005): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:21
+   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   在 FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   在 FluentFTP.FtpClient.Connect()
+   在 FluentFTP.FtpClient.Execute(String command)
+   在 FluentFTP.FtpClient.GetWorkingDirectory()
+   在 FluentFTP.FtpClient.DirectoryExists(String path)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localPaths, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 FluentFTP.FtpClient.UploadFiles(IEnumerable`1 localFiles, String remoteDir, FtpExists existsMode, Boolean createRemoteDir, FtpVerify verifyOptions, FtpError errorHandling)
+   在 InfoEarthFrame.Common.FtpHelper.UploadFiles(IEnumerable`1 localFiles, String remoteDir) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Common\FTPHelper.cs:行号 85
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.UploadToFtp() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 367
+   在 InfoEarthFrame.DataManage.DTO.UploadFileContext.Upload() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DTO\UploadFileContext.cs:行号 345
+   在 InfoEarthFrame.Application.DataManageAppService.UploadFile(UploadFileContext context) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\DataManage\DataManageAppService.cs:行号 2107
+   在 InfoEarthFrame.WebApi.Next.Controllers.DataManagerController.UploadFile(String mainId, String folderName) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\DataManagerController.cs:行号 304
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

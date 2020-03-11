@@ -1,0 +1,207 @@
+﻿@{
+    ViewBag.Title = "增加或编辑服务";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css{
+    <link href="@Url.Content("~/Content/formSelects.css")" rel="stylesheet" />
+}
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body" id="app">
+                    <form class="layui-form" action="" lay-filter="component-form-group">
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <label class="layui-form-label">名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="name" id="name" v-model="model.Name" lay-verify="required" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg6" id="type">
+                                @*<label class="layui-form-label">图标</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" width="200" name="icon" id="icon" v-model="model.Icon" class="layui-input" lay-verify="required" onclick="showSelectIconDlg()">
+                                    </div>*@
+                            </div>
+                        </div>
+
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">功能选择</label>
+                                <div class="layui-input-block">
+                                    <input type="checkbox" name="checkboxSet" lay-skin="primary" title="新增" value="新增">
+                                    <input type="checkbox" name="checkboxSet" lay-skin="primary" title="编辑" value="编辑">
+                                    <input type="checkbox" name="checkboxSet" lay-skin="primary" title="删除" value="删除">
+                                    <input type="checkbox" name="checkboxSet" lay-skin="primary" title="发布" value="发布">
+                                    <input type="checkbox" name="checkboxSet" lay-skin="primary" title="上传" value="上传">
+                                    <input type="checkbox" name="checkboxSet" lay-skin="primary" title="下载" value="下载">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="layui-btn" lay-submit="" lay-filter="component-form" id="btnSubmit" style="display:none">立即提交</button>
+                        <input type="hidden" name="Id" v-model="model.Id" />
+                        <input type="hidden" id="DataMainID" name="DataMainID" v-model="model.DataMainID" />
+                        <input type="hidden" id="PID" name="PID" v-model="model.PID" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+
+        var data = {
+            currentId: '@Request.QueryString["currentId"]',//当前id
+            currentType: '@Request.QueryString["currentType"]',//menu/module
+            operatingState: '@Request.QueryString["operatingState"]',//操作状态（insert/update）
+            parentId: '@Request.QueryString["parentId"]',//上级Id
+            currentPath: '@Request.QueryString["currentPath"]',//当前路径（6/64/641）
+            @*refname: '@Request.QueryString["refname"]',
+            refvalue: '@Request.QueryString["refvalue"]',*@
+        }
+
+        var form;
+
+        layui.initModule(['jquery', 'form', 'element', 'layer'], function () {
+            var layer = layui.layer
+            form = layui.form;
+            var $ = layui.$, form = layui.form;
+            var element = layui.element;
+            element.init();
+
+            form.render(null, 'component-form-group');
+
+
+            var html = '<label class="layui-form-label">' + (data.currentType == "module" ? "图标" : "路径") + '</label>';
+            html += '<div class="layui-input-block">';
+            html += '<input type="text" name="' + (data.currentType == "module" ? "Icon" : "Url") + '" id="menuValue" v-model="model.' + (data.currentType == "module" ? "Icon" : "Url") + '" lay-verify="required" class="layui-input">';
+            html += '</div>';
+            $("#type").append(html);
+
+            if (data.currentType == "module") {
+                $($(".layui-form").children("div")[2]).css("display", "none");
+            }
+
+
+            initModel();
+
+            layui.autoHeight();
+
+            /* 监听提交 */
+            form.on('submit(component-form)', function (msgData) {
+                debugger
+                var selectValue = new Array();   //  selectvalue为radio中选中的值
+                var $radio = $(".layui-form").find("input[name='checkboxSet']");
+                for (var i = 0; i < $radio.length; i++) {
+                    if ($radio[i].checked == true) {
+                        selectValue.push($radio[i].value);
+                    }
+                }
+
+                $.post({
+                    url: Base.getApiUrl("/SystemManage/AddOrEditMenu"),
+                    data: {
+                        Id: data.currentId,
+                        CurrentType: data.currentType,
+                        OperatingState: data.operatingState,
+                        Name: $("#name").val(),
+                        MenuValue: $("#menuValue").val(),
+                        ParentId: data.parentId,
+                        CurrentPath: data.currentPath,
+                        SelectValueList: selectValue
+                    },
+                    success: function (resp) {
+                        if (resp.code != 0) {
+                            alert('操作失败');
+                        }
+                        else {
+                            alert("操作成功")
+                            parent.initGrid();
+                            layer.alert("操作成功", function () {
+                                parent.layer.closeAll();
+                            })
+
+                            layui.form.render();
+                        }
+                    }
+                })
+                return false;
+            });
+            layui.form.render()
+        });
+
+        function doSubmit() {
+            $("#btnSubmit").click();
+        }
+
+        function initModel() {
+            if (data.operatingState == "update") {
+                $.post({
+                    url: Base.getApiUrl("/SystemManage/PostMenuInfo"),
+                    async: false,
+                    data: {
+                        Id: data.currentId,
+                        CurrentType: data.currentType,
+                        OperatingState: data.operatingState,
+                        ParentId: data.parentId,
+                        CurrentPath: data.currentPath
+                    },
+                    success: function (resp) {
+                        if (resp && resp.data) {
+                            $("#name").val(resp.data.Name);
+                            if (resp.data.Icon != null) {
+                                $("#menuValue").val(resp.data.Icon)
+                            }
+                            if (resp.data.Url != null) {
+                                $("#menuValue").val(resp.data.Url)
+                            }
+                            if (resp.data.Buttons != null) {
+                                var checkboxsData = resp.data.Buttons;
+
+                                var checkboxs = $(".layui-form").find("input[name='checkboxSet']");
+                                for (var i = 0; i < checkboxs.length; i++) {
+                                    for (var j = 0; j < checkboxsData.length; j++) {
+                                        if (checkboxsData[j] == checkboxs[i].value) {
+                                            checkboxs[i].checked = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+                });
+            }
+        }
+
+        function showSelectIconDlg() {
+            debugger
+
+
+            layer.close(layui.layer.index);
+            debugger
+
+            layui.showDlg({
+                title: "选择菜单类型",
+                content: '@Url.Action("SelectIcon")',
+                area: ['64%', '80%'],
+                yes: function (index, layero) {
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                    iframeWin.doSubmit();
+                    //layer.close(index);
+                    //openDlg(operatingState, parentId, currentId, currentPath, iframeWin.getValue());
+                }
+            });
+        }
+
+    </script>
+}

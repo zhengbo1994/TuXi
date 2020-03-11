@@ -1,0 +1,80 @@
+﻿<!-- 工具集-投影转换 create by huqr /// controller:  'shadowCtrl' -  localtion: App/Main/assets/js/controllers/Tools/shadowCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="shadowCtrl">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 container_padding container_cross_padding" style="padding-left:6px !important;">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Toolset.ProjectionConversion.ProjectionConversion">投影转换</span>
+                </div>
+                <div class="panel-body panel-fixed" style="min-height:500px!important;">
+                    <p class="font-content-small" translate="views.Toolset.ProjectionConversion.Tips">投影转换仅支持把投影坐标转换为地理坐标</p>
+                    <p class="font-content-small" translate="views.Toolset.CoordinateConversion.Tips">请选择同名的所有文件进行上传，包括shp、shx、prj、dpf，否则无法进行后续操作</p>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <bp-upload-btn file-type="shp,shx,dbf,prj" mime-types=".shp,.shx,.dbf,.prj" on-all-success="onAllSuccess">
+                            上传文件
+                        </bp-upload-btn>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <label class="font-title-small" style="margin-right: 10px;" translate="views.Toolset.CoordinateConversion.OutputSystem">输出空间参考系:</label>
+                        <ui-select class="ui-select-width" ng-model="outputType.selected" theme="select2">
+                            <ui-select-match>{{$select.selected.label}}</ui-select-match>
+                            <ui-select-choices class="ui-select-height" repeat="p in outputTypeData| propsFilter: {label: $select.search}">
+                                <div ng-bind-html="p.label | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="table-responsive" style="max-height: 450px;">
+                        <table class="table table-bordered table-hover font-content-small" id="sample-table-1">
+                            <thead>
+                                <tr>
+                                    <th translate="views.Toolset.FormatConversion.SerialNumber">序号</th>
+                                    <th translate="views.Toolset.FormatConversion.FileName">文件名称</th>
+                                    <th translate="views.Toolset.FormatConversion.FileSize">文件大小</th>
+                                    <th translate="views.Toolset.FormatConversion.FileType">文件类型</th>
+                                    <th translate="views.Toolset.CoordinateConversion.SpatialReference">空间参考</th>
+                                    <th translate="views.Toolset.FormatConversion.UploadTime">文件上传时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="b in fileDatas">
+                                    <td>
+                                        {{ $index + 1 }}
+                                    </td>
+                                    <td>
+                                        {{ b.name }}
+                                    </td>
+                                    <td>
+                                        {{ b.size | changeSize: '' }}
+                                    </td>
+                                    <td>
+                                        {{ b.type }}
+                                    </td>
+                                    <td>
+                                        {{ b.coord }}
+                                        <i class="ti-eye" style="color: blue; cursor:pointer;" ng-mouseover="showDetail($event,$index,b.detailCoord)" ng-mouseleave="downDetail()"></i>
+                                    </td>
+                                    <td>
+                                        {{ b.date | changeDate: '' }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="position: relative; margin-top: 20px;">
+                        <a class="btn btn-o btn-primary font-title-btn" href="javascript:;" style="position: absolute; right: 0;" ng-click="uploadTwice()" translate="views.Toolset.ProjectionConversion.ProjectionConversion">投影转换</a>
+                    </div>
+
+                    <!-- 工具集文件列表中空间参考旁边的小眼睛弹出来的空间参考详细信息窗口 -->
+                    <div class="static-tooltip detail-window" ng-style="detailTop" ng-show="isSpaceEyes" ng-mouseover="itselfShow()" ng-mouseleave="downDetail()">
+                        <div role="tooltip" class="tooltip top">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-inner" style="background-color: #fff; max-width: 300px; color: #000; text-align: left; border:1px solid #eee;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

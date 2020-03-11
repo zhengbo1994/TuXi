@@ -1,0 +1,179 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+    ViewBag.Title = "增加属性";
+}
+@section css
+{
+  
+}
+
+<div class="layui-fluid" id="component-tabs" style="padding:0px">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card" id="app" >
+                <div class="layui-card-body" style="position:relative">
+                    <form class="layui-form" id="form-container" action="" lay-filter="basic-form" enctype="multipart/form-data">
+
+                        <button class="layui-btn" lay-submit="" lay-filter="basic-form" id="btnSubmit" style="display:none">立即提交</button>
+                        <input type="hidden" id="hidLayerId" value="@Request.QueryString["layerId"]" />
+                        <input type="hidden" id="hidElementId" value="@Request.QueryString["elementId"]" />
+
+                    </form>
+                    @if (!string.IsNullOrEmpty(Request.QueryString["elementId"]))
+                    {
+                        <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="removeAttr(); return false;" style="position:absolute;top:0px"><i class="layui-icon"></i>删除</button>
+                    }
+                </div>
+            </div>
+    </div>
+</div>
+
+    </div>
+@section script
+{
+    <script>
+    var dlgIndex = 0;
+    var form, element;
+    var fields = [];
+    var isEdit = '@Request.QueryString["tableName"]';
+    layui.initModule(['form'], function () {
+        form = layui.form;
+        element = layui.element;
+        element.render();
+
+
+        form.render(null, 'basic-form');
+        /* 监听提交 */
+        form.on('submit(basic-form)', function (data) {
+            var isValid = true;
+
+            if (isValid) {
+                $.post({
+                    url: Base.getApiUrl(!isEdit ? "/DataEditor/AddLayerElementAttribute" : "/DataEditor/UpdateLayerElementAttribute"),
+                    data: {
+                        layerId: $("#hidLayerId").val(),
+                        values: getValues(),
+                        elementId: $("#hidElementId").val()
+                    },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            //window.parent.initAttrInfoGrid();
+                            if (!isEdit) {
+                                window.parent.layer.close(dlgIndex);
+                                window.parent.getAttrInfoField();
+                            }
+                            else {
+                                window.parent.layer.close(dlgIndex);
+                                alert('修改成功');
+                            }
+                        }
+                    }
+                })
+            }
+            return false;
+        });
+
+        getAttrInfoField();
+    });
+
+
+    function getValues() {
+        var values = [];
+        $.each(fields, function (index, element) {
+            values.push($("#lbl" + element).text() + ";" + $.trim($("#txt" + element).val()))
+        });
+        return values;
+    }
+
+
+    function doSubmit(index) {
+        dlgIndex = index;
+        $("#btnSubmit").click();
+    }
+
+    function getAttrInfoField() {
+        $.get({
+            url: Base.getApiUrl("/DataEditor/GetLayerFieldsById"),
+            data: {
+                layerId: $("#hidLayerId").val()
+            },
+            success: function (resp) {
+                var sb = '';
+                if (resp.status == 0) {
+                    if (isEdit) {
+                        sb += ' <div class="layui-row layui-col-space12 layui-form-item">';
+                        sb += '                            <div class="layui-col-lg3">';
+                        sb += "                                <label class=\"layui-form-label\"><button class=\"layui-btn layui-btn-danger layui-btn-sm\"  style=\"position:absolute;display:none\"></button></label>";
+                        sb += '                            </div>';
+                        sb += '                            </div>';
+                    }
+                    if (resp.rows.item && resp.rows.item.length > 0) {
+
+                        $.each(resp.rows.item, function (index, element) {
+                            if (element.AttributeName != "guid") {
+                                fields.push(element.AttributeName);
+                                sb += ' <div class="layui-row layui-col-space12 layui-form-item">';
+                                sb += '                            <div class="layui-col-lg3">';
+                                sb += "                                <label class=\"layui-form-label\" id=\"lbl" + element.AttributeName + "\">" + element.AttributeName + "</label>";
+                                sb += '                                <div class="layui-input-block">';
+                                sb += "                                    <input type=\"text\" name=\"" + element.AttributeName + "\" id=\"txt" + element.AttributeName + "\" class=\"layui-input\">";
+                                sb += '                                </div>';
+                                sb += '                            </div>';
+                                sb += '                            </div>';
+                            }
+                        });
+
+
+                    }
+                }
+
+                $("#form-container").append(sb);
+                if ($("#hidElementId").val()) {
+                    $.get({
+                        url: Base.getApiUrl("/DataEditor/GetLayerElementAttrs"),
+                        data: {
+                            layerId: '@Request.QueryString["tableName"]',
+                                elementId: $("#hidElementId").val()
+                            },
+                            success: function (resp)
+                            {
+                                console.log(resp);
+                                $.each(fields, function (index, element) {
+                                    $("#txt" + element).val(resp.data[0][element]);
+                                });
+                            }
+                        })
+                    }
+                    form.render(null, 'basic-form');
+
+                    layui.autoHeight();
+                }
+            })
+        }
+
+        function removeAttr() {
+            confirm('是否删除', function () {
+                $.post({
+                    url: Base.getApiUrl("/DataEditor/RemoveLayerElement"),
+                    data: {
+                        layerId: $("#hidLayerId").val(),
+                        elementId: $("#hidElementId").val()
+                    },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            window.parent.layer.closeAll()
+                            //window.parent.frames["page-frame"].init();
+                            window.parent.frames["page-frame"].removeLayer('@Request.QueryString["tableName"]',true);
+                       window.parent.frames["page-frame"].addLayer('@Request.QueryString["tableName"]');
+                        window.parent.frames["page-frame"].moveTo();
+                    }
+                }
+            })
+
+        });
+        return false;
+
+    }
+
+    </script>
+}

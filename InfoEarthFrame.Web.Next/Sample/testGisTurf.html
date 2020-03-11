@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../Content/scripts/plugins/openLayer/css/ol.css" rel="stylesheet" />
+    <script src="../Content/scripts/plugins/openLayer/ol.js"></script>
+    <script src="../Content/scripts/plugins/webgis/turf.min.js"></script>
+    <script src="../Content/scripts/jquery/jquery-2.0.3.min.js"></script>
+   
+    <style>
+        html {
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 13px;
+        }
+
+        body {
+            margin: 50px;
+            padding-left: 50px;
+            font: 1.4rem/2.4rem 'Open Sans',Helvetica,Arial,sans-serif;
+        }
+
+        pre {
+            margin: 2rem 0;
+            padding: 1rem 0.8rem 1rem 1.2rem;
+            color: #3f3b36;
+            border: 1px solid #f5d995;
+            border-left: 1rem solid #f5d995;
+            font: lighter 1.2rem/2rem Monaco,'MonacoRegular',monospace;
+            background: url(/wp/wp-content/themes/wire/img/pre.png) repeat 0 -0.9rem;
+            background-size: 1px 4rem;
+        }
+
+            pre code {
+                padding: 0;
+                color: #3f3b36;
+                background-color: transparent;
+                font-size: 1.2rem;
+                line-height: 2rem;
+                text-shadow: none;
+            }
+
+        code {
+            padding: 0;
+            margin: 0;
+            font-weight: lighter;
+            font-family: Monaco,'MonacoRegular',monospace;
+        }
+
+        .map {
+            border: 1px solid #f5d995;
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body onload="demo()">
+    <h1>Turf</h1>
+    <p>
+        turfjs是一个用于空间分析的JavaScript库。它包括传统的空间操作，用于创建GeoJSON数据的帮助函数，以及数据分类和统计工具。
+    </p>
+    <p>
+        大多数Turf函数使用GeoJSON功能。 GeoJSON有几种几何类型，如：
+    </p>
+    <ul>
+        <li>  Point</li>
+        <li> LineString</li>
+        <li>  Polygon</li>
+    </ul>
+    <h2>基本的数据格式</h2>
+    <h3>点，下面两种表示方式等同</h3>
+    <pre><code>         点
+var point1 = turf.point([-73.988214, 40.749128]);
+        或GeoJson
+var point2 = {
+	  type:'Feature',
+	  geometry: {
+	    type:'Point',
+	    // 经纬度	  
+            coordinates: [-73.988214, 40.749128]
+	  },
+	  properties: {}	
+      };</code></pre>
+    <h3>其他数据格式</h3>
+    <pre><code>多点： var multiPt = turf.multiPoint([[0,0],[10,10]]);
+线：var linestring1 = turf.lineString([[-24, 63], [-23, 60], [-25, 65], [-20, 69]], {name: 'line 1'});
+线：var linestring2 = turf.lineString([[-14, 43], [-13, 40], [-15, 45], [-10, 49]], {name: 'line 2'});
+多线：var multiLine = turf.multiLineString([[[0,0],[10,10]]]);
+多边形：var polygon = turf.polygon([[[-5, 52], [-4, 56], [-2, 51], [-7, 54], [-5, 52]]], { name: 'poly1' });
+        var multiPoly = turf.multiPolygon([[[[0,0],[0,10],[10,10],[10,0],[0,0]]]]);
+集合：var collection = turf.geometryCollection([multiPt, linestring1]);
+</code></pre>
+    <div id="map0" class="map"></div>
+    <h3>等值线</h3>
+    <pre><code> var extent = [0, 30, 20, 50];
+var cellWidth = 100;
+var pointGrid = turf.pointGrid(extent, cellWidth, { units: 'miles' });
+for (var i = 0; i < pointGrid.features.length; i++) {
+     pointGrid.features[i].properties.temperature = Math.random() * 10;
+}
+var breaks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var lines = turf.isolines(pointGrid, breaks, { zProperty: 'temperature' });</code></pre>
+    <div id="map1" class="map" style="height:500px;width:900px;"></div>
+    <h3>缓冲区分析</h3>
+    <pre><code> var point1 = turf.point([117, 34]);
+var point2 = turf.point([107, 34]);
+var buffered1 = turf.buffer(point1, 500, { units: 'miles' });
+var buffered2 = turf.buffer(point2, 400, { units: 'miles' });</code></pre>
+    <div id="map2" class="map"></div>
+    <script>
+        /// <reference path="scripts/plugins/openLayer/ol.js" />
+        function demo() {
+            function visualize(geometries, override, i) {
+                var colors = [[255, 0, 0, 0.5], [0, 0, 255, 0.5], [0, 150, 0, 0.5]];
+                function createStyle(color) {
+                    return new ol.style.Style({
+                        image: new ol.style.Circle({
+                            fill: new ol.style.Fill({
+                                color: color
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: 'black',
+                                width: 1
+                            }),
+                            radius: 3
+                        }),
+                        fill: new ol.style.Fill({
+                            color: color
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: 'black',
+                            width: 2
+                        })
+                    })
+                }
+
+                var geoFormat =new ol.format.GeoJSON();
+                console.log(geoFormat);
+                var features = geoFormat.readFeatures(geometries);
+                for (var j = 0; j < features.length; j++) {
+                    features[j].setStyle(createStyle(override ? colors[2] : colors[j]));
+                }
+                var source = new ol.source.Vector({
+                    features: features
+                })
+                var layer = new ol.layer.Vector({
+                    source: source
+                    // style: createStyle(color)
+                })
+               var map= new ol.Map({
+                    layers: [layer],
+                    target: 'map' + i,
+                    controls: [],
+                    view: new ol.View({
+                        center: [0, 0],
+                        resolution: 1
+                    })
+               })
+              // map.getView().setZoom(6);
+               map.getView().setCenter([117, 34]);
+               
+            }
+            var point = turf.point([117, 34]);
+            var line = turf.lineString([[86.34, 22.12], [105.50, 13.45], [148.23, 54.56], [167, 43]], {name: 'line 1'});
+            var coll = turf.featureCollection([point, line]);
+            console.log(coll);
+            visualize(coll, false, 0);
+           
+            //等值线
+            function styleFunction(feature) {
+                var tem = feature.get("temperature");
+                var colors = ["#5a9fdd", "#f7eb0c", "#fc9e10", "#f81e0d", "#aa2ab3"];
+                var color = colors[parseInt(tem / 2)];
+                return new ol.style.Style({
+                    fill: new ol.style.Fill({
+                        color: color
+                    }),
+                    stroke: new ol.style.Stroke({
+                        color: color,
+                        width: 4
+                    }),
+                    image: new ol.style.Circle({
+                        radius: 5,
+                        fill: new ol.style.Fill({
+                            color: color
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: '#fff',
+                            width: 1
+                        })
+                    })
+                });
+            }
+
+            // create a grid of points with random z-values in their properties
+            var extent = [0, 30, 20, 50];
+            var cellWidth = 100;
+            var pointGrid = turf.pointGrid(extent, cellWidth, { units: 'miles' });
+            for (var i = 0; i < pointGrid.features.length; i++) {
+                pointGrid.features[i].properties.temperature = Math.random() * 10;
+            }
+            var breaks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            var lines = turf.isolines(pointGrid, breaks, { zProperty: 'temperature' });
+
+                var _lFeatures = lines.features;
+                for(var i=0;i<_lFeatures.length;i++){
+                    var _coords = _lFeatures[i].geometry.coordinates;
+                    var _lCoords = [];
+                    for(var j=0;j<_coords.length;j++){
+                        var _coord = _coords[j];
+                        var line = turf.lineString(_coord);
+                        var curved = turf.bezierSpline(line);
+                        _lCoords.push(curved.geometry.coordinates);
+                    }
+                    _lFeatures[i].geometry.coordinates = _lCoords;
+                }
+
+            var featureslines = (new ol.format.GeoJSON()).readFeatures(lines);
+            var features = (new ol.format.GeoJSON()).readFeatures(pointGrid);
+            features = features.concat(featureslines);
+            for (var i = 0; i < features.length; i++) {
+                features[i].getGeometry().transform("EPSG:4326", "EPSG:3857");
+            }
+            var source = new ol.source.Vector({
+                features: features,
+                wrapX: false
+            });
+            var vector = new ol.layer.Vector({
+                source: source,
+                style: styleFunction
+               
+            });
+            var map1 = new ol.Map({
+                layers: [vector],
+                target: 'map1',
+                view: new ol.View({
+                    center: [997961.642017495, 5016103.770222437],
+                    zoom: 3
+                })
+            });
+            //map1.on('click', function (event) {
+            //    var t = map1.getEventCoordinate(event);
+
+            //    alert(t);
+            //})
+            var point1 = turf.point([117, 34]);
+            var point2 = turf.point([107, 34]);
+            var buffered1 = turf.buffer(point1, 500, { units: 'miles' });
+            var buffered2 = turf.buffer(point2, 400, { units: 'miles' });
+
+            var coll1 = turf.featureCollection([buffered1, buffered2]);
+         
+            visualize(coll1, false, 2);
+        }
+    </script>
+</body>
+</html>

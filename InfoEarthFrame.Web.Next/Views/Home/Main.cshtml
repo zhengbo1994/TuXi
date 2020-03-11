@@ -1,0 +1,346 @@
+﻿@{
+    ViewBag.Title = "首页地图";
+    Layout = "~/Views/Shared/CommonMap.cshtml";
+}
+@section css{
+    <style>
+        #home-map {
+            position: relative;
+            overflow:hidden;
+        }
+        /* 显示鼠标信息的自定义样式设置 */
+        #mouse-position {
+            position: absolute;
+            bottom: 15px;
+            right: 0;
+            width: 120px;
+            height: 20px;
+            z-index: 2000;
+            font-size: 16px;
+            font-family: "微软雅黑";
+        }
+
+        .main-content {
+            height:100%;
+            box-sizing:border-box;
+            padding:10px 15px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+        }
+            .main-content>div{
+                box-sizing:border-box;
+                width:100%;
+            }
+        .home-map{
+            height:66%;
+        }
+        .home-echarts{
+            height:33%;
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+        }
+            .item{
+                width:33%;
+                height:100%;
+                box-sizing:border-box;
+                border:1px solid #a4c8e6;
+                background:white;
+            }
+        
+
+            .toggle-panel{
+                display:flex;
+                flex-direction:row;
+                justify-content:flex-start;
+                align-items:stretch;
+                position:absolute;
+                width: 390px;
+                right:-359px;
+                top:0;
+                z-index:100;
+            }
+
+        .toggle-title{
+            box-sizing:border-box;
+            background:#1e9fff;
+            color:white;
+            width:31px;
+            /*height:140px;*/
+            font-size:14px;
+            padding: 6px 8px;
+            cursor:pointer;
+            border-top-left-radius:5px;
+            border-bottom-left-radius:5px;
+            overflow:hidden;
+        }
+        .toggle-content{
+            flex:1;
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-start;
+            box-sizing:border-box;
+            background:white;
+        }
+
+        .select-wrap{
+            height: 38px;
+        }
+        .layui-form-select dl dd.layui-this{
+            background:#1e9fff;
+        }
+        .desc-title{
+            margin:5px 5px 0;
+            line-height:22px;
+            font-size:15px;
+            font-weight:bold;
+            color:gray;
+        }
+        ul.desc-content{
+            flex:1;
+            margin-left:5px;
+            display:flex;
+            flex-direction:row;
+            justify-content:flex-start;
+            align-content:space-around;
+            flex-wrap:wrap;
+            width:100%;
+            box-sizing:border-box;
+        }
+            ul.desc-content>li:nth-child(odd){
+                box-sizing:border-box;
+                background:#1e9fff;
+                color:white;
+                width:31px;
+                font-size:15px;
+                padding: 80px 8px;
+                cursor:pointer;
+                width:58%;  
+            }
+            ul.desc-content>li:nth-child(even){
+                box-sizing:border-box;
+                width:42%;  
+            }
+            .desc-value{
+                font-size:13px;
+                color:gray;
+            }
+
+      
+    </style>
+<link href="@Url.Content("~/Content/formSelects.css")" rel="stylesheet" />
+}
+<div class="main-content">
+    <div id="home-map" class="home-map">
+        <div id='mouse-position' class="custom-mouse-position"></div>
+        <div class="toggle-panel">
+            <div><div class="layui-icon layui-icon-shrink-right toggle-title">服务详细信息</div></div>
+            <div class="toggle-content">
+                <div class="layui-form">
+                    <select xm-select="select-map" xm-select-search=""  name="interaction" lay-filter="interaction" ></select>
+                </div>
+                <table class="layui-table" style="margin:0;padding:0">
+                    <tr>
+                        <td colspan="2" align="center" style="border:none"><strong>基本信息</strong></td>
+                    </tr>
+                    <tr>
+                        <td align="right">所有者：</td>
+                        <td>中国地质环境检测院</td>
+                    </tr>
+                    <tr>
+                        <td align="right">空间参考系：</td>
+                        <td>西安80</td>
+                    </tr>
+                    <tr>
+                        <td align="right">数据范围-东：</td>
+                        <td>140</td>
+                    </tr>
+                    <tr>
+                        <td align="right">数据范围-南：</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td align="right">数据范围-西：</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td align="right">数据范围-北：</td>
+                        <td>60</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="home-echarts">
+        <div id="roseChart1" class="item"></div>
+        <div id="roseChart2" class="item"></div>
+        <div id="roseChart3" class="item"></div>
+    </div>
+</div>
+
+@section script{
+    <script>
+
+        var mapObj = initMap('home-map');
+        mapObj.mousePosition();
+        var $toggleTitle = $('.toggle-title'), $togglePanel = $('.toggle-panel');
+        $toggleTitle.toggle(function () {
+                $toggleTitle.css('height', '100%')
+            $togglePanel.animate({ right: 0 }, 500, function () {
+                    
+                })
+            },
+            function () {
+                $togglePanel.animate({ right: -359 }, 500, function () {
+                    $toggleTitle.css('height', 'auto')
+                })
+            }
+        )
+
+        layui.initModule(['form', 'formSelects'],
+            function() {
+                var form = layui.form;
+                initMapSelect(form);
+                //mapObj.addLayer.iTelluro('全国250W地质图', 4.5)
+            });
+
+
+        function initMapSelect(form) {
+            //var treeHtml = '<option value=0></option>';
+            //if (selectData.length) {
+            //    for (var i = 0; i < selectData.length; i++) {
+            //        if (i == 0) {
+            //            treeHtml += '<option value=1 selected>' + selectData[i].name + '</option>';
+            //        } else {
+            //            treeHtml += '<option value=' + (i + 1) + '>' + selectData[i].name + '</option>';
+            //        }
+            //    }
+            //}
+
+            //$('#select-map').html(treeHtml);
+            //form.render();
+            layui.initSelect2({
+                id: "select-map",
+                url: Base.getApiUrl("/SystemManage/GetServiceTreeData"),
+                method: "get",
+                onSelect: function(cid, vals, val, isAdd, isDisabled) {
+                    if (!isAdd) {
+                        mapObj.removeLayer(val.tag)
+                    } else {
+                        mapObj.addLayer.iTelluro(val.tag1, val.tag, val.tag2, val.tag4)
+                    }
+                    return true;
+                },
+                success: function(id, url, searchVal, result) {
+
+
+                }
+            })
+        }
+
+        var color = [
+            '#df4d4b', '#304552', '#52bbc8', 'rgb(224,134,105)', '#8dd5b4', '#c63fce', '#7554d4', '#4dbbe6', '#32c37b',
+            '#549c20', '#e0a535'
+        ];
+        //var legendData1 = ['地质灾害类', '地下水类', '矿山地质环境类', '地质遗迹类', '地质环境条件类'];
+        //var seriesData1 = [
+        //    { value: 335, name: '地质灾害类' },
+        //    { value: 310, name: '地下水类' },
+        //    { value: 234, name: '矿山地质环境类' },
+        //    { value: 135, name: '地质遗迹类' },
+        //    { value: 1548, name: '地质环境条件类' }
+        //];
+        var legendData1 = [];
+        var seriesData1 = [];
+        //现在是要统计发布后的服务  这个服务跟类型有关联
+        $.get({
+            url: Base.getApiUrl("/SystemManage/GetServerTypeForReleaseNumber"),
+            async: false,
+            //data:  {
+            //        id:  id
+            //},
+            success: function (resp) {
+                var data = resp.data;
+                seriesData1 = data;
+                for (var i = 0; i < data.length; i++) {
+                    legendData1.push(data[i].name);
+                }
+            },
+            error: function (a, b, c) {
+            }
+        });
+
+        var legendData2 = ['地质灾害类', '地下水类', '地质环境条件类'];
+        var seriesData2 = [
+            { value: 335, name: '地质灾害类' },
+            { value: 310, name: '地下水类' },
+            { value: 748, name: '地质环境条件类' }
+        ];
+        var legendData3 = ['地质灾害类', '地下水类', '矿山地质环境类', '地质遗迹类'];
+        var seriesData3 = [
+            { value: 335, name: '地质灾害类' },
+            { value: 310, name: '地下水类' },
+            { value: 234, name: '矿山地质环境类' },
+            { value: 135, name: '地质遗迹类' }
+        ];
+
+        var roseChart1 = echarts.init(document.getElementById('roseChart1'));
+        var roseChart2 = echarts.init(document.getElementById('roseChart2'));
+        var roseChart3 = echarts.init(document.getElementById('roseChart3'));
+        var pieOption = function(legendData, seriesData) {
+            // 指定图表的配置项和数据
+            var roseoption = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c}"
+                },
+                legend: {
+                    orient: 'horizontal',
+                    x: 'center',
+                    bottom: 10,
+                    data: legendData
+                },
+                color: color,
+                series: [
+                    {
+                        name: '等级',
+                        type: 'pie',
+                        radius: ['36%', '55%'],
+                        center: ['50%', '43%'],
+                        avoidLabelOverlap: true,
+                        label: {
+                            normal: {
+                                formatter: '{b}:{c}',
+                                textStyle: {
+                                    fontWeight: 'normal',
+                                    fontSize: 12,
+                                    color: '#333'
+                                }
+                            }
+                        },
+                        data: seriesData,
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            return roseoption;
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        roseChart1.setOption(pieOption(legendData1, seriesData1));
+        roseChart2.setOption(pieOption(legendData2, seriesData2));
+        roseChart3.setOption(pieOption(legendData3, seriesData3));
+        window.onresize = function(e) {
+            roseChart1.resize(e);
+            roseChart2.resize(e);
+            roseChart3.resize(e);
+        }
+
+    </script>
+}

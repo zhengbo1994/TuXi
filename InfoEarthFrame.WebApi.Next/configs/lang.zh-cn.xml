@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ApiProfile>
+  <Module Name="Base">
+    <!--状态-->
+    <Item Code="0"></Item>
+    <Item Code="200">操作成功</Item>
+    <Item Code="-1">操作失败</Item>
+    <Item Code="-200">操作失败</Item>
+    <Item Code="401">没有权限</Item>
+    <Item Code="500">内部服务器错误</Item>
+    <Item Code="-501">存在引用无法删除</Item>
+    <Item Code="-502">FTP配置不存在</Item>
+    <Item Code="-502">没有上传文件</Item>
+    <Item Code="-1001">名称已存在</Item>
+  </Module>
+  <Module Name="DataManager">
+    <Item Code="1000">所有分类</Item>
+    <Item Code="1001">地区分类</Item>
+    <Item Code="1002">内部结构</Item>
+  </Module>
+  <Module Name="SystemManage">
+    <Item Code="2000">所有区域</Item>
+    <Item Code="-2001">登陆账号已存在</Item>
+    <Item Code="-2002">样式名称已存在</Item>
+  </Module>
+</ApiProfile>

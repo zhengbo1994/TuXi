@@ -1,0 +1,152 @@
+﻿M001#时间型#DateTime
+M002#短整型#Short Integer
+M003#长整型#Long Integer
+M004#单浮点型#Single Floating
+M005#双浮点型#Double Floating
+M006#字符型#Character
+
+
+M007#上传文件解析异常(上传的矢量文件无效)#Upload file resolution exception (uploaded vector file is invalid)
+M008#上传文件解析异常(与系统默认坐标系不匹配)#Upload file resolution exception (does not match the system default coordinate system)
+M009#上传文件解析异常(上传必要文件不存在或不完整)#Upload file resolution exception (upload necessary file does not exist or incomplete)
+M010#文件属性检查有异常，生成Excel有异常#File Property Check has an exception.Excel has an exception
+M011#文件属性检查异常统计#PropertyCheckErrorStatistics
+M012#文件属性更新异常，生成Excel有异常#File property update is abnormal.Excel has an exception
+M013#上传文件解析异常(属性无匹配或只部分匹配)#Upload file resolution exception(Attributes do not match or only partially match)
+M014#图层属性信息匹配异常(长度＼精度＼数据类型)#Layer attribute information matching exception(Length \ precision \ data type)
+M015#图层属性信息匹配异常#Layer attribute information matching exception
+M016#上传文件成功#Upload file success
+M017#上传文件解析异常#Upload file resolution exception
+M018#转换文件不存在！#Conversion file does not exist！
+M019#格式转换#Format conversion
+M020#转换成功#Conversion successful
+M021#转换失败#Conversion failed
+M022#shp文件错误#Shp file error
+M023#坐标转换#Coordinate conversion
+M024#投影转换#Projection conversion
+M025#属性检查：文件类型错误#Property inspection:The file type is wrong
+M026#属性检查：不在检查范围内#Property inspection:Not within the scope of inspection
+M027#属性检查：#Property inspection:
+M028#通过#OK
+M029#不通过#Error
+
+
+M030#点图片#Point Picture
+M031#面图片#Polygon Picture
+M032#符号#Symbol
+M033#值#Value
+M034#注记#Note
+M035#个数#Number
+
+M036#缩略图下载异常：图层名称#Thumbnail download exception: Layer name
+M037#读取成功#Read successfully
+M038#文件属性检查有异常，详情请查看Excel#There is abnormal file attribute check, please check Excel for details
+M039#上传文件解析异常(下载缩略图)#Abnormal upload file (download thumbnail)
+M040#上传文件解析数据保存成功#Upload file to resolve the data saved successfully
+M041#导入成功#Import successful
+M042#导入失败#Import failed
+M043#上传文件解析异常(GeoServer地图发布异常)#Upload file resolution exception (GeoServer map publishing exception)
+M044#上传文件解析异常(MySQL:请查看SHP文件属性值类型或长度与系统建置是否匹配) #Uploading file parsing exception (MySQL: Please check SHP file attribute value type or length and system configuration match)
+M045#与属性验证[空值]不能为空不符#Attribute validation [empty value] can not be empty does not match
+M046#与属性验证[输入格式]单选不符,字典值#Attribute validation [input format] radio does not match, the dictionary value
+M047#与属性验证[输入格式]多选不符,字典值#Attribute validation [input format] multiple choice does not match, the dictionary value
+M048#与属性验证[值域上限#With attribute validation [range limit
+M049#与值域下限#With the lower end of the range
+M050#值不符#Value does not match
+M051#不符#Does not match
+M052#与属性验证[公式]公式有异常#Attribute verification [formula] formula is abnormal
+M053#与属性验证[公式]计算值#Validation with [Formula] calculated value
+
+S001#返回地图数据#Return Map Data
+S002#服务类型#Service Type
+S003#是#True
+S004#版本号#Version
+S005#请求类型#Request Method
+S006#地图名称#Map Name
+S007#边界范围#Boundary Range
+S008#坐标参考系#SRS
+S009#空代表默认样式#Default Is Empty
+S010#地图样式#Style
+S011#正整数#Positive Integer
+S012#宽度#Width
+S013#高度#Height
+S014#返回格式#Return Format
+S015#否#False
+S016#是否透明#Transparent 
+S017#背景颜色#Background Color
+S018#文件格式（默认：application/vnd.ogc.se_xml）#File Format（default：application/vnd.ogc.se_xml）
+S019#异常文件格式#Exception File Format
+S020#日期#Date
+S021#样式文件地址#Style File Address
+S022#样式文件内容#Style File Content
+
+S023#默认#Default
+S024#根据地图名称查询图层列表#Query the list of layers according to the name of the map
+S025#所在行#tileCol
+S026#所在列#tileRow
+S027#切片方案#tileMatrixSet
+S028#样式#styles
+S029#图层属性信息#Attribute information
+S030#条件#conditions
+
+S031#切片等级名称#Slice level name
+S032#要素编号#Element number
+S033#返回数量#Return quantity
+S034#返回最大的数量#Return the maximum number
+S035#排序#Sort
+S036#指定返回的属性(多个','隔开)#Specify the returned attribute (multiple ',' separated)
+S037#过滤条件#Filter conditions
+S038#属性名称#Attribute name
+S039#双精度浮点数#Double-precision floating point
+S040#多边形框选wkt字符串#Polygon box selected wkt string
+
+S041#图层编号#Layer number
+S042#图层名称#Layer name
+S043#图层类型#Layer type
+S044#图层边界空间#Layer border space
+S045#图层分类#Layer category
+S046#图层标签#Layer Tag
+S047#图层描述#Layer description
+S048#空间参考#Spatial reference
+S049#创建时间#Create time
+S050#图层样式名称#Layer style name
+S051#图层顺序#Layer order
+S052#图层属性信息#Layer attribute information
+
+S053#字段名称#Field Name
+S054#字段描述#Field Description
+S055#字段类型#Field Type
+S056#字段长度#Field length
+S057#字段小数位#Field decimal places
+S058#字段输入控制#Field input control
+S059#字段最大值#Maximum value of the field
+S060#字段最小值#Minimum value of the field
+S061#字段默认值#Field default value
+S062#是否为空#Is it empty
+S063#字段输入格式#Field input format
+S064#字段单位#Field units
+S065#字段数据分类#Field data classification
+S066#字段文字符连接#Field text character connection
+S067#字段数据源#Field data source
+S068#字段计算公式#Field calculation formula
+S069#字段排序#Sort the fields
+S070#字段备注#Field Notes
+
+S071#最大经度#Maximum longitude
+S072#最小经度#Minimum longitude
+S073#最小纬度#Minimum latitude
+S074#最大纬度#Maximum latitude
+S075#半径#radius
+S076#经度#longitude
+S077#纬度#latitude
+S078#切片等级#Slice level
+S079#返回切片数据#Return slice data
+S080#返回图层要素#Return layer features
+S081#返回KML文件#Return KML file
+S082#根据图层名称查询图层所有字段#Query all the fields of the layer according to the layer name
+S083#根据点查询图层属性信息#According to the query layer attribute information
+S084#根据图层名称查询属性信息#Query attribute information by layer name
+S085#根据图层名称和条件查询属性信息#Query attribute information based on layer name and condition
+S086#根据中心点查询图层属性信息#According to the center of the query layer attribute information
+S087#根据矩形查询图层属性信息#According to the rectangular query layer attribute information
+S088#根据多边形框选查询图层属性信息#According to the polygon frame check layer attribute information

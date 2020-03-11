@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../Content/scripts/plugins/openLayer/css/map.css" rel="stylesheet" />
+    <link href="../Content/styles/font-awesome.min.css" rel="stylesheet" />
+    <!--  <link href="Content/scripts/plugins/map/maptheme.css" rel="stylesheet" />-->
+    <link href="../Content/scripts/plugins/map/themify-icons.css" rel="stylesheet" />
+    <link href="../Content/scripts/plugins/openLayer/css/ol.css" rel="stylesheet" />
+    <link href="../Content/scripts/plugins/map/map.css" rel="stylesheet" />
+    <link href="../Content/scripts/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/scripts/plugins/tree/tree.css" rel="stylesheet" />
+    <link href="../Content/styles/learun-ui.css" rel="stylesheet" />
+    <!--<script src="Content/scripts/plugins/openLayer/jquery.min.js"></script>-->
+    <script src="../Content/scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../Content/scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="../Content/scripts/plugins/jquery.md5.js"></script>
+
+    <script src="../Content/scripts/plugins/openLayer/ol-debug.js"></script>
+    <!--<script src="Content/scripts/plugins/openLayer/ol.js"></script>-->
+    <script src="../Content/scripts/plugins/openLayer/itelluro.ol.js"></script>
+    <script src="../Content/scripts/plugins/openLayer/itelluro.tianditu.js"></script>
+    <script src="../Content/scripts/plugins/openLayer/measuretool.js"></script>
+
+    <script src="../Content/scripts/plugins/tree/tree.js"></script>
+    <script src="../Content/scripts/plugins/map/map.js"></script>
+    <script src="../Content/scripts/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../Content/scripts/utils/base/learun.base.js"></script>
+    <script src="../Content/scripts/utils/base/learun.base.extensions.js"></script>
+    <script src="../Content/scripts/utils/base/learun.base.plugin.js"></script>
+    <script src="../Content/scripts/utils/base/learun.old.js"></script>
+    <script src="../Content/scripts/plugins/infoearthcustom/queryControl.js"></script>
+    <script src="../Content/scripts/plugins/districts/multiDistricts.js"></script>
+    <script src="../Content/scripts/plugins/datepicker/WdatePicker.js"></script>
+    <!--<script src="Content/scripts/ssoapi.js"></script>-->
+    <!--<script src="Content/scripts/ssohx.js"></script>-->
+    <script src="../Content/scripts/plugins/echarts/echarts.min.js"></script>
+
+    <script src="../Content/scripts/plugins/districts/districts.js"></script>
+    <script src="../Content/scripts/plugins/infoearthcustom/timeQuantum.js"></script>
+    <link href="../Content/scripts/plugins/select2/css/select2.css" rel="stylesheet" />
+    <script src="../Content/scripts/plugins/select2/select2.js"></script>
+    <script src="../Content/scripts/plugins/infoearthcustom/comboxSearchControl.js"></script>
+    <script src="../Content/scripts/plugins/Kneecoordinate/Kneecoordinate.js"></script>
+    <script src="../Content/scripts/plugins/infoearthcustom/degreeConvert.js"></script>
+    <script src="../Content/scripts/plugins/infoearthcustom/MultMediaControl.js"></script>
+    <script src="../Content/scripts/plugins/signalr/jquery.signalR-2.2.0.min.js"></script>
+
+    <script>
+        $(function () {
+            InitControl();
+            //SSO.config({
+            //    userName: "System",
+            //    passWord: $.md5("0000"),
+            //    ssoBaseUri: "http://localhost:4064/",
+            //    baseUrl: "http://localhost:4064/"
+            //});
+
+            //SSO.GetMenuByBusinessCodeAndUserID("02");
+
+            //SSO.FetchAllAuthDistrictZone();
+
+            var contentPath = "http://localhost:4066/";
+            top.contentPath = "";
+            var treeNodes = "[{\"id\":\"da5d4103-8016-4380-a4f8-28a3983274e3\",\"text\":\"基础\",\"value\":\"{\"zoomlevel\":1,\"url\":\"#\",\"dataserverkey\":\"#\",\"tilesize\":512,\"zerolevelsize\":72.0}\",\"img\":\"fa fa-navicon\",\"parentnodes\":\"0000\",\"showcheck\":false,\"isexpand\":true,\"complete\":true,\"hasChildren\":true,\"ChildNodes\":[{\"id\":\"43bcad39-b0f9-490e-a79c-0fdca8c839da\",\"text\":\"全球地质图S服务\",\"value\":\"{\"zoomlevel\":4,\"url\":\"http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/GIS/gis.ashx\",\"dataserverkey\":\"全球地质图S\",\"tilesize\":512,\"zerolevelsize\":72.0}\",\"img\":\"fa fa-navicon\",\"parentnodes\":\"da5d4103-8016-4380-a4f8-28a3983274e3\",\"showcheck\":true,\"isexpand\":false,\"complete\":true,\"hasChildren\":false,\"ChildNodes\":[]},{\"id\":\"bf139995-1fa3-46ca-97b2-a9b9b8c445f8\",\"text\":\"国界数据集\",\"value\":\"{\"zoomlevel\":6,\"url\":\"http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/GIS/gis.ashx\",\"dataserverkey\":\"国界S\",\"tilesize\":512,\"zerolevelsize\":72.0}\",\"img\":\"fa fa-navicon\",\"parentnodes\":\"da5d4103-8016-4380-a4f8-28a3983274e3\",\"showcheck\":true,\"isexpand\":false,\"complete\":true,\"hasChildren\":false,\"ChildNodes\":[]}]}]";
+            //var queryUrl = contentPath + "Map/GetMapDatas";
+            //$.ajax({
+            //    url: 'Map/GetMapDatas',
+            //    async: false,
+            //    type: "GET",
+            //    success: function (data) {
+            //        treeNodes = data;
+            //    }, error: function (e) {
+            //    },
+            //    cache: false
+            //});
+
+            var nodes = [
+                {
+                    id: "da5d4103-8016-4380-a4f8-28a3983274e3",
+                    text: "基础",
+                    value: {
+                        zoomlevel: 1,
+                        url: "#",
+                        dataserverkey: "#",
+                        tilesize: 512,
+                        zerolevelsize: 72.0
+                    },
+                    img: "fa fa-navicon",
+                    parentnodes: "0000",
+                    showcheck: false,
+                    isexpand: true, complete: true,
+                    hasChildren: true,
+                    ChildNodes: [{
+                        id: "43bcad39-b0f9-490e-a79c-0fdca8c839da",
+                        text: "全球地质图S服务",
+                        value: {
+                            zoomlevel: 4, url: "http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/GIS/gis.ashx", dataserverkey: "全球地质图S",
+                            tilesize: 512, zerolevelsize: 72.0,opacity:1
+                        },
+                        img: "fa fa-navicon",
+                        parentnodes: "da5d4103-8016-4380-a4f8-28a3983274e3",
+                        showcheck: true, isexpand: false, complete: true,
+                        hasChildren: false, ChildNodes: []
+                    },
+                        {
+                            id: "bf139995-1fa3-46ca-97b2-a9b9b8c445f8", text: "国界数据集",
+                            value: {
+                                zoomlevel: 6, url: "http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/GIS/gis.ashx",
+                                dataserverkey: "国界S", tilesize: 512, zerolevelsize: 72.0, opacity: 1
+                            }, img: "fa fa-navicon",
+                            parentnodes: "da5d4103-8016-4380-a4f8-28a3983274e3",
+                            showcheck: true, isexpand: false, complete: true, hasChildren: false, ChildNodes: []
+                        }]
+                }];
+
+            var dataSet = {
+                baseMap: {
+                    map: {
+                        zoomlevel: 14,
+                        dataserverkey: "天地图地图S",
+                        url: "http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/DOM/dom.ashx",
+                        tilesize: 512,
+                        zerolevelsize: 36
+                    },
+                    note: {
+                        zoomlevel: 14,
+                        dataserverkey: "天地图地图注记S",
+                        url: "http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/DOM/dom.ashx",
+                        tilesize: 512,
+                        zerolevelsize: 36
+                    }
+                },
+                statelliteMap: {
+                    map: {
+                        zoomlevel: 14,
+                        dataserverkey: "天地图影像S",
+                        url: "http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/DOM/dom.ashx",
+                        tilesize: 512,
+                        zerolevelsize: 36
+                    },
+                    note: {
+                        zoomlevel: 14,
+                        dataserverkey: "天地图影像注记S",
+                        url: "http://192.168.100.18:8088/iTelluro.Server.TianDiTu/Service/DOM/dom.ashx",
+                        tilesize: 512,
+                        zerolevelsize: 36
+                    }
+                },
+                proviceMap: {
+                    zoomlevel: 14,
+                    dataserverkey: "天地图影像注记S",
+                    url: "",
+                    tilesize: 512,
+                    zerolevelsize: 36
+                },
+                gisLayer: nodes
+            };
+            var loc = [{
+                url: "",
+                longitude: 117,
+                latitude: 35
+            }];
+            var me = $("#mapTest").mapCtl({
+                mapwidth: 1500,
+                mapheight: 800,
+                isShowGisLayer: true,
+                dataset: dataSet,
+                zoom: 3,
+                center: [118, 36],
+            });
+
+            //me.addLocation(loc);
+            //box
+            //me.drawShape("circle");
+            $("#yuan").click(function () {
+                me.drawShape("circle");
+            });
+            $("#fang").click(function () {
+                me.drawShape("box");
+            });
+
+            $("#zb").click(function () {
+                var extent = me.getExtent();
+                alert(extent);
+            });
+            var tag = [{
+                url: 'Content/images/duihao_03.png',
+                longitude: 117.5,
+                latitude: 34.5,
+                popupHtml: "123"
+            }];
+
+            var tag1 = [{
+                url: 'Content/images/duihao_03.png',
+                longitude: 117.5,
+                latitude: 34.5,
+                location: [117.5, 34.5],
+                popupHtml: "<p>您点击了灾害点图标' + e + '····<a href=\"#\" style=\"color:#b3cee0\">' + i + '</a></p>"
+            }];
+            $("#addtag").click(function () {
+                me.addLocation(tag1);
+
+            });
+            var point = [117, 35];
+            $("#addpoint").click(function () {
+                me.addTagging("Point", point);
+            });
+
+            $("#XSDZX").click(function () {
+                me.loadGeoJsonFile([{ geoJsonUrl: "DZX.json", geoJsonStyle: defualtJsonStyle }]);
+            });
+
+            var defualtJsonStyle = function (feature, resolution) {
+                var text = feature.get('CLValue');
+                if (!text) {
+                    text = "";
+                }
+                var textValue = parseFloat(text);
+                var color = "rgb(0,0,255)";
+                if (textValue > 6 && textValue < 12) {
+                    color = "rgb(255,0,255)";
+                }
+                if (textValue > 12 && textValue < 24) {
+                    color = "rgb(255,255,0)";
+                }
+                if (textValue > 24) {
+                    color = "rgb(255,0,0)";
+                }
+                var style = new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        width: 1.5,
+                        color: color
+                    }
+                        )
+                });
+
+                return style;
+            };
+
+            $("#XSDZM").click(function () {
+                me.loadGeoJsonFile([{ geoJsonUrl: "DZM.json", geoJsonStyle: defualtJsonStyleDZM }]);
+            });
+
+            var defualtJsonStyleDZM = function (feature, resolution) {
+                var text = feature.get('CPValue');
+                if (!text) {
+                    text = "";
+                }
+               
+                var color = feature.get('GeoColor');
+                var style = new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        width: 1,
+                        color: color
+                    }),
+                    text: new ol.style.Text({
+                        text: text,
+                        fill: new ol.style.Fill({
+                            color: '#000'
+                        })
+                    }),
+                    fill: new ol.style.Fill({
+                        color: color
+                    }),
+                });
+
+                return style;
+            };
+            //消息
+
+            $("#YJCGT").click(function () {
+                me.loadGeoJsonFile([{ geoJsonUrl: "YJCGT.json", geoJsonStyle: defualtJsonStyleYJ }]);
+            });
+
+            var defualtJsonStyleYJ = function (feature, resolution) {
+                var text = feature.get('CPValue');
+                if (!text) {
+                    text = "";
+                }
+                var textValue = parseInt(text);
+                var color = "rgb(255,0,0)";
+                if (textValue == 0) {
+                    color = "rgba(0,255,255,0)";
+                }
+                if (textValue ==2) {
+                    color = "rgb(255,193,0)";
+                }
+                if (textValue == 3) {
+                    color = "rgb(255,255,0)";
+                }
+                if (textValue ==4) {
+                    color = "rgb(0,177,241)";
+                }
+                var style = new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        width: 1,
+                        color: color
+                    }),
+                    text: new ol.style.Text({
+                        text: text,
+                        fill: new ol.style.Fill({
+                            color: '#000'
+                        })
+                    }),
+                    fill: new ol.style.Fill({
+                        color: color
+                    }),
+                });
+
+                return style;
+            };
+
+            $("#YMFX").click(function () {
+                me.loadGeoJsonFile([{ geoJsonUrl: "YMFX.json", geoJsonStyle: defualtJsonStyleYMFX }]);
+            });
+
+            var defualtJsonStyleYMFX = function (feature, resolution) {
+                var text = feature.get('CPValue');
+                if (!text) {
+                    text = "";
+                }
+                var valueInt = parseInt(text);
+
+                var color = "rgba(255,255,255,0)";
+                if (valueInt == 1) {
+                    color = "rgba(20,125,255,0.8)";
+                }
+                var style = new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        width: 1,
+                        color: color
+                    }),
+                    text: new ol.style.Text({
+                        text: text,
+                        fill: new ol.style.Fill({
+                            color: '#000'
+                        })
+                    }),
+                    fill: new ol.style.Fill({
+                        color: color
+                    }),
+                });
+
+                return style;
+            };
+
+            $("#xx").click(function () {
+                $.ajax({
+                    url: "/DemoManage/Base_Area/SendMsg",
+                    type: "POST",
+                    success: function (data) {
+                
+                    },
+                    error: function (e) {
+
+                    },
+                    cache: false
+                });
+            });
+
+            var signalR = $.connection("/SignalR/MessageConnection");
+            signalR.received(function (msg) {
+                var data = JSON.parse(msg);
+                if (data.ModuleType == "Test") {
+                    $("#msg").append("&nbsp;&nbsp;&nbsp;&nbsp;" + data.Content + "</br></br>");
+                }
+            });
+            signalR.start().done(function () {
+                console.log("连接成功");
+            }).fail(function () {
+                console.log("连接失败");
+            });
+
+
+            var conn = $.hubConnection();
+            conn.url = "http://localhost:8081/signalr";
+            conn.start().done(function () {
+                console.log("连接成功");
+            });
+            var msgHub = conn.createHubProxy('MessageHub');
+            msgHub.on("receiveMessage", function (msg) {
+                console.log(msg);
+            });
+
+            /*获取图表*/
+            //坐标
+            var geoCoordMap = {
+                "济南市": [117.024958, 36.682800],
+                "青岛市": [120.384414, 36.105231],
+                "淄博市": [118.059141, 36.804694],
+                "枣庄市": [117.279277, 34.807904],
+                "东营市": [118.578631, 37.486534],
+                "烟台市": [121.309534, 37.536570],
+                "潍坊市": [119.142642, 36.716098],
+                "济宁市": [116.600769, 35.402179],
+                "泰安市": [117.089376, 36.188067],
+                "威海市": [122.093934, 37.528786],
+                "日照市": [119.507183, 35.420219],
+                "莱芜市": [117.684656, 36.233670],
+                "临沂市": [118.340715, 35.072411],
+                "德州市": [116.332886, 37.457378],
+                "聊城市": [115.986858, 36.455824],
+                "滨州市": [117.968269, 37.405304],
+                "菏泽市": [115.463371, 35.262453]
+            };
+            //数据
+            var rawData = [
+                ["济南市", 10, 20, 30],
+                ["青岛市", 20, 20, 30],
+                ["淄博市", 30, 10, 10],
+                ["枣庄市", 10, 20, 30],
+                ["东营市", 20, 20, 30],
+                ["烟台市", 10, 30, 30],
+                ["潍坊市", 10, 20, 30],
+                ["济宁市", 30, 20, 10],
+                ["泰安市", 10, 20, 30],
+                ["威海市", 10, 20, 30],
+                ["日照市", 30, 20, 10],
+                ["莱芜市", 10, 30, 30],
+                ["临沂市", 10, 20, 30],
+                ["德州市", 30, 20, 10],
+                ["聊城市", 10, 20, 30],
+                ["滨州市", 10, 30, 10],
+                ["菏泽市", 10, 20, 30]
+            ];
+            //添加图表
+            $("#show-chart").click(function () {
+                rendCharts();
+            });
+            //清除图表
+            $("#clear-chart").click(function () {
+                me.removeChartLayer(map);
+            });
+            //加柱状图
+            function rendCharts() {
+                var chartInfos = [];
+                for (var i = 0; i < rawData.length; i++) {
+                    //var idx = i + Date.parse(new Date());
+                    var inflationData = [rawData[i][1], rawData[i][2], rawData[i][3]];
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            formatter: "{b}:{c}",
+                            position: function (point, params, dom, rect, size) {
+                                return [point[0], '-50%'];
+                            }
+                        },
+                        xAxis: {
+                            //id: idx,
+                            //gridId: idx,
+                            type: 'category',
+                            splitLine: { show: false },
+                            axisTick: { show: false },
+                            axisLabel: { show: false },
+                            axisLine: { show: false },
+                            minInterval: 10,
+                            data: ["数据A", "数据B", "数据C"],
+                            z: 100
+                        },
+                        yAxis: {
+                            //id: idx,
+                            //gridId: idx,
+                            splitLine: { show: false },
+                            axisTick: { show: false },
+                            axisLabel: { show: false },
+                            axisLine: {
+                                show: false,
+                                lineStyle: { color: '#1c70b6' }
+                            },
+                            max: 50,
+                            z: 100
+                        },
+                        grid: {
+                            //id: idx,
+                            width: 30,
+                            height: 40,
+                            left: 0,
+                            top: 0,
+                            z: 100
+                        },
+                        series: {
+                            //id: idx,
+                            type: 'bar',
+                            //xAxisId: idx,
+                            //yAxisId: idx,
+                            barWidth: 7,
+                            barGap: 1,
+                            barCategoryGap: 0,
+                            data: inflationData,
+                            z: 100,
+                            itemStyle: {
+                                normal: {
+                                    color: function (params) {
+                                        //柱状图每根柱子颜色
+                                        var colorList = ['#f75d5d', '#59ed4f', '#4c91e7'];
+                                        return colorList[params.dataIndex]
+                                    }
+                                }
+                            }
+                        }
+                    };
+                    var geoCoord = geoCoordMap[rawData[i][0]];
+                    chartInfos.push({ option: option, position: geoCoord });
+                }
+                me.addChart(chartInfos);
+            };
+
+        });
+            
+        
+
+        
+
+        //初始化控件
+        function InitControl() {
+            var html = " <table><tr><td width=\"40px\">省</td><td> <div id=\"PROVINCE\" type=\"select\" multiples class=\"ui-select\" style=\"float: left; width: 160px; margin-right: 1px;\"></div></td></tr>" +
+               "<tr><td width=\"40px\">市</td><td><div id=\"CITY\" type=\"select\" class=\"ui-select\" multiples style=\"float: left; width: 160px; margin-right: 1px;\"></div></td></tr>" +
+           "<tr><td width=\"40px\">区</td><td><div id=\"COUNTY\" type=\"select\" class=\"ui-select\" multiples style=\"float: left; width: 160px; margin-right: 1px;\"></div> </td></tr></table>";
+            var district = $("#districtControl").mulDistrictsCtl({
+                provinceId: "370000",
+                selectProviceId: "370000",
+                selectCityId: "370100",//370100
+                selectCounty: "370102,370103",//370101
+                html: html
+            });
+
+            var query = $("#queryControl").queryControl({
+                tableName: "Base_Area",
+                width: 360,
+                height: 350,
+                valueIsVisible:true
+            });
+            var cmbsearch = $("#cmbSearch").comboxSearchControl({
+                item: "Client_Trade",
+                value: "777eb7b5-54b8-4d46-b8a5-4fea1e19556c"
+            });
+            var kneecoor = $("#kneecoordinate").kneecoordinateCtl();
+            var time = $("#time").timeQuantumControl({
+                startTime: "2018-1-27",
+                endTime: "2018-1-30"
+            });
+            $("#btnTest").click(function () {
+                var value = cmbsearch[0].d.GetComboxValue()
+                var testSql = query[0].d.GetSql();
+                console.log(testSql);
+                var testData = query[0].d.GetData();
+                console.log(testData);
+            });
+            var _degree = $("#degreeConvert").degreeConvertControl({
+                degree: 115.83
+            });
+            $("#btnDegree").click(function () {
+                var degree = _degree[0].d.GetDegree();
+                alert(degree);
+            });
+            $("#xzqh").click(function () {
+                var value = district.getDistrictValue()
+                console.log(value);
+            });
+            $("#multMediaControl").MultMediaControl();
+        }
+    </script>
+</head>
+<body>
+    <div id="time" style="width: 100%; padding: 20px;clear:both;margin-top:3px;"></div>
+    <div class="pane" id="kneecoordinate"></div>
+    <div id="cmbSearch" style="width: 100%; padding: 20px;clear:both;margin-top:3px;"></div>
+
+    <div id="queryControl" style="width: 100%; padding: 20px;clear:both;margin-top:3px;"></div>
+    <div>
+        <input type="button" id="btnTest" value="获取sql"  />
+    </div>
+    
+    <div id="degreeConvert" style="width: 100%; padding: 20px; clear: both; margin-top: 3px;"></div>
+    <div>
+        <input type="button" id="btnDegree" value="获取度" />
+    </div>
+    <div id="multMediaControl" style="width: 100%; padding: 20px; clear: both; margin-top: 3px; border-left: 1px solid blue; border-bottom: 1px solid blue; border-right: 1px solid blue; border-top: 1px solid blue; "></div>
+    <div id="districtControl" style="width: 100%; padding: 20px;"></div>
+    <h1>消息通知测试</h1>
+    <div>
+        <button id="xx">发消息</button>
+        <div id="msg">
+        </div>
+    </div>
+
+    <h1>地图控件测试</h1>
+    <div>
+        <button id="yuan">画圆</button>
+        <button id="fang">画方</button>
+        <button id="zb">获取坐标</button>
+        <button id="addtag">添加Tag</button>
+        <button id="addpoint">添加点</button>
+        <button id="xzqh">获取行政区划</button>
+        <button id="show-chart">获取图表</button>
+        <button id="clear-chart">清除图表</button>
+        <button id="XSDZX">显示等值线</button>
+        <button id="YJCGT">预警成果图</button>
+        <button id="XSDZM">显示等值面</button>
+        <button id="YMFX">淹没分析</button>
+    </div>
+    <div id="mapTest"></div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "投影转换";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+
+<div class="layui-fluid" id="component-tabs">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">投影转换</div>
+                <div class="layui-card-body">
+                    <div class="layui-tab layui-tab-brief" lay-filter="component-tabs-brief">
+                        @*<ul class="layui-tab-title">
+                                <li class="layui-this">Map2Shp</li>
+                            </ul>*@
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show" style="position:relative;height:715px;">
+                                <blockquote class="layui-elem-quote">请选择同名的所有文件进行上传，包括*.shp|*.shx|*.prj|*.dbf，否则无法进行后续操作</blockquote>
+                                <div>
+                                    <div class="layui-row layui-col-space15">
+                                        <div class="layui-col-md12">
+                                            <div class="layui-card">
+                                                <div class="layui-card-body">
+                                                    <form class="layui-form" action="" lay-filter="component-form-group">
+                                                        <div>
+                                                            输出空间参考系：
+                                                            <div class="layui-inline">
+                                                                <select id="sltOutputCoordName" lay-filter="sltOutputCoordName"></select>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        </form>
+                                                    <iframe id="page-frame" src="" frameborder="0" class="layadmin-iframe" style="height: 670px; margin-top: 60px" scrolling="auto"></iframe>
+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+    var directoryId = '@Guid.NewGuid().ToString()';
+
+
+
+        layui.initModule(['upload', 'form'], function () {
+            $("#page-frame").attr('src', "@Url.Action("ConvertShadow")?ext=shp|shx|prj|dbf&uploadUrl=/Tools/UploadFile&mainId=" + directoryId + "&okCallback=uploadCallback" + "&flag=" + $("#sltOutputCoordName").val()).bind("load", initConvert);
+
+            layui.initSelect({
+                id: "#sltOutputCoordName",
+                data: Base.DataContext.OutputCoord,
+                onSelect: function (data) {
+                },
+                textField: "label",
+                valueField: "value",
+                selectedValue: ''
+            });
+
+        });
+
+        function initConvert() {
+            $($("#page-frame")[0].contentWindow.document.getElementById("btnUpload")).after("<button class=\"layui-btn layui-btn-warm layui-btn-disabled\" id='btnConvert'  onclick=\"window.parent.shdowConvert()\" disabled>开始转换</button>");
+        }
+
+
+
+
+
+
+        function uploadCallback(res, index, upload)
+        {
+            var isUploaded = true;
+            $($("#page-frame")[0].contentWindow.document.getElementsByClassName("layui-table")[0]).children("tr[id!='']").each(function () {
+                if ($(this).children(":eq(2)").text() != '已上传')
+                {
+                    isUploaded = false;
+                    return false;
+                }
+            });
+
+            var $btnConvert = $($("#page-frame")[0].contentWindow.document.getElementById("btnConvert"));
+            if (isUploaded) {
+                $btnConvert.removeClass("layui-btn-disabled").attr("disabled", false);
+            }
+            else {
+                $btnConvert.addClass("layui-btn-disabled").attr("disabled", true);
+            }
+        }
+
+        function shdowConvert()
+        {
+            $.post({
+                url: Base.getApiUrl("/Tools/ShadowConversion?outputCoordName=" + $("#sltOutputCoordName").val()),
+                data: {
+                    "":directoryId
+                },
+                success: function (resp)
+                {
+                    if (resp.code == 0) {
+                        alert('转换成功,准备下载...');
+                        setTimeout(function () {
+                            top.location.href = (Base.getApiUrl("/BaseApi/GetFile") + "?filePath=" + encodeURIComponent(resp.data.filePath) + "&filename=" + resp.data.fileName);
+                            window.location.reload();
+                        }, 1500);
+                    }
+                }
+            })
+        }
+    </script>
+}

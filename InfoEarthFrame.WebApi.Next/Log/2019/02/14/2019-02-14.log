@@ -1,0 +1,186 @@
+2019-02-14 16:21:08,678 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [65] ERROR System.IO.DirectoryNotFoundException: 未能找到路径“C:\Coordinate Systems”的一部分。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   在 System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   在 System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   在 InfoEarthFrame.Application.DataConvertAppService.GetCoordName(String name) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 551
+   在 InfoEarthFrame.Application.DataConvertAppService.DataConvert(List`1 fileList, String UserID, String OutputCoordName, Boolean IsZip) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 245
+   在 InfoEarthFrame.Application.DataConvertAppService.FormatConvert(IEnumerable`1 files, IList`1 errorInfo, IDataConvertAppService dataConvertAppService) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 680
+   在 InfoEarthFrame.Maps.DTO.FormatConvertContext.JustDoIt() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\FormatConvertContext.cs:行号 50
+   在 InfoEarthFrame.Maps.DTO.BaseConvertContext.Convert() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\BaseConvertContext.cs:行号 117
+   在 InfoEarthFrame.WebApi.Next.Controllers.ToolsController.FormatConversion(String mainId, String outputFormat) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\ToolsController.cs:行号 97
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-14 16:23:53,575 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [65] ERROR System.IO.DirectoryNotFoundException: 未能找到路径“C:\Coordinate Systems”的一部分。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   在 System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   在 System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   在 InfoEarthFrame.Application.DataConvertAppService.GetCoordName(String name) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 551
+   在 InfoEarthFrame.Application.DataConvertAppService.DataConvert(List`1 fileList, String UserID, String OutputCoordName, Boolean IsZip) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 245
+   在 InfoEarthFrame.Application.DataConvertAppService.FormatConvert(IEnumerable`1 files, IList`1 errorInfo, IDataConvertAppService dataConvertAppService) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 680
+   在 InfoEarthFrame.Maps.DTO.FormatConvertContext.JustDoIt() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\FormatConvertContext.cs:行号 50
+   在 InfoEarthFrame.Maps.DTO.BaseConvertContext.Convert() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\BaseConvertContext.cs:行号 117
+   在 InfoEarthFrame.WebApi.Next.Controllers.ToolsController.FormatConversion(String mainId, String outputFormat) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\ToolsController.cs:行号 97
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-14 16:32:11,692 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [70] ERROR System.IO.DirectoryNotFoundException: 未能找到路径“C:\Coordinate Systems”的一部分。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   在 System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   在 System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   在 InfoEarthFrame.Application.DataConvertAppService.GetCoordName(String name) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 551
+   在 InfoEarthFrame.Application.DataConvertAppService.DataConvert(List`1 fileList, String UserID, String OutputCoordName, Boolean IsZip) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 245
+   在 InfoEarthFrame.Application.DataConvertAppService.FormatConvert(IEnumerable`1 files, IList`1 errorInfo, IDataConvertAppService dataConvertAppService) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 680
+   在 InfoEarthFrame.Maps.DTO.FormatConvertContext.JustDoIt() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\FormatConvertContext.cs:行号 50
+   在 InfoEarthFrame.Maps.DTO.BaseConvertContext.Convert() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\BaseConvertContext.cs:行号 117
+   在 InfoEarthFrame.WebApi.Next.Controllers.ToolsController.FormatConversion(String mainId, String outputFormat) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\ToolsController.cs:行号 97
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-14 16:32:53,034 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [66] ERROR System.IO.DirectoryNotFoundException: 未能找到路径“C:\Coordinate Systems”的一部分。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   在 System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   在 System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   在 InfoEarthFrame.Application.DataConvertAppService.GetCoordName(String name) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 551
+   在 InfoEarthFrame.Application.DataConvertAppService.DataConvert(List`1 fileList, String UserID, String OutputCoordName, Boolean IsZip) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 245
+   在 InfoEarthFrame.Application.DataConvertAppService.FormatConvert(IEnumerable`1 files, IList`1 errorInfo, IDataConvertAppService dataConvertAppService) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 680
+   在 InfoEarthFrame.Maps.DTO.FormatConvertContext.JustDoIt() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\FormatConvertContext.cs:行号 50
+   在 InfoEarthFrame.Maps.DTO.BaseConvertContext.Convert() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\BaseConvertContext.cs:行号 117
+   在 InfoEarthFrame.WebApi.Next.Controllers.ToolsController.FormatConversion(String mainId, String outputFormat) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\ToolsController.cs:行号 97
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-14 16:33:35,315 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [65] ERROR System.IO.DirectoryNotFoundException: 未能找到路径“C:\Coordinate Systems”的一部分。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   在 System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   在 System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   在 InfoEarthFrame.Application.DataConvertAppService.GetCoordName(String name) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 551
+   在 InfoEarthFrame.Application.DataConvertAppService.DataConvert(List`1 fileList, String UserID, String OutputCoordName, Boolean IsZip) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 245
+   在 InfoEarthFrame.Application.DataConvertAppService.FormatConvert(IEnumerable`1 files, IList`1 errorInfo, IDataConvertAppService dataConvertAppService) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 680
+   在 InfoEarthFrame.Maps.DTO.FormatConvertContext.JustDoIt() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\FormatConvertContext.cs:行号 50
+   在 InfoEarthFrame.Maps.DTO.BaseConvertContext.Convert() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\BaseConvertContext.cs:行号 117
+   在 InfoEarthFrame.WebApi.Next.Controllers.ToolsController.FormatConversion(String mainId, String outputFormat) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\ToolsController.cs:行号 97
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2019-02-14 16:42:18,897 InfoEarthFrame.WebApi.Next.Filters.CustomAuthorizeAttribute [49] ERROR System.IO.DirectoryNotFoundException: 未能找到路径“C:\Coordinate Systems”的一部分。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   在 System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   在 System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   在 InfoEarthFrame.Application.DataConvertAppService.GetCoordName(String name) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 551
+   在 InfoEarthFrame.Application.DataConvertAppService.DataConvert(List`1 fileList, String UserID, String OutputCoordName, Boolean IsZip) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 245
+   在 InfoEarthFrame.Application.DataConvertAppService.FormatConvert(IEnumerable`1 files, IList`1 errorInfo, IDataConvertAppService dataConvertAppService) 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DataConvertAppService.cs:行号 680
+   在 InfoEarthFrame.Maps.DTO.FormatConvertContext.JustDoIt() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\FormatConvertContext.cs:行号 50
+   在 InfoEarthFrame.Maps.DTO.BaseConvertContext.Convert() 位置 d:\SVN\SPACEDATA\InfoEarthFrame.Application\Maps\DTO\BaseConvertContext.cs:行号 117
+   在 InfoEarthFrame.WebApi.Next.Controllers.ToolsController.FormatConversion(String mainId, String outputFormat) 位置 D:\SVN\SPACEDATA\InfoEarthFrame.WebApi.Next\Controllers\ToolsController.cs:行号 97
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

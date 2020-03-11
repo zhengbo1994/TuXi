@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "专题制作";
+    Layout = "~/Views/Shared/_CommonEditor.cshtml";
+    ViewBag.Controller = "DataEditor";
+    ViewBag.Toolbar = "1";
+}
+<style>
+    .layui-layer {
+      opacity:0.7 !important
+    }
+    .layui-form-item {
+     margin-bottom:5px !important;
+    }
+</style>
+@section contentMenu
+    {
+   
+}
+
+@section workAreaButton
+{
+    <div style ="z-index: 9999; position: absolute;top: -35px;right:5px">
+        <button class="layui-btn layui-btn layui-btn-sm " onclick="publishMap()" data-permession-button="发布">
+            <i class="layui-icon layui-icon-ok-circle"></i><span>发布</span>
+        </button>
+        <button class="layui-btn layui-btn-normal layui-btn-sm " onclick="outputMap()" data-permession-button="制图">
+            <i class="layui-icon">&#xe642;</i><span>制图</span>
+        </button>
+    </div>
+}
+
+@section script{
+    <script>
+
+        function onRightClick(event, treeId, treeNode) {
+
+        }
+
+        function publishMap() {
+            if (!mainId) {
+                alert('请选择图件');
+                return;
+            }
+
+            $.post({
+                url: Base.getApiUrl("/PublishSystem/PublishMap"),
+                data: { mapId: mainId },
+                success: function (resp) {
+                    if (resp.code == 0) {
+                        alert('发布成功');
+                    }
+                }
+            });
+        }
+
+        function outputMap()
+        {
+            if (!mainId)
+            {
+                alert('请选择图件');
+                return;
+            }
+
+           layui.showDlg({
+                title: '制图输出',
+                content: '@Url.Action("OutputMap")?mainId=' + mainId,
+               area: [$("#map-list").width()*2+15 + "px", $("#map-list").height() + "px"],
+               shade: 0,
+               anim: 1,
+               offset: [15,15],
+                yes: function (index, layero) {
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                    iframeWin.doSubmit();
+                },
+                success: function (layero, index) {
+                  
+                }
+            })
+        }
+    </script>
+}

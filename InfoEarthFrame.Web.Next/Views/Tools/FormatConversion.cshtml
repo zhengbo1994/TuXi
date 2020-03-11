@@ -1,0 +1,328 @@
+﻿@{
+    ViewBag.Title = "格式转换";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+
+<div class="layui-fluid" id="component-tabs">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">格式转换</div>
+                <div class="layui-card-body">
+                    <div class="layui-tab layui-tab-brief" lay-filter="component-tabs-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">Map2Shp</li>
+                            <li>格式转换</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show" style="position:relative;height:715px;">
+                                <blockquote class="layui-elem-quote">支持MapGIS文件转换为ArcGIS文件</blockquote>
+                                <div>
+                                    <div class="layui-row layui-col-space15">
+                                        <div class="layui-col-md12">
+                                            <div class="layui-card">
+                                                <div class="layui-card-body">
+                                                    <iframe id="page-frame" src="" frameborder="0" class="layadmin-iframe" style="height: 670px" scrolling="auto"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item" style="position:relative;height:715px;">
+                                <blockquote class="layui-elem-quote">格式转换仅支持MapInfo File和ArcGIS的文件转换为其他格式的文件</blockquote>
+                                <div>
+                                    <div class="layui-row layui-col-space15">
+                                        <div class="layui-col-md12">
+                                            <div class="layui-card">
+                                                <div class="layui-card-body">
+                                                    <div>
+                                                        输出文件格式：
+                                                        <div class="layui-inline">
+                                                            <input class="layui-input" id="txtOutputFormat" autocomplete="off" style="width:300px">
+                                                        </div>
+                                                        <iframe id="page-frame2" src="" frameborder="0" class="layadmin-iframe" style="height: 670px;margin-top:60px" scrolling="auto"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+        var directoryId = '@Guid.NewGuid().ToString()';
+        var directoryId2 = '@Guid.NewGuid().ToString()';
+
+
+        layui.initModule(['upload', 'tableSelect'],
+            function () {
+                $("#page-frame")
+                    .attr('src', "@Url.Action("ConvertMapGISFile")?ext=mpj|wl|wp|wt&uploadUrl=/Tools/UploadFile&mainId=" + directoryId + "&okCallback=uploadCallback").bind("load",
+                        function () {
+                            $($("#page-frame")[0].contentWindow.document.getElementById("btnUpload")).after(
+                                "<button class=\"layui-btn layui-btn-warm layui-btn-disabled\" id='btnConvert'  onclick=\"window.parent.formatConvert()\" disabled>开始转换</button>")
+                        });
+
+                $("#page-frame2")
+                    .attr('src',
+                        "@Url.Action("ConvertFormat")?ext=prj|dbf|shp|shx|tab|dat|id|map&uploadUrl=/Tools/UploadFile&mainId=" + directoryId2 + "&okCallback=uploadCallback2").bind("load",
+                        function () {
+                            $($("#page-frame2")[0].contentWindow.document.getElementById("btnUpload")).after(
+                                "<button class=\"layui-btn layui-btn-warm layui-btn-disabled\" id='btnConvert'  onclick=\"window.parent.formatConvert2()\" disabled>开始转换</button>")
+                        });
+
+                initOutputFormat();
+
+            });
+
+
+        function initOutputFormat() {
+            layui.tableSelect.render({
+                elem: '#txtOutputFormat',
+                checkedKey: 'codeValue',
+                table: {
+                    data: Base.DataContext.OutputFormat,
+                    cols: [
+                        [
+                            { type: 'radio' },
+                            { field: 'codeName', title: '描述' },
+                            { field: 'codeValue', title: '文件扩展名' },
+                            { field: 'codeDesc', title: '备注' }
+                        ]
+                    ]
+                },
+                done: function (elem, data) {
+                    var NEWJSON = []
+                    layui.each(data.data,
+                        function (index, item) {
+                            NEWJSON.push(item.codeName)
+                        })
+                    elem.val(NEWJSON.join(",").replace(".", ""));
+                }
+            })
+        }
+
+
+        function baseUploadCallback(res, index, upload, framgeId) {
+            var isUploaded = true;
+            $($(framgeId)[0].contentWindow.document.getElementsByClassName("layui-table")[0]).children("tr[id!='']")
+                .each(function () {
+                    if ($(this).children(":eq(2)").text() != '已上传') {
+                        isUploaded = false;
+                        return false;
+                    }
+                });
+
+            var $btnConvert = $($(framgeId)[0].contentWindow.document.getElementById("btnConvert"));
+            if (isUploaded) {
+                $btnConvert.removeClass("layui-btn-disabled").attr("disabled", false);
+            } else {
+                $btnConvert.addClass("layui-btn-disabled").attr("disabled", true);
+            }
+        }
+
+
+        function uploadCallback(res, index, upload) {
+            baseUploadCallback(res, index, upload, "#page-frame");
+        }
+
+        function uploadCallback2(res, index, upload) {
+            baseUploadCallback(res, index, upload, "#page-frame2");
+        }
+
+
+        function baseFormatConvert(dirId, outputFormat) {
+            $.post({
+                url: Base.getApiUrl("/Tools/FormatConversion?outputFormat=" + outputFormat),
+                data: {
+                    "": dirId
+                },
+                success: function (resp) {
+                    if (resp.code == 0) {
+                        alert('转换成功,准备下载...');
+                        setTimeout(function () {
+                            top.location.href = (Base.getApiUrl("/BaseApi/GetFile") +
+                                "?filePath=" +
+                                encodeURIComponent(resp.data.filePath) +
+                                "&filename=" +
+                                resp.data.fileName);
+                            window.location.reload();
+                        },
+                            1500);
+                    }
+                }
+            })
+        }
+
+        function formatConvert() {
+            baseFormatConvert(directoryId, "");
+        }
+
+
+        function formatConvert2() {
+            baseFormatConvert(directoryId2, $("#txtOutputFormat").val());
+        }
+    </script>
+
+    <script>
+        $(function () {
+            //获取当前容器内有name属性的控件值，返回一个对象。spliter:同名控件值的分隔符
+            var getJson = function ($container, spliter) {
+                spliter = spliter || "||";
+                var jsonNameValue = {};
+                var appendJsonData = function (jdata, name, value) {
+                    if ("" == name || undefined == name) {
+                        return jdata;
+                    }
+                    if (undefined != jdata[$.trim(name)]) {
+                        jdata[name] += spliter + $.trim(value);
+                    } else {
+                        jdata[$.trim(name)] = $.trim(value);
+                    }
+                    return jdata;
+                };
+
+                var simpleControls = $container.find("input[type='text'],input[type='hidden'],input[type='password'],textarea,select");
+                for (var i = 0; i < simpleControls.length; i++) {
+                    var c = $(simpleControls[i]);
+                    var controlName = c.attr("name");
+                    appendJsonData(jsonNameValue, controlName, c.val());
+                }
+
+                //var checkboxControls = $container.find("input[type='checkbox']");
+                //for (var i = 0; i < checkboxControls.length; i++) {
+                // var c = $(checkboxControls[i]);
+                // var controlName = c.attr("name");
+                // appendJsonData(jsonNameValue, controlName, c.prop("checked"));
+                //}
+
+                var radioControls = $container.find("input[type='radio'],input[type='checkbox']");
+                for (var i = 0; i < radioControls.length; i++) {
+                    var c = $(radioControls[i]);
+                    var controlName = c.attr("name");
+                    if (c.is(":checked")) {
+                        appendJsonData(jsonNameValue, controlName, c.val());
+                    }
+                }
+
+                var fileControls = $container.find("input[type='file']");
+                for (var i = 0; i < fileControls.length; i++) {
+                    var c = $(fileControls[i]);
+                    var controlName = c.attr("name");
+                    if (c[0].files.length > 0) {
+                        //appendJsonData(jsonNameValue, controlName, c[0].files[0]);
+                        //jsonNameValue[controlName] = c[0].files[0];
+                        if (jsonNameValue.hasOwnProperty(controlName) && !isArray(jsonNameValue[controlName])) {
+                            var oldvalue = jsonNameValue[controlName];
+                            jsonNameValue[controlName] = [];
+                            jsonNameValue[controlName].push(oldvalue);
+                        }
+                        if (isArray(jsonNameValue[controlName])) {
+                            jsonNameValue[controlName].push(c[0].files[0]);
+                        } else {
+                            jsonNameValue[controlName] = c[0].files[0];
+                        }
+                    }
+                }
+                return jsonNameValue;
+            }
+
+
+            //获取当前容器内有name属性的控件值，返回一个对象。同名对象用List接收 只能在支持HTML5的浏览器使用
+            var getForm = function ($container) {
+                var jsondata = getJson($container);
+                var formData = new FormData();
+                for (var p in jsondata) {
+                    var pItem = jsondata[p];
+                    if (isArray(pItem)) {
+                        for (var i = 0; i < pItem.length; i++) {
+                            formData.append(p, pItem[i]);
+                        }
+                    } else {
+                        formData.append(p, pItem || "");
+                    }
+                }
+                return formData;
+            }
+
+
+            //将json数据赋给某容器内对应name属性的控件。spliter:同名控件值的分隔符
+            var setJson = function ($container, jdata, spliter) {
+                spliter = spliter || "||";
+                for (var p in jdata) {
+                    jdata[p] = $.trim(jdata[p]);
+                    var $c = $container.find("[name='" + p + "']");
+                    if ($c.length > 0) {
+                        if (false === jdata[p] || "false" == jdata[p].toLowerCase()) {
+                            jdata[p] = "False";
+                        } else if (true === jdata[p] || "true" == jdata[p].toLowerCase()) {
+                            jdata[p] = "True";
+                        }
+                        var cName = $c[0].tagName.toLowerCase() || $c[0].nodeName.toLowerCase() || $c[0].localName;
+                        var cType;
+                        if (!isNull($c[0].type)) {
+                            cType = $c[0].type.toLowerCase();
+                        }
+                        if (("input" == cName && ("text" == cType || "hidden" == cType || "password" == cType)) ||
+                            "textarea" == cName ||
+                            "select" == cName) {
+                            $c.val(jdata[p]);
+                        } else if ("input" == cName && "checkbox" == cType) {
+                            //$c.prop("checked", jdata[p]);
+                            var chkValue = jdata[p];
+                            $c.prop("checked", false);
+                            if (!chkValue) {
+                                return false;
+                            }
+                            var arrChkValue = chkValue.split(spliter);
+                            for (var i = 0; i < arrChkValue.length; i++) {
+                                for (var k = 0; k < $c.length; k++) {
+                                    if ($c[k].value == arrChkValue[i]) {
+                                        $($c[k]).prop("checked", true);
+                                        break;
+                                    }
+                                }
+                                //$container.find("input[type='checkbox'][name='" + p + "'][value='" + arrChkValue[i] + "']").prop("checked", true);
+                            }
+                        } else if ("input" == cName && "radio" == cType) {
+                            for (var i = 0; i < $c.length; i++) {
+                                if ($c[i].value == jdata[p]) {
+                                    $($c[i]).prop("checked", true);
+                                    break;
+                                }
+                                    //update by xxb 2017-03-17 json 没有此项值的时候 将此项值改为未选中
+                                else {
+                                    $($c[i]).prop("checked", false);
+                                }
+                            }
+                        } else if ("div" == cName) {
+                            setJson($c, jdata);
+                        } else {
+                            $c.text(jdata[p]);
+                        }
+
+                        var onchangeFlag = $c.data("event-change")
+                        if (onchangeFlag) {
+                            $c.change();
+                        }
+
+                    }
+                }
+            }
+        })
+    </script>
+}

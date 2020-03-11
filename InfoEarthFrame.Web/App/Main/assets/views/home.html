@@ -1,0 +1,201 @@
+﻿<!-- 首页面 create by zjl /// controller:  'homeCtrl' -  localtion: App/Main/assets/js/controllers/homeCtrl.js -->
+<div class="container container-fluid container-fullw container-full-stretch" ng-controller="homeCtrl">
+    <div class="row">
+        <div class="mainPage">
+            <!-- map生成展示 -->
+            <div class="mainPageMap">
+                <div class="righttag" style="top: 40%; right: 10px; border: 1px solid #007AFF; border-radius: 5px;">
+                    <div class="r-left" ng-click="showRightWin(1)" tooltip="{{ 'views.home.property.detail.MAIN' | translate }}" ng-class="{'active-show-btn':activeShowBtn===1}" style="color: #fff; padding: 10px 10px 8px 10px; cursor: pointer; border-top-left-radius: 5px; border-top-right-radius: 5px; ">
+                        <i class="icon-fuwu" style="font-size: 16px;" />
+                    </div>
+                    <div class="r-left" ng-click="showRightWin(2)" tooltip="{{ 'views.home.property.switchmap.MAIN' | translate }}" ng-class="{'active-show-btn':activeShowBtn===2}" style="color: #fff; padding: 11px 10px 7px 10px; cursor: pointer;">
+                        <i class="icon-qiehuan" ng-style="qiehuanBorderStyle" style="font-size: 16px; border-top: 1px solid #007AFF; border-bottom: 1px solid #007AFF; " />
+                    </div>
+                    <div class="r-left" ng-click="showRightWin(3)" tooltip="{{ 'views.home.property.switchser.MAIN' | translate }}" ng-class="{'active-show-btn':activeShowBtn===3}" style="color: #fff; padding: 10px 10px 8px 10px; cursor: pointer; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; ">
+                        <i class="icon-xinxi" style="font-size: 16px;" />
+                    </div>
+                </div>
+                <!--<div class="righttag" style="top: 10%; right: 100px; border: 1px solid #007AFF; border-radius: 5px;">
+                    <ul style="list-style: none; margin: 0; padding: 0">
+                        <li style="border-radius: 5px 5px 0 0; padding: 0 10px; background-color: #fff;">
+                            <span class="r-left" ng-click="showRightWin(1)" style="cursor: pointer;">
+                                <i class="icon-fuwu" style="font-size: 16px;" />
+                            </span>
+                        </li>
+                        <li style="padding: 0 10px; background-color: #fff; ">
+                            <span class="r-left" ng-click="showRightWin(2)" style="cursor: pointer;">
+                                <i class="icon-fuwu" style="font-size: 16px;" />
+                            </span>
+                        </li>
+                        <li style="border-radius: 0 0 5px 5px; padding: 0 10px; background-color: #fff; ">
+                            <span class="r-left" ng-click="showRightWin(3)" style="cursor: pointer;">
+                                <i class="icon-fuwu" style="font-size: 16px;" />
+                            </span>
+                        </li>
+                    </ul>
+                </div>-->
+                <div class="righttag modal-content" ng-show="activeShowBtn===1" style="top: 40%; right: 52px; border-radius: 5px; width: 60%; max-width: 600px; min-height: 200px; ">
+                    <div style="position: relative;">
+                        <div style="border-bottom: 1px solid #e5e5e5; padding: 10px;">
+                            <span class="font-title-middle" style="margin-bottom: 0px;" translate="views.home.property.detail.title">地图服务详细信息</span>
+                            <a href="javascript:;" ng-click="closeMapWin()" style="font-size: 14px; float: right; padding-top: 1px;" tooltip="{{ 'setting.close' | translate }}"><i class="ti-close"></i></a>
+                        </div>
+                        <div style="padding: 10px;">
+                            <div class="col-sm-6" style="border-right: 1px solid #e5e5e5; padding-left: 0;">
+                                <ul class="r-right-top" style="overflow: auto; margin-bottom: 0px !important; padding-left: 0; padding-right: 10px;">
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.mapName'|translate}}:</span>
+                                            <span>{{serviceInfo.mapName}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>                                        
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.spatialRef'|translate}}:</span>
+                                            <span>{{serviceInfo.spatialRefence}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>                                        
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.description'|translate}}:</span>
+                                            <span>{{serviceInfo.mapDesc}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.class'|translate}}:</span>
+                                            <span>{{serviceInfo.mapType}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'setting.owner'|translate}}:</span>
+                                            <span>{{serviceInfo.createUserName}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.East'|translate}}:</span>
+                                            <span>{{serviceInfo.maxDegLon}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.South'|translate}}:</span>
+                                            <span>{{serviceInfo.minDegLat}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.West'|translate}}:</span>
+                                            <span>{{serviceInfo.minDegLon}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'views.home.property.detail.North'|translate}}:</span>
+                                            <span>{{serviceInfo.maxDegLat}}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="title font-title-small" style="border: none;">{{'setting.tags.MAIN'|translate}}:</span>
+                                            <span>{{serviceInfo.mapTag}}</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6" style="overflow: auto; padding-left: 20px;">
+                                <div class="title">
+                                    <span class="font-title-small">
+                                        <span translate="views.home.property.detail.legend">图例</span>
+                                        <i style="position: absolute; right: 15px; cursor: pointer;" tooltip-placement="left" ng-click="lookPitcure(serviceInfo.mapLegend)" tooltip="{{ 'views.home.property.detail.see' | translate }}" class="ti-zoom-in"></i>
+                                    </span>
+                                </div>
+                                <div class="r-right-bottom" style="overflow: auto; max-height: 200px;">
+                                    <ul id="dowebok"><li><img ng-src="{{legend}}" alt="" /></li>  </ul>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="righttag modal-content" ng-show="activeShowBtn===2" ng-style="choseMapWinStyle" style="right: 52px; border-radius: 5px;">
+                    <div style="position: relative;">
+                        <div style="border-bottom: 1px solid #e5e5e5; padding: 10px;">
+                            <span class="font-title-middle" style="margin-bottom: 0px;" translate="views.home.property.switchmap.title">选择地图</span>
+                            <a href="javascript:;" ng-click="closeMapWin()" style="font-size: 14px; float: right; padding-top: 1px;" tooltip="{{ 'setting.close' | translate }}"><i class="ti-close"></i></a>
+                        </div>
+                        <div style="padding: 10px; max-width: 760px; overflow: auto; ">
+                            <dl ng-repeat="li in mapTabName" ng-click="changeMap(li)" ng-class="{'li-margin-left':$index!==0}">
+                                <dd>
+                                    <img src="{{li.mapImgSrc}}" class="dd-img" ng-class="{'dd-active':li.id===serviceInfo.id}" onerror="javascript:this.src='/App/Main/assets/images/default.png';" />
+                                </dd>
+                                <dd style="padding-top: 10px;">
+                                    <a href="javascript:;" title="{{li.mapName}}">{{li.mapName|changeStr}}</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="righttag modal-content" ng-show="activeShowBtn===3" ng-style="choseServiceWinStyle" style="right: 52px; border-radius: 5px;">
+                    <div style="position: relative;">
+                        <div style="border-bottom: 1px solid #e5e5e5; padding: 10px;">
+                            <span class="font-title-middle" style="margin-bottom: 0px;" translate="views.home.property.switchser.title">选择服务类型</span>
+                            <a href="javascript:;" ng-click="closeMapWin()" style="font-size: 14px; float: right; padding-top: 1px;" tooltip="{{ 'setting.close' | translate }}"><i class="ti-close"></i></a>
+                        </div>
+                        <div style="padding: 10px; max-width: 550px; overflow: auto;">
+                            <dl ng-click="changeService(1)">
+                                <dd><img src="/App/Main/assets/images/WMS.png" class="dd-img" ng-class="{'dd-active':1===mapServiceNum}" /></dd>
+                                <dd style="padding-top: 10px;"><a href="javascript:;">WMS</a></dd>
+                            </dl>
+                            <dl ng-click="changeService(2)" style="margin-left: 6px;">
+                                <dd><img src="/App/Main/assets/images/WMTS.png" class="dd-img" ng-class="{'dd-active':2===mapServiceNum}" /></dd>
+                                <dd style="padding-top: 10px;"><a href="javascript:;">WMTS</a></dd>
+                            </dl>
+                            <dl ng-click="changeService(3)" style="margin-left: 6px;">
+                                <dd><img src="/App/Main/assets/images/ite.png" class="dd-img" ng-class="{'dd-active':3===mapServiceNum}" /></dd>
+                                <dd style="padding-top: 10px;"><a href="javascript:;">iTelluro</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <open-maps dataset="mapDataset" map-tool-group map-search-tool="false" mapheight="mapheight" mapwidth="mapwidth" add-layer="addLayer" remove-layer="removeLayer" is-load-internet-tian-di-tu="isLoadTianDiTu"></open-maps>
+            </div>
+            <!-- 图层统计 -->
+            <div class="layerNumber">
+                <div style="width: 100%; height: 16px; margin-bottom: 5px; text-align: center; border: 1px solid #E1E1E1; cursor: pointer;" ng-click="hideECharts()">
+                    <i class="mdi" ng-class="{'mdi-chevron-down':isDown,'mdi-chevron-up':!isDown}" style="font-size: 25px; margin-top: -5px;"></i>
+                </div>
+                <ul class="layerList row" style="background:#FFF !important; height: 200px;" ng-show="isDown">
+                    <li class="col-lg-6 col-sm-6" style="background: #F1F5F8 !important; padding-right: 5px; border: none; padding-left: 0px !important;">
+                        <div class="layerInfo" style="border: 1px solid #E1E1E1;">
+                            <div class="font-title-big" style="position: absolute; right: 20%; top: 10px; letter-spacing: 5px; color: #686868;">
+                                <span translate="views.home.charts.layer.MAIN">图层总数</span>
+                                <span style="color: red;">{{layerNumber.layerAll}}</span>
+                            </div>
+
+                            <div ng-if="isDown" class="pie1" style="height: 200px; width: 80%;"></div>
+                            <a href="/#/app/layerManager" tooltip="{{'views.home.charts.layer.tooltip'|translate}}" style="position: absolute; left: 28.5%; top: 34%; width: 60px; height: 60px;">
+                                <img src="/App/Main/assets/images/home_layers.png" alt="图层" />
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-lg-6 col-sm-6" style="background: #F1F5F8 !important; padding-left: 5px; border: none;">
+                        <div class="layerInfo" style="border: 1px solid #E1E1E1;">
+                            <div class="font-title-big" style="position: absolute; right: 20%; top: 10px; letter-spacing: 5px; color: #686868;">
+                                <span translate="views.home.charts.map.MAIN">地图总数</span>
+                                <span style="color: red;">{{layerNumber.mapAll}}</span>
+                            </div>
+
+                            <div ng-if="isDown" class="pie2" style="height: 200px; width: 80%;"></div>
+                            <a href="/#/app/mapManager" tooltip="{{'views.home.charts.map.tooltip'|translate}}" style="position: absolute; left: 28.5%; top: 34%; width: 60px; height: 60px; display: block;">
+                                <img src="/App/Main/assets/images/home_map.png" alt="地图" />
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

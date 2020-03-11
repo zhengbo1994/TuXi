@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "_SelectAreaLayout";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+
+}
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card">
+        <div class="layui-card-body" id="app">
+            <form class="layui-form" action="" lay-filter="component-form-group">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">菜单类型</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="Type" value="module" title="模块" checked>
+                        <input type="radio" name="Type" value="menu" title="菜单">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section script
+{
+<script>
+    layui.initModule(['form'], function () {
+        var form = layui.form;
+
+        layui.autoHeight();
+
+        form.render(null, 'component-form-group');
+    });
+
+    function getValue()
+    {
+        return $("input[name='Type']:checked").val();
+    }
+    </script>    
+}

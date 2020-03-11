@@ -1,0 +1,219 @@
+﻿@{
+    ViewBag.Title = "增加或编辑用户";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card">
+        <div class="layui-card-body" id="app">
+            <form class="layui-form" action="" lay-filter="component-form-group">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="UserName" id="txtUserName" v-model="model.UserName" lay-verify="required" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-inline">
+                            <input type="radio" name="UserSex" value="男" title="男" v-bind:checked="model.UserSex=='男'">
+                            <input type="radio" name="UserSex" value="女" title="女" v-bind:checked="model.UserSex=='女'">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">登录账号</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="UserCode" lay-verify="required" v-model="model.UserCode" autocomplete=" off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">登陆密码</label>
+                        <div class="layui-input-inline">
+                            <input type="password" name="Password" lay-verify="required" v-model="model.Password" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">联系手机</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="Phone" autocomplete="off" class="layui-input" v-model="model.Phone">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">联系电话</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="TelPhone" autocomplete="off" class="layui-input" v-model="model.TelPhone">
+                        </div>
+                    </div>
+                    </div>
+
+
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">组织架构</label>
+                        <div class="layui-input-inline">
+                            <input type="text" lay-verify="required" id="txtDepartment" autocomplete="off" class="layui-input" onclick="showSelectTreeDlg()" v-model="model.AreaFullName" readonly>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">职务</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="Position" autocomplete="off" class="layui-input" v-model="model.Position">
+                        </div>
+                    </div>
+                    </div>
+
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">说明</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="" name="Remark" class="layui-textarea" v-model="model.Remark"></textarea>
+                    </div>
+                </div>
+                <button class="layui-btn" lay-submit="" lay-filter="component-form" id="btnSubmit" style="display:none">立即提交</button>
+                <input type="hidden" name="Department" id="hidDepartmentCode" v-model="model.Department" />
+                <input type="hidden" name="Id" v-model="model.Id" />
+            </form>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+    var oldUserCode = '';
+    var areaFullName = "";
+    var areaCode = '';
+    layui.initModule(['form'], function () {
+        var $ = layui.$, form = layui.form;
+
+        initModel();
+
+        form.render(null, 'component-form-group');
+        layui.autoHeight();
+
+        /* 监听提交 */
+        form.on('submit(component-form)', function (data) {
+            debugger
+             
+            var isValid = false;
+
+            $.get({
+                async: false,
+                url: Base.getApiUrl("/SystemManage/GetUserCodeStatus"),
+                data: {
+                    rdm: Math.random(),
+                    userCode: data.field.UserCode,
+                    oldUserCode: oldUserCode
+                },
+                success: function (resp) {
+                    if (resp.code != 0) {
+                        alert(resp.message);
+                    }
+                    else {
+                        isValid = true;
+                    }
+                }
+            });
+
+        
+            if (isValid) {
+                $.post({
+                    url: Base.getApiUrl("/SystemManage/AddOrEditUser"),
+                    data: data.field,
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            parent.initGrid();
+                            parent.layer.closeAll();
+                        }
+                    }
+                })
+            }
+            return false;
+        });
+    });
+
+
+    function initModel() {
+        var id = '@Request.QueryString["id"]';
+        if (id) {
+            $.get({
+                url: Base.getApiUrl("/SystemManage/GetUser"),
+                async: false,
+                data: {
+                    id: id
+                },
+                success: function (resp) {
+                    oldUserCode = resp.data.UserCode;
+                    initVue(resp.data)
+                }
+            });
+        }
+        else {
+            initVue({
+                UserSex: "男"
+            })
+        }
+      
+    };
+
+
+    function initVue(data)
+    {
+        new Vue({
+            el: '#app',
+            data: {
+                LangConfig: LangConfig,
+                model: data
+            },
+            watch: {
+                model: {
+                    handler: function (oldValue, newValue) {
+                        if (areaFullName) {
+                            this.model.AreaFullName = areaFullName;
+                        }
+                        if (areaCode) {
+                            this.model.Department = areaCode;
+                        }
+                    },
+                    deep: true,
+                    immediate: true
+                }
+
+            }
+        });
+    }
+    function doSubmit()
+    {
+        $("#btnSubmit").click();
+    }
+    function showSelectTreeDlg()
+    {
+        layui.showDlg({
+            title: '选择区域',
+            content: '@Url.Action("SelectTree","Base")?apiPath=/SystemManage/GetAreaInfoByUserCode',
+            area: ['30%', '90%'],
+            closeBtn: false,
+            yes: function (index, layero) {
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                if (iframeWin.isValid()) {
+                
+                    $("#hidDepartmentCode").val(areaCode=iframeWin.currentCode);
+                    $("#txtDepartment").val(areaFullName = iframeWin.currentName + "(" + iframeWin.currentCode + ")");
+                    layer.close(index);
+                }
+            }
+        });
+    }
+
+
+    </script>
+}

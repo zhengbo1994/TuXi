@@ -1,0 +1,270 @@
+﻿<!-- 工具集-坐标转换 create by huqr /// controller:  'coordinateCtrl' -  localtion: App/Main/assets/js/controllers/Tools/coordinateCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="coordinateCtrl">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 container_padding container_cross_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Toolset.CoordinateConversion.CoordinateConversion">坐标转换</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <!-- 内容 -->
+                    <p class="font-content-small" translate="views.Toolset.CoordinateConversion.Tips">请选择同名的所有文件进行上传，包括shp、shx、prj、dpf，否则无法进行后续操作</p>
+                    <div>
+                        <tabset type="roundline" class="tabbable" no-tab-content>
+                            <tab class="tabpadding0 font-content-middle" heading="{{'views.Toolset.CoordinateConversion.SevenConversion'|translate}}" select="selectTab(true)"></tab>
+                            <tab class="tabpadding0 font-content-middle" heading="{{'views.Toolset.CoordinateConversion.ControlConversion'|translate}}" select="selectTab(false)"></tab>
+                        </tabset>
+                        <div>
+                            <div ng-if="showtab1===true">
+                                <div style="margin-bottom: 10px;">
+                                    <bp-upload-btn file-type="shp,shx,dbf,prj" mime-types=".shp,.shx,.dbf,.prj" on-all-success="onAllSuccess1">
+                                        上传文件
+                                    </bp-upload-btn>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <label class="font-title-small" style="margin-right: 10px;" translate="views.Toolset.CoordinateConversion.OutputSystem">输出空间参考系:</label>
+                                    <ui-select class="ui-select-width" ng-model="outputType1.selected" theme="select2">
+                                        <ui-select-match>{{$select.selected.label}}</ui-select-match>
+                                        <ui-select-choices class="ui-select-height" repeat="p in outputTypeData| propsFilter: {label: $select.search}">
+                                            <div ng-bind-html="p.label | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <a class="btn btn-o btn-primary font-title-btn" href="javascript:;" style="margin-left: 10px;" ng-click="setParam1()" translate="views.Toolset.CoordinateConversion.ReferenceSetting">7参数设置</a>
+                                </div>
+                                <div class="table-responsive" style="max-height: 450px;">
+                                    <table class="table table-bordered table-hover font-content-small" id="sample-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th translate="views.Toolset.FormatConversion.SerialNumber">序号</th>
+                                                <th translate="views.Toolset.FormatConversion.FileName">文件名称</th>
+                                                <th translate="views.Toolset.FormatConversion.FileSize">文件大小</th>
+                                                <th translate="views.Toolset.FormatConversion.FileType">文件类型</th>
+                                                <th translate="views.Toolset.CoordinateConversion.SpatialReference">空间参考</th>
+                                                <th translate="views.Toolset.FormatConversion.UploadTime">文件上传时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="b in fileDatas1">
+                                                <td>
+                                                    {{ $index + 1 }}
+                                                </td>
+                                                <td>
+                                                    {{ b.name }}
+                                                </td>
+                                                <td>
+                                                    {{ b.size | changeSize: '' }}
+                                                </td>
+                                                <td>
+                                                    {{ b.type }}
+                                                </td>
+                                                <td>
+                                                    {{ b.coord }}
+                                                    <i class="ti-eye" style="color: blue; cursor:pointer;" ng-mouseover="showDetail($event,$index,b.detailCoord)" ng-mouseleave="downDetail()"></i>
+                                                </td>
+                                                <td>
+                                                    {{ b.date | changeDate: '' }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="position: relative; margin-top: 20px;">
+                                    <a class="btn btn-o btn-primary font-title-btn" href="javascript:;" style="position: absolute; right: 0;" ng-click="uploadTwice1()" translate="views.Toolset.CoordinateConversion.CoordinateConversion">坐标转换</a>
+                                </div>
+                            </div>
+
+                            <div ng-if="showtab1===false">
+                                <div style="margin-bottom: 10px;">
+                                    <bp-upload-btn file-type="shp,shx,dbf,prj" mime-types=".shp,.shx,.dbf,.prj" on-all-success="onAllSuccess2">
+                                        上传文件
+                                    </bp-upload-btn>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <label class="font-title-small" style="margin-right: 10px;" translate="views.Toolset.CoordinateConversion.OutputSystem">输出空间参考系:</label>
+                                    <ui-select class="ui-select-width" ng-model="outputType2.selected" theme="select2">
+                                        <ui-select-match>{{$select.selected.label}}</ui-select-match>
+                                        <ui-select-choices class="ui-select-height" repeat="p in outputTypeData| propsFilter: {label: $select.search}">
+                                            <div ng-bind-html="p.label | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <a class="btn btn-o btn-primary font-title-btn" href="javascript:;" style="margin-left: 10px;" ng-click="setParam2()" translate="views.Toolset.CoordinateConversion.ControlSetting">控制点参数设置</a>
+                                </div>
+                                <div class="table-responsive" style="max-height: 450px;">
+                                    <table class="table table-bordered table-hover font-content-small" id="sample-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th translate="views.Toolset.FormatConversion.SerialNumber">序号</th>
+                                                <th translate="views.Toolset.FormatConversion.FileName">文件名称</th>
+                                                <th translate="views.Toolset.FormatConversion.FileSize">文件大小</th>
+                                                <th translate="views.Toolset.FormatConversion.FileType">文件类型</th>
+                                                <th translate="views.Toolset.CoordinateConversion.SpatialReference">空间参考</th>
+                                                <th translate="views.Toolset.FormatConversion.UploadTime">文件上传时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="b in fileDatas2">
+                                                <td>
+                                                    {{ $index + 1 }}
+                                                </td>
+                                                <td>
+                                                    {{ b.name }}
+                                                </td>
+                                                <td>
+                                                    {{ b.size | changeSize: '' }}
+                                                </td>
+                                                <td>
+                                                    {{ b.type }}
+                                                </td>
+                                                <td>
+                                                    {{ b.coord }}
+                                                    <i class="ti-eye" style="color: blue; cursor:pointer;" ng-mouseover="showDetail($event,$index,b.detailCoord)" ng-mouseleave="downDetail()"></i>
+                                                </td>
+                                                <td>
+                                                    {{ b.date | changeDate: '' }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="position: relative; margin-top: 20px;">
+                                    <a class="btn btn-o btn-primary font-title-btn" href="javascript:;" style="position: absolute; right: 0;" ng-click="uploadTwice2()" translate="views.Toolset.CoordinateConversion.CoordinateConversion">坐标转换</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 工具集文件列表中空间参考旁边的小眼睛弹出来的空间参考详细信息窗口 -->
+                    <div class="static-tooltip detail-window" ng-style="detailTop" ng-show="isSpaceEyes" ng-mouseover="itselfShow()" ng-mouseleave="downDetail()">
+                        <div role="tooltip" class="tooltip top">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-inner" style="background-color: #fff; max-width: 300px; color: #000; text-align: left; border:1px solid #eee;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--7参数设置弹窗-->
+        <mic-ui-modal popwinmodal="sevenParam" open-popwin-fun="openSevenParam" template-url="sevenParam.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="'static'" popwin-title="sevenParam.title" size="" win-class="sevenParamClass" on-opened="sevenParam.open" on-submit="sevenParam.submit" on-cancel="sevenParam.cancal">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="sevenParam.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group" style="padding: 15px;">
+                <table class="table table-bordered font-content-small" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;" translate="views.Toolset.CoordinateConversion.Name">参数名称</th>
+                            <th style="text-align: center;" translate="views.Toolset.CoordinateConversion.Value">参数值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td translate="views.Toolset.CoordinateConversion.TranslatingVariablesDx">平移变量Dx(米)</td>
+                            <td>
+                                <!--<input type="text" ng-model="popwinmodal.dx" style="text-align: center; border: none; width: 100%;" />-->
+                                <num-box text-placeholder="" text-model="popwinmodal.dx" style="width: 100%;"></num-box>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td translate="views.Toolset.CoordinateConversion.TranslatingVariablesDy">平移变量Dy(米)</td>
+                            <td>
+                                <num-box text-placeholder="" text-model="popwinmodal.dy" style="width: 100%;"></num-box>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td translate="views.Toolset.CoordinateConversion.TranslatingVariablesDz">平移变量Dz(米)</td>
+                            <td>
+                                <num-box text-placeholder="" text-model="popwinmodal.dz" style="width: 100%;"></num-box>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td translate="views.Toolset.CoordinateConversion.RotateVariableX">旋转变量X(秒)</td>
+                            <td>
+                                <num-box text-placeholder="" min-num="0" text-model="popwinmodal.x" style="width: 100%;"></num-box>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td translate="views.Toolset.CoordinateConversion.RotateVariableY">旋转变量Y(秒)</td>
+                            <td>
+                                <num-box text-placeholder="" min-num="0" text-model="popwinmodal.y" style="width: 100%;"></num-box>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td translate="views.Toolset.CoordinateConversion.RotateVariableZ">旋转变量Z(秒)</td>
+                            <td>
+                                <num-box text-placeholder="" min-num="0" text-model="popwinmodal.z" style="width: 100%;"></num-box>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td translate="views.Toolset.CoordinateConversion.ZoomRatio">缩放比(ppm)</td>
+                            <td>
+                                <num-box text-placeholder="" min-num="0" text-model="popwinmodal.ppm" style="width: 100%;"></num-box>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+        <!--控制点参数设置弹窗-->
+        <mic-ui-modal popwinmodal="pointParam" open-popwin-fun="openPointParam" template-url="pointParam.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="'static'" popwin-title="pointParam.title" size="lg" win-class="pointParamClass" on-opened="pointParam.open" on-submit="pointParam.submit" on-cancel="pointParam.cancal">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="pointParam.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group" style="padding: 15px;">
+                <table class="table table-bordered font-content-small" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="text-align: center;" translate="views.Toolset.FormatConversion.SerialNumber">序号</th>
+                            <th colspan="3" style="text-align: center;" translate="views.Toolset.CoordinateConversion.PreSystem">转换前的空间参考系</th>
+                            <th colspan="3" style="text-align: center;" translate="views.Toolset.CoordinateConversion.ConvertedSystem">转换后的空间参考系</th>
+                            <th rowspan="2" style="text-align: center;" translate="setting.operating">操作</th>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center;">X</th>
+                            <th style="text-align: center;">Y</th>
+                            <th style="text-align: center;">Z</th>
+                            <th style="text-align: center;">X</th>
+                            <th style="text-align: center;">Y</th>
+                            <th style="text-align: center;">Z</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tr in popwinmodal.tableData">
+                            <td>{{$index+1}}</td>
+                            <td>
+                                <num-box text-placeholder="" text-model="tr.beforeX" style="width: 100%;"></num-box>
+                            </td>
+                            <td>
+                                <num-box text-placeholder="" text-model="tr.beforeY" style="width: 100%;"></num-box>
+                            </td>
+                            <td>
+                                <num-box text-placeholder="" text-model="tr.beforeZ" style="width: 100%;"></num-box>
+                            </td>
+                            <td>
+                                <num-box text-placeholder="" text-model="tr.afterX" style="width: 100%;"></num-box>
+                            </td>
+                            <td>
+                                <num-box text-placeholder="" text-model="tr.afterY" style="width: 100%;"></num-box>
+                            </td>
+                            <td>
+                                <num-box text-placeholder="" text-model="tr.afterZ" style="width: 100%;"></num-box>
+                            </td>
+                            <td style="width: 50px;">
+                                <a href="javascript:;" ng-click="popwinmodal.add(tr)" tooltip="{{'views.Toolset.CoordinateConversion.addNew'|translate}}">
+                                    <i class="ti ti-plus"></i>
+                                </a>
+                                <a href="javascript:;" ng-click="popwinmodal.del(tr)" ng-if="popwinmodal.tableData.length>1" tooltip="{{'views.Toolset.CoordinateConversion.deleteOne'|translate}}">
+                                    <i class="ti ti-close"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?x9w3eq');
+  src:  url('fonts/icomoon.eot?x9w3eq#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?x9w3eq') format('truetype'),
+    url('fonts/icomoon.woff?x9w3eq') format('woff'),
+    url('fonts/icomoon.svg?x9w3eq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="map-editor-icon-"], [class*=" map-editor-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.map-editor-icon-uniE906:before {
+  content: "\e906";
+  color: #6f6f6f;
+}
+.map-editor-icon-22:before {
+  content: "\e907";
+  color: #6f6f6f;
+}
+.map-editor-icon--01:before {
+  content: "\e900";
+  color: #6f6f6f;
+}
+.map-editor-icon-uniE902:before {
+  content: "\e902";
+  color: #6f6f6f;
+}
+.map-editor-icon-1:before {
+  content: "\e903";
+  color: #5d5d5d;
+}
+.map-editor-icon-2:before {
+  content: "\e904";
+  color: #6f6f6f;
+}
+.map-editor-icon-3:before {
+  content: "\e905";
+  color: #6f6f6f;
+}
+.map-editor-icon-11:before {
+  content: "\e901";
+}
+.map-editor-icon-uniE919:before {
+  content: "\e919";
+}
+.map-editor-icon-21 .path1:before {
+  content: "\e91a";
+  color: rgb(255, 255, 255);
+}
+.map-editor-icon-21 .path2:before {
+  content: "\e91b";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.map-editor-icon-12 .path1:before {
+  content: "\e91c";
+  color: rgb(47, 196, 114);
+}
+.map-editor-icon-12 .path2:before {
+  content: "\e91d";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.map-editor-icon-uniE901:before {
+  content: "\e910";
+}
+.map-editor-icon-121:before {
+  content: "\e911";
+}
+.map-editor-icon-31:before {
+  content: "\e912";
+}
+.map-editor-icon-4:before {
+  content: "\e913";
+}
+.map-editor-icon-7:before {
+  content: "\e915";
+}
+.map-editor-icon-8:before {
+  content: "\e916";
+}
+.map-editor-icon-9:before {
+  content: "\e917";
+}
+.map-editor-icon-10:before {
+  content: "\e918";
+}

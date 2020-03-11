@@ -1,0 +1,903 @@
+﻿@{
+    ViewBag.Title = "元数据";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+@section css{
+    <style>
+        /*.layui-input {
+            width: 250px !important;
+        }*/
+        .layui-colla-content {
+         padding:5px !important;
+        }
+    </style>
+}
+<div class="layui-fluid" id="component-tabs" style="padding:0px">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card" id="app" >
+                <div class="layui-card-body">
+                    <div class="layui-btn-group">
+                        <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="uploadFile()" data-permession-button="编辑"><i class="layui-icon" onclick="uploadFile()">&#xe681;</i>上传</button>
+                    </div>
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="location.reload()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                    <div class="layui-tab layui-tab-brief" lay-filter="component-tabs-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">元数据</li>
+                            <li>标识</li>
+                            <li>静态浏览图</li>
+                            <li>内容</li>
+                            <li>分发信息</li>
+                            <li>联系信息</li>
+                        </ul>
+                        <div class="layui-tab-content" style="padding-bottom:0px">
+                            <div class="layui-tab-item layui-show">
+                                <form class="layui-form" action="" lay-filter="component-form-group">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">语种</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" v-model="model.mdLang" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">空间参考系</label>
+                                            <div class="layui-input-inline">
+                                                <select v-model="model.refSysInfo.SIRefSys.refSysName" id="refSysName" lay-filter="refSysName"></select>
+                                            </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">名称</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="mdTitle" v-model="model.mdTitle" class="layui-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">创建时间</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" v-model="model.mdDataSt" id="mdDataSt" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">标准名称</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="mdStanName" v-model="model.mdStanName" class="layui-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">备注</label>
+                                            <div class="layui-input-block">
+                                                <textarea placeholder="" name="Remark" class="layui-textarea" v-model="model.Remark"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-tab-item">
+
+
+
+
+                                <div class="layui-collapse" lay-filter="component-panel" style="margin-bottom:20px">
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title">基础数据</h2>
+                                        <div class="layui-colla-content">
+                                            <form class="layui-form" action="" lay-filter="component-form-group">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">语种</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.mdLang" class="layui-input">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">字符集</label>
+                                                        <div class="layui-input-inline">
+                                                            <select v-model="model.mdChar" id="mdChar" lay-filter="mdChar"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">状况</label>
+                                                        <div class="layui-input-inline">
+                                                            <select v-model="model.dataIdInfo.idStatus" id="idStatus" lay-filter="idStatus"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-form-item">
+                                                  
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">数据表示方式</label>
+                                                        <div class="layui-input-inline">
+                                                            <select v-model="model.dataIdInfo.dataRpType" id="dataRpType" lay-filter="dataRpType"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">比例尺</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.dataScale" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">空间分辨率</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.dataScale" class="layui-input">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="layui-form-item">
+                                                 
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">地理标识符</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.geoId" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">影像轨道识别</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.imageID" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">格式名称</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.Format.fomatName" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-form-item">
+                                                  
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">格式版本</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.Format.formatVer" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">采集时间范围</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" name="CollectTime" v-model="model.CollectTime" id="CollectTime" class="layui-input" style="width:515px">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                <div class="layui-form-item">
+                                                    <div class="layui-block">
+                                                        <label class="layui-form-label">关键词</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="" class="layui-textarea" v-model="model.Keyword"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-form-item">
+                                                    <div class="layui-block">
+                                                        <label class="layui-form-label">摘要</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="" class="layui-textarea" v-model="model.dataIdInfo.idAbs"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-form-item">
+                                                    <div class="layui-block">
+                                                        <label class="layui-form-label">目的</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="" class="layui-textarea" v-model="model.dataIdInfo.idPurp"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-form-item">
+                                                    <div class="layui-block">
+                                                        <label class="layui-form-label">专题类别</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="" class="layui-textarea" v-model="model.TopicCategory"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title">地理坐标范围信息</h2>
+                                        <div class="layui-colla-content">
+                                            <form class="layui-form" action="" lay-filter="component-form-group">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">西边经度</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.GeoBndBox.westBL" class="layui-input">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">东边经度</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.GeoBndBox.eastBL" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">南边纬度</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.GeoBndBox.southBL" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="layui-form-item">
+
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">北边纬度</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.GeoBndBox.northBL" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title">数据集限制</h2>
+                                        <div class="layui-colla-content">
+                                            <form class="layui-form" action="" lay-filter="component-form-group">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">访问限制</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.Consts.accessConsts" class="layui-input">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">用途限制</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.Consts.useLimit" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">使用限制</label>
+                                                        <div class="layui-input-inline">
+                                                            <select v-model="model.dataIdInfo.Consts.useConsts" id="useConsts" lay-filter="useConsts"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="layui-form-item">
+
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">安全等级</label>
+                                                        <div class="layui-input-inline">
+                                                            <select v-model="model.dataIdInfo.Consts.class1" id="class" lay-filter="class"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title">引用信息</h2>
+                                        <div class="layui-colla-content">
+                                            <form class="layui-form" action="" lay-filter="component-form-group">
+                                                <div class="layui-form-item">
+
+                                                    <label class="layui-form-label">名称</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="text" v-model="model.dataIdInfo.idCitation.resTitle" class="layui-input">
+                                                    </div>
+                                                </div>
+                                                <div class="layui-form-item">
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">版本</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.idCitation.resEd" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">版本日期</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.idCitation.resEdDate" id="resEdDate" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">日期</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.idCitation.resDate" id="resDate" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="layui-form-item">
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">
+                                                            表达形式
+                                                        </label>
+                                                        <div class="layui-input-inline">
+                                                            <select v-model="model.dataIdInfo.idCitation.presForm" id="presForm" lay-filter="presForm"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">国际标准书号</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.idCitation.Isbn" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">国际标准系列号</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.idCitation.Issn" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title">维护信息</h2>
+                                        <div class="layui-colla-content">
+                                            <form class="layui-form" action="" lay-filter="component-form-group">
+
+
+                                                <div class="layui-form-item">
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">更新频率</label>
+                                                        <div class="layui-input-inline">
+                                                            <select v-model="model.dataIdInfo.MaintInfo.maintFreq" id="maintFreq" lay-filter="maintFreq"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">联系信息</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.MaintInfo.maintCont.rpOrgName" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="layui-form-item">
+                                                    <div class="layui-block">
+                                                        <label class="layui-form-label">范围说明</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="" class="layui-textarea" v-model="model.dataIdInfo.MaintInfo.upScpDesc"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title">垂向范围信息</h2>
+                                        <div class="layui-colla-content">
+                                            <form class="layui-form" action="" lay-filter="component-form-group">
+
+                                                <div class="layui-form-item">
+
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">最小垂向坐标值</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.VerExtent.vertMinVal" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">最大垂向坐标值</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.VerExtent.vertMaxVal" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">垂向计量单位</label>
+                                                        <div class="layui-input-inline">
+                                                            <input type="text" v-model="model.dataIdInfo.VerExtent.vertUoM" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="layui-tab-item">
+                                <form class="layui-form" action="" lay-filter="component-form-group">
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">文件名称</label>
+                                            <div class="layui-input-block">
+
+                                                <input type="text" v-model="model.dataIdInfo.BrowGraph.bgFileName" class="layui-input">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">文件描述</label>
+                                            <div class="layui-input-block">
+
+                                                <input type="text" v-model="model.dataIdInfo.BrowGraph.bgFileDesc" class="layui-input">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">缩略图</label>
+                                            <div class="layui-input-block">
+                                                    <img class="layui-upload-img" v-bind:src="model.ThumbFile" id="current-image" style="width: 128; height: 128px; " border="0" />
+                                                <div class="layui-upload-drag" style="margin-top:10px;border:none" id="uploader">
+                                                    <i class="layui-icon"></i>
+                                                    <p>点击上传，或将文件拖拽到此处</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-tab-item">
+
+                                <form class="layui-form" action="" lay-filter="component-form-group">
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">图层名称</label>
+                                            <div class="layui-input-block">
+                                                <textarea placeholder="" class="layui-textarea" v-model="model.conInfo.ContDesc.cntLayerName"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">图层编号</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text"  v-model="model.mdLang" class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>*@
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">要素名称</label>
+                                            <div class="layui-input-block">
+                                                <textarea placeholder="" name="Remark" class="layui-textarea" v-model="model.conInfo.ContDesc.cntFetTypes"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">属性列表</label>
+                                            <div class="layui-input-block">
+                                                <textarea placeholder="" name="Remark" class="layui-textarea" v-model="model.conInfo.ContDesc.cntAttrTpyList"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">属性结构描述文件</label>
+                                            <div class="layui-input-block">
+                                                <textarea placeholder="" name="Remark" class="layui-textarea" v-model="model.conInfo.ContDesc.cntAttrDescFile"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">栅格/影像内容描述</label>
+                                            <div class="layui-input-block">
+                                                <textarea placeholder="" name="Remark" class="layui-textarea" v-model="model.conInfo.ContDesc.cntRasterImage"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-tab-item">
+                                <form class="layui-form" action="" lay-filter="component-form-group">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">
+                                                介质名称
+                                            </label>
+                                            <div class="layui-input-inline">
+                                                <select v-model="model.distInfo.Medium.medName" id="medName" lay-filter="medName"></select>
+                                            </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">介质说明</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="mdTitle" v-model="model.distInfo.Medium.medNote" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">
+                                                服务类型
+                                            </label>
+                                            <div class="layui-input-inline">
+                                                <select v-model="model.distInfo.distorCont.rpCntInfo.postCode" id="medServerType" lay-filter="medServerType"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">服务URL</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" v-model="model.distInfo.distorCont.rpCntInfo.cntOnlineRes" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">分发单位</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="mdStanName" v-model="model.distInfo.distorCont.rpOrgName" class="layui-input" style="width:295px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">订购说明</label>
+                                            <div class="layui-input-block">
+                                                <textarea placeholder="" name="Remark" class="layui-textarea" v-model="model.distInfo.ordInstr"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-tab-item">
+                                <table class="layui-table" id="contact-table" lay-filter="contact-table"></table>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-block">
+                                <center>
+                                    <button class="layui-btn layui-btn-normal" id="btnSubmitMetaData" v-on:click="submitMetaData()" data-permession-button="编辑">保存</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary" data-permession-button="编辑">重置</button>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section script
+{
+    <script>
+    var model = {};
+
+    var vm = null;
+    layui.initModule(['form', 'laydate', 'table', 'upload'], function () {
+
+        init();
+    });
+
+    function init() {
+        var $ = layui.$;
+        var element = layui.element;
+
+
+        initModel();
+        initControl();
+        initUploader();
+        Base.initPermession(window.parent.parent.location.href);
+        layui.form.render();
+
+        element.render('collapse');
+
+        //监听折叠
+        element.on('collapse(component-panel)', function (data) {
+            //layer.msg('展开状态：' + data.show);
+        });
+
+    }
+
+    function initModel() {
+        $.get({
+            url: Base.getApiUrl("/DataManager/GetMetaData"),
+            async: false,
+            data: {
+                mainId: '@Request.QueryString["mainId"]',
+                folderName: decodeURIComponent('@Request.QueryString["folderName"]')
+            },
+            success: function (resp) {
+                model = resp.data;
+
+                initVue(resp.data)
+            }
+        });
+    };
+
+
+    function initContactInfo(data) {
+        layui.initGird({
+            id: "contact-table"
+           , data: data
+          , elem: '#contact-table'
+      , title: '联系人列表'
+      , cols: [[
+            { field: 'DeptName', title: '联系单位', event: 'setSign' }
+        , { field: 'Duty', title: '职责', event: 'setSign' }
+      ]]
+            , page: false
+        });
+    }
+
+    function initControl() {
+        //空间参考系
+        layui.initSelect({
+            id: "#refSysName",
+            data: Base.DataContext.KJCKX,
+            onSelect: function (data) {
+                vm.model.refSysInfo.SIRefSys.refSysName = data.value;
+            },
+            selectedValue: ((model.refSysInfo || {}).SIRefSys || {}).refSysName
+        });
+
+
+        //元数据创建时间
+        layui.laydate.render({
+            elem: '#mdDataSt'
+, type: 'date'
+, format: 'yyyy-MM-dd'
+, lang: '@UserConfigContext.CurrentLang'
+            //,change: function (value, date, endDate) {
+            //    $("#mdDataSt").val(value);
+            //}
+        });
+
+        //字符集
+        layui.initSelect({
+            id: "#mdChar",
+            textField: "value",
+            valueField: "text",
+            data: Base.DataContext.ZFJ,
+            onSelect: function (data) {
+                vm.model.mdChar = data.value;
+            },
+            selectedValue: model.mdChar
+        });
+
+        //数据采集起止时间(新增属性)
+        layui.laydate.render({
+            elem: '#CollectTime'
+, type: 'datetime'
+, range: LangConfig.CommonText.to
+, format: 'yyyy-MM-dd HH:mm:ss'
+, lang: '@UserConfigContext.CurrentLang',
+            done: function (value, date, endDate) {
+                // console.log(date);
+                vm.model.CollectTime = value;
+            }
+        });
+
+        //状况
+        layui.initSelect({
+            id: "#idStatus",
+            data: Base.DataContext.ZK,
+            onSelect: function (data) {
+                vm.model.dataIdInfo.idStatus = data.value;
+            },
+            selectedValue: (model.dataIdInfo || {}).idStatus
+        });
+
+        //数据表示方式
+        layui.initSelect({
+            id: "#dataRpType",
+            data: Base.DataContext.SJBSFS,
+            onSelect: function (data) {
+                vm.model.dataIdInfo.dataRpType = data.value;
+            },
+            selectedValue: (model.dataIdInfo || {}).dataRpType
+        });
+
+        //使用限制
+        layui.initSelect({
+            id: "#useConsts",
+            data: Base.DataContext.SYXZ,
+            onSelect: function (data) {
+                vm.model.dataIdInfo.Consts.useConsts = data.value;
+            },
+            selectedValue: ((model.dataIdInfo || {}).Consts || {}).useConsts
+        });
+
+        //安全等级
+        layui.initSelect({
+            id: "#class",
+            data: Base.DataContext.AQDJ,
+            onSelect: function (data) {
+                vm.model.dataIdInfo.Consts.class1 = data.value;
+            },
+            selectedValue: ((model.dataIdInfo || {}).Consts || {}).class1
+        });
+
+        //版本日期
+        layui.laydate.render({
+            elem: '#resEdDate'
+, type: 'date'
+, format: 'yyyy-MM-dd'
+, lang: '@UserConfigContext.CurrentLang',
+            done: function (value, date, endDate) {
+                // console.log(date);
+                vm.model.dataIdInfo.idCitation.resEdDate = value;
+            }
+        });
+
+        //日期
+        layui.laydate.render({
+            elem: '#resDate'
+, type: 'date'
+, format: 'yyyy-MM-dd'
+, lang: '@UserConfigContext.CurrentLang',
+            done: function (value, date, endDate) {
+                // console.log(date);
+                vm.model.dataIdInfo.idCitation.resDate = value;
+            }
+        });
+
+        //表达形式
+        layui.initSelect({
+            id: "#presForm",
+            data: Base.DataContext.BDXS,
+            onSelect: function (data) {
+                vm.model.dataIdInfo.idCitation.presForm = data.value;
+            },
+            selectedValue: ((model.dataIdInfo || {}).idCitation || {}).presForm
+        });
+
+        //维护更新频率
+        layui.initSelect({
+            id: "#maintFreq",
+            data: Base.DataContext.WHGXPV,
+            onSelect: function (data) {
+                vm.model.dataIdInfo.MaintInfo.maintFreq = data.value;
+            },
+            selectedValue: ((model.dataIdInfo || {}).MaintInfo || {}).maintFreq
+        });
+
+        //介质名称
+        layui.initSelect({
+            id: "#medName",
+            data: Base.DataContext.FFJZMC,
+            onSelect: function (data) {
+                vm.model.distInfo.Medium.medName = data.value;
+            },
+            selectedValue: ((model.distInfo || {}).Medium || {}).medName
+        });
+
+        //分发服务类型
+        layui.initSelect({
+            id: "#medServerType",
+            data: Base.DataContext.FFFWLX,
+            onSelect: function (data) {
+                vm.model.distInfo.distorCont.rpCntInfo.postCode = data.value;
+            },
+            selectedValue: (((model.distInfo || {}).distorCont || {}).rpCntInfo || {}).postCode
+        });
+
+        initContactInfo(vm.model.ContactDetails);
+        initImage(model.ThumbFile);
+
+        if ('@Request.QueryString["type"]' == "view") {
+            $(".layui-btn-group").hide();
+            $(".layui-btn").hide();
+
+            $("input,textarea").attr("readonly", true);
+            $("select,#mdDataSt,#CollectTime,#resEdDate,#resDate").attr("disabled", true);
+        }
+    }
+
+    function initImage(thumbFile) {
+ 
+        //缩略图
+        if (!thumbFile || thumbFile == ('@ConfigContext.Current.FtpConfig["Package"].Site' + "/")) {
+       
+            $("#current-image").attr("src", '@Url.Content("~/content/images/empty-128.png")')
+            }
+        else {
+         
+                $("#current-image").attr("src", thumbFile)
+            }
+        }
+    function initVue(data) {
+        vm = new Vue({
+            el: '#app',
+            data: {
+                LangConfig: LangConfig,
+                model: data
+            },
+            watch: {
+                model: {
+                    handler: function (oldValue, newValue) {
+                        if ($("#mdDataSt").val()) {
+                            this.model.mdDataSt = $("#mdDataSt").val()
+                        };
+                        //if ($("#CollectTime").val() && $("#CollectTime").val().indexOf("--") == -1) {
+                        //    var dateObj = Base.getTimeRange('CollectTime');
+                        //    if (dateObj) {
+                        //        this.model.dataIdInfo.TempExtent.begin = dateObj["StartDate"];
+                        //        this.model.dataIdInfo.TempExtent.end = dateObj["EndDate"];
+                        //    }
+                        //}
+                    },
+                    deep: true,
+                    immediate: true
+                }
+
+            },
+            methods: {
+                submitMetaData: function () {
+                    console.log(JSON.stringify(this.model));
+                    $.post({
+                        url: Base.getApiUrl("/DataManager/SaveMetaData"),
+                        data: {
+                            mainId: '@Request.QueryString["mainId"]',
+                            folderName: decodeURIComponent('@Request.QueryString["folderName"]'),
+                            data: JSON.stringify(this.model)
+                        },
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                alert('保存成功');
+                            }
+                        }
+                    })
+                }
+            }
+        });
+    }
+
+    function uploadFile() {
+        layui.showDlg({
+            title: "上传元数据文件",
+            content: '@Url.Action("UploadMetaDataFile")?mainId=@Request.QueryString["mainId"]' + "&folderName=" + decodeURIComponent('@Request.QueryString["folderName"]'),
+            area: ['50%', '80%'],
+            yes: function (index, layero) {
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                iframeWin.uploader.upload();
+            }
+        });
+    }
+
+    function initUploader() {
+        layui.upload.render({
+            elem: '#uploader'
+    , url: Base.getApiUrl('/DataManager/UploadFile') + "?mainId=@Request.QueryString["mainId"]&foldername=" + encodeURIComponent('缩略图')
+       , before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+           layer.load();
+       }
+       , done: function (res) {
+           layer.closeAll('loading');
+           if (res.code == 0) {
+               initImage(res.data);
+           }
+       },
+            error: function () {
+                layer.closeAll('loading');
+            },
+            headers: {
+                "Authorization": "Bearer " + $.cookie(Config['AccessTokenKey']),
+                "Lang": $.cookie(Config["CurrentLangKey"]) || 'zh-cn'
+            }
+        });
+    }
+    </script>
+}

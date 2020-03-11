@@ -1,0 +1,375 @@
+﻿@{
+    ViewBag.Title = "编辑属性";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+@section css{
+    <style>
+        .layui-body {
+            overflow-y: scroll !important;
+        }
+
+        body {
+            overflow-y: scroll !important;
+        }
+    </style>
+    }
+
+<div class="layui-fluid" id="component-tabs">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card" id="app">
+                <blockquote class="layui-elem-quote">图层基本信息</blockquote>
+                <div class="layui-card-body">
+                    <form class="layui-form" action="" lay-filter="basic-form" id="basic-form">
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label">图层名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="LayerName" id="LayerName" class="layui-input" disabled>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label">图层类型</label>
+                                <div class="layui-input-block">
+                                    <select id="LayerType" lay-filter="LayerType" disabled></select>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label">空间参考</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="SpatialRefData" id="SpatialRefData" class="layui-input" disabled>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <input type="hidden" name="Id" />
+                    </form>
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-tab layui-tab-brief" lay-filter="component-tabs-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">表结构</li>
+                            <li>属性信息</li>
+                            <li>操作记录</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show" style="position:relative;">
+                                <blockquote class="layui-elem-quote" style="margin-bottom:0px;text-align:center;font-weight:bold" id="attr-place-holder">属性表：AAABBBCCC</blockquote>
+                                <table class="layui-hide" id="attr-table" lay-filter="attr-table"></table>
+                            </div>
+                            <div class="layui-tab-item" style="position:relative;">
+                                <div class="layui-card-header">
+                                   点击单元格可对属性进行编辑
+                                </div>
+                                <table class="layui-hide" id="attr-info-table" lay-filter="attr-info-table"></table>
+                                <script type="text/html" id="attr-table-toolbar">
+                                    <div class="layui-btn-group">
+                                        <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="addAttr('新增')"><i class="layui-icon"></i>新增</button>
+                                        <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="removeAttr()"><i class="layui-icon"></i>删除</button>
+                                    </div>
+
+                                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initAttrGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                                </script>
+                            </div>
+                            <div class="layui-tab-item" style="position:relative;">
+                                <table class="layui-hide" id="log-table" lay-filter="log-table"></table>
+                                <script type="text/html" id="log-table-toolbar">
+                                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initAttrGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                                </script>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+    var model = {
+        layerId: '@Request.QueryString["layerid"]'
+        };
+        var currentElement=null;
+        var table;
+        layui.initModule(['form','table'], function () {
+            var form = layui.form;
+            table = layui.table;
+            var element = layui.element;
+            element.render();
+
+            initModel();
+
+            form.render();
+
+        });
+
+
+
+        function initLayerType(value)
+        {
+            layui.initSelect({
+                id: "#LayerType",
+                data: Base.DataContext.DXM,
+                onSelect: function (data) {
+
+                },
+                selectedValue: value
+            });
+        }
+
+
+
+        function initAttrGrid() {
+            layui.initGird({
+                id: "attr-table"
+              , elem: '#attr-table'
+            , url: Base.getApiUrl("/DataEditor/GetLayerFieldsById")
+          , title: '字段列表'
+          , cols: [[
+               { field: 'id', hide: true }
+            , { field: 'AttributeName', title: '字段名称', event: 'setSign' }
+            , { field: 'CodeName', title: '数据类型', event: 'setSign' }
+               , { field: 'AttributeLength', title: '长度', event: 'setSign', align: 'right', width: 100 }
+             , { field: 'AttributePrecision', title: '小数位', event: 'setSign', align: 'right', width: 100 }
+            , { field: 'Remark', title: '说明', event: 'setSign', width: 300 }
+            //, {
+            //    field: '', title: '',align:"center",event: 'setSign', templet: function (d) {
+
+            //        return "<button class=\"layui-btn layui-btn-normal layui-btn-xs\" onclick=\"viewField('" + d.FilePath + "','" + d.name + "')\">编辑</button>"
+            //    }
+            //}
+          ]],
+                where: {
+                    layerID: model.Id
+                },
+                page:false
+            });
+
+            //监听行单击事件
+            table.on('row(attr-table)', function (obj) {
+
+            });
+
+            table.on('rowDouble(attr-table)', function (obj) {
+
+            });
+
+
+        }
+
+        function initLogGrid() {
+            layui.initGird({
+                id: "log-table"
+              , elem: '#log-table'
+            , url: Base.getApiUrl("/DataEditor/GetLogsByLayerID")
+          , title: '日志列表'
+          , cols: [[
+               { field: 'Id', hide: true }
+           , { field: 'UserName', title: '操作用户', event: 'setSign' }
+            , { field: 'OperateType', title: '操作类型', event: 'setSign' }
+            , { field: 'ResultDescribe', title: '状态', event: 'setSign' }
+            ,  {
+                field: 'OperateTime', title: '操作时间', align: 'center', event: 'setSign', templet: function (d) {
+                    return Base.Converter.dateTime(d.OperateTime);
+                }
+            }
+          ]],
+                where: {
+                    layerID: model.Id
+                },
+                page: true,
+                toolbar: '#log-table-toolbar'
+            });
+
+            //监听行单击事件
+            table.on('row(log-table)', function (obj) {
+
+            });
+
+            table.on('rowDouble(log-table)', function (obj) {
+
+            });
+
+
+        }
+
+
+        function getAttrInfoField()
+        {
+            $.get({
+                url: Base.getApiUrl("/DataEditor/GetLayerFieldsById"),
+                data: {
+                    layerID: model.Id
+                },
+            //    async: false,
+                success: function (resp)
+                {
+                    var cols = [];
+                    var fields = [];
+                    if (resp.status == 0)
+                    {
+                        if (resp.rows.item && resp.rows.item.length > 0)
+                        {
+                              fields.push(
+                                    {
+                                        type: 'checkbox',
+                                        fixed: 'left',
+                                        event: 'setSign'
+                                    });
+                            $.each(resp.rows.item, function (index, element) {
+                                fields.push(
+                                    {
+                                        field: element.AttributeName,
+                                        title: element.Remark || element.AttributeName,
+                                        event: 'setSign',
+                                        hide: element.AttributeName == "guid",
+                                        edit:"text"
+                                    });
+                            });
+
+                            cols.push(fields);
+
+                            initAttrInfoGrid(cols);
+                        }
+                    }
+
+
+                }
+            })
+        }
+        function initAttrInfoGrid(cols) {
+            layui.initGird({
+                id: "attr-info-table"
+              , elem: '#attr-info-table'
+            , url: Base.getApiUrl("/DataEditor/GetLayerAttrTabledDetail")
+          , title: '属性信息'
+          , cols: cols,
+                where: {
+                    layerID: model.Id
+                },
+                toolbar: '#attr-table-toolbar'
+            });
+
+            //监听行单击事件
+            table.on('row(attr-info-table)', function (obj) {
+                currentElement = obj.data;
+            });
+
+            table.on('rowDouble(attr-info-table)', function (obj) {
+                currentElement = obj.data;
+            });
+
+            table.on('edit(attr-info-table)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+                $.post({
+                    url: Base.getApiUrl("/DataEditor/UpdateLayerElementAttribute"),
+                    data: {
+                        layerId: model.Id,
+                        elementId: obj.data.guid,
+                        values: [obj.field + ";" + obj.value]
+                    },
+                    success: function (resp)
+                    {
+                        if (resp.code != 0)
+                        {
+                            alert('修改失败')
+                        }
+                    }
+                })
+            });
+        }
+
+
+        function initModel() {
+
+
+            if (model.layerId) {
+                $.get({
+                    url: Base.getApiUrl("/DataEditor/GetDetailById"),
+                    data: {
+                        layerId: model.layerId
+                    },
+                   // async: false,
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            model = resp.data;
+
+                            $("#Id").val(model.Id);
+                            $("#attr-place-holder").text("属性表：" + model.LayerAttrTable)
+                            $("#LayerName").val(model.LayerName);
+                            initLayerType(model.DataType);
+                            $("#SpatialRefData").val(model.LayerRefence);
+
+                            initAttrGrid();
+                            getAttrInfoField();
+                            initLogGrid();
+                        }
+                    }
+                });
+            }
+        }
+
+        function removeAttr(obj)
+        {
+            alert($(obj).parent().parent().siblings("[data-field='guid']").text());
+        }
+
+        function addAttr()
+        {
+            layui.showDlg({
+                title: "新增属性",
+                content: '@Url.Action("AddAttribute")?layerId=' + model.Id,
+                area: ['35%', '90%'],
+                yes: function (index, layero) {
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                    iframeWin.doSubmit(index);
+                }
+            })
+        }
+
+        function removeAttr() {
+
+            var ids = getCheckedIds();
+            if (ids.length == 0) {
+                alert('请选择要素');
+                return;
+            }
+            confirm('是否删除', function () {
+                $.each(ids, function (index, element) {
+                    $.post({
+                        url: Base.getApiUrl("/DataEditor/RemoveLayerElement"),
+                        data: {
+                            layerId: model.Id,
+                            elementId:element
+                        },
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                getAttrInfoField();
+                                layer.closeAll();
+                            }
+                        }
+                    })
+                });
+     
+            });
+        }
+
+
+        function getCheckedIds() {
+            var checkStatus = layui.table.checkStatus('attr-info-table');
+
+            var ids = [];
+            for (var i = 0, length = checkStatus.data.length; i < length; i++) {
+                ids.push(checkStatus.data[i].guid);
+            }
+            return ids;
+        }
+    </script>
+}

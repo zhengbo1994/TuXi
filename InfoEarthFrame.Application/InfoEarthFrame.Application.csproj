@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDF5D964-4C0F-4F19-B674-58A38A5E5401}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoEarthFrame</RootNamespace>
+    <AssemblyName>InfoEarthFrame.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Abp, Version=0.10.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.0.10.0.1\lib\net452\Abp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.AutoMapper, Version=0.10.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.AutoMapper.0.10.0.1\lib\net452\Abp.AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.EntityFramework">
+      <HintPath>..\packages\Abp.EntityFramework.0.10.0.2\lib\net452\Abp.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Abp.EntityFramework.Common">
+      <HintPath>..\packages\Abp.EntityFramework.Common.0.10.0.1\lib\net452\Abp.EntityFramework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.LoggingFacility.3.3.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework6.Npgsql">
+      <HintPath>..\packages\EntityFramework6.Npgsql.3.1.1\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="gdalconst_csharp">
+      <HintPath>..\packages\gdal110_release_net2.0_x86.1.0.5184.21789\lib\net20\gdalconst_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="gdal_csharp">
+      <HintPath>..\packages\gdal110_release_net2.0_x86.1.0.5184.21789\lib\net20\gdal_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="iTelluro.DataTools">
+      <HintPath>..\packages\iTelluro.DataTools.Utility.1.0.6023.32572\lib\net20\iTelluro.DataTools.dll</HintPath>
+    </Reference>
+    <Reference Include="iTelluro.DataTools.Utility, Version=1.0.6590.34140, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\iTelluro.DataTools.Utility.1.0.6590.34140\lib\net20\iTelluro.DataTools.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="iTelluro.Explorer.Vector110, Version=1.10.5806.19922, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\iTelluro.Explorer.Vector110.1.10.5806.19922\lib\net20\iTelluro.Explorer.Vector110.dll</HintPath>
+    </Reference>
+    <Reference Include="iTelluro.GeometrySymbol, Version=1.0.6128.25612, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\iTelluro.GeometrySymbol.1.0.6128.25612\lib\net20\iTelluro.GeometrySymbol.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iTelluro.SSO.WebServices, Version=3.0.6230.20000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTelluro.SSO.WebServices.3.0.6230.20000\lib\net452\iTelluro.SSO.WebServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iTelluro.SYS.Entity, Version=2.1.5156.19571, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\iTelluro.SYS.Entity.2.1.5156.19571\lib\net40\iTelluro.SYS.Entity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iTelluro.Utility, Version=2.3.6310.26015, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTelluro.Utility.2.3.6310.26015\lib\net20\iTelluro.Utility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iTelluro.ZoomifyTile">
+      <HintPath>..\packages\iTelluro.ZoomifyTile.1.0.5486.25756\lib\net20\iTelluro.ZoomifyTile.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="ogr_csharp">
+      <HintPath>..\packages\gdal110_release_net2.0_x86.1.0.5184.21789\lib\net20\ogr_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="osr_csharp">
+      <HintPath>..\packages\gdal110_release_net2.0_x86.1.0.5184.21789\lib\net20\osr_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketIOClient, Version=0.6.2014.710, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SocketIO4Net.Client.0.6.2014.710\lib\net40\SocketIOClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SQLite, Version=1.0.85.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <HintPath>..\packages\SQLite.1.0.85.0\lib\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Thinktecture.IdentityModel, Version=3.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Thinktecture.IdentityModel.3.6.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Area\AreaAppService.cs" />
+    <Compile Include="Area\Dtos\AreaDto.cs" />
+    <Compile Include="Area\Dtos\AreaOutput.cs" />
+    <Compile Include="Area\IAreaAppService.cs" />
+    <Compile Include="Attachment\Dtos\MultimediaAttachmentInput.cs" />
+    <Compile Include="DataEditor\DataEditorService.cs" />
+    <Compile Include="DataEditor\IDataEditorService.cs" />
+    <Compile Include="DataManage\ColumnRealtion.cs" />
+    <Compile Include="DataManage\DataManageAppService.cs" />
+    <Compile Include="DataManage\DTO\DataMainDto.cs" />
+    <Compile Include="DataManage\DTO\GetDataFileListDto.cs" />
+    <Compile Include="DataManage\DTO\GetDataMainListDto.cs" />
+    <Compile Include="DataManage\DTO\PackageCategoryDto.cs" />
+    <Compile Include="DataManage\DTO\UploadFileContext.cs" />
+    <Compile Include="DataManage\DTO\UploadFileDto.cs" />
+    <Compile Include="DataManage\DTO\UploadFileParamDto.cs" />
+    <Compile Include="DataManage\DTO\UploadLayerContext.cs" />
+    <Compile Include="DataManage\DTO\UploadPackageContext.cs" />
+    <Compile Include="DataManage\IDataManageAppService.cs" />
+    <Compile Include="DataStyleApp\DataStyleAppService.cs" />
+    <Compile Include="DataStyleApp\Dtos\DataStyleDto.cs" />
+    <Compile Include="DataStyleApp\Dtos\DataStyleInputDto.cs" />
+    <Compile Include="DataStyleApp\Dtos\DataStyleOutputDto.cs" />
+    <Compile Include="DataStyleApp\IDataStyleAppService.cs" />
+    <Compile Include="DataTagApp\DataTagAppService.cs" />
+    <Compile Include="DataTagApp\Dtos\DataTagDto.cs" />
+    <Compile Include="DataTagApp\Dtos\DataTagInputDto.cs" />
+    <Compile Include="DataTagApp\Dtos\DataTagOutputDto.cs" />
+    <Compile Include="DataTagApp\IDataTagAppService.cs" />
+    <Compile Include="DataTypeApp\DataTypeAppService.cs" />
+    <Compile Include="DataTypeApp\Dtos\DataTypeDto.cs" />
+    <Compile Include="DataTypeApp\Dtos\DataTypeInputDto.cs" />
+    <Compile Include="DataTypeApp\Dtos\DataTypeOutputDto.cs" />
+    <Compile Include="DataTypeApp\IDataTypeAppService.cs" />
+    <Compile Include="DicDataCodeApp\DicDataCodeAppService.cs" />
+    <Compile Include="DicDataCodeApp\Dtos\DicDataCodeDto.cs" />
+    <Compile Include="DicDataCodeApp\Dtos\DicDataCodeInputDto.cs" />
+    <Compile Include="DicDataCodeApp\Dtos\DicDataCodeOutputDto.cs" />
+    <Compile Include="DicDataCodeApp\IDicDataCodeAppService.cs" />
+    <Compile Include="DicDataTypeApp\DicDataTypeAppService.cs" />
+    <Compile Include="DicDataTypeApp\Dtos\DicDataTypeDto.cs" />
+    <Compile Include="DicDataTypeApp\Dtos\DicDataTypeInputDto.cs" />
+    <Compile Include="DicDataTypeApp\Dtos\DicDataTypeOutputDto.cs" />
+    <Compile Include="DicDataTypeApp\IDicDataTypeAppService.cs" />
+    <Compile Include="DrawingOutput\Dtos\DrawingConfigDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\DrawingDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\DrawingLayerDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\DrawingUpdateInfoDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\FontSymbolDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\IconInfoDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\LabelInfoDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\LegendDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\LegendsInfomationDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\LineSymbolDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\NorthArrowInfoDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\PolygonInfoDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\ResponsibilityTableInfomationDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\ScaleBarInfoDTO.cs" />
+    <Compile Include="DrawingOutput\Dtos\UnitValueDTO.cs" />
+    <Compile Include="GeologyMappingType\Dtos\GeologyMappingTypeDto.cs" />
+    <Compile Include="GeologyMappingType\Dtos\GeologyMappingTypeInput.cs" />
+    <Compile Include="GeologyMappingType\Dtos\GeologyMappingTypeOutput.cs" />
+    <Compile Include="GeologyMappingType\GeologyMappingTypeAppService.cs" />
+    <Compile Include="GeologyMappingType\IGeologyMappingTypeAppService.cs" />
+    <Compile Include="GetConfig\IGetConfigAppService.cs" />
+    <Compile Include="GetConfig\GetConfigAppService.cs" />
+    <Compile Include="KneeCoordinateHandler\Dtos\KneeCoordinateInput.cs" />
+    <Compile Include="KneeCoordinateHandler\Dtos\KneeCoordinateOutput.cs" />
+    <Compile Include="KneeCoordinateHandler\IKneeCoordinateAppService.cs" />
+    <Compile Include="KneeCoordinateHandler\KneeCoordinateAppService.cs" />
+    <Compile Include="LayerContentApp\Dtos\DataTypeCountOutputDto.cs" />
+    <Compile Include="LayerContentApp\Dtos\LayerContentDto.cs" />
+    <Compile Include="LayerContentApp\Dtos\LayerContentInputDto.cs" />
+    <Compile Include="LayerContentApp\Dtos\LayerContentOutputDto.cs" />
+    <Compile Include="LayerContentApp\Dtos\LayerImportValidDto.cs" />
+    <Compile Include="LayerContentApp\ILayerContentAppService.cs" />
+    <Compile Include="LayerContentApp\LayerContentAppService.cs" />
+    <Compile Include="LayerFieldApp\Dtos\LayerFieldComplexDto.cs" />
+    <Compile Include="LayerFieldApp\Dtos\LayerFieldDto.cs" />
+    <Compile Include="LayerFieldApp\Dtos\LayerFieldInputDto.cs" />
+    <Compile Include="LayerFieldApp\Dtos\LayerFieldListDto.cs" />
+    <Compile Include="LayerFieldApp\Dtos\LayerFieldOutputDto.cs" />
+    <Compile Include="LayerFieldApp\Dtos\LayerFieldValidOutputDto.cs" />
+    <Compile Include="LayerFieldApp\GeoServerHelper.cs" />
+    <Compile Include="LayerFieldApp\ILayerFieldAppService.cs" />
+    <Compile Include="LayerFieldApp\LayerFieldAppService.cs" />
+    <Compile Include="LayerFieldDictApp\Dtos\LayerFieldDictDto.cs" />
+    <Compile Include="LayerFieldDictApp\Dtos\LayerFieldDictInputDto.cs" />
+    <Compile Include="LayerFieldDictApp\Dtos\LayerFieldDictOutputDto.cs" />
+    <Compile Include="LayerFieldDictApp\ILayerFieldDictAppService.cs" />
+    <Compile Include="LayerFieldDictApp\LayerFieldDictAppService.cs" />
+    <Compile Include="LayerList\Dtos\LayeListOutput.cs" />
+    <Compile Include="LayerList\Dtos\LayerListInput.cs" />
+    <Compile Include="LayerList\ILayerListAppService.cs" />
+    <Compile Include="LayerList\LayerListAppService.cs" />
+    <Compile Include="LayerReadLogApp\Dtos\LayerReadLogDto.cs" />
+    <Compile Include="LayerReadLogApp\Dtos\LayerReadLogInputDto.cs" />
+    <Compile Include="LayerReadLogApp\Dtos\LayerReadLogOutputDto.cs" />
+    <Compile Include="LayerReadLogApp\ILayerReadLogAppService.cs" />
+    <Compile Include="LayerReadLogApp\LayerReadLogAppService.cs" />
+    <Compile Include="Log\ILogAppService.cs" />
+    <Compile Include="Log\LogAppService.cs" />
+    <Compile Include="MapApp\Dtos\MapInfoDto.cs" />
+    <Compile Include="Maps\DataCheck\AttValueInfo.cs" />
+    <Compile Include="Maps\DataCheck\DicInfoReader.cs" />
+    <Compile Include="Maps\DataCheck\LayerArgs.cs" />
+    <Compile Include="Maps\DataCheck\LayerAttChecker.cs" />
+    <Compile Include="Maps\DataCheck\LayerAttInfo.cs" />
+    <Compile Include="Maps\DataCheck\ShpUtility.cs" />
+    <Compile Include="Maps\DataCheck\TxLayerInfo.cs" />
+    <Compile Include="Maps\DataConvertAppService.cs" />
+    <Compile Include="Maps\DTO\BaseConvertContext.cs" />
+    <Compile Include="Maps\DTO\ShadowConvertContext.cs" />
+    <Compile Include="Maps\DTO\DataCheckResult.cs" />
+    <Compile Include="Maps\DTO\CoordinateConvertContext.cs" />
+    <Compile Include="Maps\DTO\FormatConvertContext.cs" />
+    <Compile Include="Maps\DTO\IConvertContext.cs" />
+    <Compile Include="Maps\IDataConvertAppService.cs" />
+    <Compile Include="OperateLogApp\Dtos\OperateLogDto.cs" />
+    <Compile Include="OperateLogApp\Dtos\OperateLogInputDto.cs" />
+    <Compile Include="OperateLogApp\Dtos\OperateLogOutputDto.cs" />
+    <Compile Include="OperateLogApp\Dtos\QueryOperateLogInputDto.cs" />
+    <Compile Include="OperateLogApp\IOperateLogAppService.cs" />
+    <Compile Include="OperateLogApp\OperateLogAppService.cs" />
+    <Compile Include="ServerInterfaceApp\DistrictSpatialProvider.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\CreateLayerDto.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\FieldOutputDto.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\LayerOutputDto.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\ParameterOutputDto.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\PublishMapDto.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\ServerInterfaceOutputDto.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\CloneLayerDto.cs" />
+    <Compile Include="ServerInterfaceApp\Dtos\UpdateLayerElementAttributeInputDto.cs" />
+    <Compile Include="ServerInterfaceApp\IServerInterfaceAppService.cs" />
+    <Compile Include="ServerInterfaceApp\ServerInterfaceAppService.cs" />
+    <Compile Include="SetSys\Dtos\SetSysDto.cs" />
+    <Compile Include="SetSys\ISetSysAppService.cs" />
+    <Compile Include="SetSys\SetSysAppService.cs" />
+    <Compile Include="MapApp\Dtos\MapDto.cs" />
+    <Compile Include="MapApp\Dtos\MapInputDto.cs" />
+    <Compile Include="MapApp\Dtos\MapOutputDto.cs" />
+    <Compile Include="MapApp\IMapAppService.cs" />
+    <Compile Include="MapApp\MapAppService.cs" />
+    <Compile Include="MapMetaDataApp\Dtos\MapMetaDataDto.cs" />
+    <Compile Include="MapMetaDataApp\Dtos\MapMetaDataInputDto.cs" />
+    <Compile Include="MapMetaDataApp\Dtos\MapMetaDataOutputDto.cs" />
+    <Compile Include="MapMetaDataApp\IMapMetaDataAppService.cs" />
+    <Compile Include="MapMetaDataApp\MapMetaDataAppService.cs" />
+    <Compile Include="MapReleationApp\Dtos\MapReleationDto.cs" />
+    <Compile Include="MapReleationApp\Dtos\MapReleationInputDto.cs" />
+    <Compile Include="MapReleationApp\Dtos\MapReleationOutputDto.cs" />
+    <Compile Include="MapReleationApp\IMapReleationAppService.cs" />
+    <Compile Include="MapReleationApp\MapReleationAppService.cs" />
+    <Compile Include="Multimedia\Dtos\ModuleInfoInput.cs" />
+    <Compile Include="Multimedia\Dtos\MultimediaOutput.cs" />
+    <Compile Include="Multimedia\MultimediaAppService.cs" />
+    <Compile Include="Multimedia\Dtos\MultimediaTypeDto.cs" />
+    <Compile Include="Multimedia\Dtos\MultimediaTypeInput.cs" />
+    <Compile Include="Multimedia\IMultimediaAppService.cs" />
+    <Compile Include="Attachment\Dtos\AttachmentInput.cs" />
+    <Compile Include="Attachment\Dtos\AttachmentDto.cs" />
+    <Compile Include="Attachment\IAttachmentAppService.cs" />
+    <Compile Include="Attachment\AttachmentAppService.cs" />
+    <Compile Include="HazardsType\HazardsTypeAppService.cs" />
+    <Compile Include="HazardsType\Dtos\HazardsTypeDto.cs" />
+    <Compile Include="HazardsType\IHazardsTypeAppService.cs" />
+    <Compile Include="Disaster\DisasterService.cs" />
+    <Compile Include="Disaster\Dtos\DisasterDto.cs" />
+    <Compile Include="Disaster\Dtos\DisasterInput.cs" />
+    <Compile Include="Disaster\Dtos\DisasterOutput.cs" />
+    <Compile Include="Disaster\Dtos\QueryDisasterInput.cs" />
+    <Compile Include="Disaster\IDisasterService.cs" />
+    <Compile Include="DtoMappings.cs" />
+    <Compile Include="InfoEarthFrameApplicationModule.cs" />
+    <Compile Include="InfoEarthFrameAppServiceBase.cs" />
+    <Compile Include="LayerManager\Dtos\LayerManagerDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LayerManager\Dtos\LayerManagerInput.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LayerManager\Dtos\LayerManagerOutput.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LayerManager\Dtos\QueryLayerManagerInput.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LayerManager\ILayerManagerAppService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LayerManager\LayerManagerAppService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShpFileReadLogApp\Dtos\QueryShpFileReadLogInputDto.cs" />
+    <Compile Include="ShpFileReadLogApp\Dtos\ShpFileReadLogOutputDto.cs" />
+    <Compile Include="ShpFileReadLogApp\IShpFileReadLogAppService.cs" />
+    <Compile Include="ShpFileReadLogApp\ShpFileReadLogAppService.cs" />
+    <Compile Include="SystemUserApp\Dtos\SystemUserDto.cs" />
+    <Compile Include="SystemUserApp\Dtos\SystemUserInputDto.cs" />
+    <Compile Include="SystemUserApp\Dtos\SystemUserOutputDto.cs" />
+    <Compile Include="SystemUserApp\ISystemUserAppService.cs" />
+    <Compile Include="SystemUserApp\SystemUserAppService.cs" />
+    <Compile Include="TagReleationApp\Dtos\TagDto.cs" />
+    <Compile Include="TagReleationApp\Dtos\TagReleationDto.cs" />
+    <Compile Include="TagReleationApp\Dtos\TagReleationInputDto.cs" />
+    <Compile Include="TagReleationApp\Dtos\TagReleationOutputDto.cs" />
+    <Compile Include="TagReleationApp\ITagReleationAppService.cs" />
+    <Compile Include="TagReleationApp\TagReleationAppService.cs" />
+    <Compile Include="UploadFile\Dtos\UploadDTO.cs" />
+    <Compile Include="UploadFile\IUploadFileAppService.cs" />
+    <Compile Include="UploadFile\UploadFileAppService.cs" />
+    <Compile Include="UsersRight\Dtos\GroupDto.cs" />
+    <Compile Include="UsersRight\Dtos\GroupInput.cs" />
+    <Compile Include="UsersRight\Dtos\GroupOutput.cs" />
+    <Compile Include="UsersRight\Dtos\GroupUserComparaInput.cs" />
+    <Compile Include="UsersRight\Dtos\GroupUserInput.cs" />
+    <Compile Include="UsersRight\Dtos\GroupWithRightEntity.cs" />
+    <Compile Include="UsersRight\Dtos\GroupWithUserEntity.cs" />
+    <Compile Include="UsersRight\Dtos\SetRightInput.cs" />
+    <Compile Include="UsersRight\Dtos\SSOUserInfo.cs" />
+    <Compile Include="UsersRight\Dtos\UserGroupPermessionDto.cs" />
+    <Compile Include="UsersRight\IUsersRightAppService.cs" />
+    <Compile Include="UsersRight\UsersRightAppService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfoEarthFrame.Common\InfoEarthFrame.Common.csproj">
+      <Project>{05778394-9146-4d03-99ef-f43e8b420e80}</Project>
+      <Name>InfoEarthFrame.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfoEarthFrame.Core\InfoEarthFrame.Core.csproj">
+      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
+      <Name>InfoEarthFrame.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfoEarthFrame.EntityFramework\InfoEarthFrame.EntityFramework.csproj">
+      <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
+      <Name>InfoEarthFrame.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfoEarthFrame.GeoServer.Rest\InfoEarthFrame.GeoServer.Rest.csproj">
+      <Project>{46aba239-9b55-465a-bc5e-88a46158ed77}</Project>
+      <Name>InfoEarthFrame.GeoServer.Rest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataEditor\DTO\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

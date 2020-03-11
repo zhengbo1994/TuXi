@@ -1,0 +1,781 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hangfire.Console</name>
+    </assembly>
+    <members>
+        <member name="T:Hangfire.Console.ConsoleExtensions">
+            <summary>
+            Provides extension methods for writing to console.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.SetTextColor(Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor)">
+            <summary>
+            Sets text color for next console lines.
+            </summary>
+            <param name="context">Context</param>
+            <param name="color">Text color to use</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.ResetTextColor(Hangfire.Server.PerformContext)">
+            <summary>
+            Resets text color for next console lines.
+            </summary>
+            <param name="context">Context</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteProgressBar(Hangfire.Server.PerformContext,System.Int32,Hangfire.Console.ConsoleTextColor)">
+            <summary>
+            Adds an updateable progress bar to console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="value">Initial value</param>
+            <param name="color">Progress bar color</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteProgressBar(Hangfire.Server.PerformContext,System.String,System.Double,Hangfire.Console.ConsoleTextColor)">
+            <summary>
+            Adds an updateable named progress bar to console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="name">Name</param>
+            <param name="value">Initial value</param>
+            <param name="color">Progress bar color</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,System.String)">
+            <summary>
+            Adds a string to console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="value">String</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.String)">
+            <summary>
+            Adds a string to console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="color">Text color</param>
+            <param name="value">String</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext)">
+            <summary>
+            Adds an empty line to console.
+            </summary>
+            <param name="context">Context</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,System.Object)">
+            <summary>
+            Adds a value to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,System.String,System.Object)">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="format">Format string</param>
+            <param name="arg0">Argument</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,System.String,System.Object,System.Object)">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="format">Format string</param>
+            <param name="arg0">Argument</param>
+            <param name="arg1">Argument</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="format">Format string</param>
+            <param name="arg0">Argument</param>
+            <param name="arg1">Argument</param>
+            <param name="arg2">Argument</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,System.String,System.Object[])">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="format">Format string</param>
+            <param name="args">Arguments</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.Object)">
+            <summary>
+            Adds a value to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="color">Text color</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.String,System.Object)">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="color">Text color</param>
+            <param name="format">Format string</param>
+            <param name="arg0">Argument</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.String,System.Object,System.Object)">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="color">Text color</param>
+            <param name="format">Format string</param>
+            <param name="arg0">Argument</param>
+            <param name="arg1">Argument</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="color">Text color</param>
+            <param name="format">Format string</param>
+            <param name="arg0">Argument</param>
+            <param name="arg1">Argument</param>
+            <param name="arg2">Argument</param>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleExtensions.WriteLine(Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.String,System.Object[])">
+            <summary>
+            Adds a formatted string to a console.
+            </summary>
+            <param name="context">Context</param>
+            <param name="color">Text color</param>
+            <param name="format">Format string</param>
+            <param name="args">Arguments</param>
+        </member>
+        <member name="T:Hangfire.Console.ConsoleOptions">
+            <summary>
+            Configuration options for console.
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.ConsoleOptions.ExpireIn">
+            <summary>
+            Gets or sets expiration time for console messages.
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.ConsoleOptions.FollowJobRetentionPolicy">
+            <summary>
+            Gets or sets if console messages should follow the same retention policy as the parent job.
+            When set to <c>true</c>, <see cref="P:Hangfire.Console.ConsoleOptions.ExpireIn"/> parameter is ignored.
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.ConsoleOptions.PollInterval">
+            <summary>
+            Gets or sets console poll interval (in ms).
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.ConsoleOptions.BackgroundColor">
+            <summary>
+            Gets or sets background color for console.
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.ConsoleOptions.TextColor">
+            <summary>
+            Gets or sets text color for console.
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.ConsoleOptions.TimestampColor">
+            <summary>
+            Gets or sets timestamp color for console.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.ConsoleTextColor">
+            <summary>
+            Text color values
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Black">
+            <summary>
+            The color black.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.DarkBlue">
+            <summary>
+            The color dark blue.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.DarkGreen">
+            <summary>
+            The color dark green.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.DarkCyan">
+            <summary>
+            The color dark cyan (dark blue-green).
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.DarkRed">
+            <summary>
+            The color dark red.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.DarkMagenta">
+            <summary>
+            The color dark magenta (dark purplish-red).
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.DarkYellow">
+            <summary>
+            The color dark yellow (ochre).
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Gray">
+            <summary>
+            The color gray.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.DarkGray">
+            <summary>
+            The color dark gray.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Blue">
+            <summary>
+            The color blue.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Green">
+            <summary>
+            The color green.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Cyan">
+            <summary>
+             The color cyan (blue-green).
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Red">
+            <summary>
+            The color red.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Magenta">
+            <summary>
+            The color magenta (purplish-red).
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.Yellow">
+            <summary>
+            The color yellow.
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.ConsoleTextColor.White">
+            <summary>
+            The color white.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.ConsoleTextColor.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Hangfire.Console.ConsoleTextColor.op_Implicit(Hangfire.Console.ConsoleTextColor)~System.String">
+            <summary>
+            Implicitly converts <see cref="T:Hangfire.Console.ConsoleTextColor"/> to <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Dashboard.ConsoleDispatcher">
+            <summary>
+            Provides incremental updates for a console. 
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Dashboard.ConsoleRenderer">
+            <summary>
+            Helper methods to render console shared between
+            <see cref="T:Hangfire.Console.Dashboard.ProcessingStateRenderer"/> and <see cref="T:Hangfire.Console.Dashboard.ConsoleDispatcher"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.Dashboard.ConsoleRenderer.RenderText(System.Text.StringBuilder,System.String)">
+            <summary>
+            Renders text string (with possible hyperlinks) into buffer
+            </summary>
+            <param name="buffer">Buffer</param>
+            <param name="text">Text to render</param>
+        </member>
+        <member name="M:Hangfire.Console.Dashboard.ConsoleRenderer.RenderLine(System.Text.StringBuilder,Hangfire.Console.Serialization.ConsoleLine,System.DateTime)">
+            <summary>
+            Renders a single <see cref="T:Hangfire.Console.Serialization.ConsoleLine"/> to a buffer.
+            </summary>
+            <param name="builder">Buffer</param>
+            <param name="line">Line</param>
+            <param name="timestamp">Reference timestamp for time offset</param>
+        </member>
+        <member name="M:Hangfire.Console.Dashboard.ConsoleRenderer.RenderLines(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{Hangfire.Console.Serialization.ConsoleLine},System.DateTime)">
+            <summary>
+            Renders a collection of <seealso cref="T:Hangfire.Console.Serialization.ConsoleLine"/> to a buffer.
+            </summary>
+            <param name="builder">Buffer</param>
+            <param name="lines">Lines</param>
+            <param name="timestamp">Reference timestamp for time offset</param>
+        </member>
+        <member name="M:Hangfire.Console.Dashboard.ConsoleRenderer.RenderLineBuffer(System.Text.StringBuilder,Hangfire.Console.Storage.IConsoleStorage,Hangfire.Console.Serialization.ConsoleId,System.Int32)">
+            <summary>
+            Fetches and renders console line buffer.
+            </summary>
+            <param name="builder">Buffer</param>
+            <param name="storage">Console data accessor</param>
+            <param name="consoleId">Console identifier</param>
+            <param name="start">Offset to read lines from</param>
+        </member>
+        <member name="M:Hangfire.Console.Dashboard.ConsoleRenderer.ReadLines(Hangfire.Console.Storage.IConsoleStorage,Hangfire.Console.Serialization.ConsoleId,System.Int32@)">
+            <summary>
+            Fetches console lines from storage.
+            </summary>
+            <param name="storage">Console data accessor</param>
+            <param name="consoleId">Console identifier</param>
+            <param name="start">Offset to read lines from</param>
+            <remarks>
+            On completion, <paramref name="start"/> is set to the end of the current batch, 
+            and can be used for next requests (or set to -1, if the job has finished processing). 
+            </remarks>
+        </member>
+        <member name="T:Hangfire.Console.Dashboard.DynamicCssDispatcher">
+            <summary>
+            Dispatcher for configured styles
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Dashboard.DynamicJsDispatcher">
+            <summary>
+            Dispatcher for configured script
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Dashboard.ProcessingStateRenderer">
+            <summary>
+            Replacement renderer for Processing state.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.EnumerableExtensions">
+            <summary>
+            Provides a set of extension methods to enumerate collections with progress.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.EnumerableExtensions.WithProgress``1(System.Collections.Generic.IEnumerable{``0},Hangfire.Console.Progress.IProgressBar,System.Int32)">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/> reporting enumeration progress.
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Source enumerable</param>
+            <param name="progressBar">Progress bar</param>
+            <param name="count">Item count</param>
+        </member>
+        <member name="M:Hangfire.Console.EnumerableExtensions.WithProgress(System.Collections.IEnumerable,Hangfire.Console.Progress.IProgressBar,System.Int32)">
+            <summary>
+            Returns an <see cref="T:System.Collections.IEnumerable"/> reporting enumeration progress.
+            </summary>
+            <param name="enumerable">Source enumerable</param>
+            <param name="progressBar">Progress bar</param>
+            <param name="count">Item count</param>
+        </member>
+        <member name="M:Hangfire.Console.EnumerableExtensions.WithProgress``1(System.Collections.Generic.IEnumerable{``0},Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.Int32)">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/> reporting enumeration progress.
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Source enumerable</param>
+            <param name="context">Perform context</param>
+            <param name="color">Progress bar color</param>
+            <param name="count">Item count</param>
+        </member>
+        <member name="M:Hangfire.Console.EnumerableExtensions.WithProgress(System.Collections.IEnumerable,Hangfire.Server.PerformContext,Hangfire.Console.ConsoleTextColor,System.Int32)">
+            <summary>
+            Returns ab <see cref="T:System.Collections.IEnumerable"/> reporting enumeration progress.
+            </summary>
+            <param name="enumerable">Source enumerable</param>
+            <param name="context">Perform context</param>
+            <param name="color">Progress bar color</param>
+            <param name="count">Item count</param>
+        </member>
+        <member name="M:Hangfire.Console.EnumerableExtensions.WithProgress``1(System.Collections.Generic.IEnumerable{``0},Hangfire.Server.PerformContext,System.String,Hangfire.Console.ConsoleTextColor,System.Int32)">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/> reporting enumeration progress.
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Source enumerable</param>
+            <param name="context">Perform context</param>
+            <param name="name">Progress bar name</param>
+            <param name="color">Progress bar color</param>
+            <param name="count">Item count</param>
+        </member>
+        <member name="M:Hangfire.Console.EnumerableExtensions.WithProgress(System.Collections.IEnumerable,Hangfire.Server.PerformContext,System.String,Hangfire.Console.ConsoleTextColor,System.Int32)">
+            <summary>
+            Returns ab <see cref="T:System.Collections.IEnumerable"/> reporting enumeration progress.
+            </summary>
+            <param name="enumerable">Source enumerable</param>
+            <param name="context">Perform context</param>
+            <param name="name">Progress bar name</param>
+            <param name="color">Progress bar color</param>
+            <param name="count">Item count</param>
+        </member>
+        <member name="T:Hangfire.Console.GlobalConfigurationExtensions">
+            <summary>
+            Provides extension methods to setup Hangfire.Console.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.GlobalConfigurationExtensions.UseConsole(Hangfire.IGlobalConfiguration,Hangfire.Console.ConsoleOptions)">
+            <summary>
+            Configures Hangfire to use Console.
+            </summary>
+            <param name="configuration">Global configuration</param>
+            <param name="options">Options for console</param>
+        </member>
+        <member name="T:Hangfire.Console.JobStorageExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:Hangfire.JobStorage"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.JobStorageExtensions.GetConsoleApi(Hangfire.JobStorage)">
+            <summary>
+            Returns an instance of <see cref="T:Hangfire.Console.Monitoring.IConsoleApi"/>.
+            </summary>
+            <param name="storage">Job storage instance</param>
+            <returns>Console API instance</returns>
+        </member>
+        <member name="T:Hangfire.Console.Monitoring.IConsoleApi">
+            <summary>
+            Console monitoring API interface
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.Monitoring.IConsoleApi.GetLines(System.String,System.DateTime,Hangfire.Console.Monitoring.LineType)">
+            <summary>
+            Returns lines for the console session
+            </summary>
+            <param name="jobId">Job identifier</param>
+            <param name="timestamp">Time the processing was started (like, <seealso cref="P:Hangfire.Storage.Monitoring.StateHistoryDto.CreatedAt"/>)</param>
+            <param name="type">Type of lines to return</param>
+            <returns>List of console lines</returns>
+        </member>
+        <member name="T:Hangfire.Console.Monitoring.LineDto">
+            <summary>
+            Base class for console lines
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.LineDto.Type">
+            <summary>
+            Returns type of this line
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.LineDto.Timestamp">
+            <summary>
+            Returns timestamp for the console line
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.LineDto.Color">
+            <summary>
+            Returns HTML color for the console line
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Monitoring.LineType">
+            <summary>
+            Console line type
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.Monitoring.LineType.Any">
+            <summary>
+            Any type (only for filtering)
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.Monitoring.LineType.Text">
+            <summary>
+            Textual line
+            </summary>
+        </member>
+        <member name="F:Hangfire.Console.Monitoring.LineType.ProgressBar">
+            <summary>
+            Progress bar
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Monitoring.ProgressBarDto">
+            <summary>
+            Progress bar line
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.ProgressBarDto.Type">
+            <inheritdoc />
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.ProgressBarDto.Id">
+            <summary>
+            Returns identifier for a progress bar
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.ProgressBarDto.Progress">
+            <summary>
+            Returns progress value for a progress bar
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Monitoring.TextLineDto">
+            <summary>
+            Text console line
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.TextLineDto.Type">
+            <inheritdoc />
+        </member>
+        <member name="P:Hangfire.Console.Monitoring.TextLineDto.Text">
+            <summary>
+            Returns text for the console line
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Progress.DefaultProgressBar">
+            <summary>
+            Default progress bar.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Progress.IProgressBar">
+            <summary>
+            Progress bar line inside console.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.Progress.IProgressBar.SetValue(System.Int32)">
+            <summary>
+            Updates a value of a progress bar.
+            </summary>
+            <param name="value">New value</param>
+        </member>
+        <member name="M:Hangfire.Console.Progress.IProgressBar.SetValue(System.Double)">
+            <summary>
+            Updates a value of a progress bar.
+            </summary>
+            <param name="value">New value</param>
+        </member>
+        <member name="T:Hangfire.Console.Progress.NoOpProgressBar">
+            <summary>
+            No-op progress bar.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Progress.ProgressEnumerable">
+            <summary>
+            Non-generic version of <see cref="T:System.Collections.IEnumerable"/> wrapper.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Progress.ProgressEnumerable`1">
+            <summary>
+            Generic version of <see cref="T:System.Collections.Generic.IEnumerable`1"/> wrapper.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Hangfire.Console.Serialization.ConsoleId">
+            <summary>
+            Console identifier
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleId.JobId">
+            <summary>
+            Job identifier
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleId.Timestamp">
+            <summary>
+            Timestamp
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleId.DateValue">
+            <summary>
+            <see cref="P:Hangfire.Console.Serialization.ConsoleId.Timestamp"/> value as <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.Serialization.ConsoleId.#ctor(System.String,System.DateTime)">
+            <summary>
+            Initializes an instance of <see cref="T:Hangfire.Console.Serialization.ConsoleId"/>
+            </summary>
+            <param name="jobId">Job identifier</param>
+            <param name="timestamp">Timestamp</param>
+        </member>
+        <member name="M:Hangfire.Console.Serialization.ConsoleId.#ctor(System.String,System.Int64)">
+            <summary>
+            Initializes an instance of <see cref="T:Hangfire.Console.Serialization.ConsoleId"/>.
+            </summary>
+            <param name="jobId">Job identifier</param>
+            <param name="timestamp">Timestamp</param>
+        </member>
+        <member name="M:Hangfire.Console.Serialization.ConsoleId.Parse(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:Hangfire.Console.Serialization.ConsoleId"/> from string representation.
+            </summary>
+            <param name="value">String</param>
+        </member>
+        <member name="M:Hangfire.Console.Serialization.ConsoleId.Equals(Hangfire.Console.Serialization.ConsoleId)">
+            <summary>
+            Determines if this instance is equal to <paramref name="other"/> instance.
+            </summary>
+            <param name="other">Other instance</param>
+        </member>
+        <member name="M:Hangfire.Console.Serialization.ConsoleId.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Hangfire.Console.Serialization.ConsoleId.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Hangfire.Console.Serialization.ConsoleId.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleLine.TimeOffset">
+            <summary>
+            Time offset since console timestamp in fractional seconds
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleLine.IsReference">
+            <summary>
+            True if <see cref="P:Hangfire.Console.Serialization.ConsoleLine.Message"/> is a Hash reference.
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleLine.Message">
+            <summary>
+            Message text, or message reference, or progress bar id
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleLine.TextColor">
+            <summary>
+            Text color for this message
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleLine.ProgressValue">
+            <summary>
+            Value update for a progress bar
+            </summary>
+        </member>
+        <member name="P:Hangfire.Console.Serialization.ConsoleLine.ProgressName">
+            <summary>
+            Optional name for a progress bar
+            </summary>
+        </member>
+        <member name="T:Hangfire.Console.Server.ConsoleServerFilter">
+            <summary>
+            Server filter to initialize and cleanup console environment.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleExpirationTransaction.Expire(Hangfire.Console.Serialization.ConsoleId,System.TimeSpan)">
+            <summary>
+            Expire data for console.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+            <param name="expireIn">Expiration time</param>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleExpirationTransaction.Persist(Hangfire.Console.Serialization.ConsoleId)">
+            <summary>
+            Persist data for console.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+        </member>
+        <member name="T:Hangfire.Console.Storage.IConsoleStorage">
+            <summary>
+            Abstraction over Hangfire's storage API
+            </summary>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleStorage.GetLineCount(Hangfire.Console.Serialization.ConsoleId)">
+            <summary>
+            Returns number of lines for console.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleStorage.GetLines(Hangfire.Console.Serialization.ConsoleId,System.Int32,System.Int32)">
+            <summary>
+            Returns range of lines for console.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+            <param name="start">Start index (inclusive)</param>
+            <param name="end">End index (inclusive)</param>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleStorage.InitConsole(Hangfire.Console.Serialization.ConsoleId)">
+            <summary>
+            Initializes console.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleStorage.AddLine(Hangfire.Console.Serialization.ConsoleId,Hangfire.Console.Serialization.ConsoleLine)">
+            <summary>
+            Adds line to console.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+            <param name="line">Line to add</param>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleStorage.GetConsoleTtl(Hangfire.Console.Serialization.ConsoleId)">
+            <summary>
+            Returns current expiration TTL for console.
+            If console is not expired, returns negative <see cref="T:System.TimeSpan"/>.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleStorage.Expire(Hangfire.Console.Serialization.ConsoleId,System.TimeSpan)">
+            <summary>
+            Expire data for console.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+            <param name="expireIn">Expiration time</param>
+        </member>
+        <member name="M:Hangfire.Console.Storage.IConsoleStorage.GetState(Hangfire.Console.Serialization.ConsoleId)">
+            <summary>
+            Returns last (current) state of the console's parent job.
+            </summary>
+            <param name="consoleId">Console identifier</param>
+        </member>
+        <member name="T:Hangfire.Dashboard.Extensions.CompositeDispatcher">
+            <summary>
+            Dispatcher that combines output from several other dispatchers.
+            Used internally by <see cref="M:Hangfire.Dashboard.Extensions.RouteCollectionExtensions.Append(Hangfire.Dashboard.RouteCollection,System.String,Hangfire.Dashboard.IDashboardDispatcher)"/>.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Dashboard.Extensions.EmbeddedResourceDispatcher">
+            <summary>
+            Alternative to built-in EmbeddedResourceDispatcher, which (for some reasons) is not public.
+            </summary>
+        </member>
+        <member name="T:Hangfire.Dashboard.Extensions.HtmlHelperExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:Hangfire.Dashboard.HtmlHelper"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Dashboard.Extensions.HtmlHelperExtensions.GetPage(Hangfire.Dashboard.HtmlHelper)">
+            <summary>
+            Returs a <see cref="T:Hangfire.Dashboard.RazorPage"/> associated with <see cref="T:Hangfire.Dashboard.HtmlHelper"/>.
+            </summary>
+            <param name="helper">Helper</param>
+        </member>
+        <member name="T:Hangfire.Dashboard.Extensions.RouteCollectionExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:Hangfire.Dashboard.RouteCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.Dashboard.Extensions.RouteCollectionExtensions.GetDispatchers(Hangfire.Dashboard.RouteCollection)">
+            <summary>
+            Returns a private list of registered routes.
+            </summary>
+            <param name="routes">Route collection</param>
+        </member>
+        <member name="M:Hangfire.Dashboard.Extensions.RouteCollectionExtensions.Contains(Hangfire.Dashboard.RouteCollection,System.String)">
+            <summary>
+            Checks if there's a dispatcher registered for given <paramref name="pathTemplate"/>.
+            </summary>
+            <param name="routes">Route collection</param>
+            <param name="pathTemplate">Path template</param>
+        </member>
+        <member name="M:Hangfire.Dashboard.Extensions.RouteCollectionExtensions.Append(Hangfire.Dashboard.RouteCollection,System.String,Hangfire.Dashboard.IDashboardDispatcher)">
+            <summary>
+            Combines exising dispatcher for <paramref name="pathTemplate"/> with <paramref name="dispatcher"/>.
+            If there's no dispatcher for the specified path, adds a new one.
+            </summary>
+            <param name="routes">Route collection</param>
+            <param name="pathTemplate">Path template</param>
+            <param name="dispatcher">Dispatcher to add or append for specified path</param>
+        </member>
+        <member name="M:Hangfire.Dashboard.Extensions.RouteCollectionExtensions.Replace(Hangfire.Dashboard.RouteCollection,System.String,Hangfire.Dashboard.IDashboardDispatcher)">
+            <summary>
+            Replaces exising dispatcher for <paramref name="pathTemplate"/> with <paramref name="dispatcher"/>.
+            If there's no dispatcher for the specified path, adds a new one.
+            </summary>
+            <param name="routes">Route collection</param>
+            <param name="pathTemplate">Path template</param>
+            <param name="dispatcher">Dispatcher to set for specified path</param>
+        </member>
+        <member name="M:Hangfire.Dashboard.Extensions.RouteCollectionExtensions.Remove(Hangfire.Dashboard.RouteCollection,System.String)">
+            <summary>
+            Removes dispatcher for <paramref name="pathTemplate"/>.
+            </summary>
+            <param name="routes">Route collection</param>
+            <param name="pathTemplate">Path template</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="LoginApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{{app.description}}">
+    <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <title>Spatial Data Management System</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/App/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Tmaterialdesign Icons -->
+    <link rel="stylesheet" href="/App/bower_components/themify-icons/materialdesignicons.css">
+    <!-- Loading Bar -->
+    <link rel="stylesheet" href="/App/bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="/App/bower_components/animate.css/animate.min.css">
+    <!-- 控件样式 -->
+    <link rel="stylesheet" href="/cdn/v1.0/control.lib.min.css">
+    
+    <link rel="infoearth icon" href="~/favicon.ico">
+    <!-- 页面开发样式 -->
+    <link rel="stylesheet" data-ng-href="../App/Main/assets/css/develop.css" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/others/html5shiv.js"></script>
+        <script src="~/Scripts/others/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body ng-controller="loginCtrl">
+
+    <img src="/App/Main/assets/images/background.png" style="width: 100%; height: 100%; min-width: 700px; min-height: 320px; " />
+
+    <div id="loginWin" style="position: absolute; top: 40%; left: 40%; padding: 30px; height: 320px; width: 700px; background-color: rgba(0,0,0,0.3); box-shadow: 10px 10px 5px rgba(110,110,110,0.3); border-radius: 4px; ">
+        <div style="width: 360px; display: inline-block; border-right: solid 1px #fff;">
+            <img src="/App/Main/assets/images/logoEN.png" alt="Spatial Data Management System" style="position:relative;top:-10px;" />
+            <img src="/App/Main/assets/images/111_03.png" alt="地图标识" style="padding-left: 23px;" />
+        </div>
+        <div style="padding: 10px 10px 0 25px; width: 270px; float: right; ">
+            <div>
+                <h4 style="color: #fff;">User Login</h4>
+                <div style="position: relative; margin-top: 20px; margin-bottom: 20px;">
+                    <i class="mdi mdi-account" style="position: absolute; top: 9px; left: 5px; font-size: 18px; color: #2C2F3B;"></i>
+                    <input type="text" ng-blur="inputBlur(1)" ng-focus="inputFocus()" ng-keypress="keypress($event)" id="code" placeholder="LoginName" ng-model="usercode" style="height: 34px; width: 100%; padding-left: 24px; line-height: 24px;" />
+                </div>
+                <div style="position: relative; margin-bottom: 20px;">
+                    <i class="mdi mdi-lock" style="position: absolute; top: 9px; left: 5px; font-size: 18px; color: #2C2F3B;"></i>
+                    <input type="password" ng-blur="inputBlur(2)" ng-focus="inputFocus()" ng-keypress="keypress($event)" id="psd" placeholder="Password" ng-model="password" ng-change="rewritePsd()" style="height: 34px; width: 100%; padding-left: 24px; line-height: 24px;" />
+                </div>
+                <div style="position: relative; margin-bottom: 20px;">
+                    <input type="checkbox" id="check" value="remeber" ng-model="isRemember" />
+                    <label>Remember the password</label>
+                </div>
+                <a class="btn btn-primary" href="javascript:;" ng-click="loginIn()" style="width: 100%;">
+                    Sign In
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/App/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/Scripts/jquery-ui-1.11.4.js"></script>
+
+    <!-- Fastclick -->
+    <script src="/App/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- Angular -->
+    <script src="/App/bower_components/angular/angular.min.js"></script>
+    <script src="/App/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/App/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/App/bower_components/angular-touch/angular-touch.min.js"></script>
+    <script src="/App/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/App/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- Angular storage -->
+    <script src="/App/bower_components/ngstorage/ngStorage.min.js"></script>
+    
+    <script src="/App/Main/assets/js/directives/md5.js"></script>
+    <script src="/App/Main/assets/js/controllers/loginCtrl.js"></script>
+</body>
+</html>

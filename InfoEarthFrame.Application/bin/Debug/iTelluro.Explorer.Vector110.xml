@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iTelluro.Explorer.Vector110</name>
+    </assembly>
+    <members>
+        <member name="T:iTelluro.Explorer.Vector.Model.AttributeModel">
+            <summary>
+            属性表字段名及字段类型
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.Model.AttributeModel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.Model.AttributeModel.#ctor(System.String,OSGeo.OGR.FieldType,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="attName"></param>
+            <param name="attType"></param>
+            <param name="attWidth"></param>
+            <param name="attApprox"></param>
+            <param name="attPrecision">小数位数，不是浮点型时设0</param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.Model.AttributeModel.#ctor(System.String,OSGeo.OGR.FieldType,System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="attName"></param>
+            <param name="attType"></param>
+            <param name="attWidth"></param>
+            <param name="attApprox"></param>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.AttributeModel.AttributeName">
+            <summary>
+            属性字段名
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.AttributeModel.AttributeType">
+            <summary>
+            属性字段类型
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.AttributeModel.AttributeWidth">
+            <summary>
+            属性字段长度,double型字段是整数部分长度
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.AttributeModel.AttributePrecision">
+            <summary>
+            属性字段小数部分长度
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.AttributeModel.AttributeApproxOK">
+            <summary>
+            属性是否可以近似
+            </summary>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.Model.AttributeObj">
+            <summary>
+            属性对象类
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.Model.AttributeObj._oid">
+            <summary>
+            私有成员变量 id
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.Model.AttributeObj._attributeValue">
+            <summary>
+            私有成员变量 属性Dic
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.AttributeObj.Oid">
+            <summary>
+            公有成员变量 id
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.AttributeObj.AttributeValue">
+            <summary>
+            公有成员变量 属性Dic
+            </summary>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.Model.SpatialAttributeObj">
+            <summary>
+            空间和属性对象类
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.Model.SpatialAttributeObj.Dispose">
+            <summary>
+            必须显示调用以释放内存
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.SpatialAttributeObj.Oid">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.SpatialAttributeObj.SpatialValue">
+            <summary>
+            空间对象
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.SpatialAttributeObj.AttriValue">
+            <summary>
+            属性对象
+            </summary>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.Model.SpatialAttributeObj2">
+            <summary>
+            空间和属性对象类
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.Model.SpatialAttributeObj2.Dispose">
+            <summary>
+            必须显示调用以释放内存
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.SpatialAttributeObj2.Oid">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.SpatialAttributeObj2.SpatialValue">
+            <summary>
+            空间对象
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.Model.SpatialAttributeObj2.AttriValue">
+            <summary>
+            属性对象
+            </summary>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.ShpWriter">
+            <summary>
+            shp文件写出类
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.ShpWriter.WGS84">
+            <summary>
+            WGS84地理坐标系参数
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.ShpWriter.BJ54">
+            <summary>
+            北京1954地理坐标系参数
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.ShpWriter.XIAN80">
+            <summary>
+            西安1980地理坐标系参数
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.ShpWriter.CGCS2000">
+            <summary>
+            国测局2000地理坐标系
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.#cctor">
+            <summary>
+            默认构造函数
+            注册GDAL
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.ShpWriter._poLayer">
+            <summary>
+            图层对象
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.ShpWriter._poDS">
+            <summary>
+            数据源对象
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.#ctor(System.String,OSGeo.OGR.wkbGeometryType)">
+            <summary>
+            构造函数，创建一个wgs84地理坐标系的shp文件
+            </summary>
+            <param name="nFileName"></param>
+            <param name="geometryType"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.#ctor(System.String,OSGeo.OGR.wkbGeometryType,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="nFileName"></param>
+            <param name="geometryType"></param>
+            <param name="srsWkt">shp文件坐标系的wkt格式，可使用预定义的WGS84,BJ54,XIAN80,CGCS2000，也可使用其他坐标系</param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.CreateDBF(System.Collections.Generic.List{iTelluro.Explorer.Vector.Model.AttributeModel})">
+            <summary>
+            创建属性表
+            </summary>
+            <param name="lstAttribute"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.WriteFeature(iTelluro.Explorer.Vector.Model.AttributeObj,System.Double,System.Double)">
+            <summary>
+            写入点Feature，shp图层的几何类型必须是wkbPoint
+            </summary>
+            <param name="attObj">要素的属性表</param>
+            <param name="x">点的x坐标</param>
+            <param name="y">点的y坐标</param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.WriteFeature(iTelluro.Explorer.Vector.Model.AttributeObj,System.Double,System.Double,System.Double,System.Double,System.Double[])">
+            <summary>
+            写入线Feature，shp图层的几何类型必须是wkbLineString
+            </summary>
+            <param name="attObj">要素的属性表</param>
+            <param name="x1">线的第一个点的x坐标</param>
+            <param name="y1">线的第一个点的y坐标</param>
+            <param name="x2">线的第二个点的x坐标</param>
+            <param name="y2">线的第二个点的y坐标</param>
+            <param name="othercoord">可变参数，线的后续点的x坐标和y坐标，必须成对出现，偶数个</param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.WriteFeature(iTelluro.Explorer.Vector.Model.AttributeObj,System.String)">
+            <summary>
+            写入Feature
+            </summary>
+            <param name="attObj"></param>
+            <param name="geoWkt"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.WriteFeature(iTelluro.Explorer.Vector.Model.AttributeObj,System.Byte[])">
+            <summary>
+            写入Feature
+            </summary>
+            <param name="attObj"></param>
+            <param name="geoWkb"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.Flush">
+            <summary>
+            将缓存写到磁盘
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.ShpWriter.Dispose">
+            <summary>
+            必须显式调用
+            </summary>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.VectorReader">
+            <summary>
+            矢量数据读取类
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.#cctor">
+            <summary>
+            默认构造函数，注册GDAL
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.#ctor(System.String,System.String)">
+            <summary>
+            打开源数据指定层名的Layer
+            </summary>
+            <param name="filename"></param>
+            <param name="layerName"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.#ctor(System.String,System.Int32)">
+            <summary>
+            打开源数据指定层号的Layer
+            </summary>
+            <param name="filename"></param>
+            <param name="layerNum"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.#ctor(System.String,System.Int32,System.String@)">
+            <summary>
+            返回指定层号的Layer名称
+            </summary>
+            <param name="filename"></param>
+            <param name="layerNum"></param>
+            <param name="name">返回图层名称</param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.#ctor(System.String)">
+            <summary>
+            打开源数据的第一个图层
+            </summary>
+            <param name="filename"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.#ctor(System.String,System.String@)">
+            <summary>
+            返回源数据第一图层的名称
+            </summary>
+            <param name="filename"></param>
+            <param name="name">返回图层名称</param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetFeatureCount">
+            <summary>
+            返回源数据feature数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.IsValidDataSource">
+            <summary>
+            判断数据是否是有效数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetGeomType">
+            <summary>
+            返回数据的数据类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetSridWkt">
+            <summary>
+            得到数据空间参考的wkt字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetDeminsion">
+            <summary>
+            得到shp文件的维度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAttributeType">
+            <summary>
+            得到shp文件属性名和属性类型的字典表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetOneFeatureAttribute(System.Int32)">
+            <summary>
+            得到一个feature所有的属性名和属性值的字典表
+            </summary>
+            <param name="featureID">feature的ID号</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetOneFeatureAttribute(System.Int32,System.Collections.Generic.List{System.String})">
+            <summary>
+            得到一个feature选择的属性名和属性值的字典表
+            </summary>
+            <param name="featureID">feature的ID号</param>
+            <param name="selAttr">选择的属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetOneFeatureGeomWkt(System.Int32)">
+            <summary>
+            得到一个feature的Geometry的wkt字符串
+            </summary>
+            <param name="featureID">feature的ID号</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAllSpatialAttributeObj">
+            <summary>
+            返回所有空间属性对象
+            </summary>
+            <returns>SpatialAttributeObj对象列表</returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAllSpatialAttributeObj2(System.String)">
+            <summary>
+            返回所有要素的指定字段
+            </summary>
+            <param name="field">提取数据的字段名</param>
+            <returns>SpatialAttributeObj2对象列表</returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAllFeatures(iTelluro.Explorer.Vector.VectorReader.EnumFeature,System.String[])">
+            <summary>
+            循环处理图层的每条要素
+            </summary>
+            <param name="func">处理要素的回调函数</param>
+            <param name="fields">要处理的字段列表</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException">缺少字段</exception>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAllFeatureVal(System.String,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            返回所有空间属性对象
+            </summary>
+            <param name="field">要取值的字段名</param>
+            <param name="fieldvals">返回每条要素的值，如果没有该字段，则存储null，有该字段但无值则存储string.empty</param>
+            <returns>返回FID列表，顺序和<c>fieldvals</c>一致</returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAllSpatialObj">
+            <summary>
+            返回所有的空间对象
+            </summary>
+            <returns>Feature对象列表</returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAllGeometry">
+            <summary>
+            返回所有的空间对象
+            </summary>
+            <returns>Feature对象列表</returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAllAttributeObj">
+            <summary>
+            返回所有属性对象
+            </summary>
+            <returns>属性对象列表</returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetDistincFieldValues(System.Collections.Generic.List{iTelluro.Explorer.Vector.Model.AttributeObj},System.String)">
+            <summary>
+            获取某个属性字段的唯一值列表即对应的个数
+            </summary>
+            <param name="records">AttributeObj数组</param>
+            <param name="fldName">属性字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.GetAttributes">
+            <summary>
+            返回属性表字段
+            </summary>
+            <returns>属性表字段列表</returns>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.Dispose">
+            <summary>
+            Disposes the object
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorReader.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.NumberOfLayers">
+            <summary>
+            图层个数
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.AllOfLayersName">
+            <summary>
+            图层名称列表
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.IsFeatureDataLayer">
+            <summary>
+            是否是合法的FeatureDataLayer
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.OgrGeometryTypeString">
+            <summary>
+            点文件?线文件?面文件?
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.GeoBigType">
+            <summary>
+            几何类型，点、线、面或None
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.SpatialRef">
+            <summary>
+            空间参考
+            OSGeo.OSR.SpatialReference
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.SpatailRefWkt">
+            <summary>
+            空间参考的Wkt表示串
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.SRID">
+            <summary>
+            空间参考的SRID
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.IsGeoCoordinateSystem">
+            <summary>
+            是否是地理坐标系
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.Extent">
+            <summary>
+            矢量文件的外包矩形
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.FileName">
+            <summary>
+            打开的矢量文件完整路径
+            </summary>
+        </member>
+        <member name="P:iTelluro.Explorer.Vector.VectorReader.ConnectionID">
+            <summary>
+            Gets the connection ID of the datasource
+            </summary>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.VectorReader.EnumFeature">
+            <summary>
+            处理要素的回调
+            </summary>
+            <param name="wkt">要素几何</param>
+            <param name="FID">要素id</param>
+            <param name="fieldVals">需要处理的字段值列表，顺序和GetAllFeatures里字段列表顺序相同</param>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.GeometryBigType">
+            <summary>
+            空间几何类型，点、线、面，未知
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.GeometryBigType.Point">
+            <summary>
+            点
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.GeometryBigType.Line">
+            <summary>
+            线
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.GeometryBigType.Polygon">
+            <summary>
+            面
+            </summary>
+        </member>
+        <member name="F:iTelluro.Explorer.Vector.GeometryBigType.None">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="T:iTelluro.Explorer.Vector.VectorUtility">
+            <summary>
+            矢量数据辅助类
+            </summary>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorUtility.DelVector(System.String)">
+            <summary>
+            删除矢量文件
+            </summary>
+            <param name="strVectorFilename"></param>
+        </member>
+        <member name="M:iTelluro.Explorer.Vector.VectorUtility.RenameVector(System.String,System.String)">
+            <summary>
+            重命名矢量文件
+            </summary>
+            <param name="strOldFile"></param>
+            <param name="strNewFile"></param>
+        </member>
+    </members>
+</doc>

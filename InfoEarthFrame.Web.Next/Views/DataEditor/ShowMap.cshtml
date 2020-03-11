@@ -1,0 +1,1157 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="/Content/scripts/plugins/openLayer/css/map.css" rel="stylesheet" />
+    <link href="/Content/styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/scripts/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/scripts/plugins/map/themify-icons.css" rel="stylesheet" />
+    <link href="/Content/scripts/plugins/openLayer/css/ol.css" rel="stylesheet" />
+    <link href="/Content/scripts/plugins/colorpick/colpick.css" rel="stylesheet" />
+    <link href="/Content/scripts/plugins/mapVectorEditor/mapVectorEditor.css" rel="stylesheet" />
+    <link href="/Content/scripts/plugins/jquery-range/jquery.range.css" rel="stylesheet" />
+    <link href="/Content/styles/map-editor-icon/style.css" rel="stylesheet" />
+
+    <link href="/Content/scripts/plugins/tree/tree.css" rel="stylesheet" />
+    <link href="/Content/styles/learun-ui.css" rel="stylesheet" />
+    <script src="/Content/scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script src="/Content/scripts/plugins/jquery.md5.js"></script>
+    <script src="/Content/scripts/plugins/colorpick/colpick.js"></script>
+    <script src="/Content/scripts/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/Content/scripts/bootstrap/bootstrap.min.js"></script>
+
+    <script src="/Content/scripts/utils/base/learun.base.js"></script>
+    <script src="/Content/scripts/utils/base/learun.base.plugin.js"></script>
+    <script src="/Content/scripts/utils/base/learun.old.js"></script>
+    <script src="/Content/scripts/utils/base/learun.base.extensions.js"></script>
+    <script src="/Content/scripts/utils/base/learun.clientdata.js"></script>
+    <script src="/Content/scripts/plugins/tree/tree.js"></script>
+    <script src="/Content/scripts/plugins/dialog/dialog.js"></script>
+    <script src="/Content/scripts/plugins/JQueryzTree/js/jquery.ztree.all-3.5.min.js"></script>
+    <script src="/Content/scripts/plugins/JQueryzTree/js/jquery.ztree.exhide-3.5.min.js"></script>
+    <script src="/Content/scripts/plugins/webgis/jsts.min.js"></script>
+    <script src="/Content/scripts/plugins/openLayer/ol.js"></script>
+    <script src="/Content/scripts/plugins/openLayer/itelluro.ol.js"></script>
+    <script src="/Content/scripts/plugins/openLayer/itelluro.tianditu.js"></script>
+    <script src="/Content/scripts/plugins/openLayer/measuretool.js"></script>
+    <script src="/Content/scripts/plugins/mapVectorEditor/countyRange.js"></script>
+    <script src="/Content/scripts/plugins/geojson/geojson-vt-dev.js"></script>
+    <script src="/Content/scripts/plugins/geojson/fetch.umd.js"></script>
+    <script src="/Content/scripts/plugins/colorpick/colpick.js"></script>
+    <script src="/Content/scripts/plugins/mapVectorEditor/vectorCustomDrag.js"></script>
+    <script src="/Content/scripts/plugins/mapVectorEditor/curve_calc.min.js"></script>
+    <script src="/Content/scripts/plugins/mapVectorEditor/mapVectorEditor.js"></script>
+    <script src="/Content/scripts/plugins/jquery-range/jquery.range.js"></script>
+    <script src="/Content/scripts/plugins/datepicker/WdatePicker.js"></script>
+    @Html.Partial("_ConfigLayout")
+    <script src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+    <script src="@Url.Content("~/Content/layuiadmin/layui/layui.js")"></script>
+    <script src="@Url.Content("~/Content/js/app.base.js")"></script>
+    <script src="@Url.Content("~/Content/js/ajax.ext.js")"></script>
+    <script src="@Url.Content("~/Content/js/layui.ext.js")"></script>
+    @if (Request.QueryString["toolbar"] == "1")
+    {
+        <style>
+            #draggable {
+                display: none !important;
+            }
+        </style>
+    }
+    <style>
+
+         .ui-layout-west {
+            display: none !important;
+        }
+
+        .ui-layout-center {
+            overflow-x: hidden !important;
+        }
+
+        .ui-layout-resizer {
+            background-color: #f0f3f4 !important;
+        }
+
+        .ui-layout .west-Panel {
+            padding: 0;
+        }
+
+        .ui-layout .ui-layout-west {
+            overflow: initial !important;
+        }
+
+        .west-Panel .nav-tabs {
+            padding: 0;
+            /*min-width:273px;*/
+            width: 100%;
+        }
+
+        .west-Panel .tab-content {
+            /*overflow: auto;*/
+            height: 98%;
+        }
+
+        .panel-body {
+            padding: 10px 10px 0;
+        }
+
+            .panel-body .disaster-search-attr {
+                padding: 10px 0;
+                position: relative;
+            }
+
+                .panel-body .disaster-search-attr .z-title {
+                    line-height: 30px;
+                    width: 70px;
+                    position: absolute;
+                }
+
+                .panel-body .disaster-search-attr .z-wrap {
+                    width: 100%;
+                    min-width: 240px;
+                    padding-left: 70px;
+                }
+
+            .panel-body .btn-group.action-btn {
+                display: flex;
+                padding: 10px 0;
+                border-bottom: 1px solid #ededed;
+            }
+
+                .panel-body .btn-group.action-btn > .btn {
+                    padding: 6px;
+                }
+
+                .panel-body .btn-group.action-btn > .btn-clear {
+                    flex: 2;
+                    /*min-width: 80px;*/
+                    min-width: 240px;
+                }
+
+                .panel-body .btn-group.action-btn > .btn-location {
+                    flex: 1;
+                    min-width: 50px;
+                }
+
+                .panel-body .btn-group.action-btn > .btn-scale {
+                    flex: 3;
+                    min-width: 110px;
+                }
+
+            .panel-body .area-check-wrap {
+                margin: 3px 0;
+            }
+
+            .panel-body .box-area-wrap {
+                padding: 10px 0;
+                border-bottom: 1px solid #ededed;
+            }
+
+                .panel-body .box-area-wrap .box-area tr td {
+                    text-align: center;
+                }
+
+                    .panel-body .box-area-wrap .box-area tr td input {
+                        width: 100px;
+                        text-align: center;
+                        margin: 5px auto;
+                        padding: 0;
+                    }
+
+            .panel-body .btn-group-table {
+                margin: 10px 0;
+                width: 100%;
+                min-width: 240px;
+            }
+
+                .panel-body .btn-group-table .btn {
+                    padding: 6px;
+                    width: 100%;
+                }
+
+            .panel-body .submit-wrap {
+                text-align: right;
+                min-width: 240px;
+                margin-top: 20px;
+            }
+
+                .panel-body .submit-wrap .btn {
+                    min-width: 80px;
+                }
+
+            .panel-body .formart-wrap {
+                padding: 10px 0;
+                border-bottom: 1px solid #ededed;
+            }
+
+                .panel-body .formart-wrap .sxzy1 {
+                    border: 5px solid transparent;
+                    width: 5px;
+                    cursor: pointer;
+                }
+
+                .panel-body .formart-wrap .sxzy_s {
+                    border-bottom-color: #fff;
+                    margin: 0 auto;
+                }
+
+                .panel-body .formart-wrap .sxzy_z {
+                    float: left;
+                    border-right-color: #fff;
+                }
+
+                .panel-body .formart-wrap .sxzy_y {
+                    float: right;
+                    border-left-color: #fff;
+                }
+
+                .panel-body .formart-wrap .sxzy_x {
+                    margin: 0 auto;
+                    border-top-color: #fff;
+                }
+
+                .panel-body .formart-wrap .sxzy_s:hover {
+                    border-bottom-color: #000;
+                }
+
+                .panel-body .formart-wrap .sxzy_z:hover {
+                    border-right-color: #000;
+                }
+
+                .panel-body .formart-wrap .sxzy_y:hover {
+                    border-left-color: #000;
+                }
+
+                .panel-body .formart-wrap .sxzy_x:hover {
+                    border-top-color: #000;
+                }
+
+                .panel-body .formart-wrap .formart-area input {
+                    width: 100%;
+                    margin: 5px 0;
+                    padding: 0;
+                }
+
+                .panel-body .formart-wrap .formart-area .btn_group .btn {
+                    height: 10px;
+                    padding: 0;
+                    text-align: center;
+                    line-height: 5px;
+                    position: absolute;
+                    border: none;
+                }
+
+                    .panel-body .formart-wrap .formart-area .btn_group .btn.caret-up {
+                        /*width:36px;*/
+                        width: 100%;
+                        border-radius: 4px 4px 0 0;
+                    }
+
+                    .panel-body .formart-wrap .formart-area .btn_group .btn.caret-left {
+                        /*width:18px;*/
+                        width: 50%;
+                        border-radius: 0;
+                        top: 10px;
+                        left: 0;
+                    }
+
+                    .panel-body .formart-wrap .formart-area .btn_group .btn.caret-right {
+                        /*width:18px;*/
+                        width: 50%;
+                        border-radius: 0;
+                        top: 10px;
+                        left: 50%;
+                    }
+
+                    .panel-body .formart-wrap .formart-area .btn_group .btn.caret-down {
+                        /*width:36px;*/
+                        width: 100%;
+                        border-radius: 0 0 4px 4px;
+                        left: 0;
+                        bottom: 0;
+                    }
+
+                    .panel-body .formart-wrap .formart-area .btn_group .btn:focus {
+                        outline: none;
+                    }
+
+                    .panel-body .formart-wrap .formart-area .btn_group .btn .fa {
+                        line-height: 5px;
+                    }
+
+            .panel-body .area-check-wrap input {
+                float: left;
+                margin-right: 4px;
+                margin-top: 2px;
+                cursor: pointer;
+            }
+
+            .panel-body .area-check-wrap label {
+                cursor: pointer;
+            }
+
+        .ztree * {
+            color: #000 !important;
+            font-size: 12px !important;
+        }
+
+        #catalog-data .tallSearch {
+            display: flex;
+        }
+
+            #catalog-data .tallSearch .input-group {
+                width: 85%;
+                padding-right: 4px;
+            }
+
+                #catalog-data .tallSearch .input-group input {
+                    height: 31px;
+                    line-height: 31px;
+                }
+
+            #catalog-data .tallSearch .relate_wrap {
+                width: 15%;
+            }
+
+                #catalog-data .tallSearch .relate_wrap button {
+                    width: 100%;
+                    padding: 2.5px 0;
+                    outline: none;
+                }
+
+        .center-Panel .mygdt {
+            position: fixed;
+            /*top:280px;*/
+            top: 405px;
+            right: 15px;
+            height: 300px;
+            width: 100px;
+            box-shadow: darkgrey 3px 3px 3px -1px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 3px;
+        }
+
+            .center-Panel .mygdt .mygdt_gb {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+            }
+
+                .center-Panel .mygdt .mygdt_gb i {
+                    font-size: 14px;
+                    margin: 3px 5px;
+                    cursor: pointer;
+                }
+
+            .center-Panel .mygdt .p1 {
+                height: 30px;
+                line-height: 30px;
+                margin: 0;
+                text-align: center;
+            }
+
+            .center-Panel .mygdt .mygdt_gb_ul {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+            }
+
+                .center-Panel .mygdt .mygdt_gb_ul li {
+                    cursor: pointer;
+                }
+
+                .center-Panel .mygdt .mygdt_gb_ul .img1 {
+                    width: 92%;
+                    margin: 5px 4%;
+                    float: left;
+                    max-height: 70px;
+                    background: #fff;
+                }
+
+                .center-Panel .mygdt .mygdt_gb_ul li p {
+                    text-align: center;
+                }
+
+                    .center-Panel .mygdt .mygdt_gb_ul li p:hover {
+                        color: #007aff;
+                    }
+
+            .center-Panel .mygdt .mygdt_xx {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                /*top: 310px;*/
+                top: 435px;
+                right: 17px;
+                width: 360px;
+                height: 258px;
+                overflow: hidden;
+            }
+
+                .center-Panel .mygdt .mygdt_xx .mygdtxx_gb {
+                    cursor: pointer;
+                    position: absolute;
+                    padding: 0 5px;
+                    top: 3px;
+                    right: 0px;
+                    z-index: 99;
+                }
+
+                    .center-Panel .mygdt .mygdt_xx .mygdtxx_gb i {
+                        margin: 0 2px;
+                    }
+
+                .center-Panel .mygdt .mygdt_xx .img2 {
+                    position: absolute;
+                }
+
+        .server-address .r-left {
+            padding: 10px 10px 8px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.7);
+            box-shadow: darkgrey 3px 3px 3px -1px;
+        }
+
+            .server-address .r-left.active-show-btn {
+                background: #007aff;
+                color: #fff;
+            }
+
+            .server-address .r-left .ti-view-grid {
+                font-size: 18px;
+                /*color: #007aff;*/
+            }
+
+        .server-address .server-address-list {
+            background: rgba(255,255,255,0.7);
+            box-shadow: darkgrey 3px 3px 3px -1px;
+            top: 0;
+            left: -95px;
+            border-radius: 3px;
+        }
+
+            .server-address .server-address-list dl {
+                padding: 0 10px;
+                display: inline-block;
+                text-align: center;
+                cursor: pointer;
+                margin-bottom: 0;
+            }
+
+            .server-address .server-address-list .dt-img {
+                border: 1px solid #fff;
+                width: 50px;
+                -webkit-transition: all .3s;
+                -o-transition: all .3s;
+                transition: all .3s;
+            }
+
+            .server-address .server-address-list .dd-active > .dt-img {
+                border-color: #ccc;
+            }
+
+        .righttag {
+            background: rgba(255,255,255,0.7);
+            box-shadow: darkgrey 3px 3px 3px -1px;
+            left: 340px;
+            bottom: 20px;
+            width: 400px;
+            height: 340px;
+            position: fixed;
+        }
+
+            .righttag .panel-heading {
+                padding: 11px;
+            }
+
+            .righttag .seviceDataContent .font-title-little {
+                white-space: nowrap;
+            }
+
+            .righttag .seviceDataContent table tr th,
+            .righttag .seviceDataContent table tr td {
+                padding: 5px 0;
+                text-align: center;
+            }
+
+        .panel-fixed {
+            overflow: auto;
+            padding: 0 10px;
+        }
+
+        .tools-group {
+            background: rgba(255,255,255,0.7);
+            box-shadow: darkgrey 3px 3px 3px -1px;
+            border-radius: 3px;
+        }
+
+            .tools-group .btn-default {
+                background: transparent;
+                border-color: transparent;
+                overflow: hidden;
+                outline: none;
+            }
+
+                .tools-group .btn-default:hover {
+                    /*background: #007aff;*/
+                    background: rgba(0,122,255,0.7);
+                    color: #fff;
+                }
+                /*.tools-group .btn-default:hover .map-icon:before{
+            color:#fff;
+        }*/
+                .tools-group .btn-default:active {
+                    box-shadow: none;
+                    outline: none;
+                }
+
+                .tools-group .btn-default span {
+                    float: left;
+                }
+
+                    .tools-group .btn-default span.map-icon {
+                        margin: 1px 4px 0 0;
+                        font-size: 14px;
+                    }
+
+                .tools-group .btn-default.top-op-active {
+                    background: #007aff;
+                    color: #fff;
+                }
+
+                    .tools-group .btn-default:hover .map-icon:before,
+                    .tools-group .btn-default.top-op-active .map-icon:before {
+                        color: #fff;
+                    }
+
+            .tools-group .tmdtz_val {
+                margin-top: 31px;
+                padding: 28px 0px;
+                display: none;
+            }
+
+                .tools-group .tmdtz_val .slider-container {
+                    margin: 0 auto;
+                }
+
+        #spatial_query_html {
+            width: 600px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -300px;
+            transition: bottom 0s;
+            background: rgba(255,255,255,0.9);
+            box-shadow: darkgrey 3px 3px 3px -1px;
+            z-index: 999;
+            border-radius: 3px;
+        }
+
+        #spatial_query {
+            height: 300px;
+            /*padding: 0 10px;*/
+            overflow-y: auto;
+        }
+
+            #spatial_query table.featureInfo {
+                width: 100%;
+            }
+
+                #spatial_query table.featureInfo tbody tr:hover {
+                    background: rgba(0,122,255,0.7);
+                    color: #fff;
+                }
+
+            #spatial_query table tr th,
+            #spatial_query table tr td {
+                padding: 10px 15px;
+                text-align: left;
+            }
+        /*.meng{
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            .meng:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: rgba(31, 31, 31, 0.76);
+                z-index: 99;
+            }*/
+
+        .ui-layout, .mapDiv {
+            height: 100% !important;
+        }
+
+        .tools-group {
+        width:430px !important;
+        }
+    </style>
+
+    <!--<script src="/Content/scripts/plugins/dialog/layer.js"></script>-->
+    <script>
+
+
+        var map = null;
+        var position = [];
+        var baseLayerList = [{
+            zoomlevel: 14,
+            dataserverkey: "全国天地图地图",
+            url: Config['全国天地图地图'],
+            tilesize: 512,
+            zerolevelsize: 36
+        }, {
+            zoomlevel: 14,
+            dataserverkey: "全国天地图地图注记",
+            url: Config['全国天地图地图注记'],
+            tilesize: 512,
+            zerolevelsize: 36
+        }];
+
+        var iTLaters = [{
+            zoomlevel: 4,
+            dataserverkey: "全球地质图",
+            url: Config['全球地质图'],
+            tilesize: 512,
+            zerolevelsize: 72,
+            opacity: 0.6,
+            zIndex: 10
+        }];
+
+        function moveTo() {
+            if (position.length > 1) {
+                map.getMap().getView().setCenter(position)
+                map.getMap().getView().setZoom(map.zoom);
+            }
+        }
+
+
+        $(function () {
+            init();
+        })
+
+        function init() {
+            map = $("#mapControl").mapVectorEditorCtl({
+                mapWidth: 1500,
+                mapHeight: 1000,
+                baseLayerList: baseLayerList
+            });
+
+     
+
+
+            map.getMap().on('dblclick', function (event, a) {
+                
+                position = event.coordinate;
+                if (!window.parent.currentLayer.id) {
+                    return;
+                }
+
+                var format = 'image/png';
+                var wmsLayer = new ol.layer.Tile({
+                    source: new ol.source.TileWMS({
+                        url: Config['geoserver:WMS'],
+                        params: {
+                            'FORMAT': format,
+                            "LAYERS": window.parent.currentLayer.id
+                        }
+                    })
+                });
+
+
+                var viewResolution = map.getMap().getView().getResolution();
+                var url = wmsLayer.getSource().getGetFeatureInfoUrl(
+                    event.coordinate, viewResolution, 'EPSG:4326',
+                    { 'INFO_FORMAT': 'application/json' });
+
+                if (url) {
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.features.length > 0) {
+                                var feature = data.features[0];
+                                var layerId = window.parent.currentLayer.tag;
+                                var elementId = feature.properties.guid;
+
+                                window.parent.layui.showDlg({
+                                    title: "查看&编辑要素",
+                                    content: '@Url.Action("AddAttribute")?layerId=' + layerId + "&elementId=" + elementId + "&tableName=" + window.parent.currentLayer.id,
+                                    area: ['35%', '90%'],
+                                    yes: function (index, layero) {
+                                        var iframeWin = window.parent[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                                        iframeWin.doSubmit(index);
+                                    }
+                                })
+                            }
+                        }
+                    });
+
+                }
+
+
+            });
+        }
+
+
+        function initLayer(mainId, layerNames) {
+            var node = {};
+            var index = 0;
+            if (layerNames) {
+                var layers = layerNames.split(',');
+                if (layers.length > 0) {
+                    $.each(layers, function (index, element) {
+                        addLayer(element);
+
+                        node = element;
+                        index = index;
+                    });
+                }
+            }
+        }
+
+        //图层数据
+        function getMaplayers() {
+            var _maplayers = map.getMap().getLayers().getArray();
+            return _maplayers;
+        };
+
+        function getLayerByName(layerName) {
+            var maplayers = getMaplayers();
+            var temp = null;
+            maplayers.forEach(function (layer) {
+                console.log(layer.get("name"));
+                if (layer.get("name") == layerName) {
+                    temp = layer;
+                }
+            });
+            return temp;
+        };
+
+        function removeLayer(layerName, isRealRemove) {
+
+            var layer = getLayerByName(layerName);
+
+            if (!!layer) {
+                if (!isRealRemove) {
+                    layer.setVisible(false);
+                }
+                else {
+                    map.getMap().removeLayer(layer);
+                }
+            }
+        }
+
+
+
+        function addLayer(layerName,layer) {
+            $.get({
+                url: Base.getApiUrl('/DataEditor/GetSLDContentByLayerIdOrTableName'),
+                data: {
+                    tableName: layerName
+                },
+                success: function (resp) {
+
+
+
+                    if (resp.code == 0) {
+                        map.loadCustomLayerByWMS(null, Config['geoserver:WMS'], resp.data, 'image/png', layerName, layerName);
+
+                        if (layer&&layer.tag2 && layer.tag3) {
+                            map.find("#_longitude").val(layer.tag2);
+                            map.find("#_latitude").val(layer.tag3);
+                            map.find("#show_point").click();
+                        }
+                    }
+                    else {
+                        alert('获取图层样式失败');
+                    }
+                }
+            })
+
+        }
+
+
+        //顶部工具条
+        function initTopTools(node, index) {
+            var editDisabled = !window.parent.Base.hasPermession("编辑");
+            var removeDisabled = !window.parent.Base.hasPermession("删除");
+            var _html = '<div class="tools-group" style="position:absolute;top:48px;width:506px;">' +
+                            '<div class="btn-group" role="group">' +
+                                //'<button type="button" id="dingwei99" class="btn btn-default">' +
+                                //    '<span class="map-icon map-editor-icon-3"></span>' +
+                                //    '<span>定位</span>' +
+                                //'</button>' +
+                                //'<button type="button" id="sansuo99" class="btn btn-default">' +
+                                //    '<span class="map-icon fa fa-bolt"></span>' +
+                                //    '<span>闪烁</span>' +
+                                //'</button>' +
+                                //'<button type="button" id="tmdtz99" class="btn btn-default">' +
+                                //    '<span class="map-icon map-editor-icon-2"></span>' +
+                                //    '<span>透明度调整</span>' +
+                                //'</button>' +
+                                     "<button type=\"button\" id=\"sxbj\" class=\"btn btn-default\" " + (editDisabled?'disabled':'') + ">" +
+                                    '<span class="map-icon map-editor-icon-2"></span>' +
+                                    '<span>属性编辑</span>' +
+                                '</button>' +
+                                                "<button type=\"button\" id=\"ysbj\" class=\"btn btn-default\" " + (editDisabled ? 'disabled' : '') + ">" +
+                                    '<span class="map-icon map-editor-icon-7"></span>' +
+                                    '<span>样式编辑</span>' +
+                                '</button>' +
+                                            "<button type=\"button\" id=\"sctc\" class=\"btn btn-default\" " + (removeDisabled ? 'disabled' : '') + ">" +
+                                    '<span class="map-icon map-editor-icon-1"></span>' +
+                                    '<span>删除图层</span>' +
+                                '</button>' +
+                                '<button type="button" id="dianxuan99" class="btn btn-default">' +
+                                    '<span class="map-icon map-editor-icon-uniE906"></span>' +
+                                    '<span>点选</span>' +
+                                '</button>' +
+                                '<button type="button" id="kuangxuan99" class="btn btn-default">' +
+                                    '<span class="map-icon map-editor-icon-22"></span>' +
+                                    '<span>框选</span>' +
+                                '</button>' +
+                                '<button type="button" id="qingchu99" class="btn btn-default">' +
+                                    '<span class="map-icon map-editor-icon-1"></span>' +
+                                    '<span>清除</span>' +
+                                '</button>' +
+                                '<button type="button" id="guanbi99" class="btn btn-default">' +
+                                    '<span class="map-icon map-editor-icon--01"></span>' +
+                                    '<span>关闭</span>' +
+                                '</button>' +
+                                '<div id="tmdtz_val99" class="tmdtz_val" style="width:506px;">' +
+                                    '<input id="single-slider99" type="hidden" class="single-slider" value="1" />' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+              @if (Request.QueryString["toolbar"] == "1")
+            {
+                  @(Html.Raw( "_html=''\r\n;"))
+            }
+            $('.tools-group').remove();
+
+            console.log($("#mapControl"))
+            $("#mapControl").append(_html);
+            $('.tools-group').css("top", $("#mapControl").offset().top + 3);
+            //if (node.IsSpatalQuery == 1) {
+            //    $("#dianxuan99,#kuangxuan99").show();
+            //    $(".tools-group").css({ "width": "506px", "left": "50%", "margin-left": "-253px" });
+            //    $("#tmdtz_val99").css("width", "506px");
+            //} else {
+            //    $("#dianxuan99,#kuangxuan99").hide();
+            //    $(".tools-group").css({ "width": "372px", "left": "50%", "margin-left": "-186px" });
+            //    $("#tmdtz_val99").css("width", "372px");
+            //};
+            $("#dianxuan99,#kuangxuan99").hide();
+            $(".tools-group").css({ "width": "372px", "left": "50%", "margin-left": "-186px" });
+            $("#tmdtz_val99").css("width", "372px");
+
+            //获取当前服务的图层
+            var _server = node;
+            var _layerName = node.label;
+            var _layer = getLayerByName(_layerName);
+            //定位
+            $('#dingwei99').click(function () {
+                tmdtzHide();
+                //if (node.range && node.range.east) {
+                //    map.moveToAreaAtCenter(node.range);
+                //}
+                //else {
+                //    learun.dialogAlert({ msg: "该图层缺少位置信息！", type: -1 });
+                //};
+                map.find("#show_point").click();
+
+            });
+
+            $("#sxbj").click(function () {
+                window.parent.editAttr();
+            })
+
+            $("#ysbj").click(function () {
+                window.parent.editStyle();
+            })
+
+            $("#sctc").click(function () {
+                window.parent.removeLayer();
+            })
+            //闪烁
+            $('#sansuo99').click(function () {
+                tmdtzHide();
+                console.log(_layer)
+                map.flickerLayer(_layer);
+            });
+            //透明度调整
+            $('#tmdtz99').click(function () {
+                var self = $(this);
+                if (self.hasClass('top-op-active')) {
+                    self.removeClass('top-op-active');
+                    $("#tmdtz_val99").slideUp();
+                } else {
+                    self.siblings().removeClass('top-op-active');
+                    self.addClass('top-op-active');
+                    $("#tmdtz_val99").slideDown();
+                };
+                $('#single-slider99').jRange({
+                    from: 0,
+                    to: 1,
+                    step: 0.1,
+                    scale: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                    format: '%s',
+                    width: 300,
+                    theme: 'theme-blue',
+                    showLabels: true,
+                    showScale: true,
+                    onstatechange: function () {
+
+                        var v = parseFloat($('#single-slider99').val());
+                        if (_layer) {
+                            _layer.setOpacity(v);
+                        }
+                    }
+                });
+                var _opacity = _layer ? _layer.getOpacity() : 1;
+                $('#single-slider99').jRange('setValue', _opacity);
+            });
+            //点选
+            $('#dianxuan99').click(function () {
+                tmdtzHide();
+                map.customDraw("Point", function (feature, drawTool) {
+                    var extent = feature.getGeometry().getExtent();
+                    console.log('Debug:  点选 ', extent);
+                    var _extent = [extent[0], extent[1], extent[2] - 0.01, extent[3] - 0.01];//容差构建成一个正方形区域
+                    queryContent(_server, _extent);
+                    //移除之前的绘制对象，结束绘制
+                    map.getMap().removeInteraction(drawTool);
+                });
+            });
+            //框选
+            $('#kuangxuan99').click(function () {
+                tmdtzHide();
+                map.customDraw("Box", function (feature, drawTool) {
+                    var extent = feature.getGeometry().getExtent();
+                    console.log('Debug:  框选 ', extent);
+                    queryContent(_server, extent);
+                    //移除之前的绘制对象，结束绘制
+                    map.getMap().removeInteraction(drawTool);
+                });
+            });
+            //清除
+            $('#qingchu99').click(function () {
+                init();
+            });
+            //关闭
+            $('#guanbi99').click(function () {
+                $(".tools-group").hide();
+                $("#spatial_query_html").hide();
+                tmdtzHide();
+                map.clearRectLayer();
+                map.hideTip();
+            });
+            //隐藏透明度设置条
+            function tmdtzHide() {
+                $("#tmdtz_val99").hide();
+                $(".tools-group").find(".btn-default").removeClass('top-op-active');
+            };
+        };
+
+        //服务列表
+        function getLayerServerList(node) {
+            var _index = node.currentLayerIndex ? node.currentLayerIndex : 0;
+            var listHtml = function () {
+                var list = function () {
+                    var listStr = "";
+                    for (var i in node.serverList) {
+                        if (node.serverList[i].SERVERTYPE) {
+                            var ac = i == _index ? 'dd-active' : '';
+                            var _dl = '<dl order="' + i + '" name="changeServerinfo">' +
+                                          '<dt class="' + ac + '"><img class="dt-img" src="/Content/images/' + node.serverList[i].SERVERTYPE + '.png" /></dt>' +
+                                          '<dd style="padding-top:10px;"><p>' + node.serverList[i].SERVERTYPE + '</p></dd>' +
+                                      '</dl>';
+                            listStr += _dl;
+                        }
+                    };
+                    return listStr;
+                };
+                var listWrap = '<div class="server-address-list" style="position:absolute;display:none;">' +
+                                   '<div style="border-bottom:1px solid #e5e5e5;padding:10px;text-align:center;position:relative;">' +
+                                       '<span>服务列表</span><a id="closeRightWin" href="javascript:;" style="position:absolute;top:0;right:4px;"><i class="fa fa-times"></i></a>' +
+                                   '</div>' +
+                                   '<div style="padding:10px; overflow-x:scroll; white-space:nowrap; max-width:400px;">' + list() + '</div>' +
+                               '</div>';
+                return listWrap;
+            };
+            var _html = '<div id="server-address">' +
+                            '<div class="server-address" style="bottom: 150px; right: 15px; position: fixed">' +
+                                '<div id="isShowRightWin" class="r-left" data-toggle="tooltip" data-placement="bottom" tooltip="服务列表"><i class="ti-view-grid"></i></div>' +
+                                listHtml() +
+                            '</div>' +
+                            '<div class="righttag" id="serverDetail"></div>' +
+                        '</div>';
+            $('#server-address').remove();
+            $(".center-Panel").append(_html);
+            getServerDetail(node, node.serverType.split(",")[_index]);
+            $("#serverDetail").draggable({ handle: "div.panel-heading" });
+            $("#isShowRightWin").click(function (e) {
+                if ($(this).hasClass('active-show-btn')) {
+                    $(this).removeClass('active-show-btn');
+                    $(this).siblings(".server-address-list").hide();
+                } else {
+                    $(this).addClass('active-show-btn');
+                    $(this).siblings(".server-address-list").show().css("left", -($(".server-address-list").width() + 5));
+                }
+            });
+            //绑定切换服务事件
+            $("dl[name=changeServerinfo]").click(function () {
+                var servers = node.serverList;
+                var prevOrder = $("dl[name=changeServerinfo]").find('.dd-active').parent().attr('order');
+                $(this).find('dt').addClass('dd-active');
+                $(this).siblings("dl").find('dt').removeClass('dd-active');
+                var currentOrder = $(this).attr('order');
+                node.currentLayerIndex = parseInt(currentOrder);
+                changeServerinfo(node, currentOrder);
+                changeLayerByServer(node, prevOrder, currentOrder);
+            });
+            //列表关闭
+            $('#closeRightWin').click(function (e) {
+                $(this).parents('.server-address-list').hide();
+                $('#isShowRightWin').removeClass('active-show-btn');
+            });
+        };
+
+        //设置服务详情参数
+        function setServerParam(server) {
+            var isUAV = server.SERVERTYPE == '无人机数据';
+            var serverDescs = {
+                EAST: isUAV ? '中心点经度' : '东经',
+                FORMAT: '格式',
+                LAYER: '图层信息',
+                LEVEL: '总级数',
+                MATRIXIDS: '矩阵id集合',
+                MATRIXSET: '矩阵集名称',
+                NORTH: isUAV ? '中心点纬度' : '北纬',
+                RESOLUTIONS: '分辨率集合',
+                SERVERTYPE: '服务类型',
+                SOUTH: '南纬',
+                SRSNAME: '空间参考',
+                TILESIZE: '切片大小',
+                URL: '服务地址',
+                WEST: isUAV ? '中心点高程' : '西经',
+                ZEROSIZE: '0级大小'
+            };
+            //设置服务类型参数
+            function setServer(server) {
+                var temp = new Array;
+                for (var i in server) {
+                    if (i != 'DIRECTORYINFOGUID' && i != 'GUID' && i != 'URL' && i != 'SERVERNAME') {
+                        if (!!server[i] && server[i].length > 0) {
+                            var obj = new Object;
+                            obj.name = i;
+                            obj.value = server[i];
+                            obj.isRequired = i == 'SERVERTYPE';
+                            obj.isRequired = obj.isRequired ? '是' : '否';
+                            obj.description = '';
+                            for (var s in serverDescs) {
+                                if (s == i) {
+                                    obj.description = serverDescs[s];
+                                    break;
+                                }
+                            }
+                            //无人机数据
+                            if (isUAV) {
+                                if (i == 'EAST') obj.name = 'LON';
+                                if (i == 'NORTH') obj.name = 'LAT';
+                                if (i == 'WEST') obj.name = 'HEIGHT';
+                            }
+                            temp.push(obj);
+                        }
+                    }
+                }
+                return temp;
+            }
+            return setServer(server);
+        };
+
+        //服务详情
+        function getServerDetail(node, serverType) {
+            var server = getServerByType(node.serverList, serverType);
+            var serverParams = setServerParam(server);
+            function detail() {
+                var _URL = server.URL ? server.URL : '';
+                var _SERVERDESC = server.SERVERDESC ? server.SERVERDESC : '';
+                var _REQUESTTYPE = server.REQUESTTYPE ? server.REQUESTTYPE : '';
+                var _detail = '<p style="margin: 5px 0; white-space: normal; word-wrap: break-word;">' +
+                                  '<span class="font-title-little">接口地址：</span>' +
+                                  '<span class="font-content-small">' + _URL + '</span>' +
+                              '</p>' +
+                              '<p style="margin: 5px 0; white-space: normal; word-wrap: break-word;">' +
+                                  '<span class="font-title-little">接口描述：</span>' +
+                                  '<span class="font-content-small">' + _SERVERDESC + '</span>' +
+                              '</p>' +
+                              '<p style="margin: 5px 0; white-space: normal; word-wrap: break-word;">' +
+                                  '<span class="font-title-little">请求方法：</span>' +
+                                  '<span class="font-content-small">' + _REQUESTTYPE + '</span>' +
+                              '</p>';
+                return _detail;
+            };
+            function paramtable() {
+                var _trs = "", _table = "";
+                for (var i in serverParams) {
+                    if (serverParams[i].name) {
+                        var _value = serverParams[i].value ? serverParams[i].value : "";
+                        var _isRequired = serverParams[i].isRequired ? serverParams[i].isRequired : "";
+                        var _description = serverParams[i].description ? serverParams[i].description : "";
+                        var _tr = '<tr class="tableTitle">' +
+                                      '<td>' + serverParams[i].name + '</td>' +
+                                      '<td style="word-wrap:break-word;">' + _value + '</td>' +
+                                      '<td>' + _isRequired + '</td>' +
+                                      '<td>' + _description + '</td>' +
+                                  '</tr>';
+                        _trs += _tr;
+                    }
+                };
+                _table = '<table class="font-content-small" border=1 style="width: 100%;table-layout: fixed;">' +
+                             '<tr class="tableTitle"><th>参数名</th><th>参数值</th><th>必填</th><th>描述</th></tr>' +
+                             _trs +
+                         '</table>';
+                return _table;
+            };
+            var _html = '<div class="r-right">' +
+                            '<div class="panel-heading border-bottom" style="cursor: move">' +
+                                '<span id="SERVERTYPE" class="font-title-middle">服务信息</span>' +
+                                '<a id="closeServerDetail" href="javascript:;" style="color: #8e8e93;font-size: 14px; float: right;"><i class="fa fa-times"></i></a>' +
+                            '</div>' +
+                            '<div class="panel-fixed" style="height: 284px;">' +
+                                '<div class="seviceDataShow">' +
+                                    '<div class="seviceDataContent">' +
+                                        detail() +
+                                        '<p style="margin: 0 0 5px;"><span class="font-title-little">请求参数：</span></p>' +
+                                        paramtable() +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+            $("#serverDetail").html(_html);
+            //详情关闭
+            $('#closeServerDetail').click(function (e) {
+                $('#serverDetail').hide();
+            });
+        };
+
+
+
+
+    </script>
+</head>
+<body style="overflow:hidden;">
+    <div id="mapControl" data-before-save-feature="beforeSaveFeature"></div>
+</body>
+</html>

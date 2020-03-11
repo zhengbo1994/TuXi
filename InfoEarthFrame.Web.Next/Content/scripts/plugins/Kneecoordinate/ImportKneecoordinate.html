@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="../../jquery/jquery-1.10.2.min.js"></script>
+    <script src="../../utils/base/learun.base.js"></script>
+    <script src="../../utils/base/learun.base.plugin.js"></script>
+    <script src="../../utils/base/learun.old.js"></script>
+    <script src="../../utils/base/learun.clientdata.js"></script>
+    <script src="../../utils/learun-im.js"></script>
+    <script src="../cookie/jquery.cookie.js"></script>
+    <link href="../uploadify/uploadify.css" rel="stylesheet" />
+    <link href="../uploadify/uploadify.extension.css" rel="stylesheet" />
+    <script src="../uploadify/jquery.uploadify.min.js"></script>
+    <link href="../../bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../bootstrap/bootstrap.min.js"></script>
+    <link href="../../bootstrap/bootstrap-table.css" rel="stylesheet" />
+    <script src="../../bootstrap/bootstrap-table.js"></script>
+    <link href="../../bootstrap/bootstrap-editable.css" rel="stylesheet" />
+    <script src="../../bootstrap/bootstrap-editable.min.js"></script>
+    <script src="../../bootstrap/bootstrap-table-editable.js"></script>
+    <script src="../../bootstrap/bootstrap-table-zh-CN.js"></script>
+
+    <link href="../webuploader/webuploader.css" rel="stylesheet" />
+    <script src="../webuploader/webuploader.nolog.js"></script>
+    <script src="../dialog/dialog.js"></script>
+    <script src="../datetime/moment.min.js"></script>
+    <title></title>
+    <script type="text/javascript">
+        $(function () {
+            var textKnee = request('kneecoordinate');
+            if (textKnee == "") {
+                textKnee = "1:0,0;2:0,0;3:0,0;";
+            }
+            setTableStyle(textKnee);
+            var _kneecoor_add = $("#inputKneeExcel").find("#kneecoor-add");
+            _kneecoor_add.uploadifyFileEx({
+                btnName: "导入",
+                width: 54,
+                height:34,
+                url: "/Kneecoordinate/UploadifyFileToServer?folderId='" + 122 + "'&DataItemEncode=SaveFilePath&DataItemName=DemoFilePath",
+                onUploadSuccess: function (data) {
+                    refreshTable(data[0]);
+                }
+            });
+            $("#kneecoor-Clear").click(function () {
+                var text = "1:0,0;2:0,0;3:0,0;";
+                $("#kneecoorTable").bootstrapTable("refresh", { url: "/DemoManage/Kneecoordinate/ConvertKneecoordinate?strJson=" + text });
+            });
+            $("#kneecoor-ok").click(function () {
+                AcceptClick();
+            });
+        });
+        function refreshTable(obj) {
+            var tempValue = "";
+            var tableRows = $("#kneecoorTable").find("tr");
+            var tableTds = $("#kneecoorTable").find("tr").find("td");
+            if (tableTds.length > 2) {
+                if (tableRows.length > 1) {
+                    var tempValue = '';
+                    for (var i = 1; i < tableRows.length; i++) {
+                        var _rowItem = '';
+                        if (tableRows[i].cells[1].innerText != "0" || tableRows[i].cells[2].innerText != "0") {
+                            _rowItem += i + ':';
+                            _rowItem += tableRows[i].cells[1].innerText + ',';
+                            _rowItem += tableRows[i].cells[2].innerText + ';';
+                            tempValue += _rowItem;
+                        }
+                    }
+                    obj = obj + tempValue;
+                    $("#kneecoorTable").bootstrapTable("refresh", { url: "/DemoManage/Kneecoordinate/ConvertKneecoordinate?strJson=" + obj });
+                }
+            }
+            else { $("#kneecoorTable").bootstrapTable("refresh", { url: "/DemoManage/Kneecoordinate/ConvertKneecoordinate?strJson=" + obj }); }
+        }
+        function setTableStyle(obj) {
+            var tempValue = "";
+            var tableRows = $("#kneecoorTable").find("tr");
+            var tableTds = $("#kneecoorTable").find("tr").find("td");
+            //if (tableRows.length <= 0)
+            //    alert("不能少于3条记录");
+            if (tableRows.length > 1) {
+                if (tableTds.length > 2) {
+                    var tempValue = '';
+                    for (var i = 1; i < tableRows.length; i++) {
+                        if (tableRows[i].cells[1].innerText == "0") {
+                            alert("第" + i + "行，X值不能为0");
+                            return false;
+                        }
+                        if (tableRows[i].cells[2].innerText == "0") {
+                            alert("第" + i + "行，Y值不能为0");
+                            return false;
+                        }
+                        var _rowItem = '';
+                        _rowItem += i + ':';
+                        _rowItem += tableRows[i].cells[1].innerText + ',';
+                        _rowItem += tableRows[i].cells[2].innerText + ';';
+                        tempValue += _rowItem;
+                    }
+                    obj = obj + tempValue;
+                }
+                else { }
+            }
+            $("#kneecoorTable").bootstrapTable({
+                toolbar: "#toolbar",
+                idField: "SerialNum",
+                pagination: false,
+                showRefresh: false,
+                search: false,
+                clickToSelect: true,
+                queryParams: function (param) {
+                    return {};
+                },
+                url: "/DemoManage/Kneecoordinate/ConvertKneecoordinate?strJson=" + obj,
+                columns: [
+                {
+                    field: "SerialNum",
+                    title: "序号"
+                },
+                {
+                    field: "CoordinateX",
+                    title: "X",
+                    editable: {
+                        type: "text",
+                        title: "X"
+                    }
+                },
+                {
+                    field: "CoordinateY",
+                    title: "Y",
+                    editable: {
+                        type: "text",
+                        title: "Y"
+                    }
+                },
+                {
+                    title: "操作",
+                    formatter: function (value, row, index) {
+                        return "<a href='javascript:void(0)' class='btn-blue1'>添加</a>&nbsp&nbsp&nbsp&nbsp<a class='btn-blue2' href='javascript:void(0)'>删除</a>"
+                    }
+                }
+                ],
+                onClickRow: function (row, $element) {
+                    //alert("123");
+                },
+                onEditableSave: function (field, row, oldValue, $el) {
+                    $el[0].dataset.value = row[field];
+                },
+                onLoadSuccess: function () {
+                    var tableAddRow = $("#kneecoorTable").find("tr").find("td").find(".btn-blue1");
+                    var tableDeleteRow = $("#kneecoorTable").find("tr").find("td").find(".btn-blue2");
+                    tableAddRow.click(function () {
+                        //var tableEdit = $("#kneecoorTable");
+                        var tempValue = "";
+                        var tableRows = $("#kneecoorTable").find("tr");
+                        if (tableRows.length > 1) {
+                            var tempValue = '';
+                            for (var i = 1; i < tableRows.length; i++) {
+                                var _rowItem = '';
+                                _rowItem += i + ':';
+                                _rowItem += tableRows[i].cells[1].innerText + ',';
+                                _rowItem += tableRows[i].cells[2].innerText + ';';
+                                tempValue += _rowItem;
+                            }
+                        }
+                        $("#kneecoorTable").bootstrapTable("refresh", { url: "/DemoManage/Kneecoordinate/AddKneecoordinate?strJson=" + tempValue });
+                    });
+                    tableDeleteRow.click(function (obj) {
+                        var rowCount = $("#kneecoorTable").find("tr");
+                        if (rowCount.length <= 4) {
+                            alert("不能少于3条记录");
+                            return false;
+                        }
+                        var rowIndex = obj.currentTarget.parentNode.parentNode.rowIndex;
+                        $("#kneecoorTable tr:eq(" + rowIndex + ")").remove();
+                        //var tableEdit = $("#kneecoorTable");
+                        var tempValue = "";
+                        var tableRows = $("#kneecoorTable").find("tr");
+                        if (tableRows.length > 1) {
+                            var tempValue = '';
+                            for (var i = 1; i < tableRows.length; i++) {
+                                var _rowItem = '';
+                                _rowItem += i + ':';
+                                _rowItem += tableRows[i].cells[1].innerText + ',';
+                                _rowItem += tableRows[i].cells[2].innerText + ';';
+                                tempValue += _rowItem;
+                            }
+                        }
+                        $("#kneecoorTable").bootstrapTable("refresh", { url: "/DemoManage/Kneecoordinate/ConvertKneecoordinate?strJson=" + tempValue });
+                    });
+                }
+            });
+        }
+        function AcceptClick() {
+            var coordinateValue = '';
+            var tableRows = $("#kneecoorTable").find("tr");
+            var tempValue = '';
+            for (var i = 1; i < tableRows.length; i++) {
+                if (tableRows[i].cells[1].innerText == "0") {
+                    alert("第" + i + "行，X值不能为0");
+                    return false;
+                }
+                if (tableRows[i].cells[2].innerText == "0") {
+                    alert("第" + i + "行，Y值不能为0");
+                    return false;
+                }
+                var _rowItem = '';
+                _rowItem += i + ':';
+                _rowItem += tableRows[i].cells[1].innerText + ',';
+                _rowItem += tableRows[i].cells[2].innerText + ';';
+                tempValue += _rowItem;
+            }
+            coordinateValue += tempValue;
+            $.currentIframe().$("#txtKneecoordinate").val(coordinateValue);
+            learun.dialogClose();
+        }
+    </script>
+</head>
+<body>
+    <div id="inputKneeExcel" style="width:100%;height:450px;">
+        <div style="overflow-y:scroll;height:410px;width:98%;">
+            <table class="form" id="kneecoorTable"></table>
+        </div>
+        <div style=" width: 99%; margin-top:5px;">
+            <div style="float:right;">
+                <a id="kneecoor-ok" class="btn btn-default" style="height:36px;">确定</a>
+            </div>
+            &nbsp;&nbsp;
+            <div style="float:right;">
+                <a id="kneecoor-Clear" class="btn btn-default" style="height:36px;">清空</a>
+            </div>
+            &nbsp;&nbsp;
+            <div style="float:right;" id="kneecoor-add">
+                <!--<a id="kneecoor-add" class="btn btn-default" style="width:100px;">导入</a>-->
+            </div>
+            <!--<a id="kneecoor-commit" class="btn btn-default">确定</a>-->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+﻿<!-- 系统设置页面 create by licx /// controller:  'setSysCtrl' -  localtion: App/Main/assets/js/controllers/setSysCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="setSysCtrl" style="background-color: #fff;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-white panel-bottom0" style="border-bottom: none;">
+                <div class="panel-heading panel-head border-bottom">
+                    <span class="font-title-middle" translate="views.System.Setting.SRS">空间参考系</span>
+                </div>
+                <div class="panel-body panel-fixed self_bottom">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10" style="">
+                        <label class="font-content-small" style="margin-right: 20px;" translate="views.System.Setting.SRSSystem">系统空间参考系</label>
+                        <div class="radio clip-radio radio-primary radio-inline">
+                            <input type="radio" id="rad1" name="spatialRef" value="GCS_WGS_1984" ng-model="spatialRef" ng-change="ch1()">
+                            <label class="font-content-small" for="rad1" style="margin-bottom: 0;">
+                                GCS_WGS_1984
+                            </label>
+                        </div>
+                        <div class="radio clip-radio radio-primary radio-inline">
+                            <input type="radio" id="rad2" name="spatialRef" value="GCS_Beijing_1954" ng-model="spatialRef" ng-change="ch1()">
+                            <label class="font-content-small" for="rad2" style="margin-bottom: 0;">
+                                GCS_Beijing_1954
+                            </label>
+                        </div>
+                        <div class="radio clip-radio radio-primary radio-inline">
+                            <input type="radio" id="rad3" name="spatialRef" value="GCS_Xian_1980" ng-model="spatialRef" ng-change="ch1()">
+                            <label class="font-content-small" for="rad3" style="margin-bottom: 0;">
+                                GCS_Xian_1980
+                            </label>
+                        </div>
+                        <div class="radio clip-radio radio-primary radio-inline">
+                            <input type="radio" id="rad4" name="spatialRef" value="GCS_China_Geodetic_Coordinate_System_2000" ng-model="spatialRef" ng-change="ch1()">
+                            <label class="font-content-small" for="rad4" style="margin-bottom: 0;">
+                                CGCS_2000
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-white panel-bottom0" style="border-top: none; border-bottom: none;">
+                <div class="panel-heading panel-head border-bottom">
+                    <span class="font-title-middle" translate="views.System.Setting.Basemap.BaseMapConfig_1">地图底图配置</span>
+                </div>
+                <div class="panel-body panel-fixed self_bottom">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10" style="">
+                        <label class="font-content-small" style="margin-right: 20px;" translate="views.System.Setting.Basemap.BaseMapConfig_2">底图配置</label>
+                        <div class="radio clip-radio radio-primary radio-inline">
+                            <input type="radio" id="rad5" name="baseMap" value="noBaseMap" ng-model="baseMap" ng-change="ch2()">
+                            <label class="font-content-small" for="rad5" style="margin-bottom: 0;" translate="views.System.Setting.Basemap.NoBaseMap">
+                                无底图
+                            </label>
+                        </div>
+                        <div class="radio clip-radio radio-primary radio-inline">
+                            <input type="radio" id="rad6" name="baseMap" value="tianDiTu" ng-model="baseMap" ng-change="ch2()">
+                            <label class="font-content-small" for="rad6" style="margin-bottom: 0;" translate="views.System.Setting.Basemap.HeavenMap">
+                                天地图
+                            </label>
+                        </div>
+                        <div class="radio clip-radio radio-primary radio-inline">
+                            <input type="radio" id="rad7" name="baseMap" value="iTelluro" ng-model="baseMap" ng-change="ch2()">
+                            <label class="font-content-small" for="rad7" style="margin-bottom: 0;" translate="views.System.Setting.Basemap.iTelluroMap">
+                                iTelluro地图
+                            </label>
+                        </div>
+                        <div style="display: inline-block;" ng-if="baseMap=='iTelluro'">
+                            <a class="btn btn-primary" href="javascript:;" ng-click="showITelluro()" translate="views.System.Setting.Basemap.ViewITelluro">查看iTelluro地图参数</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-white panel-bottom0" style="border-top: none; border-bottom: none;">
+                <div class="panel-heading panel-head border-bottom">
+                    <span class="font-title-middle" translate="views.System.Setting.Slice.SliceConfig">切片配置</span>
+                </div>
+                <div class="panel-body panel-fixed self_bottom">
+                    <div class="col-sm-12">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10" style="">
+                            <div class="col-sm-4">
+                                <label class="font-content-small" style="padding-right: 5px;" translate="views.System.Setting.Slice.name">切片服务名称</label>
+                                <input type="text" ng-model="sectionName" style="height: 34px;" ng-disabled="true" readonly />
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="font-content-small" style="padding-right: 5px;" translate="views.System.Setting.Slice.series">切片起始级数</label>
+                                <input type="text" ng-model="sectionStart" style="height: 34px;" ng-disabled="true" readonly />
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="font-content-small" style="padding-right: 5px; vertical-align: top; padding-top: 7px;" translate="views.System.Setting.Slice.level">切片终止级数</label>
+                                <num-box max-num="100" min-num="1" width="163" precision="0" text-model="sectionEnd" style="display: inline-block;"></num-box>
+                                <a class="btn btn-primary" href="javascript:;" ng-click="sectionChange(1)" ng-if="isShowBtn1" style="display: inline-block; vertical-align: top; padding-top: 6px;">确定</a>
+                                <!--<input type="text" ng-model="sectionEnd" ng-blur="sectionChange()" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" style="padding-top: 10px;">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10" style="">
+                            <div class="col-sm-4">
+                                <label class="font-content-small" style="padding-right: 5px;" translate="views.System.Setting.Slice.name">切片服务名称</label>
+                                <input type="text" ng-model="sectionNameSe" style="height: 34px;" ng-disabled="true" readonly />
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="font-content-small" style="padding-right: 5px;" translate="views.System.Setting.Slice.series">切片起始级数</label>
+                                <input type="text" ng-model="sectionStart" style="height: 34px;" ng-disabled="true" readonly />
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="font-content-small" style="padding-right: 5px; vertical-align: top; padding-top: 7px;" translate="views.System.Setting.Slice.level">切片终止级数</label>
+                                <num-box max-num="100" min-num="1" width="163" precision="0" text-model="sectionEndSe" style="display: inline-block;"></num-box>
+                                <a class="btn btn-primary" href="javascript:;" ng-click="sectionChange(2)" ng-if="isShowBtn2" style="display: inline-block; vertical-align: top; padding-top: 6px;" translate="setting.sure">确定</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-white panel-bottom0" style="border-top: none;">
+                <div class="panel-heading panel-head border-bottom">
+                    <span class="font-title-middle" translate="views.System.Setting.Home.HomeSettings">首页设置</span>
+                </div>
+                <div class="panel-body panel-fixed self_bottom">
+                    <div class="col-sm-8 container-col-stretch" style="padding: 10px !important; border: 1px solid #e5e5e5;">
+                        <div class="col-sm-5 container-col-stretch">
+                            <div class="panel panel-white panel-bottom0">
+                                <div class="panel-heading panel-head border-bottom">
+                                    <span class="font-title-middle" translate="views.System.Setting.Home.QueryConditions">查询条件</span>
+                                </div>
+                                <div class="panel-body panel-fixed self_bottom">
+                                    <div style="padding-bottom: 10px;">
+                                        <tabset type="roundline" justified="true" class="tabbable" no-tab-content>
+                                            <tab class="font-content-middle" heading="{{'views.System.Setting.Home.Category'|translate}}" select="selectTab(true)"></tab>
+                                            <tab class="font-content-middle" heading="{{'views.System.Setting.Home.Tags'|translate}}" select="selectTab(false)"></tab>
+                                        </tabset>
+                                        <div style="height: 349px; overflow-y: auto;">
+                                            <div ng-show="!!showtab1">
+                                                <abn-tree class="font-title-btn" icon-leaf="" tree-data="typeTreeData" initial-selection="{{typeTreeData[0].label}}" expand-level="2" selected-data="typeSelected" on-select="onTypeSelected" tree-control="typeTreeQueryCtrl"></abn-tree>
+                                            </div>
+                                            <div ng-show="!showtab1">
+                                                <abn-tree class="font-title-btn" icon-leaf="" tree-data="tagTreeData" expand-level="2" selected-data="tagSelected" on-select="onTagSelected" tree-control="tagTreeQueryCtrl"></abn-tree>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-7 container-col-stretch" style="padding-left:10px !important;">
+                            <div class="panel-heading panel-head border-bottom">
+                                <span class="font-title-middle" translate="views.System.Setting.Home.Published">已发布的地图列表</span>
+                            </div>
+                            <div class="panel-body panel-fixed self_bottom">
+                                <div style="padding-bottom: 10px;">
+                                    <input type="text" style="height: 34px; width: 214px; margin:0 10px 10px 0;" ng-model="inputText" />
+                                    <span class="btn btn-primary btn-o font-title-little" ng-click="searchMap()" translate="views.System.Setting.Home.search">搜索</span>
+                                    <mic-data-tables class="layerClass no-choseall font-content-small" checkable checked-data="checkedData1" pageing="pageing"
+                                                     on-page-change="pageChanged" table-bordered tbody-height="371" thead="{{'views.System.Setting.Home.mapName'|translate}}" on-td-checked="onTdChecked"
+                                                     td-params="{'mapName':{'type':'span','isclick':false,'isedit':false}}" datasets="myDatasets1"></mic-data-tables>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" style="padding: 0 10px;">
+                        <div class="col-sm-12 container-col-stretch" style="border: 1px solid #e5e5e5;">
+                            <div class="panel-heading panel-head border-bottom">
+                                <span class="font-title-middle" translate="views.System.Setting.Home.Selected">已选中的地图列表</span>
+                            </div>
+                            <div class="panel-body panel-fixed self_bottom" style="padding: 10px;">
+                                <mic-data-table class="font-content-small" table-bordered tbody-height="186" thead="{{'views.System.Setting.Home.mapName'|translate}}"
+                                                td-params="{'mapName':{'type':'span','isclick':false,'isedit':false}}" table-btn-params="tabBtnParams"
+                                                table-btn-html="[{'name': '删除','text':'','icon':'ti-close'}]"
+                                                datasets="myDatasets2" id="selectedMapList"></mic-data-table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--标签管理弹窗-->
+        <mic-ui-modal popwinmodal="iTelluroSetModel" open-popwin-fun="openITelluroSetFun" template="iTelluroSetModel.html" backdrop="'static'" popwin-title="iTelluroSetModel.title" size="" win-class="" on-opened="openITelluroSet" on-submit="iTelluroSetForm" on-cancel="cancelITelluroSet">
+        </mic-ui-modal>
+        
+    </div>
+</div>

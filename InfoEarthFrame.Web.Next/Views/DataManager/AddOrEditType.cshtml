@@ -1,0 +1,155 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+    ViewBag.Title = "增加或编辑类型";
+}
+
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card">
+        <div class="layui-card-body" id="app">
+            <form class="layui-form" action="" lay-filter="component-form-group">
+                <div class="layui-form-item">
+
+                    <label class="layui-form-label">上级分类</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ParentName" id="txtParentName" v-model="model.ParentName" onclick="showSelectTreeDlg()" class="layui-input" readonly>
+                    </div>
+
+                </div>
+
+                <div class="layui-form-item">
+
+                    <label class="layui-form-label">分类名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ClassName" id="txtClassName" lay-verify="required" v-model="model.ClassName" autocomplete=" off" class="layui-input">
+                    </div>
+
+                </div>
+                <button class="layui-btn" lay-submit="" lay-filter="component-form" id="btnSubmit" style="display:none">立即提交</button>
+                <input type="hidden" name="ParentID" id="hidParentID" v-model="model.ParentID" />
+                <input type="hidden" name="Id" v-model="model.Id" />
+            </form>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+        var submitCallback;
+        var oldClassName = ''
+        var model = {
+            ParentName: decodeURIComponent('@Request.QueryString["parentName"]'),
+            ParentID: '@Request.QueryString["ParentID"]',
+            Id: '@Request.QueryString["id"]'
+        };
+        layui.initModule(['form'], function () {
+            var $ = layui.$, form = layui.form;
+
+            initModel();
+
+            form.render(null, 'component-form-group');
+
+            /* 监听提交 */
+            form.on('submit(component-form)', function (data) {
+                var isValid = false;
+
+                $.get({
+                    async: false,
+                    url: Base.getApiUrl("/DataManager/GetClassNameStatus"),
+                    data: {
+                        rdm: Math.random(),
+                        parentId: $("#hidParentID").val(),
+                        className: $.trim($("#txtClassName").val()),
+                        oldClassName: oldClassName
+                    },
+                    success: function (resp) {
+                        if (resp.code != 0) {
+                            alert(resp.message);
+                        }
+                        else {
+                            isValid = true;
+                        }
+                    }
+                });
+
+                if (model.Id && $("#hidParentID").val() == model.Id) {
+                    alert('上级分类不能与本类相同');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    $.post({
+                        url: Base.getApiUrl("/DataManager/AddOrEditType"),
+                        data: data.field,
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                parent.layer.closeAll();
+                                submitCallback(model.ParentID, {
+                                    id: resp.data.Id,
+                                    label: resp.data.ClassName
+                                });
+                            }
+                        }
+                    })
+                }
+                return false;
+            });
+
+            layui.autoHeight();
+        });
+
+
+        function initModel() {
+            if (model.Id) {
+                $.get({
+                    url: Base.getApiUrl("/DataManager/GetType"),
+                    async: false,
+                    data: {
+                        id: model.Id
+                    },
+                    success: function (resp) {
+                        oldClassName = resp.data.ClassName;
+                        initVue(resp.data)
+                    }
+                });
+            }
+            else {
+                initVue(model);
+            }
+        };
+
+
+        function initVue(data) {
+            new Vue({
+                el: '#app',
+                data: {
+                    LangConfig: LangConfig,
+                    model: data
+                }
+            });
+        }
+
+        function doSubmit(callback) {
+            submitCallback = callback;
+            $("#btnSubmit").click();
+        }
+
+
+        function showSelectTreeDlg() {
+            parent.layui.showDlg({
+                title: '选择分类',
+                content: '@Url.Action("SelectTree","Base")?apiPath=/DataManager/GetMappingTree',
+                area: ['13%'],
+                closeBtn: false,
+                yes: function (index, layero) {
+                    var iframeWin = parent.window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                    if (iframeWin.isValid()) {
+                        $("#hidParentID").val(iframeWin.currentCode);
+                        $("#txtParentName").val(iframeWin.currentName);
+                        parent.layer.close(index);
+                    }
+                }
+            });
+        }
+    </script>
+}

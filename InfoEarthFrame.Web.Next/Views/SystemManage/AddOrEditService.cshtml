@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "增加或编辑服务";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css{
+<link href="@Url.Content("~/Content/formSelects.css")" rel="stylesheet" />
+    }
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body" id="app">
+                    <form class="layui-form" action="" lay-filter="component-form-group">
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <label class="layui-form-label">所属图件</label>
+                            <div class="layui-input-block">
+                                <select lay-verify="required" xm-select="sltDataMainID" xm-select-search="" xm-select-radio="" lay-filter="sltDataMainID"></select>
+                            </div>
+
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg6">
+                                <label class="layui-form-label">名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="Text" id="txtText" v-model="model.TEXT" lay-verify="required" class="layui-input">
+                                </div>
+                            </div>
+                     
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg6">
+                                <label class="layui-form-label">URL</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="URL" id="txtURL" v-model="model.URL" lay-verify="required" class="layui-input">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg6">
+                                <label class="layui-form-label">地图标识</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="DATASERVERKEY" lay-verify="required" v-model="model.DATASERVERKEY" autocomplete=" off" class="layui-input">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        @if (Request.QueryString["serviceType"].ToLower() != "geoserver") { 
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <label class="layui-form-label">零级大小</label>
+                            <div class="layui-input-block">
+                                <select id="sltZEROLEVELSIZE" name="ZEROLEVELSIZE" lay-filter="ZEROLEVELSIZE" v-model="model.ZEROLEVELSIZE">
+                                    <option value="72">72</option>
+                                    <option value="36">36</option>
+                                    <option value="20">20</option>
+                                    <option value="20">18</option>
+                                    <option value="9">9</option>
+                                    <option value="4.5">4.5</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        }
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <label class="layui-form-label">图片类型</label>
+                            <div class="layui-input-block">
+                                <select id="sltPICTYPE" name="PICTYPE" lay-filter="PICTYPE" v-model="model.PICTYPE">
+                                    <option value="png">png</option>
+                                    <option value="jpg">jpg</option>
+                                    <option value="jpeg">jpeg</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <label class="layui-form-label">图层根节点</label>
+                            <div class="layui-input-block">
+                                <select xm-select="sltPID" xm-select-search="" xm-select-radio="" lay-filter="sltPID"></select>
+                            </div>
+
+                        </div>
+                    
+                        <button class="layui-btn" lay-submit="" lay-filter="component-form" id="btnSubmit" style="display:none">立即提交</button>
+                        <input type="hidden"  name="Id" v-model="model.Id" />
+                        <input type="hidden" id="DataMainID" name="DataMainID" v-model="model.DataMainID" />
+                        <input type="hidden" id="PID" name="PID" v-model="model.PID" />
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        @section script
+{
+            <script>
+                var ZEROLEVELSIZE = 72;
+                var PICTYPE = 'png';
+                var formSelects;
+                var id = '@Request.QueryString["id"]';
+                layui.initModule(['form', 'formSelects'], function () {
+                    var $ = layui.$, form = layui.form;
+                   formSelects = layui.formSelects;
+                    initModel();
+
+                    form.render(null, 'component-form-group');
+
+                    /* 监听提交 */
+                    form.on('submit(component-form)', function (data) {
+
+                        data.field.ZEROLEVELSIZE = ZEROLEVELSIZE;
+                        data.field.PICTYPE = PICTYPE;
+                        data.field.SERVICETYPE = '@Request.QueryString["serviceType"]';
+                        var isValid = true;
+
+                        if (isValid) {
+                            $.post({
+                                url: Base.getApiUrl("/SystemManage/AddOrEditService"),
+                                data: data.field,
+                                success: function (resp) {
+                                    if (resp.code == 0) {
+                                        parent.initGrid();
+                                        parent.layer.closeAll();
+                                    }
+                                    else {
+                                        warnning(resp.data);
+                                    }
+                                }
+                            })
+                        }
+                        return false;
+                    });
+
+                    form.on("select(ZEROLEVELSIZE)", function (data) {
+                  
+                        ZEROLEVELSIZE = data.value;
+                    });
+
+                    form.on("select(PICTYPE)", function (data) {
+                  
+                        PICTYPE = data.value;
+                    });
+
+                    layui.autoHeight();
+                });
+
+
+                function initModel() {
+                    var id = '@Request.QueryString["id"]';
+                    if (id) {
+                        $.get({
+                            url: Base.getApiUrl("/SystemManage/GetService"),
+                            async: false,
+                            data: {
+                                id: id
+                            },
+                            success: function (resp) {
+                                ZEROLEVELSIZE = resp.data.ZEROLEVELSIZE;
+                                PICTYPE = resp.data.PICTYPE;
+                                initDataMain(resp.data.DataMainID);
+                                initParentService(resp.data.PID);
+                                initVue(resp.data);
+                            }
+                        });
+                    }
+                    else {
+                        initDataMain();
+                        initParentService();
+                    }
+                 
+                };
+
+
+
+
+                function initDataMain(value) {
+                    layui.initSelect2({
+                        id: "sltDataMainID",
+                        url: Base.getApiUrl("/SystemManage/GetAllMainData"),
+                        method: "get",
+                        onSelect: function (id, vals, val, isAdd, isDisabled) {
+      
+                            if (!isAdd) {
+                                $("#DataMainID").val("");
+                                $("#txtText").val('');
+                            }
+                            else {
+                                $("#DataMainID").val(val.value);
+                                $("#txtText").val(val.name);
+                            }
+                            return true;
+                        },
+                        success: function (id, url, searchVal, result) {      //使用远程方式的success回调
+                            layui.formSelects.value('sltDataMainID', [value]);      //赋值 北京,上海
+                        }
+                    })
+                }
+
+
+                function initParentService(value) {
+                    layui.initSelect2({
+                        id: "sltPID",
+                        url: Base.getApiUrl("/SystemManage/GetServiceTreeData"),
+                        method: "get",
+                        onSelect: function (cid, vals, val, isAdd, isDisabled) {
+
+                            if (!isAdd) {
+                                $("#PID").val("");
+                            }
+                            else {
+                                if (val.value == id)
+                                {
+                                    warnning('图层根节点不能为自身');
+                                    return false;
+                                }
+                                $("#PID").val(val.value);
+                            }
+                            return true;
+                        },
+                        success: function (id, url, searchVal, result) {      //使用远程方式的success回调
+                            layui.formSelects.value('sltPID', [value]);      //赋值 北京,上海
+                        },
+                        tree: {
+                            //在点击节点的时候, 如果没有子级数据, 会触发此事件
+                            nextClick: function (id, item, callback) {
+         
+                            },
+                        }
+                    })
+                }
+
+                function initVue(data) {
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            LangConfig: LangConfig,
+                            model: data
+                        }
+                    });
+                }
+                function doSubmit() {
+                    $("#btnSubmit").click();
+                }
+   
+            </script>
+        }

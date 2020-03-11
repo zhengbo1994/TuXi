@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "数据编辑";
+    ViewBag.Controller = "DataEditor";
+    Layout = "~/Views/Shared/_CommonEditor.cshtml";
+}
+@section contentMenu
+    {
+    <ul>
+        <li id="editAttr" onclick="editAttr();" data-permession-button="编辑">属性编辑</li>
+        <li id="editStyle" onclick="editStyle();" data-permession-button="编辑">样式编辑</li>
+        <li id="removeLayer" onclick="removeLayer();" data-permession-button="删除">删除图层</li>
+    </ul>
+
+    }
+
+@section script{
+<script>
+
+    function onRightClick(event, treeId, treeNode) {
+        currentLayer = treeNode;
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        if (treeNode.pId) {
+            zTree.selectNode(treeNode);
+            showRMenu("node", event.clientX, event.clientY);
+        }
+    }
+
+
+    function showRMenu(type, x, y) {
+        $("#rMenu ul").show();
+        y += document.body.scrollTop;
+        x += document.body.scrollLeft;
+        $("#rMenu").css({ "top": y + "px", "left": x + "px", "visibility": "visible" });
+
+        $("body").bind("mousedown", onBodyMouseDown);
+    }
+
+    function onBodyMouseDown(event) {
+        if (!(event.target.id == "rMenu" || $(event.target).parents("#rMenu").length > 0)) {
+            $("#rMenu").css({ "visibility": "hidden" });
+        }
+    }
+
+
+    function editStyle() {
+
+        if (!currentLayer || !currentLayer.id) {
+            alert('请选择图层');
+            return;
+        }
+        layui.showDlg({
+            title: "样式编辑",
+            content: '@Url.Action("StyleList")?layerId=' + currentLayer.id + "&defaultStyleId=" + currentLayer.tag1,
+            area: ['60%', '90%'],
+            yes: function (index, layno) {
+                var iframeWin = window[layno.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                iframeWin.uploadLayerStyle();
+
+            }
+        });
+    }
+
+    function editAttr() {
+        if (!currentLayer || !currentLayer.id) {
+            alert('请选择图层');
+            return;
+        }
+
+        layui.showDlg({
+            title: "属性编辑",
+            content: '@Url.Action("EditAttribute")?layerId=' + currentLayer.id,
+            area: ['80%', '100%'],
+            yes: function (index, layno) {
+                var iframeWin = window[layno.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+
+            },
+            btn:[]
+        });
+    }
+
+    function removeLayer() {
+        if (!currentLayer || !currentLayer.id) {
+            alert('请选择图层');
+            return;
+        }
+
+        confirm('是否删除', function () {
+            $.post({
+                url: Base.getApiUrl("/DataManager/RemoveFile"),
+                data: { "": currentLayer .tag},
+                success: function (resp) {
+                    if (resp.code == 0) {
+
+                        window.frames["page-frame"].removeLayer(currentLayer.id,true);
+                        window.frames["page-frame"].moveTo();
+
+                        layer.closeAll();
+                        //initLayerTree();
+                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                        zTree.removeNode(currentLayer);
+                    }
+                }
+            })
+        });
+    }
+
+</script>
+    }

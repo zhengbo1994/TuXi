@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "_SelectAreaLayout";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/eleTree/eleTree.css")" media="all">
+}
+<div class="layui-col-md12">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div class="eleTree ele3" lay-filter="data3"></div>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script>
+    var tree;
+
+    var currentCode;
+    var currentName;
+    layui.initModule(['eleTree'], function () {
+            tree = layui.eleTree;
+
+            initTree();
+        });
+
+        function initTree() {
+            var index = layer.load();
+            layui.initTree({
+                elem: '.ele3',
+                url: Base.getApiUrl("@ViewBag.ApiPath"),
+                where: {
+                    usercode: '@UserIdentityContext.CurrentUserName',
+                }
+            });
+            tree.on("nodeClick(data3)", function (d) {
+                currentCode = d.data.currentData.id;
+                currentName = d.data.currentData.label;
+            })
+        }
+
+        function isValid()
+        {
+            if (!currentCode)
+            {
+                alert('请先选择节点');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+}

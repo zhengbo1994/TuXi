@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{LangConfig.CommonText.systemName}} - {{LangConfig.HomeText.main}}</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/layui/css/layui.css")" media="all">
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/style/admin.css")" media="all">
+    <style > 
+        .scrollbar {
+        overflow-y: auto;
+    }
+
+    .scrollbar::-webkit-scrollbar {
+        width: 6px;
+        background-color: rgba(217,217,217,0.3);
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(217,217,217,0.3);
+        border-radius: 6px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(217,217,217,0.3);
+        background-color: #fff;
+    }
+
+    </style >
+     @Html.Partial("_ConfigLayout")
+</head>
+<body class="layui-layout-body">
+
+    <div id="LAY_app">
+        <div class="layui-layout layui-layout-admin" id="app">
+            <div class="layui-header">
+                <!-- 头部区域 -->
+                <ul class="layui-nav layui-layout-left">
+                    <li class="layui-nav-item layadmin-flexible" lay-unselect>
+                        <a href="javascript:;" layadmin-event="flexible" v-bind:title="LangConfig.HomeText.sideSlip">
+                            <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+                    @*<li class="layui-nav-item layui-hide-xs" lay-unselect>
+                        <a href="javascript:;" layadmin-event="lang" id="changeLang" v-bind:title="LangConfig.CommonText.language">
+                            <i class="layui-icon layui-icon-read"></i>
+                        </a>
+                    </li>*@
+                    <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                        <a href="javascript:;" layadmin-event="theme" v-bind:title="LangConfig.CommonText.theme">
+                            <i class="layui-icon layui-icon-theme"></i>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                        <a href="javascript:;" layadmin-event="fullscreen" v-bind:title="LangConfig.CommonText.screen">
+                            <i class="layui-icon layui-icon-screen-full"></i>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item" lay-unselect>
+                        <a href="javascript:;">
+                            <cite>@UserIdentityContext.CurrentUserName</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="@Url.Action("userbaseinfo", "SystemManage")">{{LangConfig.HomeText.baseInfo}}</a></dd>
+                            <dd><a lay-href="@Url.Action("Changepassword", "Account")">{{LangConfig.HomeText.changePassword}}</a></dd>
+                            <dd id="sysLogout" style="text-align: center;cursor:pointer"><a>{{LangConfig.HomeText.logout}}</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                        <a href="javascript:;" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>
+                    </li>
+                    <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>
+                        <a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 侧边菜单 -->
+            <div class="layui-side layui-side-menu">
+                <div class="layui-side-scroll">
+                    <div class="layui-logo" lay-href="home/console.html">
+                        <span>{{LangConfig.CommonText.systemName}}</span>
+                    </div>
+
+                    <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+                        <li data-name="index" class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;" lay-href="@Url.Action("main","home")" v-bind:lay-tips="LangConfig.HomeText.index" lay-direction="2">
+                                <i class="layui-icon layui-icon-home"></i>
+                                <cite>{{LangConfig.HomeText.index}}</cite>
+                            </a>
+                        </li>
+                        @*<li data-name="layerManage" class="layui-nav-item">
+                            <a href="javascript:;" lay-href="@Url.Action("index","layerManager")" v-bind:lay-tips="LangConfig.HomeText.layerManage" lay-direction="2">
+                                <i class="layui-icon layui-icon-layer"></i>
+                                <cite>{{LangConfig.HomeText.layerManage}}</cite>
+                            </a>
+                        </li>
+                        <li data-name="mapManage" class="layui-nav-item">
+                            <a href="javascript:;" lay-href="@Url.Action("index", "mapManager")" v-bind:lay-tips="LangConfig.HomeText.mapManage" lay-direction="2">
+                                <i class="layui-icon layui-icon-location"></i>
+                                <cite>{{LangConfig.HomeText.mapManage}}</cite>
+                            </a>
+                        </li>
+                        <li data-name="styleManage" class="layui-nav-item">
+                            <a href="javascript:;" lay-href="@Url.Action("index", "styleManager")" v-bind:lay-tips="LangConfig.HomeText.styleManage" lay-direction="2">
+                                <i class="layui-icon layui-icon-layouts"></i>
+                                <cite>{{LangConfig.HomeText.styleManage}}</cite>
+                            </a>
+                        </li>*@
+                        <li data-name="dataManage" class="layui-nav-item">
+                            <a href="javascript:;" lay-href="@Url.Action("index", "dataManager")" v-bind:lay-tips="LangConfig.HomeText.dataManage" lay-direction="2">
+                                <i class="layui-icon layui-icon-upload-drag"></i>
+                                <cite>{{LangConfig.HomeText.dataManage}}</cite>
+                            </a>
+                        </li>
+                        <li data-name="dataEdit" class="layui-nav-item">
+                            <a href="javascript:;" lay-href="@Url.Action("index", "dataEditor")" v-bind:lay-tips="LangConfig.HomeText.dataEdit" lay-direction="2">
+                                <i class="layui-icon layui-icon-edit"></i>
+                                <cite>{{LangConfig.HomeText.dataEdit}}</cite>
+                            </a>
+                        </li>
+                        <li data-name="themeMapping" class="layui-nav-item">
+                            <a href="javascript:;" lay-href="@Url.Action("index", "thematicMapping")" v-bind:lay-tips="LangConfig.HomeText.themeMapping" lay-direction="2">
+                                <i class="layui-icon layui-icon-theme"></i>
+                                <cite>{{LangConfig.HomeText.themeMapping}}</cite>
+                            </a>
+                        </li>
+                        <li data-name="publishSystem" class="layui-nav-item">
+                            <a href="javascript:;"   v-bind:lay-tips="LangConfig.HomeText.publishSystem" lay-direction="2">
+                                <i class="layui-icon">&#x1005;</i>
+                                <cite>{{LangConfig.HomeText.publishSystem}}</cite>
+                            </a>
+                            <dl class="layui-nav-child">
+                                <dd>
+                                    <a lay-href="@Url.Action("basicInfo", "publishSystem")">{{LangConfig.CommonText.basicInfo}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("Countory", "publishSystem")">{{LangConfig.CommonText.countory}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("Province", "publishSystem")">{{LangConfig.CommonText.province}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("Area", "publishSystem")">{{LangConfig.CommonText.area}}</a>
+                                </dd>
+                            </dl>
+                        </li>
+               
+                        <li data-name="tools" class="layui-nav-item">
+                            <a href="javascript:;" v-bind:lay-tips="LangConfig.HomeText.tools" lay-direction="2">
+                                <i class="layui-icon layui-icon-util"></i>
+                                <cite>{{LangConfig.HomeText.tools}}</cite>
+                            </a>
+                            <dl class="layui-nav-child">
+                                <dd>
+                                    <a lay-href="@Url.Action("formatConversion", "tools")">{{LangConfig.HomeText.formatConversion}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("coordinateConversion", "tools")">{{LangConfig.HomeText.coordinateConversion}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("shadowConversion", "tools")">{{LangConfig.HomeText.shadowConversion}}</a>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li data-name="systemManage" class="layui-nav-item">
+                            <a href="javascript:;" v-bind:lay-tips="LangConfig.HomeText.systemManage" lay-direction="2">
+                                <i class="layui-icon layui-icon-set-sm"></i>
+                                <cite>{{LangConfig.HomeText.systemManage}}</cite>
+                            </a>
+                            <dl class="layui-nav-child">
+                                @*<dd>
+                                    <a lay-href="@Url.Action("config", "SystemManage")">{{LangConfig.HomeText.config}}</a>
+                                </dd>*@
+                                <dd>
+                                    <a lay-href="@Url.Action("userlist", "SystemManage")">{{LangConfig.HomeText.userlist}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("logger", "SystemManage")">{{LangConfig.HomeText.logger}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("Geologger", "SystemManage")">{{LangConfig.HomeText.geologger}}</a>
+                                </dd>
+                                <dd>
+                                    <a lay-href="@Url.Action("publishService", "SystemManage")">{{LangConfig.HomeText.publishService}}</a>
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 页面标签 -->
+            <div class="layadmin-pagetabs" id="LAY_app_tabs">
+                <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+                <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+                <div class="layui-icon layadmin-tabs-control layui-icon-down">
+                    <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+                        <li class="layui-nav-item" lay-unselect>
+                            <a href="javascript:;"></a>
+                            <dl class="layui-nav-child layui-anim-fadein">
+                                <dd layadmin-event="closeThisTabs"><a href="javascript:;">{{LangConfig.CommonText.closeThisTab}}</a></dd>
+                                <dd layadmin-event="closeOtherTabs"><a href="javascript:;">{{LangConfig.CommonText.closeOtherTabs}}</a></dd>
+                                <dd layadmin-event="closeAllTabs"><a href="javascript:;">{{LangConfig.CommonText.closeAllTabs}}</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+                <div class="layui-tab" lay-unauto lay-allowclose="true" lay-filter="layadmin-layout-tabs">
+                    <ul class="layui-tab-title" id="LAY_app_tabsheader">
+                        <li lay-id="home/console.html" lay-attr="home/console.html" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- 主体内容 -->
+            @RenderBody()
+
+            <!-- 辅助元素，一般用于移动设备下遮罩 -->
+            <div class="layadmin-body-shade" layadmin-event="shade"></div>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Content/lang/lang." + UserConfigContext.CurrentLang + ".js")"></script>
+    <script src="@Url.Content("~/Content/vue/vue.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+    <script src="@Url.Content("~/Content/layuiadmin/layui/layui.js")"></script>
+    <script src="@Url.Content("~/Content/js/app.base.js")"></script>
+    <script src="@Url.Content("~/Content/js/ajax.ext.js")"></script>
+    <script src="@Url.Content("~/Content/js/layui.ext.js")"></script>
+    <script>
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                LangConfig: LangConfig
+            },
+            created: function () {
+                var title = document.getElementsByTagName("title")[0].innerText;
+                document.getElementsByTagName("title")[0].innerText = title.replace("{{LangConfig.CommonText.systemName}}", LangConfig.CommonText.systemName).replace("{{LangConfig.HomeText.main}}", LangConfig.HomeText.main)
+            }
+        });
+
+        layui.initModule([],function () {
+           
+        });
+     
+        $(function () {
+            $("#sysLogout").click(function () {
+
+                top.location.href = "@Url.Action("logout","account")";
+            });
+
+            $("#changeLang").click(function () {
+                confirm(LangConfig.CommonText.changeLanguage, function () {
+                    $.post({
+                        url: "@Url.Action("ChangeLang","Base")",
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                top.location.reload();
+                            }
+                        }
+                    });
+                })
+            });
+        })
+    </script>
+</body>
+</html>

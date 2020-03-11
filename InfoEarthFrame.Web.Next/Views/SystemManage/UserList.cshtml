@@ -1,0 +1,203 @@
+﻿@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/eleTree/eleTree.css")" media="all">
+    <style>
+        .layui-body {
+            overflow-y: scroll !important;
+        }
+
+     
+
+        body {
+            overflow-y: scroll !important;
+        }
+    </style>
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs6 layui-col-md2">
+            <!-- 填充内容 -->
+            <div class="layui-card">
+                <div class="layui-card-header">区域范围<a href="javascript:void(0)" title="刷新" onclick="initTree()"><i class="layui-icon">&#xe9aa;</i></a> </div>
+                <div class="layui-card-body"><div class="eleTree ele3" lay-filter="data3"></div></div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md10">
+            <div class="layui-card">
+                <div class="layui-card-header">用户列表</div>
+                <div class="layui-card-body">
+                    <div class="test-table-reload-btn" style="margin-top: 10px;margin-left:15px">
+                        用户名：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="username" id="txtUsername" autocomplete="off">
+                        </div>
+                        <button class="layui-btn" data-type="reload" onclick="initGrid()">搜索</button>
+                    </div>
+                    <div class="layui-card-body" style="overflow-x:hidden">
+                        <table class="layui-hide" id="user-table" lay-filter="user-table"></table>
+                        <script type="text/html" id="user-table-toolbar">
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="addUser('新增')"><i class="layui-icon"></i>新增</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm"  onclick="editUser('编辑')"><i class="layui-icon"></i>编辑</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm"  onclick="removeUser()"><i class="layui-icon"></i>删除</button>
+                                <button style="margin-left:10px" class="layui-btn layui-btn-primary layui-btn-sm" onclick="resetPassword()"><i class="layui-icon">&#xe673;</i>重置密码</button>
+                            </div>
+
+                            <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section script{
+    <script>
+        var table;
+        var admin;
+        var tree;
+
+        var currentCode = '';
+        var currentUser = '';
+        layui.initModule([ 'table', 'eleTree'], function () {
+            admin = layui.admin;
+            table = layui.table;
+            tree = layui.eleTree;
+
+            initTree();
+            initGrid();
+        
+        });
+
+        function initTree() {
+
+            layui.initTree({
+                elem: '.ele3',
+                url: Base.getApiUrl("/SystemManage/GetAreaInfoByUserCode"),
+                where: {
+                    usercode: 'admin',
+                }
+            });
+            tree.on("nodeClick(data3)", function (d) {
+                currentCode = d.data.currentData.id;
+                initGrid();
+            })
+        }
+     
+        function initGrid() {
+            currentUser = null;
+            layui.initGird({
+                id: "user-table"
+              , elem: '#user-table'
+            , url: Base.getApiUrl("/SystemManage/GetAllPageListByCondition")
+          , title: '用户列表'
+          , cols: [[
+             { type: 'checkbox', fixed: 'left', event: 'setSign' }
+              , { field: 'Id', hide: true }
+            , { field: 'UserName', title: '姓名', event: 'setSign' }
+            , { field: 'UserCode', title: '登录账号' }
+            , { field: 'Phone', title: '联系手机' }
+            , { field: 'TelPhone', title: '联系电话' }
+            , { field: 'Department', title: '组织机构代码' }
+            , { field: 'Position', title: '职务' }
+          ]],
+                where: {
+                    areaCode: currentCode,
+                    userName: $.trim($("#txtUsername").val()),
+                    usercode: 'admin',
+                },
+                toolbar: '#user-table-toolbar'
+            });
+
+            //监听行单击事件
+            table.on('row(user-table)', function (obj) {
+                currentUser = obj.data
+            });
+
+            table.on('rowDouble(user-table)', function (obj) {
+                currentUser = obj.data
+                editUser('编辑')
+            });
+        }
+
+        function addUser(action) {
+            openDlg(action, '');
+        }
+
+        function openDlg(action, id) {
+             
+            layui.showDlg({
+                offset:'150px',
+                title: action + "用户",
+                content: '@Url.Action("AddOrEditUser")?id=' + id,
+                area: ['45%', 'auto'],
+                yes: function (index, layero) {
+                    debugger
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                    iframeWin.doSubmit();
+                }
+            });
+        }
+        function editUser(action) {
+            if (!currentUser) {
+                alert('请选择用户');
+            }
+
+            openDlg(action, currentUser.Id);
+        }
+
+        function removeUser() {
+
+            var ids = getCheckedIds();
+            if (ids.length == 0) {
+                alert('请选择用户');
+                return;
+            }
+            confirm('是否删除', function () {
+                $.post({
+                    url: Base.getApiUrl("/SystemManage/RemoveUser"),
+                    data: { "": ids.join(",") },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            initGrid();
+                            layer.closeAll();
+                        }
+                    }
+                })
+            });
+        }
+
+        function getCheckedIds() {
+            return layui.Grid.getCheckedIds('user-table');
+        }
+
+        function resetPassword() {
+            var ids = getCheckedIds();
+            if (ids.length == 0) {
+                alert('请选择用户');
+                return;
+            }
+
+            confirm("是否将密码重置成" + Config["DefaultPassword"] + "?", function () {
+                $.post({
+                    url: Base.getApiUrl("/SystemManage/ResetPassword"),
+                    data: { ids: ids.join(","), password: Config["DefaultPassword"] },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            alert('密码已重置');
+                            initGrid();
+                        }
+                    }
+                });
+            })
+        }
+
+    </script>
+}

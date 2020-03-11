@@ -1,0 +1,155 @@
+﻿<!-- 系统日志页面 create by xiongx /// controller:  'sysLogCtrl' -  localtion: App/Main/assets/js/controllers/sysLogCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="sysLogCtrl" id="sysLog">
+    <div class="row">
+        <div class="col-sm-12 container_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.System.SystemLog.SystemLog">系统日志</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <div class="inquire-input-box">
+                        <div class="col-sm-12">
+                            <div class="col-sm-4 inquire-input-item" style="margin-bottom:20px;">
+                                <span translate="views.System.SystemLog.User">>操作用户：</span>
+                                <input id="selectUserInput" placeholder="{{'views.System.SystemLog.ChooseUser'|translate}}" ng-click="openPopwinFun()" readonly ng-model="searchUserName">
+                            </div>
+                            <div class="col-sm-4 inquire-input-item" style="margin-bottom:20px;">
+                                <span translate="views.System.SystemLog.System">>操作类型：</span>
+                                <ui-select class="ui-select-width" ng-model="actionType.selected" on-select="typeSelect" theme="select2" title="请选择..." search-enabled=false>
+                                    <ui-select-match placeholder="{{'views.System.SystemLog.Choose'|translate}}">{{$select.selected.type}}</ui-select-match>
+                                    <ui-select-choices class="ui-select-height" repeat="p in actionType">
+                                        <div ng-bind-html="p.type"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <div class="col-sm-4 inquire-input-item" style="margin-bottom:20px;">
+                                <span translate="views.System.SystemLog.Functions">系统功能：</span>
+                                <ui-select class="ui-select-width" ng-model="systemFunc.selected" on-select="funceSelect" theme="select2" title="请选择..." search-enabled=false>
+                                    <ui-select-match placeholder="{{'views.System.SystemLog.Choose'|translate}}">{{$select.selected.func}}</ui-select-match>
+                                    <ui-select-choices class="ui-select-height" repeat="p in systemFunc">
+                                        <div ng-bind-html="p.func"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-4 inquire-input-item" style="margin-bottom:20px;">
+                                <span translate="views.System.SystemLog.queryTime">查询时间：</span>
+                                <mic-calendar ng-if="isEnglish==0" section date-selected="betweenCalendar" date-format="" min="" max="" mic-calendar></mic-calendar>
+                                <mic-calendars ng-if="isEnglish==1" section date-selected="betweenCalendar" date-format="" min="" max="" mic-calendar></mic-calendars>
+                            </div>
+                            <div class="col-sm-6" style="margin-bottom:20px;height:34px;">
+                                <div class="time-select">
+                                    <span translate="views.System.SystemLog.Today" ng-click="setTime('today')">今天</span>
+                                    <span translate="views.System.SystemLog.aWeek" ng-click="setTime('sevenDays')">近七天</span>
+                                    <span translate="views.System.SystemLog.aMonth" ng-click="setTime('oneMonth')">近一个月</span>
+                                    <span translate="views.System.SystemLog.threeMonths" ng-click="setTime('threeMonth')">近三个月</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-2" style="margin-bottom:20px; text-align:right; padding-right:10px;">
+                                <a class="btn btn-wide btn-primary" href="javascript:;" ng-click="getSystemLog()" translate="views.System.SystemLog.Inquire">查询</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <table class="table table-bordered table-user font-content-small">
+                                <thead>
+                                    <tr>
+                                        <th translate="views.System.SystemLog.SerialNumber">序号</th>
+                                        <th translate="views.System.SystemLog.operateTime">操作时间</th>
+                                        <th translate="views.System.SystemLog.User">操作用户</th>
+                                        <th translate="views.System.SystemLog.Functions">系统功能</th>
+                                        <th translate="views.System.SystemLog.Results">执行结果</th>
+                                        <th translate="views.System.SystemLog.Description">执行结果描述</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="tr in logData">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{tr.operateTime}}</td>
+                                        <td>{{tr.userName}}</td>
+                                        <td>{{tr.systemFunc}}</td>
+                                        <td>{{tr.result}}</td>
+                                        <td>{{tr.resultDescribe}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="height: 30px;">
+                                <pagination style="float: left; margin: 0 !important;" first-text="{{'paging.home'|translate}}" previous-text="{{'paging.previous'|translate}}" next-text="{{'paging.next'|translate}}" last-text="{{'paging.last'|translate}}" items-per-page="pageSize"
+                                            total-items="pageCounts" ng-model="pageIndex" max-size="maxSize" class="pagination-sm"
+                                            boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages" ng-change="pageChanged()"></pagination>
+                                <ul class="pagination" style="float: left; margin: 0 !important;">
+                                    <li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage" ng-keydown="pageChanged(goPage,$event)" /></li>
+                                    <li><a style="padding: 4px 10px;" ng-click="pageChanged(goPage)">GO</a></li>
+                                    <li>
+                                        <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">
+                                            <span translate="paging.word1">第</span>{{pageIndex}}<span translate="paging.word2">页</span>
+                                            /
+                                            <span translate="paging.word3">共</span>{{totalPages}}<span translate="paging.word2">页</span>
+                                            ，
+                                            <span translate="paging.word4">总计</span>{{pageCounts}}<span translate="paging.word5">条记录</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <div style="clear: both; height: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 选择操作用户弹窗 -->
+        <mic-ui-modals popwinmodal="inputModal" open-popwin-fun="openPopwinFun" template-url="selectUser.html" popwin-icon="" popwin-title="inputModal.modalTitle" size="lg" win-class="selectUserModal" backdrop="'static'" resolve="" on-opened="openedBack" on-submit="submitForm" on-cancel="cancel" submit-text="{{'setting.sure'|translate}}" cancel-text="{{'setting.cancel'|translate}}"></mic-ui-modals>
+        <script type="text/ng-template" id="selectUser.html">
+            <div class="selectUser-container">
+                <div class="container-left">
+                    <div class="panel panel-white panel-bottom0" style="height: 100%;">
+                        <div class="panel-heading border-bottom">
+                            <span class="font-title-middle" translate="views.System.SystemLog.QueryConditions">查询条件</span>
+                        </div>
+                        <div class="panel-body panel-fixed" style="height: calc(100% - 53px);overflow-y:auto;overflow-x:hidden">
+                            <abn-tree class="font-title-btn" tree-data="popwinmodal.departmentTreeData" initial-selection="{{'setting.all'|translate}}" on-select="popwinmodal.departmentSelected" selected-data="popwinmodal.treeSelected" tree-control="popwinmodal.treeControl"></abn-tree>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-center">
+                    <div class="search-box">
+                        <input type="text" style="height: 34px; width: 214px; margin: 10px 10px 10px 0;" ng-model="popwinmodal.searchName" class="ng-pristine ng-untouched ng-valid" placeholder="{{'views.System.SystemLog.SeachforName'|translate}}">
+                        <span class="btn btn-primary btn-o font-title-little" ng-click="popwinmodal.searchUserByName()" translate="views.System.SystemLog.search">搜索</span>
+                    </div>
+                    <mic-data-tables class="layerClass form-table-checkbox font-content-small"
+                                     checkable
+                                     checked-data="popwinmodal.chedckedData"
+                                     pageing="popwinmodal.pageing"
+                                     on-page-change="popwinmodal.pageChanged"
+                                     table-bordered
+                                     tbody-height="368"
+                                     thead="{{'views.System.SystemLog.name'|translate}},{{'views.System.SystemLog.Organization'|translate}}"
+                                     on-td-checked="popwinmodal.onTdChecked"
+                                     td-params="{'userName':{'type':'span','isclick':false,'isedit':false},'label':{'type':'span','isclick':false,'isedit':false}}"
+                                     datasets="popwinmodal.resultName">
+                    </mic-data-tables>
+                </div>
+                <div class="container-right">
+                    <div class="panel panel-white panel-bottom0" style="height: 100%;">
+                        <div class="panel-heading border-bottom">
+                            <span class="font-title-middle" translate="views.System.SystemLog.SelectedUser">已选中的操作用户</span>
+                        </div>
+                        <div class="panel-body panel-fixed" style="height: calc(100% - 53px);overflow-y:auto;overflow-x:hidden">
+                            <mic-data-tables class="layerClass form-table-checkbox font-content-small"
+                                             table-bordered
+                                             tbody-height="376"
+                                             thead="{{'views.System.SystemLog.name'|translate}}"
+                                             td-params="{'userName':{'type':'span','isclick':false,'isedit':false}}"
+                                             table-btn-params="popwinmodal.tabBtnParams"
+                                             table-btn-html="[{'name': '删除','text':'','icon':'ti-close'}]"
+                                             datasets="popwinmodal.chedckedData" id="selectedUserList">
+                            </mic-data-tables>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+    </div>
+</div>

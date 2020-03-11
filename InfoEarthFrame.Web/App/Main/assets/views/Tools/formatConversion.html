@@ -1,0 +1,131 @@
+﻿<!-- 工具集-格式转换 create by huqr /// controller:  'formatCtrl' -  localtion: App/Main/assets/js/controllers/Tools/formatCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="formatCtrl">
+    <div class="row">
+        <div class="col-sm-12 container_padding  container_cross_padding" style="padding-left:6px !important;">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Toolset.FormatConversion.FormatConversion">格式转换</span>
+                </div>
+                <div class="panel-body panel-fixed" style="min-height: 500px !important;">
+                    <!-- 内容 -->
+                    <p class="font-content-small" ng-if="showtab1===true" translate="views.Toolset.FormatConversion.Tips_1">Map2Shp转换支持MapGIS文件转换为ArcGIS文件</p>
+                    <p class="font-content-small" ng-if="showtab1===false" translate="views.Toolset.FormatConversion.Tips_2">格式转换仅支持MapInfo File和ArcGIS的文件转换为其他格式的文件</p>
+                    <p class="font-content-small" ng-if="showtab1===false" translate="views.Toolset.FormatConversion.Tips_3">请选择同名的所有文件进行上传，ArcGIS包括shp、shx、prj、dpf，MapInfo包括tab、dat、id、map,否则无法进行后续操作</p>
+                    <div>
+                        <tabset type="roundline" class="tabbable" no-tab-content ng-if="isEnglish!=1">
+                            <tab class="tabpadding0 font-content-middle" heading="Map2Shp" select="selectTab(true)"></tab>
+                            <tab class="tabpadding0 font-content-middle" heading="{{'views.Toolset.FormatConversion.FormatConversion'|translate}}" select="selectTab(false)"></tab>
+                        </tabset>
+                        <div>
+                            <div ng-if="showtab1===true">
+                                <div style="margin-bottom: 10px;">
+                                    <bp-upload-btn on-all-success="onAllSuccess1" file-type="wl,wt,wp,WL,WT,WP" mime-types=".wl,.wt,.wp,.WL,.WT,.WP">
+                                        上传文件
+                                    </bp-upload-btn>
+                                </div>
+                                <div class="table-responsive" style="max-height: 450px;">
+                                    <table class="table table-bordered table-hover font-content-small">
+                                        <thead>
+                                            <tr>
+                                                <th translate="views.Toolset.FormatConversion.SerialNumber">序号</th>
+                                                <th translate="views.Toolset.FormatConversion.FileName">文件名称</th>
+                                                <th translate="views.Toolset.FormatConversion.FileSize">文件大小</th>
+                                                <th translate="views.Toolset.FormatConversion.FileType">文件类型</th>
+                                                <th translate="views.Toolset.FormatConversion.UploadTime">文件上传时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="b in fileDatas1">
+                                                <td>
+                                                    {{ $index + 1 }}
+                                                </td>
+                                                <td>
+                                                    {{ b.name }}
+                                                </td>
+                                                <td>
+                                                    {{ b.size | changeSize: '' }}
+                                                </td>
+                                                <td>
+                                                    {{ b.type }}
+                                                </td>
+                                                <td>
+                                                    {{ b.date | changeDate: '' }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="position: relative; margin-top: 20px;">
+                                    <a class="btn btn-o btn-primary font-title-btn" href="javascript:;" style="position: absolute; right: 0;" ng-click="uploadTwice1()" translate="views.Toolset.FormatConversion.FormatConversion">格式转换</a>
+                                </div>
+                            </div>
+
+                            <div ng-if="showtab1===false">
+                                <div style="margin-bottom: 10px;">
+                                    <bp-upload-btn on-all-success="onAllSuccess2" file-type="dat,id,map,tab,shp,shx,dbf,prj" mime-types=".dat,.id,.map,.tab,.shp,.shx,.dbf,.prj">
+                                        上传文件
+                                    </bp-upload-btn>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <label class="font-title-small" style="margin-right: 10px;" translate="views.Toolset.FormatConversion.Tips_4">选择输出文件格式:</label>
+                                    <input type="text" ng-model="outputType" ng-click="choseOutType()" readonly="readonly" />
+                                </div>
+                                <div class="table-responsive" style="max-height: 450px;">
+                                    <table class="table table-bordered table-hover font-content-small">
+                                        <thead>
+                                            <tr>
+                                                <th translate="views.Toolset.FormatConversion.SerialNumber">序号</th>
+                                                <th translate="views.Toolset.FormatConversion.FileName">文件名称</th>
+                                                <th translate="views.Toolset.FormatConversion.FileSize">文件大小</th>
+                                                <th translate="views.Toolset.FormatConversion.FileType">文件类型</th>
+                                                <th translate="views.Toolset.FormatConversion.UploadTime">文件上传时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="b in fileDatas2">
+                                                <td>
+                                                    {{ $index + 1 }}
+                                                </td>
+                                                <td>
+                                                    {{ b.name }}
+                                                </td>
+                                                <td>
+                                                    {{ b.size | changeSize: '' }}
+                                                </td>
+                                                <td>
+                                                    {{ b.type }}
+                                                </td>
+                                                <td>
+                                                    {{ b.date | changeDate: '' }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="position: relative; margin-top: 20px;">
+                                    <a class="btn btn-o btn-primary font-title-btn" href="javascript:;" style="position: absolute; right: 0;" ng-click="uploadTwice2()" translate="views.Toolset.FormatConversion.FormatConversion">格式转换</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--选择上传/输出格式弹窗-->
+    <mic-ui-modal popwinmodal="choseType" open-popwin-fun="openChoseTypeFun" template-url="choseType.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="'static'" popwin-title="choseType.title" size="" win-class="choseTypeClass" on-opened="choseType.open" on-submit="choseType.submit" on-cancel="choseType.cancal">
+    </mic-ui-modal>
+    <script type="text/ng-template" id="choseType.html">
+        <!-- 表单内容 ---start--- -->
+        <div class="form-group" style="padding: 15px;">
+            <mic-data-tables class="font-content-small" table-class="table-bordered"
+                             on-cell-click="popwinmodal.choseOne" table-bordered tbody-height="260"
+                             thead="{{'views.Toolset.FormatConversion.description'|translate}},{{'views.Toolset.FormatConversion.FileExtension'|translate}},{{'views.Toolset.FormatConversion.Remarks'|translate}}"
+                             td-params="{'codeName':{'type':'span','isclick':true},'codeValue':{'type':'span','isclick':true},'codeDesc':{'type':'span','isclick':true}}"
+                             datasets="popwinmodal.formatData">
+            </mic-data-tables>
+        </div>
+        <!-- 表单内容 ---end--- -->
+    </script>
+</div>

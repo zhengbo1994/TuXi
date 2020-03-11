@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "增加或编辑用户";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@*<link href="~/Content/codemirror-5.43.0/doc/docs.css" rel="stylesheet" />*@
+<link rel="stylesheet" href="~/Content/codemirror-5.43.0/lib/codemirror.css">
+<link rel="stylesheet" href="~/Content/codemirror-5.43.0/addon/hint/show-hint.css">
+<style>
+    .CodeMirror {
+     height:520px !important;
+    }
+</style>
+
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card">
+        <div class="layui-card-body" id="app">
+            <form class="layui-form" action="" lay-filter="component-form-group">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">样式名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="StyleName" id="txtStyleName" v-model="model.StyleName" lay-verify="required" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">样式类型</label>
+
+                    <div class="layui-input-block">
+                        <select lay-filter="StyleDataType" id="StyleDataType" name="StyleDataType" class="layui-input" v-model="model.StyleDataType" lay-verify="required">
+                            <option value="">请选择</option>
+                            <option value="6b6941f1-67a3-11e7-8eb2-005056bb1c7e">点</option>
+                            <option value="7776934c-67a3-11e7-8eb2-005056bb1c7e">线</option>
+                            <option value="a2758dc0-67a3-11e7-8eb2-005056bb1c7e">面</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="display:none;">
+                    <label class="layui-form-label">配置类型</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="StyleConfigType" lay-verify="required" @*v-model="model.StyleConfigType"*@ value="3" readonly="readonly" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">样式描述</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="" id="StyleDesc" name="StyleDesc" class="layui-textarea"  v-model="model.StyleDesc"></textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">样式内容</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="" lay-verify="required" id="StyleContent" name="StyleContent" class="layui-textarea" style="height:700px;" v-model="model.StyleContent">
+<?xml version="1.0" encoding="UTF-8" ?>
+<sld:styledlayerdescriptor xmlns="http://www.opengis.net/sld" xmlns:sld="http://www.opengis.net/sld" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" version="1.0.0">
+<!--请在此填充内容-->
+                        </textarea>
+                    </div>
+                </div>
+
+                <button class="layui-btn" lay-submit="" lay-filter="component-form" id="btnSubmit" style="display:none">立即提交</button>
+                <input type="hidden" name="Department" id="hidDepartmentCode" v-model="model.Department" />
+                <input type="hidden" name="Id" v-model="model.Id" />
+            </form>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    <script>
+        var editor;
+        var oldStyleName = '';
+        var areaFullName = "";
+        var areaCode = '';
+        layui.initModule(['form'],
+            function () {
+                var $ = layui.$, form = layui.form;
+
+                initModel();
+
+                form.render(null, 'component-form-group');
+
+                /* 监听提交 */
+                form.on('submit(component-form)',
+                    function (data) {
+        data  =  data.field;
+        if  (data.StyleContent  ==  "")  {
+        data.StyleContent  =  editor.getValue();
+        }
+        var  styleName  =  data.StyleName;
+
+        var  isValid  =  false;
+        $.get({
+        async:  false,
+        url:  Base.getApiUrl("/SystemManage/GetDataStyleStatus"),
+        data:  {
+        rdm:  Math.random(),
+        styleName:  styleName,
+        oldStyleName:  oldStyleName
+        },
+        success:  function  (resp)  {
+        if  (resp.code  !=  0)  {
+        warnning(resp.message);
+        }
+        else  {
+        isValid  =  true;
+        }
+        }
+        });
+        if  (isValid)  {
+                        $.post({
+                            url: Base.getApiUrl("/SystemManage/AddOrEditStyle"),
+                            //data: { StyleName: "1" },
+                            data: data,
+                            success: function (resp) {
+                                if (resp.code == 0) {
+                                    parent.initGrid();
+                                    parent.layer.closeAll();
+                                }
+                            }
+                        });
+        }
+                        return false;
+                    });
+
+                initEditor();
+
+                layui.autoHeight();
+            });
+
+
+        function initModel() {
+            var id = '@Request.QueryString["id"]';
+            if (id) {
+                $.get({
+                    url: Base.getApiUrl("/SystemManage/GetDataStyleById"),
+                    async: false,
+                    data: {
+                        id: id
+                    },
+                    success: function (resp) {
+                        oldStyleName = resp.data.StyleName;
+                        initVue(resp.data);
+                    },
+                    error: function (a, b, c) {
+                        debugger
+                    }
+                });
+            }
+        };
+
+
+        function initVue(data) {
+            new Vue({
+                el: '#app',
+                data: {
+                    LangConfig: LangConfig,
+                    model: data
+                }
+            });
+        }
+
+        function doSubmit() {
+            $("#btnSubmit").click();
+        }
+
+        function initEditor() {
+            editor = CodeMirror.fromTextArea(document.getElementById("StyleContent"),
+                {
+                    mode: "application/xml",
+                    styleActiveLine: true, //line选择是是否加亮
+                    lineNumbers: false, //是否显示行数
+                    lineWrapping: true, //是否自动换行
+                    matchBrackets: true, // 括号匹配
+                    matchClosing: false,
+                    alignCDATA: true,
+                    autocorrect: true,
+                    autoMatchParens: true,
+                    smartIndent: true,
+                    //快捷键
+                    extraKeys: {
+                        "F7": function autoFormat(editor) {
+                            var totalLines = editor.lineCount();
+                            editor.autoFormatRange({ line: 0, ch: 0 }, { line: totalLines });
+                        }//代码格式化
+                    },
+                });
+           // editor.setSize('auto', '388px');
+            //    CodeMirror.commands.autocomplete = function (cm) {
+            //        cm.showHint({ hint: CodeMirror.hint.anyword });
+            //    };
+        }
+    </script>
+}
+
+
+
+<script src="~/Content/codemirror-5.43.0/lib/codemirror.js"></script>
+<script src="~/Content/codemirror-5.43.0/addon/hint/show-hint.js"></script>
+<script src="~/Content/codemirror-5.43.0/addon/hint/xml-hint.js"></script>
+<script src="~/Content/codemirror-5.43.0/mode/xml/xml.js"></script>

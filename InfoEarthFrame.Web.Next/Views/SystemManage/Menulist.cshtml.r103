@@ -1,0 +1,189 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs6 layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">权限设置</div>
+                <div class="layui-card-body">
+                    <div class="layui-card-body" style="overflow-x:hidden">
+                        <table class="menu-table" id="menu-table" lay-filter="menu-table"></table>
+                        <script type="text/html" id="menu-table-toolbar">
+                            @*<div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="addMenu('新增')"><i class="layui-icon"></i>新增</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="editMenu('编辑')"><i class="layui-icon"></i>编辑</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="removeMenu()"><i class="layui-icon"></i>删除</button>
+                            </div>*@
+
+                            <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section script
+{
+    <script>
+    var table;
+    var currentCode = '1';
+    var currentService = '1';
+
+    var editObj = null, ptable = null, treeGrid = null, tableId = 'treeTable', layer = null;
+
+    var dataRef = {
+        id: '', //当前id
+        action: '', //操作状态（新增/修改）
+        currentType: '', //menu/module
+        groupId: '',
+        parentId: '', //上级Id
+        hasPermession: '', //是否有子项
+        currentPath: '' //当前路径（6/64/641）
+    }
+
+
+    layui.initModule(['jquery', 'treeGrid', 'layer', 'form'],
+        function () {
+            var form = layui.form;
+            var $ = layui.jquery;
+            table = layui.table;
+            treeGrid = layui.treeGrid; //很重要
+            layer = layui.layer;
+            //layui.form.render();
+
+            initGrid();
+
+            form.render(null, 'component-form-group');
+        });
+
+    function initGrid() {
+        if (currentCode) {
+            layui.initTreeGird({
+                id: 'menu-table',
+                elem: '#menu-table',
+                url: Base.getApiUrl("/SystemManage/GetGroupMenuPermession"),
+                where: {
+                    groupId: currentCode,
+                },
+                cols: [
+                    [
+                        //{ type: 'checkbox', fixed: 'left', event: 'setSign' },
+                        { field: 'name', title: '菜单名称', event: 'setSign' },
+                        { field: 'Tag', title: '链接地址', event: 'setSign' },
+                              {
+                                  field: 'Icon', title: '图标', align: 'center', event: 'setSign', templet: function (d) {
+                                      return "<i class=\"layui-icon " + (d.Icon) + "\"></i>";
+                                  }
+                              },
+                        {
+                            field: '', title: '', width: 200, align: 'center', event: 'setSign', templet: function (d) {
+                                var html = "";
+                                if (d.Tag1 != "menu") {
+                                    html += "<button class=\"layui-btn layui-btn-xs\" onclick=\"viewFile('" + d.pId + "','" + d.id + "','" + d.Path + "','" + d.Tag1 + "','insert')\">添加</button>";
+                                } else {
+                                    html += "<button class=\"layui-btn layui-btn-xs layui-btn-disabled\">添加</button>";
+                                }
+                                //html += "<button class=\"layui-btn layui-btn-xs layui-btn-normal\"  onclick=\"viewFile('" + d.pId + "','" + d.id + "','" + d.Path + "','" + d.Tag1 + "','update','" + d.name + "','" + (d.Tag1 == "module" ? d.Icon : d.Tag) + "')\">修改</button>";
+                                html += "<button class=\"layui-btn layui-btn-xs layui-btn-normal\"  onclick=\"viewFile('" + d.pId + "','" + d.id + "','" + d.Path + "','" + d.Tag1 + "','update','" + d.name + "','" + (d.Tag1 == "module" ? d.Icon : d.Tag) + "')\">修改</button>";
+                                html += "<button class=\"layui-btn layui-btn-xs layui-btn-danger\"  onclick=\"viewFile('" + d.pId + "','" + d.id + "','" + d.Path + "','" + d.Tag1 + "','delete')\">删除</button>";
+                                return html;
+                            }
+                        }
+                    ]
+                ],
+                toolbar: "#menu-table-toolbar",
+                done: function (res, curr, count) {
+                    layui.form.render();
+                }
+            });
+        }
+    }
+
+    function addMenu(operatingState, parentId, currentId, currentPath, currentType) {
+        debugger
+        layui.showDlg({
+            title: "选择菜单类型",
+            content: '@Url.Action("SelectMenuType")',
+                //area: ['25%', '19.5%'],
+            yes: function (index, layero) {
+                debugger
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                    layer.close(index);
+                    openDlg(operatingState, parentId, currentId, currentPath, iframeWin.getValue());
+                }
+            });
+        }
+
+
+        //function editMenu(operatingState, parentId, currentId, currentPath, currentType, name, value) {
+        //    openDlg(operatingState, parentId, currentId, currentPath, currentType, name, value);
+        //}
+        function editMenu(operatingState, parentId, currentId, currentPath, currentType) {
+            openDlg(operatingState, parentId, currentId, currentPath, currentType);
+        }
+
+        function openDlg(operatingState, parentId, currentId, currentPath, currentType, refname, refvalue) {
+            debugger
+            layui.showDlg({
+                title: (operatingState == "insert" ? "添加" : "修改") + (currentType == "menu" ? "菜单" : "模块"),
+                content: '@Url.Action("AddOrEditMenu")?operatingState=' + operatingState + "&parentId=" + parentId + "&currentId=" + currentId + "&currentPath=" + currentPath + "&currentType=" + currentType,
+                @*content: '@Url.Action("AddOrEditMenu")?operatingState=' + operatingState + "&parentId=" + parentId + "&currentId=" + currentId + "&currentPath=" + currentPath + "&currentType=" + currentType + "&refname=" + refname + "&refvalue=" + refvalue,*@
+            area: ['30%', '26%'],
+            yes: function (index, layero) {
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                iframeWin.doSubmit();
+            }
+        });
+    }
+
+    function removeMenu(parentId, currentId) {
+        //confirm('是否删除', function () {
+        //    var dataList = JSON.stringify([{ "moduleId": parentId, "menuId": currentId }]);
+        //    $.post({
+        //        url: Base.getApiUrl("/SystemManage/RemoveMenu"),
+        //        data: { "": dataList },
+        //        success: function (resp) {
+        //            if (resp.code != 0) {
+        //                alert('操作失败');
+        //            } else {
+        //                alert('操作成功');
+        //                initGrid();
+        //                layui.form.render();
+        //            }
+        //        }
+        //    })
+        //})
+
+        layui.showDlg({
+            title: "选择菜单类型",
+            content: '@Url.Action("SelectIcon")',
+            area: ['64%', '80%'],
+            yes: function (index, layero) {
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                iframeWin.doSubmit();
+                //layer.close(index);
+                //openDlg(operatingState, parentId, currentId, currentPath, iframeWin.getValue());
+            }
+        });
+    }
+
+    //function viewFile(parentId, currentId, currentPath, currentType, operatingState, refname, refvalue) {
+    function viewFile(parentId, currentId, currentPath, currentType, operatingState) {
+        if (operatingState == "delete") {
+            removeMenu(parentId, currentId);
+        }
+        else if (operatingState == "insert") {
+            addMenu(operatingState, parentId, currentId, currentPath, currentType);
+        }
+        else if (operatingState == "update") {
+            editMenu(operatingState, parentId, currentId, currentPath, currentType);
+            //editMenu(operatingState, parentId, currentId, currentPath, currentType, refname, refvalue);
+        }
+
+
+    }
+    </script>
+}

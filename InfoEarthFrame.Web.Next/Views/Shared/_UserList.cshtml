@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "用户列表";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+
+
+
+    <div class="layui-card">
+        <div class="layui-card-header">用户列表</div>
+        <div class="layui-card-body">
+            <div class="test-table-reload-btn" style="margin-top: 10px;margin-left:15px">
+                用户名：
+                <div class="layui-inline">
+                    <input class="layui-input" name="username" id="txtUsername" autocomplete="off">
+                </div>
+                <button class="layui-btn" data-type="reload" onclick="initGrid()">搜索</button>
+            </div>
+            <div class="layui-card-body" style="overflow-x:hidden">
+                <table class="layui-hide" id="user-table" lay-filter="user-table"></table>
+                <script type="text/html" id="user-table-toolbar">
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                </script>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section script{
+    <script>
+        var groupId = '@Request.QueryString["groupId"]';
+        var table;
+        layui.initModule([ 'table'], function () {
+            table = layui.table;
+
+            initGrid();
+
+        });
+
+
+        function initGrid() {
+            layui.initGird({
+                id: "user-table"
+              , elem: '#user-table'
+            , url: Base.getApiUrl("/SystemManage/GetGroupAlternativeUsers")
+          , title: '用户列表'
+          , cols: [[
+             { type: 'checkbox', fixed: 'left', event: 'setSign' }
+              , { field: 'Id', hide: true }
+            , { field: 'UserName', title: '姓名', event: 'setSign' }
+            , { field: 'UserCode', title: '登录账号' }
+            , { field: 'Phone', title: '联系手机' }
+            , { field: 'TelPhone', title: '联系电话' }
+            , { field: 'Department', title: '组织机构代码' }
+            , { field: 'Position', title: '职务' }
+          ]],
+                where: {
+                    groupId: groupId,
+                    userName: $.trim($("#txtUsername").val())
+                },
+                toolbar: '#user-table-toolbar'
+            });
+
+            //监听行单击事件
+            //table.on('row(user-table)', function (obj) {
+            //    currentUser = obj.data
+            //});
+
+            //table.on('rowDouble(user-table)', function (obj) {
+            //    currentUser = obj.data
+            //    editUser('编辑')
+            //});
+        }
+
+
+        function getCheckedIds() {
+            return layui.Grid.getCheckedIds('user-table');
+        }
+
+        function addUserToGroup()
+        {
+            var userIds = getCheckedIds();
+            
+            if (userIds.length == 0) {
+                window.parent.layer.closeAll();
+            }
+            else {
+                $.post({
+                    url: Base.getApiUrl("/SystemManage/IntsertGroupUser"),
+                    data: {
+                        groupId: groupId,
+                        userIds: userIds
+                    },
+                    success: function (resp)
+                    {
+                        window.parent.layer.closeAll();
+                        window.parent.initGrid();
+                    }
+                })
+            }
+        }
+
+
+    </script>
+}

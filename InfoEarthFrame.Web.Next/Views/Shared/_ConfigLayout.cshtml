@@ -1,0 +1,9 @@
+﻿@{
+    Layout = null;
+}
+<script>
+    var Config=@(Html.Raw(ConfigContext.Current.DefaultConfigJson));
+    Config["Lang"]='@UserConfigContext.CurrentLang ';
+    Config["LayuiPath"]='@Url.Content("~/content/layuiadmin/")';
+    Config["CurrentUserName"]='@UserIdentityContext.CurrentUserName'
+</script>

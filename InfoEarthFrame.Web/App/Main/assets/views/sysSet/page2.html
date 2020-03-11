@@ -1,0 +1,256 @@
+﻿<!-- 用户管理页面 create by huqr /// controller:  'userManagerCtrl' -  localtion: App/Main/assets/js/controllers/userManagerCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="userManagerCtrl" id="userManager">
+    <div class="row">
+        <!-- 左侧 -->
+        <div class="col-sm-3 container_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.System.UserManagement.property.queryTitle">查询条件</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <abn-tree class="font-title-btn" tree-data="departmentTreeData" initial-selection="{{'setting.all'|translate}}" on-select="departmentSelected"></abn-tree>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧 -->
+        <div class="col-sm-9 container_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.System.UserManagement.property.UserTitle">用户管理</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <div style="margin-bottom: 15px;">
+                        <div class="col-sm-9" style="padding-left: 0;">
+                            <input type="text" ng-model="searchInput" placeholder="{{'views.System.UserManagement.property.nameSearchPlaceholderTxt'|translate}}" style="width: 250px; height: 34px;" />
+                            <a class="btn btn-wide btn-default btn-o font-title-little" href="javascript:;" style="min-width: 70px; margin-left: 10px; vertical-align: baseline;" ng-click="searchUser()"
+                               translate="views.System.UserManagement.property.Search">
+                                搜索
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <div style="float:right;">
+                                <a class="btn btn-primary font-title-btn" href="javascript:;" ng-click="addUserOpenWin()" translate="views.System.UserManagement.property.newusers">新增用户</a>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div>
+                        <table class="table table-bordered table-user font-content-small">
+                            <thead>
+                                <tr>
+                                    <th translate="views.System.UserManagement.tableOrModal.SerialNumber">序号</th>
+                                    <th translate="views.System.UserManagement.tableOrModal.name">姓名</th>
+                                    <th translate="views.System.UserManagement.tableOrModal.loginAccount">登录账户</th>
+                                    <th translate="views.System.UserManagement.tableOrModal.Phone">手机</th>
+                                    <th translate="views.System.UserManagement.tableOrModal.telephone">电话</th>
+                                    <th translate="views.System.UserManagement.tableOrModal.organization">组织机构</th>
+                                    <th translate="views.System.UserManagement.tableOrModal.Position">职务</th>
+                                    <th translate="setting.operating">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="tr in personData">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{tr.userName}}</td>
+                                    <td>{{tr.userCode}}</td>
+                                    <td>{{tr.telPhone}}</td>
+                                    <td>{{tr.phone}}</td>
+                                    <td>{{tr.label}}</td>
+                                    <td>{{tr.position}}</td>
+                                    <td>
+                                        <a href="javascript:;" ng-click="reset(tr)" style="border-right: solid 1px #000; padding-right: 4px;" translate="views.System.UserManagement.tableOrModal.resetPassword">重置密码</a>
+                                        <a href="javascript:;" ng-click="edit(tr)" style="border-right: solid 1px #000; padding-right: 4px;" translate="setting.edit">编辑</a>
+                                        <a href="javascript:;" ng-click="del(tr.id)" translate="setting.delete">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="height: 30px;">
+                            <pagination style="float: left; margin: 0 !important;" first-text="{{'paging.home'|translate}}" previous-text="{{'paging.previous'|translate}}" next-text="{{'paging.next'|translate}}" last-text="{{'paging.last'|translate}}" items-per-page="pageSize"
+                                        total-items="pageCounts" ng-model="pageIndex" max-size="maxSize" class="pagination-sm"
+                                        boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages" ng-change="pageChanged()"></pagination>
+                            <ul class="pagination" style="float: left; margin: 0 !important;">
+                                <li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage" ng-keydown="pageChanged(goPage,$event)" /></li>
+                                <li><a style="padding: 4px 10px;" ng-click="pageChanged(goPage)">GO</a></li>
+                                <li>
+                                    <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">
+                                        <span translate="paging.word1">第</span>{{pageIndex}}<span translate="paging.word2">页</span>
+                                        /
+                                        <span translate="paging.word3">共</span>{{totalPages}}<span translate="paging.word2">页</span>
+                                        ，
+                                        <span translate="paging.word4">总计</span>{{pageCounts}}<span translate="paging.word5">条记录</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <div style="clear: both; height: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 新增用户弹窗 -->
+        <mic-ui-modal popwinmodal="inputModal" open-popwin-fun="openAddUserFun" template-url="addUserHtml.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="'static'" popwin-title="inputModal.addUserTitle" size="" win-class="userWinClass" on-opened="openedBack" on-submit="submitForm" on-cancel="cancel">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="addUserHtml.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group" id="addEditModel">
+                <div class="popwin-top" style="padding: 0 20px 10px 20px;">
+                    <div class="" style="margin-bottom: 10px;">
+                        <div class="col-sm-6">
+                            <div style="float:right; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.name">姓名:<span class="symbol required"></span></label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px;">
+                                    <input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.userName" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div style="float: right; padding-right: 10px; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.gender">性别:</label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px; padding-top: 7px;">
+                                    <input type="radio" name="sex" value="男" ng-checked="popwinmodal.sex==='男'" ng-model="popwinmodal.sex" style="margin: 0;">
+                                    <label class="font-content-small" style="margin-right: 50px;" translate="views.System.UserManagement.tableOrModal.male">男</label>
+                                    <input type="radio" name="sex" value="女" ng-checked="popwinmodal.sex==='女'" ng-model="popwinmodal.sex" style="margin: 0;">
+                                    <label class="font-content-small" translate="views.System.UserManagement.tableOrModal.Female">女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                    <div class="" style="margin-bottom: 10px;" ng-if="!popwinmodal.isEdit">
+                        <div class="col-sm-6">
+                            <div style="float:right; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.loginAccount">登录账号:<span class="symbol required"></span></label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px;">
+                                    <input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.userCode" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div style="float: right; padding-right: 10px; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.loginPassword">登录密码:<span class="symbol required"></span></label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px;">
+                                    <input type="password" style="width: 100%; height: 34px;" ng-model="popwinmodal.password" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                    <div class="" style="margin-bottom: 10px;">
+                        <div class="col-sm-6">
+                            <div style="float:right; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.Phone">联系手机:</label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px;">
+                                    <input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.telPhone" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div style="float: right; padding-right: 10px; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.telephone">联系电话:</label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px;">
+                                    <input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.phone" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                    <div class="" style="margin-bottom: 10px;">
+                        <div class="col-sm-6">
+                            <div style="float:right; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.organization">组织机构:<span class="symbol required"></span></label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px;">
+                                    <!--<input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.department" />-->
+                                    <abn-tree mic-combo-tree tree-data="popwinmodal.departmentTreeData" initial-selection="{{popwinmodal.label}}" selected-data="popwinmodal.selected" on-select="popwinmodal.modalDepartmentSelected"></abn-tree>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div style="float: right; padding-right: 10px; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.Position">职务:</label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px;">
+                                    <input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.position" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                    <div class="" style="margin-bottom: 15px;">
+                        <div class="col-sm-12">
+                            <div style="float: right; padding-right: 10px; padding-left: 0px; width: 100%;">
+                                <div class="col-sm-1">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="views.System.UserManagement.tableOrModal.Description">说明</label>
+                                </div>
+                                <div class="col-sm-11" style=" padding-left: 42px;">
+                                    <textarea class="col-sm-11" ng-model="popwinmodal.remark" style="width:98%;height:50px;"></textarea>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+        <!-- 重置密码弹窗 -->
+        <mic-ui-modal popwinmodal="resetPwModal" open-popwin-fun="openResetPwFun" template-url="resetPwHtml.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="" popwin-title="resetPwModal.title" size="sm" win-class="" on-opened="openResetPw" on-submit="submitResetPw" on-cancel="cancelResetPw">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="resetPwHtml.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group" style="padding: 0 15px 15px 15px; ">
+                <!--<div class="col-sm-12" style="padding: 0;">
+                    <text-box text-label="popwinmodal.label1" required="true" text-model="popwinmodal.userCode" text-readonly="true" style="width: 100%;"></text-box>
+                </div>
+                <div class="col-sm-12" style="padding: 0;">
+                    <text-box text-label="popwinmodal.label2" required="true" text-model="popwinmodal.newPw" style="width: 100%;"></text-box>
+                </div>
+                <div class="col-sm-12" style="padding: 0;">
+                    <text-box text-label="popwinmodal.label3" required="true" text-model="popwinmodal.reNewPw" style="width: 100%;"></text-box>
+                </div>-->
+                <div class="col-sm-12" style="padding: 0; margin-bottom: 15px;">
+                    <label class="col-sm-3 font-title-little" style="padding-top: 8px; padding-left: 0;" translate="views.System.UserManagement.tableOrModal.loginAccount">登录账号</label>
+                    <input class="col-sm-9" type="text" ng-model="popwinmodal.userCode" style="height: 34px;" ng-disabled="true" readonly />
+                </div>
+                <div class="col-sm-12" style="padding: 0; margin-bottom: 15px;">
+                    <label class="col-sm-3 font-title-little" style="padding-top: 8px; padding-left: 0;" translate="topbar.user.userCenter.password.new">新密码<span class="symbol required"></span></label>
+                    <input class="col-sm-9" type="password" ng-model="popwinmodal.newPw" style="height: 34px;" />
+                </div>
+                <div class="col-sm-12" style="padding: 0; margin-bottom: 15px;">
+                    <label class="col-sm-3 font-title-little" style="padding-top: 8px; padding-left: 0;" translate="topbar.user.userCenter.password.confirm">确认密码<span class="symbol required"></span></label>
+                    <input class="col-sm-9" type="password" ng-model="popwinmodal.reNewPw" style="height: 34px;" />
+                </div>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+    </div>
+</div>

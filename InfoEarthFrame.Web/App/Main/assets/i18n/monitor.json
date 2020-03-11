@@ -1,0 +1,631 @@
+﻿[
+        {
+            "id": "370000000",
+            "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "山东省",
+            "attributes": {
+                "pid": "0"
+            },
+            "children": [
+            {
+                "id": "371600000",
+                "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "滨州市",
+                "attributes": {
+                    "pid": "370000000"
+                },
+                "children": [
+                {
+                    "id": "371626000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "邹平县",
+                    "attributes": {
+                        "pid": "371600000"
+                    },
+                    "children": [
+                    {
+                        "id": "371626104",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "好生镇",
+                        "attributes": {
+                            "pid": "371626000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "371626109",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "韩店镇",
+                        "attributes": {
+                            "pid": "371626000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "371626102",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "魏桥镇",
+                        "attributes": {
+                            "pid": "371626000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "371626112",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "青阳镇",
+                        "attributes": {
+                            "pid": "371626000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "371626101",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "长山镇",
+                        "attributes": {
+                            "pid": "371626000"
+                        },
+                        "children": []
+                    }
+                    ]
+                }
+                ]
+            },
+            {
+                "id": "370700000",
+                "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "潍坊市",
+                "attributes": {
+                    "pid": "370000000"
+                },
+                "children": [
+                {
+                    "id": "370781000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "青州市",
+                    "attributes": {
+                        "pid": "370700000"
+                    },
+                    "children": [
+                    {
+                        "id": "370781103",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "庙子镇",
+                        "attributes": {
+                            "pid": "370781000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370781105",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "邵庄镇",
+                        "attributes": {
+                            "pid": "370781000"
+                        },
+                        "children": []
+                    }
+                    ]
+                },
+                {
+                    "id": "370724000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "临朐县",
+                    "attributes": {
+                        "pid": "370700000"
+                    },
+                    "children": [
+                    {
+                        "id": "370724113",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "柳山镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724107",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "辛寨镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724002",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "东城街道",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724105",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "九山镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724112",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "龙岗镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724001",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "城关街道",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724103",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "冶源镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724104",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "寺头镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724101",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "五井镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370724116",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "沂山镇",
+                        "attributes": {
+                            "pid": "370724000"
+                        },
+                        "children": []
+                    }
+                    ]
+                },
+                {
+                    "id": "370784000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "安丘市",
+                    "attributes": {
+                        "pid": "370700000"
+                    },
+                    "children": [
+                    {
+                        "id": "370784111",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "石埠子镇",
+                        "attributes": {
+                            "pid": "370784000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370784101",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "黄旗堡镇",
+                        "attributes": {
+                            "pid": "370784000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370784107",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "大盛镇",
+                        "attributes": {
+                            "pid": "370784000"
+                        },
+                        "children": []
+                    }
+                    ]
+                }
+                ]
+            },
+            {
+                "id": "371200000",
+                "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "莱芜市",
+                "attributes": {
+                    "pid": "370000000"
+                },
+                "children": [
+                {
+                    "id": "371202000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "莱城区",
+                    "attributes": {
+                        "pid": "371200000"
+                    },
+                    "children": []
+                },
+                {
+                    "id": "371203000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "钢城区",
+                    "attributes": {
+                        "pid": "371200000"
+                    },
+                    "children": []
+                }
+                ]
+            },
+            {
+                "id": "370400000",
+                "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "枣庄市",
+                "attributes": {
+                    "pid": "370000000"
+                },
+                "children": [
+                {
+                    "id": "370406000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "山亭区",
+                    "attributes": {
+                        "pid": "370400000"
+                    },
+                    "children": [
+                    {
+                        "id": "370406108",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "冯卯镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406101",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "店子镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406106",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "徐庄镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406105",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "城头镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406001",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "山城街道",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406200",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "凫城乡",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406104",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "北庄镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406103",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "桑村镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406107",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "水泉镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370406102",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "西集镇",
+                        "attributes": {
+                            "pid": "370406000"
+                        },
+                        "children": []
+                    }
+                    ]
+                },
+                {
+                    "id": "370402000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "市中区",
+                    "attributes": {
+                        "pid": "370400000"
+                    },
+                    "children": [
+                    {
+                        "id": "370402006",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "光明路街道办事",
+                        "attributes": {
+                            "pid": "370402000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370402202",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "西王庄乡",
+                        "attributes": {
+                            "pid": "370402000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370402101",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "税郭镇",
+                        "attributes": {
+                            "pid": "370402000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370402103",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "齐村镇",
+                        "attributes": {
+                            "pid": "370402000"
+                        },
+                        "children": []
+                    }
+                    ]
+                },
+                {
+                    "id": "370404000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "峄城区",
+                    "attributes": {
+                        "pid": "370400000"
+                    },
+                    "children": [
+                    {
+                        "id": "370404100",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "古邵镇",
+                        "attributes": {
+                            "pid": "370404000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370404001",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "坛山街道",
+                        "attributes": {
+                            "pid": "370404000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370404104",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "峨山镇",
+                        "attributes": {
+                            "pid": "370404000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370404002",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "吴林街道",
+                        "attributes": {
+                            "pid": "370404000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370404103",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "榴园镇",
+                        "attributes": {
+                            "pid": "370404000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370404101",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "阴平镇",
+                        "attributes": {
+                            "pid": "370404000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370404102",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "底阁镇",
+                        "attributes": {
+                            "pid": "370404000"
+                        },
+                        "children": []
+                    }
+                    ]
+                },
+                {
+                    "id": "370481000",
+                    "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "滕州市",
+                    "attributes": {
+                        "pid": "370400000"
+                    },
+                    "children": [
+                    {
+                        "id": "370481105",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "级索镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481103",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "大坞镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481001",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "荆河街道",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481107",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "姜屯镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481102",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "南沙河镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481110",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "官桥镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481111",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "柴胡店镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481003",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "北辛街道",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481104",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "滨湖镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481004",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "善南街道",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481116",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "东郭镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481106",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "西岗镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481114",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "界河镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481112",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "羊庄镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481113",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "木石镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481002",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "龙泉街道",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481101",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "洪绪镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481109",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "张汪镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481100",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "东沙河镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481115",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "龙阳镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    },
+                    {
+                        "id": "370481108",
+                        "longitude": "120.17277778", "latitude": "35.76858333", "disasterNum": "666", "people": "zhang三", "label": "鲍沟镇",
+                        "attributes": {
+                            "pid": "370481000"
+                        },
+                        "children": []
+                    }
+                    ]
+                }
+                ]
+            }
+            ]
+        }
+        ]

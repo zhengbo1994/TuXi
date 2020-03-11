@@ -1,0 +1,147 @@
+﻿<!-- /// controller:  'dataInterfaceCtrl2' -  localtion: App/Main/assets/js/controllers/dataInterfaceCtrl2.js /// -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="dataInterfaceCtrl2">
+    <div class="row">
+        <!-- 左侧 -->
+        <div class="col-sm-3 container_padding container_cross_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Layer.Query.MAIN">查询条件</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <div style="padding-bottom:10px;">
+                        <tabset type="roundline" justified="true" class="tabbable" no-tab-content>
+                            <tab class="tabpadding0 font-content-middle" heading="{{'views.Layer.Query.class.MAIN'|translate}}" select="selectTab(true)"></tab>
+                            <tab class="tabpadding0 font-content-middle" heading="{{'views.Layer.Query.tag.MAIN'|translate}}" select="selectTab(false)"></tab>
+                        </tabset>
+                        <div>
+                            <div ng-init="showtab1=true" ng-show="showtab1===true">
+                                <abn-tree class="font-title-btn" tree-data="typeTreeData" icon-leaf="" expand-level="2" selected-data="typeSelectedData" on-select="onTypeSelected" tree-control="treeQueryCtrl1"></abn-tree>
+                            </div>
+                            <div ng-show="showtab1===false">
+                                <abn-tree class="font-title-btn" tree-data="tagTreeData" icon-leaf="" expand-level="2" selected-data="tagSelectedData" on-select="onTagSelected" tree-control="treeQueryCtrl2"></abn-tree>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧 -->
+        <div class="col-sm-9 container_padding container_cross_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Map.List.MAIN">地图列表</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <!-- 内容 -->
+                    <div>
+                        <div style="margin-bottom: 16px;">
+                            <div class="col-sm-9" style="padding-left: 0;">
+                                <input type="text" ng-model="inputText" placeholder="{{'views.Map.List.placehold'|translate}}" style="width: 250px; height: 34px;" />
+                                <a class="btn btn-wide btn-default btn-o" href="javascript:;" translate="views.Layer.List.search" style="min-width: 70px; margin-left: 10px; margin-top: -3px;" ng-click="searchMap()">
+                                    搜索
+                                </a>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div>
+                            <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                                <li ng-repeat="li in mapServiceList" style="margin-bottom: 0;">
+                                    <div class="col-xs-12" style="padding-bottom: 15px; padding-left: 0;">
+                                        <div class="col-xs-12" style="padding: 0; border: 1px solid #ccc;">
+                                            <div class="col-xs-3" style="padding-left: 0; padding-right: 0;">
+                                                <a href="/#/app/serviceDetail?id={{li.id}}&&mapEnName={{li.mapEnName}}&&minX={{li.minX}}&&minY={{li.minY}}&&maxX={{li.maxX}}&&maxY={{li.maxY}}&&type=WMS" target="_blank">
+                                                    <img ng-src="{{li.mapImgSrc}}" style="width: 100%; height: 100%; max-width: 196px; max-height: 171px; margin: 0; padding: 10px;" onerror="javascript:this.src='/App/Main/assets/images/default.png';" />
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-9">
+                                                <div style="position: absolute; right: 0; top: 5px;">
+                                                    <ul class="font-title-btn" style="list-style: none; float: right; padding-left: 0;">
+                                                        <li style="float: left;">
+                                                            <!--<a style="margin-right: 10px;" href="/#/app/mapService?id={{li.id}}&&mapEnName={{li.mapEnName}}&&minX={{li.minX}}&&minY={{li.minY}}&&maxX={{li.maxX}}&&maxY={{li.maxY}}&&type=WMS" target="_blank">
+                                                                <i class="mdi mdi-layers" style="color: #007AFF;"></i>
+                                                                OGC
+                                                            </a>-->
+                                                            <a class="mainlist-ul-btn" style="margin-right: 10px;" href="/#/app/serviceDetail?id={{li.id}}&&mapEnName={{li.mapEnName}}&&minX={{li.minX}}&&minY={{li.minY}}&&maxX={{li.maxX}}&&maxY={{li.maxY}}&&type=WMS" target="_blank">
+                                                                <i class="mdi mdi-layers" style="color: #007AFF;"></i><span translate="views.Interface.interfaceDetail">服务接口详情</span>
+                                                            </a>
+                                                        </li>
+                                                        <div style="clear:both;"></div>
+                                                    </ul>
+                                                </div>
+                                                <div class="font-title-big" style="margin-top: 10px;">
+                                                    <a href="/#/app/serviceDetail?id={{li.id}}&&mapEnName={{li.mapEnName}}&&minX={{li.minX}}&&minY={{li.minY}}&&maxX={{li.maxX}}&&maxY={{li.maxY}}&&type=WMS" target="_blank">{{li.mapName}}</a>
+                                                </div>
+                                                <div style="border-top: solid 1px rgba(0, 0, 0, 0); margin-top: 15px;"></div>
+                                                <table style="width: 100%; height: 100%;">
+                                                    <tr>
+                                                        <td style="word-break: keep-all; white-space: nowrap; padding-bottom: 10px; width: 50%;">
+                                                            <span class="font-content-small" translate="views.Layer.create.sr">空间参考</span>
+                                                            <span class="font-content-small">：{{li.spatialRefence}}</span>
+                                                        </td>
+                                                        <td style="padding-bottom: 10px; width: 50%;">
+                                                            <span class="font-content-small" translate="setting.class.MAIN">分类</span>
+                                                            <span class="font-content-small">：{{li.mapType}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-bottom: 10px;">
+                                                            <span class="font-content-small" translate="setting.tags.MAIN">标签</span>
+                                                            <span class="font-content-small">：{{li.mapTag}}</span>
+                                                        </td>
+                                                        <td style="padding-bottom: 10px;">
+                                                            <span class="font-content-small" translate="views.Map.List.mapDesc">地图描述</span>
+                                                            <span class="font-content-small">：{{li.mapDesc}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-bottom: 10px;">
+                                                            <span class="font-content-small" translate="setting.owner">所有者</span>
+                                                            <span class="font-content-small">：{{li.createUserId}}</span>
+                                                        </td>
+                                                        <td style="padding-bottom: 10px;">
+                                                            <span class="font-content-small" translate="views.Layer.List.createTime">创建时间</span>
+                                                            <span class="font-content-small">：{{li.createDT}}</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <!--<div style="border-top: solid 1px rgba(0, 0, 0, 0); margin-top: 15px;"></div>-->
+                                                <!--<div class="font-title-btn" style="padding-bottom: 5px;">
+                                                    <a style="float: right; margin-right: 10px;" href="/#/app/mapService?id={{li.id}}&&mapEnName={{li.mapEnName}}&&minX={{li.minX}}&&minY={{li.minY}}&&maxX={{li.maxX}}&&maxY={{li.maxY}}&&type=MapAPI&&flag=true" target="_blank">
+                                                        <i class="mdi mdi-tag" style="color: #007AFF;"></i>接口查询
+                                                    </a>
+                                                </div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <div style="clear: both;"></div>
+                            </ul>
+                            <div style="height: 30px;">
+                                <pagination style="float: left; margin: 0 !important;" first-text="{{'paging.home'|translate}}" previous-text="{{'paging.previous'|translate}}" next-text="{{'paging.next'|translate}}" last-text="{{'paging.last'|translate}}" items-per-page="pageSize"
+                                            total-items="pageCounts" ng-model="pageIndex" max-size="maxSize" class="pagination-sm"
+                                            boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages" ng-change="pageChanged()"></pagination>
+                                <ul class="pagination" style="float: left; margin: 0 !important;">
+                                    <li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage" ng-keydown="pageChanged(goPage,$event)" /></li>
+                                    <li><a style="padding: 4px 10px;" ng-click="pageChanged(goPage)">GO</a></li>
+                                    <li>
+                                        <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">
+                                            <span translate="paging.word1">第</span>{{pageIndex}}<span translate="paging.word2">页</span>
+                                            /
+                                            <span translate="paging.word3">共</span>{{totalPages}}<span translate="paging.word2">页</span>
+                                            ，
+                                            <span translate="paging.word4">总计</span>{{pageCounts}}<span translate="paging.word5">条记录</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <div style="clear: both; height: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,302 @@
+﻿@{
+    ViewBag.Title = "数据编辑";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+
+    <link href="~/Content/plugins/zTree_v3/css/zTreeStyle/bootstrapStyle.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/eleTree/eleTree.css")" media="all">
+    <link href="@Url.Content("~/Content/ol/ol.css")" rel="stylesheet"/>
+
+    <style>
+        .layui-form-label {
+            padding: 0px !important;
+            line-height: 30px !important;
+        }
+
+        .layui-body {
+            overflow-y: scroll !important;
+        }
+
+        .layui-card {
+            min-height: 850px !important;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow-y: scroll !important;
+        }
+
+        .ztree * {
+            font-size: 14px;
+            color: rgb(102, 102, 102);
+        }
+
+        div#rMenu {
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            text-align: left;
+            padding: 2px;
+        }
+
+            div#rMenu ul li {
+                margin: 1px 0;
+                padding: 0 5px;
+                cursor: pointer;
+                list-style: none outside none;
+                background-color: #309688;
+                line-height: 25px;
+                color: #fff;
+                width: 80px;
+                text-align: center;
+            }
+    
+    </style>
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs6 layui-col-md2">
+            <!-- 填充内容 -->
+            <div class="layui-card">
+                <div class="layui-card-header" style="position:relative">
+                    图件分类
+                    <a href="javascript:void(0)" title="刷新" onclick="initTree()"><i class="layui-icon">&#xe9aa;</i></a>
+                </div>
+                <div class="layui-card-body"><div class="eleTree ele3" lay-filter="data3"></div></div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md2">
+            <!-- 填充内容 -->
+            <div class="layui-card">
+                <div class="layui-card-header" style="position:relative">
+                    图件列表
+                    <a href="javascript:void(0)" title="刷新" onclick="initLayerTree()"><i class="layui-icon">&#xe9aa;</i></a>
+                </div>
+                <div class="layui-card-body">
+                    <ul id="treeDemo" class="ztree"></ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md8">
+            <div class="layui-card">
+                <div class="layui-card-header" style="position:relative">
+                    工作区域
+                </div>
+                <div class="layui-card-body" style="padding:0;margin:0">
+                    <iframe id="page-frame" name="page-frame" src="@Url.Action("showmap")" frameborder="0" class="layadmin-iframe" style="height: 800px" scrolling="no"></iframe>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div id="rMenu">
+    <ul>
+        <li id="editAttr" onclick="editLayer();">属性编辑</li>
+        <li id="editStyle" onclick="editStyle();">样式编辑</li>
+    </ul>
+</div>
+
+@section script{
+    <script src="@Url.Content("~/Content/ol/ol.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/zTree_v3/js/jquery.ztree.core.min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/zTree_v3/js/jquery.ztree.excheck.min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/zTree_v3/js/jquery.ztree.exedit.min.js")"></script>
+    <script>
+        var currentNode = {
+            id: '',
+            label: ''
+        };
+        var mainId = '';
+        var layerNames = [];
+        var DTree;
+
+        layui.initModule(['eleTree'], function () {
+
+            initTree();
+
+            initLayerTree();
+        });
+
+        function initTree() {
+
+            layui.initTree({
+                elem: '.ele3',
+                url: Base.getApiUrl("/DataManager/GetMappingTree")
+            });
+
+            layui.eleTree.on("nodeClick(data3)", function (d) {
+                currentNode = d.data.currentData;
+                initLayerTree();
+            })
+
+
+
+        };
+
+        function initWorkArea()
+        {
+            //  $("#page-frame").attr("src", "@Url.Action("showmap")" + "?mainId=" + mainId + "&layerNames=" + encodeURIComponent(layerNames.join(",")));
+            window.frames["page-frame"].initLayer(mainId, layerNames.join(","))
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+
+    var currentLayer;
+    var setting = {
+        check: {
+            enable: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            onClick: function (event, treeId, treeNode) {
+                currentLayer = treeNode;
+                if (!treeNode.pId) {
+                    changeMap(treeNode, !treeNode.checked);
+                }
+            },
+            onCheck: function (event, treeId, treeNode) {
+                if (!treeNode.pId) {
+                    changeMap(treeNode, treeNode.checked);
+                }
+                else {
+                    currentLayer = treeNode;
+                    if (treeNode.checked) {
+                        window.frames["page-frame"].addLayer(treeNode.id);
+                    }
+                    else {
+                        window.frames["page-frame"].removeLayer(treeNode.id);
+                    }
+                }
+            },
+            onRightClick: function (event, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                //if (!treeNode && event.target.tagName.toLowerCase() != "button" && $(event.target).parents("a").length == 0) {
+                //    zTree.cancelSelectedNode();
+                //    showRMenu("root", event.clientX, event.clientY);
+                //} else if (treeNode && !treeNode.noR) {
+                //    zTree.selectNode(treeNode);
+                //    showRMenu("node", event.clientX, event.clientY);
+                //}
+                if (treeNode.pId)
+                {
+                    zTree.selectNode(treeNode);
+                      showRMenu("node", event.clientX, event.clientY);
+                }
+            }
+        }
+
+    };
+
+    function editLayer()
+    {
+
+    }
+
+    function editStyle()
+    {
+        if (!currentLayer||!currentLayer.id)
+        {
+            alert('请选择图层');
+            return;
+        }
+      layui.showDlg({
+            title: "样式编辑",
+            content: '@Url.Action("StyleList")?layerId='+currentLayer.id,
+           area: ['60%', '90%'],
+           yes: function (index, layno)
+          {
+              var iframeWin = window[layno.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+              iframeWin.uploadLayerStyle();
+
+          }
+        });
+    }
+
+    function showRMenu(type, x, y) {
+        $("#rMenu ul").show();
+        //if (type == "root") {
+        //    $("#editLayer").show();
+        //} else {
+        //    $("#editLayer").hide();
+        //}
+
+        y += document.body.scrollTop;
+        x += document.body.scrollLeft;
+        $("#rMenu").css({ "top": y + "px", "left": x + "px", "visibility": "visible" });
+
+        $("body").bind("mousedown", onBodyMouseDown);
+    }
+
+    function onBodyMouseDown(event) {
+        if (!(event.target.id == "rMenu" || $(event.target).parents("#rMenu").length > 0)) {
+            $("#rMenu").css({ "visibility": "hidden" });
+        }
+    }
+
+    function changeMap(treeNode,checked)
+    {
+
+        mainId = treeNode.id;
+        layerNames = [];
+        window.frames["page-frame"].init();
+
+        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        treeObj.checkAllNodes(false);
+
+
+        if (checked) {
+            treeObj.checkNode(treeNode, true, true);
+
+           // alert("all");
+
+            var nodes = treeObj.getCheckedNodes(true);
+
+            $.each(nodes, function (index, element) {
+                if (element.pId) {
+                    layerNames.push(element.id);
+                }
+            });
+
+            initWorkArea();
+        }
+        else
+        {
+            //alert("remove all");
+
+        }
+
+    }
+
+
+
+
+		function initLayerTree()
+		{
+		    $.get({
+		        url: Base.getApiUrl("/DataEditor/GetLayerTree?mappingTypeId=") + currentNode.id,
+		        success: function (resp) {
+		            $.fn.zTree.init($("#treeDemo"), setting, resp.data);
+		        },
+		        data: {}
+		    });
+		}
+    </script>
+}

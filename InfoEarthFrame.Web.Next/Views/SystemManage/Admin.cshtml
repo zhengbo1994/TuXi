@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "GetTokenTest";
+    Layout = null;
+}
+@Html.Partial("_ConfigLayout")
+<script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+<script src="@Url.Content("~/Content/layuiadmin/layui/layui.js")"></script>
+@*<script src="@Url.Content("~/Content/js/app.base.js")"></script>
+<script src="@Url.Content("~/Content/js/ajax.ext.js")"></script>*@
+<script src="@Url.Content("~/Content/js/layui.ext.js")"></script>
+请输入超管密码：<input type="password" id="txtPassword" />
+<input type="button" id="btnClear" value="清理表数据" />
+<textarea id="token" style="width:800px;height:500px"></textarea>
+<script>
+    layui.initModule([], function () {
+
+    });
+    $(function () {
+
+    
+        $("#btnClear").click(function () {
+            if (confirm('是否清理?请三思而行!!!')) {
+                $.ajax({
+                    type: "post",
+                    url: "http://localhost:8009/api/systemmanage/clearData",
+                    beforeSend: function (request) {
+                        request.setRequestHeader("Authorization", "Bearer " + $.cookie('ACCESS_TOKEN'));
+                        request.setRequestHeader("Lang", 'zh-cn');
+                        layer.load();
+                    },
+                    data: {
+                        '': $.trim($("#txtPassword").val())
+                    },
+                    complete: function () {
+                        layer.closeAll("loading");
+                    },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            $("#token").val('清理成功');
+                        }
+                        else {
+                            $("#token").val(resp.data || resp.message);
+                        }
+                    },
+                    error: function (resp) {
+                        $("#token").val(JSON.stringify(resp));
+                    }
+                })
+            }
+        });
+    })
+</script>

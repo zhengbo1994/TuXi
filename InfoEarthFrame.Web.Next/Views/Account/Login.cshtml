@@ -1,0 +1,146 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>{{LangConfig.CommonText.systemName}} - {{LangConfig.LoginText.main}} </title>
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/style/admin.css")" media="all">
+    @Html.Partial("_ConfigLayout")
+</head>
+
+<script>
+    (function () {
+        var topUrl = top.window.location.href;
+        var currentUrl = window.location.href;
+        if (topUrl != currentUrl) {
+            top.window.location.href = currentUrl;
+        }
+    })();
+
+
+</script>
+<body onkeydown="autoSubmit();">
+    <div class="login_box" id="app">
+        <div class="login_l_img"><img src="@Url.Content("~/Content/images/login-img.png")" /></div>
+        <div class="login">
+            <div class="login_logo"><a href="#"><img src="@Url.Content("~/Content/images/login_logo.png")" /></a></div>
+            <div class="login_name">
+                <p>{{LangConfig.LoginText.loginTitle}}</p>
+            </div>
+            <form>
+                <input name="username" id="txtUsername" type="text" v-bind:placeholder="LangConfig.LoginText.inputUsername">
+                <input name="password" type="password" id="txtPassword" v-bind:placeholder="LangConfig.LoginText.inputPassword" />
+                <input v-model="LangConfig.LoginText.loginButton" style="width:100%;" type="button" id="btnLogin">
+            </form>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Content/lang/lang." + UserConfigContext.CurrentLang + ".js")"></script>
+    <script src="@Url.Content("~/Content/vue/vue.min.js")"></script>
+    <script src="@Url.Content("~/Content/layuiadmin/layui/layui.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+    <script src="@Url.Content("~/Content/js/app.base.js")"></script>
+    <script src="@Url.Content("~/Content/js/ajax.ext.js")"></script>
+    <script src="@Url.Content("~/Content/js/layui.ext.js")"></script>
+    <script type="text/javascript">
+
+        $("#txtUsername").val('admin');
+        $("#txtPassword").val('infoearth');
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                LangConfig: LangConfig
+            },
+            created: function () {
+                var title = document.getElementsByTagName("title")[0].innerText;
+                document.getElementsByTagName("title")[0].innerText = title.replace("{{LangConfig.CommonText.systemName}}", LangConfig.CommonText.systemName).replace("{{LangConfig.LoginText.main}}", LangConfig.LoginText.main)
+            }
+        });
+
+
+        layui.initModule(['form'], function () {
+
+   
+
+            $("#btnLogin").click(function () {
+                var username = $.trim($("#txtUsername").val());
+                var password = $("#txtPassword").val();
+
+                if (!username) {
+                    alert(LangConfig.LoginText.inputUsername);
+                    $("#txtUsername").focus();
+                    return;
+                }
+
+
+
+                if (!password) {
+                    alert(LangConfig.LoginText.inputPassword);
+                    $("#txtPassword").focus();
+                    return;
+                }
+
+
+                $.ajax({
+                    type: "post",
+                    url: "@Url.Action("login")",
+                    data: {
+                        username: username,
+                        password: password
+                    },
+                    beforeSend: function () {
+                        layer.load(0, {
+                            offset: [$("#btnLogin").offset().top + $("#btnLogin").height() / 2 + "px", $("#btnLogin").offset().left + $("#btnLogin").width() / 2 + "px"]
+                        });
+                        $("#btnLogin").val('').attr("disabled", true);
+                    },
+                    complete: function () {
+                        layer.closeAll("loading");
+                        $("#btnLogin").val(LangConfig.LoginText.loginButton).attr("disabled", false);
+                    },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            window.location.href = '@ViewBag.ReturnUrl' || '/';
+                        }
+                        else {
+                            if (resp.code == 500) {
+                                error(LangConfig.CommonText.internalError);
+                            }
+                            else if (resp.code == -200) {
+                                alert(LangConfig.LoginText.loginFailMsg);
+                            }
+
+                        }
+                    },
+                    error: function () {
+                        error(LangConfig.CommonText.internalError);
+                    }
+                })
+            });
+        },false);
+
+
+
+        function autoSubmit() {
+            var event = window.event || arguments.callee.caller.arguments[0];
+            var keycode = event.keyCode || event.which;
+            if (keycode == 13) {
+                $("#btnLogin").click();
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

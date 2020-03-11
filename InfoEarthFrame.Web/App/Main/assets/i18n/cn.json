@@ -1,0 +1,840 @@
+﻿{
+	"dashboard": {
+		"WELCOME": "欢迎{{appName}}",
+		"MAIN": "空间数据管理系统",
+		"logo": "App/Main/assets/images/logo.png"
+	},
+	"topbar": {
+		"notification": {
+			"MAIN": "消息通知",
+			"serialnumber": "序号",
+			"import": {
+				"MAIN": "导入通知",
+				"filename": "导入文件名称",
+				"layername": "图层名称",
+				"uploadtime": "文件上传时间",
+				"status": "状态"
+			},
+			"download": {
+				"MAIN": "下载通知",
+				"filename": "文件名称",
+				"conversiontype": "转换类型",
+				"conversiontime": "转换时间",
+				"tables": {
+					"format": "格式转换",
+					"coordinate": "坐标转换",
+					"shadow": "投影转换",
+					"download": "下载"
+				}
+			}
+		},
+		"user": {
+			"MAIN": "",
+			"userCenter": {
+				"MAIN": "个人中心",
+				"information": {
+					"MAIN": "个人信息",
+					"name": "姓名",
+					"gender": "性别",
+					"phone": "联系手机",
+					"telephone": "联系电话",
+					"organization": "组织机构",
+					"position": "职务",
+					"description": "说明",
+					"man": "男",
+					"woman": "女"
+				},
+				"password": {
+					"MAIN": "密码",
+					"account": "登录账号",
+					"old": "原密码",
+					"new": "新密码",
+					"confirm": "确认密码"
+				},
+				"inputName": "请填写姓名！",
+				"inputNew": "请填写新密码！",
+				"inputCon": "请确认密码！",
+				"oldErr": "原密码错误！",
+				"newDeCon": "输入密码不匹配！",
+				"editSucc": "修改成功！",
+				"editErr": "修改失败！"
+			},
+			"Language": {
+				"MAIN": "语言"
+			},
+			"signout": {
+				"MAIN": "退出系统",
+				"confirmOut": "是否确认注销登录？"
+			}
+		}
+	},
+	"offsidebar": {},
+	"sidebar": {
+		"nav": {
+			"dashboard": {
+				"MAIN": "首页"
+			},
+			"layerManager": {
+				"MAIN": "图层管理"
+			},
+			"mapManager": {
+				"MAIN": "地图管理"
+			},
+			"styleManager": {
+				"MAIN": "样式管理"
+			},
+			"dataInterface": {
+				"MAIN": "服务接口"
+			},
+			"tools": {
+				"MAIN": "工具集",
+				"toolsOne": "格式转换",
+				"toolsTwo": "坐标转换",
+				"toolsThr": "投影转换"
+			},
+			"sysManager": {
+				"MAIN": "系统管理",
+				"setSys": "设置",
+				"userManager": "用户管理",
+				"log": "系统日志"
+			},
+			"thematicMapping":{
+			   "MAIN": "专题制作"
+			},
+			"dataManager":{
+			  "MAIN":"数据管理"
+			},
+			"mapEditor":{
+			  "MAIN":"数据编辑"
+			}
+		}
+	},
+	"footer": {},
+	"setting": {
+		"close": "关闭",
+		"cancel": "取消",
+		"submit": "提交",
+		"sure": "确定",
+		"yes": "是",
+		"no": "否",
+		"delete": "删除",
+		"confirmDel": "确认删除",
+		"delErr": "删除失败！",
+		"edit": "编辑",
+		"error": "错误",
+		"owner": "所有者",
+		"operating": "操作",
+		"tableOperate": "操作",
+		"all": "全部",
+		"waitText": "正在处理，请稍后",
+		"required": "必填项",
+		"toolong": "超过长度限制",
+		"illegalWord": "存在非法字符",
+		"class": {
+			"MAIN": "分类",
+			"newClass": "创建分类",
+			"newClassTitle": "创建分类",
+			"newParent": "新增父节点",
+			"newChild": "新增子节点",
+			"inputNode": "输入节点",
+			"editNode": "编辑节点"
+		},
+		"tags": {
+			"MAIN": "标签",
+			"tagPlacehold": "标签间请用空格或逗号隔开，最多可添加5个标签",
+			"manage": "标签设置"
+		},
+		"thispage": "当前位置："
+	},
+	"paging": {
+		"home": "首页",
+		"previous": "上一页",
+		"next": "下一页",
+		"last": "末页",
+		"word1": "第",
+		"word2": "页",
+		"word3": "共",
+		"word4": "总计",
+		"word5": "条记录",
+		"word6": "当前显示"
+	},
+	"maps": {
+		"tools": {
+			"MAIN": "工具",
+			"point": "点选",
+			"square": "框选",
+			"circle": "圈选",
+			"distance": "距离",
+			"area": "面积",
+			"reset": "复位",
+			"clean": "清理",
+			"full": "全屏"
+		}
+	},
+	"views": {
+		"home": {
+			"property": {
+				"detail": {
+					"MAIN": "地图详情",
+					"title": "地图服务详细信息",
+					"mapName": "地图名称",
+					"spatialRef": "空间参考系",
+					"description": "地图描述",
+					"class": "地图分类",
+					"East": "数据范围——东",
+					"South": "数据范围——南",
+					"West": "数据范围——西",
+					"North": "数据范围——北",
+					"legend": "图例",
+					"see": "查看大图"
+				},
+				"switchmap": {
+					"MAIN": "切换地图",
+					"title": "选择地图"
+				},
+				"switchser": {
+					"MAIN": "切换服务",
+					"title": "选择服务类型"
+				}
+			},
+			"charts": {
+				"layer": {
+					"MAIN": "图层总数",
+					"tooltip": "图层管理"
+				},
+				"map": {
+					"MAIN": "地图总数",
+					"tooltip": "地图管理"
+				}
+			}
+		},
+		"Layer": {
+			"Query": {
+				"MAIN": "查询条件",
+				"class": {
+					"MAIN": "分类查询",
+					"all": "全部"
+				},
+				"tag": {
+					"MAIN": "标签查询"
+				}
+			},
+			"List": {
+				"MAIN": "图层列表",
+				"search": "搜索",
+				"placehold": "请输入图层名称查询",
+				"layerManage": "图层管理",
+				"createTime": "创建时间",
+				"import": "导入",
+				"export": "导出",
+				"emptied": "清空",
+				"classSet": "分类设置",
+				"tagSet": "标签设置"
+			},
+			"create": {
+				"vectorLayer": "新建矢量图层",
+				"imageLayer": {
+					"MAIN": "新建影像图层",
+					"Type": "影像",
+					"uploadTips": "请选择同名的文件上传，支持.tif、.tfw格式"
+				},
+				"name": "图层名称",
+				"type": {
+					"MAIN": "图层类型",
+					"point": "点",
+					"line": "线",
+					"surface": "面",
+					"RS": "影像"
+				},
+				"class": "图层分类",
+				"sr": "空间参考",
+				"emptied": "清空字段",
+				"emptyTip": "是否确认清空表格中的字段？",
+				"newField": {
+					"create": "新增字段",
+					"edit": "编辑字段",
+					"detail": "字段详细信息",
+					"fieldName": "字段名称",
+					"datatype": {
+						"MAIN": "数据类型",
+						"long": "长整型",
+						"short": "短整型",
+						"double": "双浮点型",
+						"single": "单浮点型",
+						"character": "字符型",
+						"time": "时间型"
+					},
+					"length": "长度",
+					"decimal": "小数位",
+					"unit": "单位",
+					"default": "缺省值",
+					"control": {
+						"MAIN": "输入控制",
+						"required": "必选项",
+						"optional": "可选项"
+					},
+					"max": "值域上限",
+					"min": "值域下限",
+					"code": "数据分类代码",
+					"newbtn1": "创建字典项",
+					"newbtn3": "浏览字典项",
+					"format": {
+						"MAIN": "输入格式",
+						"radio": "单选",
+						"multiple": "多选"
+					},
+					"null": {
+						"MAIN": "空值",
+						"allowed": "允许为空",
+						"notAllowed": "不能为空"
+					},
+					"connect": "文字值连接代码",
+					"formula": "计算公式",
+					"newbtn2": "创建计算公式",
+					"source": "数据源",
+					"description": "说明"
+				},
+				"newFrom": {
+					"MAIN": "从shp文件新建",
+					"upload": {
+						"MAIN": "上传文件",
+						"select": "选择文件",
+						"uploadAll": "上传所有",
+						"uploadOne": "上传",
+						"deleteAll": "删除所有",
+						"confirmDelAll":"是否确认要删除所有？",
+						"tips": "请选择同名的4个文件上传，包括.shp、.shx、.dbf、.prj"
+					},
+					"name": "名称",
+					"size": "大小",
+					"progress": "上传进度",
+					"status": "状态",
+					"success": "上传完成！",
+					"totalPro": "上传总进度"
+				}
+			},
+			"dicWin": {
+				"manage": "字典项管理",
+				"see": "字典项浏览",
+				"data": "字典数据",
+				"new": "新增",
+				"content": "字典项内容",
+				"description": "字典项说明",
+				"newDic": "新增字典项",
+				"editDic": "编辑字典项"
+			},
+			"formulaWin": {
+				"MAIN": "字段值计算",
+				"list": "字段列表",
+				"function": {
+					"MAIN": "计算函数",
+					"digital": "数字型",
+					"character": "字符型",
+					"max": "求最大值",
+					"min": "求最小值",
+					"abs": "求绝对值",
+					"ceiling": "返回大于当前值的最小整数",
+					"floor": "返回小于当前值得最大整数",
+					"substring": "字符串截取",
+					"replace": "字符串查找替换"
+				},
+				"clear": "清空",
+				"verification": "公式校验",
+				"failed": "校验失败",
+				"success": "校验成功"
+			},
+			"layerBro": {
+				"see": "图层浏览",
+				"manage": "图层管理",
+				"sheet": "图层属性表",
+				"records": "图层操作记录",
+				"information": "图层属性信息",
+				"type": "操作类型",
+				"time": "操作时间",
+				"rule": "属性规则",
+				"detail": "详情",
+				"checkrule": "属性检查规则",
+				"attrCheck": "属性检查",
+				"incheck": "检查中",
+				"startcheck": "开始检查",
+				"endcheck": "检查完成",
+				"checkResult": "检查结果",
+				"download": "下载结果",
+				"errorMsg": "文件属性检查有异常，请下载检查结果查看详情",
+				"log": "检查日志"
+			},
+			"alertFun": {
+				"submitErr": "提交失败",
+				"connectErr1": "服务端抛出异常，异常信息：",
+				"connectErr2": "SocketIO服务器连接失败，请刷新后重试！",
+				"files": {
+					"waitforImport": "等待导入！",
+					"importing": "正在导入！",
+					"importSuccess": "导入成功！",
+					"importErr": "导入失败！",
+					"exportErr": "该图层没有导入数据",
+					"importPrompt1": "一次只能提交一组矢量文件",
+					"importPrompt2": "请删除其他已上传的文件",
+					"importLack": "缺失必要文件",
+					"beforeImport": "请先上传shp文件",
+					"afterImport1": "文件已进入后台导入",
+					"afterImport2": "请在消息通知中查看记录"
+				},
+				"imageFiles": {
+					"importLack": "请导入影像图层文件！",
+					"importPrompt1": "只允许导入一组影像图层文件！",
+					"importPrompt2": "请删除其余文件！"
+				},
+				"field": {
+					"namePrompt1": "字段名称不能为'SID'！",
+					"namePrompt2": "字段名称已存在！",
+					"namePrompt3": "请填写字段名称！",
+					"lengthPrompt1": "长度一栏数据错误！",
+					"lengthPrompt2": "请填写长度！",
+					"precisionPrompt": "小数位一栏数据错误！",
+					"dataTypePrompt": "请选择数据类型！",
+					"tagPrompt1": "提示！",
+					"tagPrompt2": "标签输入框仍有值，输入'空格'或'逗号'添加到标签上！",
+					"addLayerSuccess": "新增图层成功！",
+					"addLayerErr": "新增图层失败！",
+					"addTagErr": "保存标签失败！",
+					"addTableErr": "建表失败！",
+					"addFieldErr": "新增图层配置信息失败！",
+					"layerPrompt1": "请填写图层名称！",
+					"layerPrompt2": "请选择图层类型！",
+					"layerPrompt3": "请选择分类！",
+					"layerPrompt4": "请添加至少一条字段！",
+					"confirmClearLayer": "是否确认清空数据？",
+					"confirmClearLayerPrompt": "图层信息清空之后，不可撤销",
+					"confirmDelLayer": "是否确认删除图层？",
+					"confirmDelLayerPrompt": "图层删除之后，不可撤销",
+					"layerClearSucc": "清空图层成功",
+					"layerClearErr": "清空图层失败",
+					"layerDelSucc": "删除图层成功",
+					"layerDelErr": "删除图层失败",
+					"layerDelErrPrompt": "请先取消图层与地图的匹配或删除地图！图层关联的地图名称：",
+					"tooLong": "长度过长！"
+				},
+				"set": {
+					"setClassSucc": "分类设置成功！",
+					"setClassErr": "分类设置失败！",
+					"setTagSucc": "标签设置成功！",
+					"setTagErr": "标签设置失败！",
+					"addNodePrompt1": "请选择节点！",
+					"addNodePrompt2": "请选择父节点！",
+					"editNodePrompt1": "请选择要编辑的节点！",
+					"delNodePrompt1": "请选择要删除的节点！",
+					"delNodePrompt2": "已关联的节点无法删除！",
+					"delNodePrompt3": "是否删除选中节点？",
+					"inputContent": "请输入内容！",
+					"addClassPrompt": "分类名称已存在！",
+					"inputDicContent": "请输入字典项内容！",
+					"addDicPrompt1": "字典项内容不能重复！",
+					"checkSucc": "校验通过！",
+					"checkErr": "校验失败！",
+					"formulaCheckErr": "公式检验未通过！",
+					"setAttrCheckSucc": "修改属性规则成功！",
+					"setAttrCheckErr": "修改属性规则失败！"
+				}
+			}
+		},
+		"System": {
+			"Setting": {
+				"SRS": "空间参考系",
+				"SRSSystem": "系统空间参考系",
+				"Basemap": {
+					"BaseMapConfig_1": "地图底图配置",
+					"BaseMapConfig_2": "底图配置",
+					"NoBaseMap": "无底图",
+					"HeavenMap": "天地图",
+					"iTelluroMap": "iTelluro地图",
+					"ViewITelluro": "查看iTelluro地图参数",
+					"Magnification": "放大级数",
+					"KeyValue": "Key值",
+					"worldMap": "天地图地图s",
+					"LayersUrl": "图层url",
+					"SliceSize": "切片大小",
+					"ZeroSize": "零级大小"
+				},
+				"Slice": {
+					"SliceConfig": "切片配置",
+					"name": "切片服务名称",
+					"series": "切片起始级数",
+					"level": "切片终止级数"
+				},
+				"Home": {
+					"HomeSettings": "首页设置",
+					"Published": "已发布的地图列表",
+					"Selected": "已选中的地图列表",
+					"mapName": "地图名称",
+					"QueryConditions": "查询条件",
+					"Category": "分类查询",
+					"Tags": "标签查询",
+					"search": "搜索"
+				}
+			},
+			"UserManagement": {
+				"property": {
+					"queryTitle": "查询条件",
+					"UserTitle": "用户管理",
+					"nameSearchPlaceholderTxt": "请输入用户姓名查询",
+					"newusers": "新增用户",
+					"Search": "查询"
+				},
+				"tableOrModal": {
+					"SerialNumber": "序号",
+					"name": "姓名",
+					"gender": "性别",
+					"loginAccount": "登录账号",
+					"loginPassword": "登录密码",
+					"Phone": "联系手机",
+					"telephone": "联系电话",
+					"organization": "组织机构",
+					"Position": "职务",
+					"Description": "说明",
+					"male": "男",
+					"Female": "女",
+					"resetPassword": "重置密码"
+				}
+			},
+			"SystemLog": {
+				"SystemLog": "系统日志",
+				"User": "操作用户",
+				"System": "操作类型",
+				"New": "新增",
+				"Edit": "编辑",
+				"Import": "导入",
+				"Export": "导出",
+				"Delete": "删除",
+				"Emptied": "清空",
+				"Refresh": "刷新",
+				"Functions": "系统功能",
+				"Layers": "图层管理",
+				"Maps": "地图管理",
+				"Style": "样式管理",
+				"queryTime": "查询时间",
+				"Today": "今天",
+				"aWeek": "近七天",
+				"aMonth": "近一个月",
+				"threeMonths": "近三个月",
+				"Inquire": "查询",
+				"SerialNumber": "序号",
+				"operateTime": "操作时间",
+				"Organization": "组织机构",
+				"Results": "执行结果",
+				"Description": "执行结果描述",
+				"SelectedUser": "已选中的操作用户",
+				"Choose": "请选择...",
+				"ChooseUser": "请点击文本框选择操作用户",
+				"ChooseDate": "请选择日期...",
+				"QueryConditions": "查询条件",
+				"search": "搜索",
+				"SeachforName": "请输入用户姓名查询",
+				"name": "姓名"
+			},
+			"alertFun": {
+				"Level": "请输入放大级数",
+				"Value": "请输入Key值",
+				"layerUrl": "请输入图层url",
+				"sliceSize": "请输入切片大小",
+				"zeroSize": "请输入零级大小",
+				"LeastMaps": "最多只能选择5幅地图",
+				"deleteUser": "是否删除该用户？",
+				"FillName": "请填写姓名",
+				"FillAccount": "请填写登录账号",
+				"FillPassword": "请填写登录密码",
+				"NotContainAdmin": "登录账号不能包含admin",
+				"FillOrganization": "请填写组织机构",
+				"EditSuccessful": "编辑用户成功",
+				"Exists": "该账户名称已存在",
+				"AddSuccessful": "新增用户成功",
+				"FillNewPassword": "请填写新密码",
+				"ConfirmPassword": "请确认密码",
+				"NotMatch": "输入密码不匹配",
+				"ResetSuccessful": "重置密码成功",
+				"error":"错误!",
+				"DeleteSuccessfully": "删除成功"
+			}
+		},
+		"Map": {
+			"List": {
+				"MAIN": "地图列表",
+				"placehold": "请输入地图名称查询",
+				"mapManage": "地图管理",
+				"refresh": "刷新",
+				"mapDesc": "地图描述"
+			},
+			"create": {
+				"MAIN": "新建地图",
+				"name": "地图名称",
+				"class": "地图分类",
+				"associate": "关联图层",
+				"layerStyle": "图层样式",
+				"upOne": "上移一行",
+				"downOne": "下移一行"
+			},
+			"toLayer": {
+				"associatedLayer": "已选中的图层列表"
+			},
+			"mapBro": {
+				"see": "地图浏览",
+				"mapEdit": "地图编辑",
+				"mapDetail": "地图详情",
+				"switch": "切换服务",
+				"bindLayer": "绑定图层",
+				"delLayer": "删除图层",
+				"selectLayer": "选择图层",
+				"choseAll": "全选",
+				"searchResult": "查询结果",
+				"position": "位置：",
+				"attrs": "属性值",
+				"showDataNum1": "共查出",
+				"showDataNum2": "条数据。",
+				"border": {
+					"MAIN": "边界范围",
+					"minX": "最小X",
+					"minY": "最小Y",
+					"maxX": "最大X",
+					"maxY": "最大Y"
+				}
+			},
+			"alertFun": {
+				"addMapSucc": "新建地图成功！",
+				"editMapSucc": "修改地图成功！",
+				"confirmDelMap": "是否确认删除地图？",
+				"confirmDelMapPrompt": "地图删除之后，不可撤销",
+				"mapDelSucc": "删除地图成功！",
+				"mapDelErr": "删除地图失败！",
+				"confirmRef": "是否确认刷新本条数据？",
+				"confirmRef2": "当前地图有切片任务，是否立即结束？",
+				"refreshOver": "刷新完成！",
+				"refreshErr": "刷新失败！",
+				"addClassErr": "新增分类失败！",
+				"mapPrompt1": "请填写地图名称！",
+				"mapPrompt2": "请至少选择一个图层！",
+				"delOneLayer": "是否确认删除本条图层？",
+				"publishErr": "地图发布失败！",
+				"reLayerErr": "更新图层错误！",
+				"loadMapErr": "加载地图失败！",
+				"changeBindLayerSucc": "修改绑定图层成功！"
+			}
+		},
+		"Style": {
+			"QueryConditions": "查询条件",
+			"StyleList": "样式列表",
+			"search": "搜索",
+			"NewStyle": "新建样式",
+			"SearchTips": "请输入样式名称查询",
+			"setStyle": "设置样式",
+			"setStylePrompt": "请选择一个样式！",
+			"addStyle": "新增样式",
+			"setStyleSucc": "成功设置样式！",
+			"SerialNumber": "序号",
+			"Name": "样式名称",
+			"Type": "样式类型",
+			"Category": "样式分类",
+			"Description": "样式描述",
+			"SingleStyle": "单一样式",
+			"CategoryRendering": "分类渲染",
+			"ImportStyle": "导入样式",
+			"EditStyle": "编辑样式",
+			"editStyleSucc": "成功修改样式！",
+			"deleteStyle": "删除样式",
+			"DeleteTips": "是否删除本条样式？",
+			"delStyleSucc": "成功删除样式！",
+			"point": "点",
+			"line": "线",
+			"surface": "面",
+			"NewCategory": "创建分类",
+			"colour": "颜色",
+			"image": "图片",
+			"select": "选择",
+			"range": "显示比例尺范围",
+			"RenderLayers": "渲染图层",
+			"RenderFields": "渲染字段",
+			"ColorBand": "颜色带",
+			"DefaultSymbol": "预设符号",
+			"SetSymbol": "设置符号",
+			"symbol": "符号",
+			"value": "值",
+			"Note": "注记",
+			"Number": "个数",
+			"StyleContent": "样式内容",
+			"Frame": "边框",
+			"FillColor": "填充色",
+			"Graphics": "图形",
+			"size": "大小",
+			"transparency": "透明度",
+			"icon": "图标",
+			"SymbolSelector": "符号选择器",
+			"SmallestScale": "最小比例尺",
+			"LargestScale": "最大比例尺",
+			"SelectLayer": "选择图层",
+			"Choose": "请选择...",
+			"load": "加载",
+			"MoveOut": "移出",
+			"SelectFile": "选择文件",
+			"PreviewFile": "预览文件",
+			"PictureManagement": "图片管理",
+			"LineColor": "线颜色",
+			"Linear": "线型",
+			"LineWidth": "线宽度",
+			"AddFolder": "添加文件夹",
+			"FolderName": "文件夹名称",
+			"Preview": "预览",
+			"numeral": "数字",
+			"RenderingTips": "渲染字段不可为空",
+			"NoSelected": "未选择任何文件",
+			"angle": "角度",
+			"AddLocally": "本地添加",
+			"StylePreview": "样式预览",
+			"CategorySearch": "分类查询",
+			"Tags": "标签查询",
+			"layername": "图层名称",
+			"Fill": "填充",
+			"alertFun": {
+				"ChooseLayer": "请先选择渲染图层",
+				"UploadFiles": "请先上传文件",
+				"StyleEmpty": "样式内容不能为空！",
+				"SelectLayer": "请先选择图层！",
+				"FillName": "请填写样式名称",
+				"ChooseType": "请选择样式类型",
+				"ModifySuccessfully": "修改样式成功",
+				"NewStyleSuccessful": "新增样式成功",
+				"SelectDelete": "请选择要删除的节点",
+				"NotBeDeleted": "已关联的节点无法删除",
+				"DeleteSelectedNode": "是否删除选中节点",
+				"CategoryExists": "分类名称已存在",
+				"DeleteSuccessfully": "删除成功",
+				"FailedDelete": "删除失败",
+				"SetSymbol": "请设置预设符号",
+				"RenderingNull": "渲染字段不可为空值",
+				"ColorNull": "颜色带不可为空值",
+				"PreviewStyle": "预览前请先填写样式名称",
+				"FillStyle": "请先填写样式内容",
+				"RequestError": "请求发生错误",
+				"UploadSuccessfully": "上传成功！",
+				"uploadFailed": "上传失败！",
+				"StyleError_1": "样式内容第",
+				"StyleError_2": "行XML标签错误！",
+				"StyleError_3": "请按XML标签格式填写",
+				"StyleError_4": "样式内容错误",
+				"StyleError_5": "样式内容首或尾错误",
+				"FolderEmpty": "文件夹名称不能为空",
+				"FailedAddFolder": "添加文件夹失败",
+				"EditingFailed": "编辑失败",
+				"RequestFailed": "提示：请求数据失败",
+				"LoadCategory": "请先加载分类样式！",
+				"StyleNameRepeated": "样式名称重复",
+				"SelectNode": "请选择节点！",
+				"SelectNodeEdit": "请选择要编辑的节点！",
+				"SelectParNode": "请选择父节点!",
+				"EnterContent": "请输入内容",
+				"PleaseAgain": "请重试",
+				"error": "错误!",
+				"delete": "删除",
+				"ConfirmDelete": "确定要删除吗？",
+				"InputAgin": "请重新输入"
+			}
+		},
+		"Interface": {
+			"MAIN": "服务接口",
+			"interfaceDetail": "服务接口详情",
+			"serviceDetail": "服务详情",
+			"service": "地图服务",
+			"info": {
+				"MAIN": "服务信息",
+				"url": "接口地址：",
+				"interfaceDesc": "接口描述：",
+				"func": "请求方法：",
+				"param": "请求参数：",
+				"returnType": "返回类型：",
+				"returnParam": "返回参数：",
+				"json": "JSON格式",
+				"paramName": "参数名",
+				"paramVal": "参数值",
+				"required": "必填",
+				"description": "描述",
+				"requestFail": "请求失败！"
+			},
+			"ogc": "OGC服务",
+			"dataInterface": "数据接口",
+			"searchMap": "查询地图的图层api",
+			"searchLayerAttr": "查询图层的属性api",
+			"searchLayerSpace": "图层空间查询api"
+		},
+		"Toolset": {
+			"FormatConversion": {
+				"FormatConversion": "格式转换",
+				"Tips_1": "Map2Shp转换支持MapGIS文件转换为ArcGIS文件",
+				"Tips_2": "格式转换仅支持MapInfo File和ArcGIS的文件转换为其他格式的文件",
+				"Tips_3": "请选择同名的所有文件进行上传，ArcGIS包括shp、shx、prj、dpf，MapInfo包括tab、dat、id、map,否则无法进行后续操作",
+				"Tips_4": "选择输出文件格式",
+				"uploadFiles": "上传文件",
+				"SerialNumber": "序号",
+				"FileName": "文件名称",
+				"FileSize": "文件大小",
+				"FileType": "文件类型",
+				"UploadTime": "文件上传时间",
+				"description": "描述",
+				"FileExtension": "文件扩展名",
+				"Remarks": "备注"
+			},
+			"CoordinateConversion": {
+				"CoordinateConversion": "坐标转换",
+				"Tips": "请选择同名的所有文件进行上传，包括shp、shx、prj、dpf，否则无法进行后续操作",
+				"SevenConversion": "七参数坐标转换",
+				"OutputSystem": "输出空间参考系",
+				"SpatialReference": "空间参考",
+				"ReferenceSetting": "7参数设置",
+				"SetParameters": "设置转换参数",
+				"Name": "参数名称",
+				"Value": "参数值",
+				"ControlConversion": "控制点坐标转换",
+				"ControlSetting": "控制点参数设置",
+				"PreSystem": "转换前的空间参考系",
+				"ConvertedSystem": "转换后的空间参考系",
+				"TranslatingVariablesDx": "平移变量Dx(米)",
+				"TranslatingVariablesDy": "平移变量Dy(米)",
+				"TranslatingVariablesDz": "平移变量Dz(米)",
+				"RotateVariableX": "旋转变量X(秒)",
+				"RotateVariableY": "旋转变量Y(秒)",
+				"RotateVariableZ": "旋转变量Z(秒)",
+				"ZoomRatio": "缩放比(ppm)",
+				"AddLine": "添加一行",
+				"DeleteLine": "删除一行",
+				"fileToobig": "文件大小超过限制！",
+				"uploadPointType": "请上传指定类型的文件！",
+				"pointFileType": "允许上传的类型：",
+				"addNew": "新增一条",
+				"deleteOne": "删除一条"
+			},
+			"ProjectionConversion": {
+				"ProjectionConversion": "投影转换",
+				"Tips": "投影转换仅支持把投影坐标转换为地理坐标"
+			},
+			"alertFun": {
+				"UploadedConverted": "上传的文件已经转换完成",
+				"reupload": "请重新上传",
+				"DownloadNotification": "请在消息通知中下载文件",
+				"SelectFormat": "请先选择上传文件格式",
+				"FilesLeast": "同名文件至少有四个！",
+				"SelectSameNameUpload": "请选择同名的所有文件进行上传。",
+				"missing": "文件丢失",
+				"SelectFirst": "请先选择输出文件格式",
+				"ConversionFailed_1": "第",
+				"ConversionFailed_2": "个文件转换失败",
+				"shpMissing": "shp文件丢失",
+				"AddFirst": "请先添加文件",
+				"PleaseSRS": "请选择输出的空间参考系统",
+				"setCompleted": "转换前后的一组坐标值必须填写完整",
+				"ConversionSuccessful": "转换成功！",
+				"ConversionFailed": "转换失败",
+				"UploadFiles": "请先上传文件"
+			},
+			"waitMask":{
+				"Wait":"正在处理,请稍后..."
+			}
+		}
+	}
+}

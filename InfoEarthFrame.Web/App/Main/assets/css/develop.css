@@ -1,0 +1,1129 @@
+﻿@font-face {
+    font-family: 'siyuan';
+    src: url("../../../../fonts/SourceHanSansCN-Normal.eot") format('embedded-opentype'), url("../../../../fonts/SourceHanSansCN-Normal.otf") format('opentype'), url("../../../../fonts/SourceHanSansCN-Normal.ttf") format('truetype'), url("../../../../fonts/SourceHanSansCN-Normal.svg") format('svg'), url("../../../../fonts/SourceHanSansCN-Normal.woff") format('woff'), url("../../../../fonts/SourceHanSansCN-Normal.woff2") format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    color: #5b5b60;
+    font-size: 14px;
+    font-family: siyuan;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: siyuan;
+}
+
+/*思源黑体*/
+.font-title-big, .font-title-middle, .font-title-small, .font-title-little, .font-title-btn, .font-content-middle, .font-content-small, .font-content-btn {
+    font-family: siyuan;
+}
+
+/*加粗*/
+.font-title-big, .font-title-middle, .font-title-small, .font-content-btn {
+    font-weight: 900;
+}
+/*细*/
+.font-content-middle, .font-content-small, .font-title-little, .font-title-btn {
+    font-weight: 100;
+}
+
+.font-title-big {
+    font-size: 18px;
+}
+
+.font-title-middle, .font-content-middle, .font-title-btn, .font-content-btn {
+    font-size: 16px;
+}
+
+.font-title-small, .font-content-small, .font-title-little {
+    font-size: 14px;
+}
+
+
+.tabpadding0 a {
+    padding: 10px !important;
+}
+
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.righttag .r-left {
+    background-color: #fff;
+}
+
+/*-----------主体样式start-----------*/
+
+.main-content > .container {
+    padding-bottom: 36px !important;
+}
+
+@media (min-width: 992px) {
+    .main-content {
+        margin-left: 200px;
+    }
+
+    #app > footer {
+        margin-left: 200px;
+    }
+
+    .set-sys-md1-a-margin {
+        margin-left: 22.22% !important;
+    }
+
+    .navbar-left00 {
+        padding-left: 0px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-left00 {
+        padding-left: 18px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .set-sys-md1-a-margin {
+        margin-left: 22.22% !important;
+    }
+}
+
+#sidebar {
+    width: 200px;
+}
+
+/*收缩系统菜单的悬浮按钮*/
+.sidebar-container .show-mainmenu-btn {
+    position: absolute;
+    height: 43px;
+    width: 15px;
+    top: 0;
+    right: -15px;
+    background-color: rgba(72,80,88,0.5);
+    z-index: 999;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+
+    .sidebar-container .show-mainmenu-btn:hover {
+        background-color: rgba(72,80,88,1);
+    }
+
+@media (max-width: 991px) {
+    .sidebar-container .show-mainmenu-btn {
+        display: none;
+    }
+
+    #app.app-slide-off > .app-content {
+        -webkit-transform: translate3d(200px, 0, 0);
+        transform: translate3d(200px, 0, 0);
+    }
+}
+/*主菜单的二级菜单的高度*/
+ul.sub-menu li a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/*弹窗底部按钮的样式*/
+.modal-content .modal-body > .form-horizontal > .form-group:last-child {
+    margin-top: 15px !important;
+}
+/*-----------主体样式end-----------*/
+
+
+.mainPage {
+    width: 100%;
+    position: relative;
+    background: #F6F5F4;
+    padding: 6px 0px 0px 10px;
+}
+/*地图显示*/
+.map_container .mapControllerBtn .map-btngroup-div {
+    float: left;
+    cursor: pointer;
+    color: #5b5b60;
+    border-right: none;
+    text-align: center;
+    line-height: 38px;
+    height: 38px;
+    padding: 0 10px;
+}
+
+/*地图工具栏按钮组*/
+.map_container .mapControllerBtn span {
+    float: none;
+}
+
+.map_container .mapControllerBtn b {
+    float: left;
+    height: 21px;
+    display: inline-block;
+    border-right: 1px solid #5b5b60;
+    top: 8px;
+    position: relative;
+}
+
+/*地图工具栏显示文字*/
+.map_container .mapControllerBtn span i {
+    width: auto;
+    height: auto;
+    margin-right: 5px;
+    color: #5b5b60;
+}
+
+/*首页地图右边栏切换按钮的激活样式*/
+.active-show-btn {
+    background-color: #007aff !important;
+}
+
+    .active-show-btn > i {
+        color: #fff;
+    }
+
+.li-margin-left {
+    margin-left: 10px !important;
+}
+
+.dd-img {
+    width: 98px;
+    height: 98px;
+    border: 1px solid #C6C6CB;
+}
+
+.dd-active {
+    border: 1px solid #007aff;
+    box-shadow: 0 0 3px #007Aff;
+}
+
+.mainPageMap {
+    position: relative;
+    width: 100%;
+    border: 1px solid #E1E1E1;
+}
+
+    .mainPageMap .mapDiv {
+        border-radius: 0px !important;
+        border: none !important;
+    }
+
+@media (max-width: 768px) {
+    .layerNumber .layerList li:first-child {
+        margin-bottom: 10px !important;
+    }
+
+    .layerNumber {
+        margin: 10px 0 80px 0 !important;
+    }
+}
+/*弹窗的高度*/
+@media (min-width:768px) {
+    .modal-dialog {
+        margin-top: 65px;
+    }
+}
+/* css 隐藏地图上的控件按钮*/
+.ol-full-screen {
+    right: .4em !important;
+    top: .4em !important;
+}
+
+/*IE10*/
+@media screan and (-ms-high-contrast:active),(-ms-high-contrast:none) {
+    .mapControllerBtn {
+        /*display:none !important;*/
+    }
+}
+
+.not-show {
+    display: none !important;
+}
+/*地图比例尺的位置*/
+.map_container .ol-viewport .ol-overlaycontainer-stopevent .ol-scale-line {
+    left: 3.2em !important;
+}
+/*
+ .mapControllerBtn span.map_length,
+ .mapControllerBtn span.map_area,
+ .mapControllerBtn span.map_reset,
+ .mapControllerBtn span.map_clear,*/
+.ol-zoom-in.map-zoom-in,
+.ol-zoom-out.map-zoom-out {
+    display: none !important;
+}
+
+/*工具栏的位置*/
+.map_container .mapControllerBtn {
+    right: inherit !important;
+    top: 20px;
+    left: 20px;
+    border-radius: 0;
+    border: none;
+    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+}
+
+.mapDivBtn {
+    display: none;
+}
+
+.ol-full-screen {
+    display: none;
+}
+
+.r-right .select2-container .select2-choice > .select2-chosen {
+    font-weight: 900;
+    font-size: 16px;
+}
+
+/*图层个数*/
+.layerNumber {
+    width: 100%;
+    /*height: 200px;*/
+    margin: 10px 0 0 0;
+}
+
+    .layerNumber .layerList {
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        padding-left: 0px;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+.layerList li {
+    border: 1px solid #DEDCDA;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+}
+
+    .layerList li .layerInfo {
+        position: relative;
+    }
+
+        .layerList li .layerInfo .layertitle {
+            position: relative;
+            top: 10px;
+            font-size: 28px;
+            color: #fff;
+            margin-left: 15px;
+        }
+
+/*断点上传按钮的禁用状态*/
+.bp-upload-btn-disabled .webuploader-container, .bp-upload-btn-disabled .webuploader-container :hover, .bp-upload-btn-disabled .webuploader-container :focus, .bp-upload-btn-disabled .webuploader-container :active, .bp-upload-btn-disabled .webuploader-container .active {
+    background-color: #66afff;
+    border-color: #66afff;
+    color: #fff;
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+    border-radius: 4px;
+}
+
+    .bp-upload-btn-disabled .webuploader-container .webuploader-pick {
+        background: none;
+    }
+
+.webuploader-container label {
+    margin-bottom: 0;
+}
+
+/*地图服务*/
+.mapService {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+    .mapService .servicelist {
+        width: 100%;
+        padding-left: 0px;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+        .mapService .servicelist li {
+            float: left;
+            margin: 0px 0 5px 0;
+            border: 1px solid #BAD2F9;
+            margin-right: 6px;
+        }
+
+            .mapService .servicelist li a {
+                display: inline-block;
+                padding: 5px;
+                letter-spacing: 2px;
+                /*font-size:16px;*/
+            }
+
+                .mapService .servicelist li a:hover {
+                    background: #007AFF !important;
+                    color: #fff !important;
+                }
+
+.currentSer {
+    background: #007AFF !important;
+    color: #fff !important;
+}
+
+.currentSer2 p {
+    width: 100%;
+    padding: 5px;
+    background: #3C8BF4 !important;
+    border-radius: 5px;
+}
+
+    .currentSer2 p a {
+        color: #fff !important;
+    }
+/*服务详细信息*/
+.righttag {
+    position: absolute;
+    z-index: 999;
+}
+
+    .righttag .title {
+        box-sizing: border-box;
+        padding: 10px;
+        margin-bottom: 0;
+        border-bottom: solid 1px #EEEEEE;
+    }
+
+    .righttag .r-right-top {
+        list-style: none;
+        padding: 0 0 0 10px;
+    }
+
+        .righttag .r-right-top li {
+            margin: 5px 0 5px 0;
+            overflow: hidden;
+            clear: both;
+        }
+
+            .righttag .r-right-top li p {
+                margin-bottom: 0px !important;
+            }
+
+                .righttag .r-right-top li p:first-child {
+                    /*width:50%;
+    float:left;*/
+                }
+
+                .righttag .r-right-top li p:last-child {
+                    /*width:50%;
+    float:left;*/
+                }
+
+            .righttag .r-right-top li span {
+                color: #2B2B2B;
+                /*font-size:13px;*/
+            }
+
+    .righttag .r-right .select2-choice {
+        border: none;
+        border-bottom: 1px solid #aaa;
+    }
+    /*地图浮动窗口中切换列表*/
+    .righttag dl {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+@media screen and (max-width:768px) {
+    .layerNumber .layerInfo a {
+        left: 23.5% !important;
+    }
+
+    .layerNumber .layerList {
+        clear: both;
+    }
+
+        .layerNumber .layerList li:nth-child(2) {
+            padding-left: 0px !important;
+            padding-bottom: 10px !important;
+        }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .righttag .r-right-top li p {
+        width: 100% !important;
+    }
+
+    .layerNumber .layerInfo a {
+        left: 21% !important;
+    }
+}
+
+@media screen and (min-width: 1079px) and (max-width: 1567px) {
+    .layerNumber .layerInfo a {
+        left: 22% !important;
+    }
+}
+
+@media screen and (min-width: 1567px) {
+    .layerNumber .layerInfo a {
+        left: 24% !important;
+    }
+}
+
+#dowebok {
+    padding-left: 0px !important;
+}
+
+    #dowebok li {
+        list-style: none;
+    }
+/*-----------数据接口页面样式start-----------*/
+.dataInterFace {
+    padding: 10px;
+}
+
+.tableTitle th {
+    text-align: center;
+    padding: 5px 0;
+}
+
+.tableTitle td {
+    text-align: center;
+    padding: 5px;
+}
+
+.seviceDataShow .seviceDataContent:not(:first-child) {
+    margin-top: 30px;
+}
+
+.seviceDataContent p {
+    color: #5E5E5E;
+}
+/*-----------系统设置面样式start-----------*/
+
+@media (min-width: 768px) {
+    .set-sys-md-padding {
+        padding-top: 200%;
+    }
+
+    .set-sys-md1-margin {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .set-sys-md-padding {
+        padding-left: 42%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .set-sys-md1-margin {
+        margin-top: 10px;
+    }
+}
+
+.pushed-map-list ul.pagination:last-child {
+    display: none;
+}
+
+/*-----------系统设置面样式end-----------*/
+
+
+/*-----------用户管理页面样式start-----------*/
+.table-user th, .table-user td {
+    text-align: center;
+}
+/*-----------用户管理页面样式end-----------*/
+
+
+/*-----------工具集查看空间参考样式start-----------*/
+.detail-window {
+    position: absolute;
+    color: #000000;
+    background-color: transparent;
+}
+/*-----------工具集查看空间参考样式end-----------*/
+
+/*面包屑导航*/
+.breadgreater > li + li:before {
+    padding: 0 7px 0 3px;
+}
+
+/*树控件选中节点*/
+.nav-pills > li > a {
+    border-radius: 3px;
+}
+
+/*弹窗字体样式大小*/
+.sweet-alert h2 {
+    font-size: 26px !important;
+}
+
+/*-----------图层管理页面样式start-----------*/
+/*图层管理弹窗的样式*/
+.addlayerWinCls {
+    z-index: 10000 !important;
+}
+
+    .addlayerWinCls .modal-body .tabbable {
+        margin-top: -15px;
+    }
+
+    .addlayerWinCls .tab-content > .tab-pane {
+        padding: 20px 0 0 0;
+    }
+
+.addlayer-table-head {
+    margin-bottom: 0;
+}
+
+.addlayer-table-body {
+    border-top: none;
+}
+
+    .addlayer-table-head th, .addlayer-table-body td {
+        text-align: center;
+    }
+
+    .addlayer-table-body tr:first-child td {
+        border-top: none !important;
+    }
+
+.nav-underline > li > a {
+    font-size: 16px;
+}
+
+@media screen and (min-width: 992px) {
+    .popwin-top .typePullDownTreeData {
+        width: 67% !important;
+    }
+
+        .popwin-top .typePullDownTreeData .trees-combobody {
+            width: 194px;
+        }
+
+    .mapmg-cls .typePullDownTreeData .trees-combobody {
+        width: 297px;
+    }
+
+    .addlayer-tag {
+        padding-left: 42px;
+    }
+
+        .addlayer-tag > input {
+            width: 716px;
+        }
+}
+
+@media screen and (max-width: 991px) {
+    .popwin-top .typePullDownTreeData {
+        width: 100% !important;
+    }
+
+        .popwin-top .typePullDownTreeData .trees-combobody {
+            width: 177px;
+        }
+
+    .mapmg-cls .typePullDownTreeData .trees-combobody {
+        width: 185px;
+    }
+
+    .addlayer-tag {
+        padding-left: 29px;
+    }
+
+        .addlayer-tag > input {
+            width: 454px;
+        }
+}
+/*图层导入记录的状态*/
+.msgStatusReady {
+    color: #B1B1B1 !important;
+}
+
+.msgStatusSuccess {
+    color: #00A710 !important;
+}
+
+.msgStatusFail {
+    color: #FF0000 !important;
+}
+
+/*新增影像图层弹窗的样式*/
+.addImageLayerCls .import-point {
+    position: absolute;
+    top: 28px;
+    left: 150px;
+}
+
+/*导入弹窗的样式*/
+.import-win-class .form-group > div {
+    padding-right: 20px;
+}
+
+.import-win-class .form-group p > span:nth-child(1), .import-win-class .form-group p > span:nth-child(3) {
+    display: none !important;
+}
+
+.import-win-class .form-group p > span:nth-child(2) {
+    margin-left: 0 !important;
+}
+
+.import-win-class .import-point {
+    position: absolute;
+    top: 29px;
+    left: 180px;
+}
+
+/*字体图标的样式*/
+[class^="mdi-"], [class*=" mdi-"] {
+    color: #007AFF;
+}
+
+/*分类下拉树的样式*/
+.typePullDownTreeData {
+    height: 34px !important;
+}
+
+.setTypeWinCls .typePullDownTreeData .trees-combobody {
+    width: 371px;
+}
+
+.typePullDownTreeData .trees-combobody {
+    position: absolute;
+    z-index: 999;
+    background: #fff;
+    border: 1px solid #ccc;
+    top: 33px;
+    left: -1px;
+}
+
+.typePullDownTreeData .trees-combospan {
+    /*text-indent: 10px;*/
+    padding-left: 10px;
+}
+
+.trees-combobody {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.trees-combos-select.trees-combos-act {
+    border-bottom: none !important;
+}
+
+.content-main {
+    padding: 0 20px;
+}
+
+    .content-main .content-body > ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .content-main .content-body > ul > li {
+            display: inline-block;
+            width: 33%;
+            text-align: right;
+            padding-left: 0;
+        }
+
+    .content-main .content-body li > label {
+        vertical-align: top;
+        margin-top: 8px;
+    }
+
+    .content-main .content-body li > input {
+        height: 34px;
+    }
+
+.edit-formula {
+    width: 350px;
+}
+
+.see-formula {
+    margin-right: 0 !important;
+    width: 473px;
+}
+
+.calcomp-model-cls li {
+    display: inline-block;
+    width: 51px;
+    height: 60px;
+    border-top: solid 1px #E1E1E1;
+    border-left: solid 1px #E1E1E1;
+    padding-top: 20px;
+    margin-left: -3px;
+    cursor: pointer;
+}
+
+/*-----------图层管理页面样式end-----------*/
+
+.mainlist-ul-btn {
+    margin-right: 10px;
+    /*border: 1px solid #007AFF;
+    font-size: 13px;
+    color: #007AFF;
+    background: none;
+    transition: all 0.3s ease 0s !important;
+    box-shadow: none !important;
+    outline: none !important;
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border-radius: 1px;*/
+}
+/*.mainlist-ul-btn:hover{
+    background-color: #3395ff;
+    color: #fff;
+    border-color: #3395ff;
+
+}*/
+
+/*-----------地图管理页面样式end-----------*/
+
+/*放在form表单中的表格控件的checkbox的样式*/
+.form-table-checkbox .checkbox {
+    margin: 0 !important;
+}
+
+.import-win-class .form-group > div {
+    padding-right: 20px;
+}
+
+.import-win-class .form-group p > span:nth-child(3) {
+    display: none !important;
+}
+
+/*设置图层管理弹出框的高*/
+.maplinklayerwinCls .modal-content, .layerManaWinCls .modal-content {
+    min-height: 500px;
+}
+
+@media (min-width:768px) { /* min-width:768px 为固定值,不可更改*/
+    /*设置图层管理弹出框的宽*/
+    .maplinklayerwinCls .modal-lg, .layerManaWinCls .modal-lg {
+        width: 1000px;
+    }
+}
+
+.mapmg-cls .modal-content {
+    /*min-height: 500px;*/ /*设置弹出框高*/
+}
+
+.mapmg-cls .modal-dialog {
+    /*top: 26px;*/ /*设置弹出位置距顶端*/
+}
+
+.mapmg-cls .modal-body {
+    padding: 0 15px;
+}
+
+.mapmg-cls .tab-content > .tab-pane, .mapmg-cls .pill-content > .pill-pane {
+    padding: 0 !important;
+}
+
+.styleList table thead th:last-child, .styleList table tbody td:last-child {
+    width: 25% !important;
+}
+
+    .styleList table thead th:last-child div, .styleList table tr td:last-child div {
+        width: 100% !important;
+    }
+
+.layerClass ul:last-child {
+    display: none;
+}
+
+.mapmg-cls .form-group:nth-child(2) {
+    margin-bottom: 15px !important;
+}
+
+.stylewinCls .form-group:nth-child(1) {
+    padding: 0 20px !important;
+}
+
+.stylewinCls .modal-body {
+    padding-top: 5px !important;
+}
+
+.trees-combobody {
+    max-height: 300px;
+    overflow: auto;
+}
+
+/*显示/隐藏地图管理的图层列表上，上下移动和删除图层的按钮*/
+.righttag .map-layer-list a {
+    display: none;
+}
+
+.righttag .map-layer-list:hover a {
+    display: initial;
+}
+
+/*-----------地图管理页面样式end-----------*/
+
+
+/*-----------样式管理页面样式start-----------*/
+.table-stylemanag th, .table-stylemanag td {
+    text-align: center;
+}
+
+.addStyleTypeWinCls .modal-body {
+    padding: 0 15px;
+}
+
+.addStyleTypeWinCls .trees-combobody {
+    width: 198px;
+}
+
+.addStyleTypeWinCls .tab-content > .tab-pane {
+    padding: 0 !important;
+}
+
+.addStyleTypeWinCls .form-group:nth-child(2) {
+    margin-bottom: 15px !important;
+    margin-right: 8px !important;
+}
+
+.addStyleTypeWinCls .ol-scale-line {
+    left: 40px;
+}
+
+#DefaultSymbol .select-item > label {
+    width:100px;
+    padding-right: 10px;
+    text-align:right;
+    float:left;
+}
+#DefaultSymbol .select-item > div{
+    float:left;
+}
+#DefaultSymbol .special-item > div {
+    width:180px !important;
+}
+/*-----------样式管理页面样式end-----------*/
+
+
+/*-----------地图服务页面样式start-----------*/
+@media screen and (min-width:1500px) {
+    .map-service-tree {
+        width: 16.66666667% !important;
+    }
+
+    .map-service-map {
+        width: 41.66666667% !important;
+    }
+}
+
+@media screen and (min-width:1200px) and (max-width:1499px) {
+    .map-service-tree {
+        width: 25% !important;
+    }
+
+    .map-service-map {
+        width: 33.33333333% !important;
+    }
+}
+
+.serviceTree .tree-icon {
+    display: none;
+}
+
+/*-----------地图服务页面样式end-----------*/
+
+/*-----------格式转换样式start-----------*/
+
+.choseTypeClass .table-selected {
+    background-color: #007aff;
+}
+
+    .choseTypeClass .table-selected span {
+        color: #fff;
+    }
+
+/*-----------格式转换样式end-----------*/
+
+/*-----------坐标转换样式start-----------*/
+
+/*7参数设置弹窗的输入框样式*/
+.sevenParamClass .table .form-control, .pointParamClass .table .form-control {
+    width: 100% !important;
+    border: none;
+    text-align: center;
+}
+
+/*-----------坐标转换样式end-----------*/
+
+
+/*-----------设置页面样式start-----------*/
+.no-choseall .th-tables th:first-child div {
+    display: none !important;
+}
+#selectedMapList .mic-tables-thdiv th > div {
+    width:100% !important;
+}
+/*-----------设置页面样式end-----------*/
+
+
+/*-----------用户管理页面样式start-----------*/
+.userWinClass .modal-dialog {
+    width: 900px;
+}
+
+.userWinClass .user-formlist > .col-sm-6:first-child, .userWinClass .user-formlist > .col-sm-6:nth-child(2) {
+    float: right !important;
+}
+
+#addEditModel .trees-combos-select .trees-combospan {
+    padding-left: 4px;
+}
+
+#addEditModel .trees-combobody {
+    position: absolute;
+    z-index: 999;
+    background: #fff;
+    border: 1px solid #ccc;
+    top: 33px;
+    left: -1px;
+    width: 298px;
+}
+
+#addEditModel .trees-combos-select {
+    border-top: 1px solid rgba(200, 199, 204, 0.62);
+    border-left: 1px solid rgba(200, 199, 204, 0.62);
+    border-right: 1px solid rgba(200, 199, 204, 0.62);
+}
+/*-----------用户管理页面样式end-----------*/
+
+
+/*-----------系统日志页面样式start-----------*/
+#sysLog .select2-container {
+    width: calc(99% - 80px);
+}
+
+#sysLog .inquire-input-item > span {
+    display: inline-block;
+    width: 70px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+#sysLog .inquire-input-item input {
+    width: calc(99% - 80px);
+    border: 1px solid rgb(200, 199, 204);
+    height: 34px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#sysLog .calendar-div[section] {
+    width: calc(99% - 80px) !important;
+    min-width: inherit !important;
+    display: inline-block;
+}
+
+    #sysLog .calendar-div[section] > input {
+        padding-left: 12px;
+    }
+
+#sysLog .time-select {
+    position: absolute;
+    height: 34px;
+    border: 1px solid rgb(200, 199, 204);
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 5px;
+    left: 0;
+}
+
+    #sysLog .time-select > span {
+        height: 100%;
+        display: inline-block;
+        text-align: center;
+        box-sizing: border-box;
+        cursor: pointer;
+        line-height: 22px;
+        padding: 0 10px;
+    }
+
+        #sysLog .time-select > span:hover {
+            color: #007AFF;
+        }
+
+        #sysLog .time-select > span + span {
+            border-left: 1px solid rgb(200, 199, 204);
+        }
+
+.selectUserModal .modal-dialog,
+.selectUserModal .modal-content {
+    width: 1020px;
+    height: 638px;
+}
+
+.selectUserModal .selectUser-container {
+    height: 500px;
+}
+
+.selectUserModal .container-left {
+    width: 270px;
+    height: 500px;
+    background-color: #fff;
+    color: #5b5b60;
+    float: left;
+}
+
+.selectUserModal .container-center {
+    width: 380px;
+    height: 500px;
+    background-color: #fff;
+    color: #5b5b60;
+    float: left;
+    margin-left: 15px;
+}
+
+.selectUserModal .form-group {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 15px;
+    padding-right: 15px;
+}
+
+.selectUserModal .container-right {
+    width: 310px;
+    height: 500px;
+    background-color: #fff;
+    color: #5b5b60;
+    float: right;
+}
+
+.selectUserModal #selectedUserList .mic-tables-thdiv th > div {
+    width:100% !important;
+}
+
+/*-----------系统日志页面样式end-----------*/

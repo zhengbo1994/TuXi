@@ -1,0 +1,104 @@
+﻿<!-- 工具集-属性检查 create by huqr /// controller:  'procheckCtrl' -  localtion: App/Main/assets/js/controllers/Tools/procheckCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="procheckCtrl">
+    <div class="row">
+        <!-- 左 -->
+        <div class="col-sm-12 col-md-12 col-lg-12 container_padding" style="padding-left:6px !important;">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <h4 class="panel-title">属性检查</h4>
+                </div>
+                <div class="panel-body panel-fixed" style="min-height:500px!important;">
+                    <!-- 内容 -->
+                    <p>请选择同名的所有文件进行上传，否则无法进行后续操作</p>
+
+                    <!-- start: RESPONSIVE TABLE -->
+                    <form name="formatForm">
+                        <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-12" style="padding-right: 6px;">
+                                    <div style="position: relative; padding-bottom: 10px">
+
+                                        <span class="btn btn-primary btn-o btn-file">
+                                            添加文件
+                                            <input type="file" ngf-select ngf-drop ng-model="files" name="files" ngf-multiple="true" accept=".dbf,.prj,.shp,.shx" />
+                                        </span>
+
+                                        <input class="btn btn-o btn-primary" type="submit" value="属性检查" style="position: absolute; right: 120px" ng-click="uploadTwice()" />
+                                        <a class="btn btn-o btn-primary" ng-href="{{ downloadHref }}" style="position: absolute; right: 0">导出检查结果</a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover" id="sample-table-1">
+                                            <thead>
+                                                <tr>
+                                                    <th>序号</th>
+                                                    <th>文件名称</th>
+                                                    <th>图系类别</th>
+                                                    <th>图件名称</th>
+                                                    <th>图层名称</th>
+                                                    <th>检查状态</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="f in $lyrData">
+                                                    <td>
+                                                        {{ $index + 1 }}
+                                                    </td>
+                                                    <td>
+                                                        {{ f.name }}
+                                                    </td>
+
+                                                    <td>
+                                                        {{ f.class }}
+                                                    </td>
+
+                                                    <td>
+                                                        {{ f.tjname }}
+                                                    </td>
+
+                                                    <td>
+                                                        {{ f.tcname }}
+                                                    </td>
+
+                                                    <td>
+                                                        {{ f.status }}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+
+                            <div>
+                                <fieldset>
+                                    <legend>检查日志</legend>
+                                    <div>
+                                        <table>
+                                            <tr ng-repeat="f in $prochecklog">
+                                                <td>
+                                                    <span>{{ f }}</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <!-- 上传+转换的进度条 -->
+                            <!--<div class="select-Row-{{ isShow }}">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <progressbar class="progress-striped" value="progress" type="success"></progressbar>
+                        </div>
+                    </div>
+                </div>-->
+
+                        </div>
+                    </form>
+                    <!-- end: RESPONSIVE TABLE -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

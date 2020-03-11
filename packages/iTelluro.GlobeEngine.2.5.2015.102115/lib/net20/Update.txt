@@ -1,0 +1,229 @@
+最近更新：
+V2.5 2015.09.20
+1.增加对多DEM图层的支持。
+2.修改远程图例的本机缓存算法，解决超长URL图例无法显示的问题
+
+V2.5 2014.103010
+1.修改POIIcon颜色修改未更新的Bug（电子预案）
+
+V2.5 2014.1030
+1.修正三维模型发布在有端口号的服务器端不能正确加载的Bug
+2.修改标注管理UI，控件不能自适应停靠的Bug
+3.图层控件，隐藏基础影像节点和高程节点
+4.增加隐藏数据图层组HideDataLayers，可以将某些临时数据图层添加到这一图层组，左边的图层树将默认不显示这组图层，例如控件对象编辑时的临时图层
+5.增加WKT到iTelluro空间对象的方法，命名空间：iTelluro.GlobeEngine.Analyst，类：GeoToolsAdapter，方法：WKT2Polygon(string)，WKT2LineString(string)，WKT2Point3d(string)
+6.图层组修改为可插入，可根据索引插入，索引号越小越先加载，按照索引更新渲染顺序，方法：Insert(int,DataLayer)，InsertByOverwrite(int,DataLayer)
+7.其他Bug修改
+
+
+V2.5 2014.0630 [2014.6.26]
+修正SpatialEvIdx类抛出空引用异常的Bug
+
+V2.5.2013.0801	[2013.8.6]
+修改本地DEM打包数据集不能加载的问题；
+MBTiles数据格式bug修改。
+
+V2.5.2013.0801	[2013.8.1]
+iTelluro.GlobeDB的GlobeDBService在多线程环境下的Bug修改（只影响服务器端）;
+IconLayer的绘制模式修改为按加载顺序渲染；
+其他bug修改。
+
+V2.5.2013.0701	[2013.7.1]
+增加MBTiles数据格式支持；
+LonLatDataLayer和LonLatVectorDataLayer增加了切片数据集加载或服务相关的元数据属性；
+其他bug修改。
+
+V2.5.2013.0501	[2013.5.1]
+.net 4.0环境下DEM数据下载出错的问题；
+Icon图层的图标POIIcon，图标文件（IconFile）是网络路径，有时候下载会失效的问题；
+其他bug修改。
+
+V2.5.2012.1212	[2012.12.12]
+修改LonLatVectorDataLayer绘制带洞多边形时，洞太多或太小时不能绘制的Bug。
+
+V2.5.2012.1204	[2012.12.4]
+1. 切片数据库读取bug修改（不能正确读取只存储了一次的重复切片的问题）；
+2. GlobeViewSetting对象增加CameraSmooth属性，摄像机移动是否平滑，默认为True；
+    True: 平滑移动，有视图过渡飞行效果
+    False: 鼠标、键盘移动后直接到达目标
+3. GlobeView的下载进度在某些情况下消失的问题；
+4. 其他Bug修改.
+
+V2.5.2012.0816	[2012.8.16]
+1. 标注数据Tile大小（后台Layer的参数调整）设置没有从数据源（本地或网络）读取的Bug（一直是初始值）;
+2. 模型图层对服务器模型加载时，同一图层有同名模型导致模型加载不全或纹理丢失的Bug;
+3. POIIcon增加Visible属性，可用于图标闪烁、报警等操作.
+
+V2.5.2012.0506	[2012.5.6]
+1. 标注数据（LabelLayer）分块加载和渲染机制（可通过后台Layer的参数调整），减少内存占用，提高数据调度和可视化效率；
+2. 修改切片外接立方体（BoundingBox）计算未考虑地面弧度的问题，导致单层基础影像时，视角会钻到地面下的Bug；
+3. LonLatVectorDataLayer添加以下接口，用于根据id判断对象是否存在：
+public bool ContainLineString(long id)
+public bool ContainPolygon(long id)
+4. 其他Bug修改.
+
+V2.5.2011.1226	[2011.12.26]
+1. 修改墨卡托投影下在高纬地区偶尔会出现影像加载不全的问题。
+2. 视锥体内立方体对象相交判断效率改进。
+3. GIS图层数据调度算法效率和内存占用改进。
+4. 修改Label图层渲染调度时数组分配的一个问题（导致内存占用过大的问题）。
+5. DEM数据和地形缓存等内存优化。
+
+V2.5.2011.1204	[2011.12.4]
+1. 修改小比例尺GIS图层闪烁的问题.
+2. iTelluro.GlobeEngine.Analyst的GeoToolsAdapter带洞多边形支持.
+3. Icon和Label图标渲染颜色微调.
+4. GlobeView飞行方法的稳定性改进，飞行过程中单击或拖动三维视图可自动停止飞行.
+5. 其他Bug修改.
+
+V2.5.2011.1020	[2011.10.20]
+1. LonLatVectorLayer增加IsBackgroundUpdate属性。
+2. GlobeView增加UserToken属性，设置或获取登录用户信息，用于在与服务器交互时发送给服务器，服务器可根据该信息决定返回的数据; 默认为空字符串: string.Empty. 
+3. Label数据集增加了REST风格的数据服务提供程序，可与GlobeView的UserToken属性配合使用。
+4. 修改POIIcon详细信息窗口位置在Icon图标本身大小和设置值不一致时位置偏移的Bug。
+5. 网络许可获取算法修改，增加可靠性。
+6. 修改切片数据库数据块大小分配计算bug（导致数据文件一直增加，删除掉的数据块基本不会重用的bug）；
+
+V2.5.2011.0909	[2011.9.9]
+1. LonLatVectorLayer绘制效率改进;
+2. LonLatDataLayer增加IsBackgroundUpdate属性（后台更新图层，可用于时态数据动画演示）;
+3. 保存截图可以保存指北针、比例尺等界面元素。
+
+V2.5.2011.0814	[2011.8.14]
+1. GlobeView创建时配置不全或者有问题导致三维地球创建失败的Bug;
+2. 其他Bug修改.
+
+V2.5.2011.0713	[2011.7.13]
+1. 修改GlobeViewCamera对象的FlyTo方法在距离很近的情况下不飞行，或者移动视点，但不改变高程的问题；
+2. Point3d拷贝构造函数赋值错误的Bug;
+3. 修改上一版本三维地球初始影像放大后不显示问题；
+4. 修改服务器端zip压缩的DEM数据集下载后未被正确解压的问题；
+5. 其他bug修改.
+
+V2.5.2011.0504	[2011.5.4]
+修改切片数据库数据调度的一个bug导致某些情况下内存不能释放的问题[严重].
+
+V2.5.2011.0411  [2011.4.11]
+1. 增加大气层图层厚度.
+2. 改进视图中鼠标位置拾取、Label和Icon绘制的效率.
+3. iTelluro.Utility Ini文件字符串Value有分号读取截断问题.
+4. 服务器支持私有和公有切片数据库模式.
+
+V2.5.2011.0227	[2011.2.27]
+1. 飞行路线控件样式修订.
+2. 修正上一版本三维视图飞行、移动不平滑问题.
+
+V2.5.2011.0223	[2011.2.23]
+1. 地球的半径和DEM高程数据集的数据类型（整型或浮点型）可在配置文件中设置.
+2. 服务器更新，DEM数据集支持切片数据库模式. 
+[说明] 从该服务器版本开始，客户端配置文件需要明确指定服务器DEM数据集的名称（具体内容请参考SDK文档配置）.
+3. 影像图层ImageLayer增加了图层数据集描述信息.
+4. 去掉三维视图的ShowOverview属性（显示鸟瞰窗口，小地球），增加鹰眼控件（GlobeOverviewControl）.
+5. 修改图层控件的图标.
+6. 三维视图GlobeView新增GlobeViewChanged事件，在视图范围（视点）发生变化时触发.
+7. 动态调整三维视图比例尺大小，使用整数的比例尺大小. 增加ScaleAlternating比例尺风格，使用GlobeViewSetting.ScalebarStyle设定不同风格.
+8. 其他Bug修改.
+
+V2.5.2011.0215	[2011.2.15]
+1. 解决鼠标在GlobeView(三维视图)中的取样精度问题，可实现亚米级的精确定位、量测，解决量测、三维绘制精度等一系列相关问题.
+2. 修改GlobeView的当前视图范围属性ViewRect，返回更精确的范围.
+3. LineString，Polygon增加无参数构造函数，Id属性可写。缺省的Id为-1。
+4. 增加GeoToolsAdapter，可转换iTelluro和NTS/GeoTools对象格式。
+5. 经纬度投影的GIS数据图层LonLatDataLayer设置网络路径的高程数据源无效果的Bug.
+6. 修改数据图层（DataLayer）图层初始为不可见时，第一次修改Visible属性不触发LayerVisibleChanged事件的Bug.
+7. DEM数据集支持切片数据库模式.
+8. 其他Bug修改.
+
+V2.5.2011.0105	[2011.1.5]
+修改简化地形开窗模式点在多边形内算法，提高运行效率.
+经纬度投影的GIS数据图层LonLatDataLayer可设置单独的高程数据源.
+
+V2.5.2010.1201	[2010.12.1]
+修正实时渲染图层添加的空间对象有问题时整体不绘制的Bug.
+
+V2.5.2010.1121	[2010.11.21]
+1. 针对墨卡托投影的地下模式Bug修正, 墨卡托投影切片数据调度模式改进.
+2. GlobeViewSetting增加ConfigFilePath属性, 返回控件当前使用的配置文件路径.
+3. iTelluro.GlobeEngine.Analyst增加SpatialOperator和SpatialRelation对象, 用于空间对象计算和分析[持续更新中].
+4. 经纬度切片增加切片数据库模式（使用工具可将切片文件打包为切片数据库格式, 易于管理和部署）, 切片数据库支持网络和本地.
+5. 修改地形开窗模式的实现方式和接口, 支持多边形窗口和多个窗口.
+6. Bug修改: 模型图层远程下载材质Bug等.
+
+V2.5.2010.1005  [2010.10.5]
+1. 地形(TerrainLayer)增加开窗模式[实验].
+2. GlobeViewCamera增加地下模式[实验, 暂时不支持水平面以下的地下].
+3. 修正三维模型中心点坐标, 外接球, 模型调度等Bug导致某些时候视点位置较低时模型不显示的Bug.
+4. 修改在三维视图不是正北方向时, 鼠标惯性拖动时运动方向错误的Bug.
+5. 调整平滑飞行路线UI中飞行过程中的飞行方向.
+6. 改进鼠标在球面移动时返回位置的精度.
+7. 修改POIIcon的描述信息显示方式.
+8. 其他Bug修改.
+
+V2.5.2010.921  [2010.9.21]	
+1. LonLatVectorDataLayer图层增加DrawMode属性.
+2. 修改SQLLabelDataProvider数据库连接问题.
+3. 修改TerrainLayer的GetElevationAt(double, double)方法在网络环境下获取高程会失效的问题.
+
+V2.5.2010.830  [2010.8.30]
+1. 修订版本号格式, 例如2.5.2010.830, 表示2010年8月30日编译；
+2. 实时渲染图层LonLatVectorDataLayer更新时进行局部更新；
+3. 添加实时渲染图层（Google 墨卡托投影）(线/面OK)；
+4. GlobeView的数据图层组HideFloatLayyers修改为HideFloatLayers，拼写错误.
+5. LabelLayerEditControl 增加属性编辑回调事件.
+6. GlobeView下载远程配置文件时，文件名使用GlobeView构造函数指定的文件名称，而不是固定的iTelluro.GlobeEngine.dat.
+7. 其他Bug修改.
+
+[2010.8.2]
+1. 修改LonLatVectorDataLayer在Remove时没有刷新的Bug.
+2. Server标准版增加使用USB狗绑定方式.
+
+[2010.7.25]
+1. 修改LonLatDataLayer和LonLatVectorDataLayer，可使其用于非贴于地表的数据，模拟水体或大气云图。
+2. 修改Polygon的PolgonColor为PolygonColor，拼写错误.
+3. GlobeView界面下方经纬度显示，鼠标移出地球范围显示单独逗号问题，修改逗号为空格。
+
+[2010.7.16]
+1. 修改GlobeFlyRountControl名称为GlobeFlyRouteControl，之前拼写错误.
+2. 增加新的飞行路线设置功能.
+3. 修改LonLatVectorLayer, 内部通过SortedList维护空间对象, 可定位和遍历, 修订Dic不能遍历问题.
+
+[2010.7.9]
+1. 解决LonLatVectorLayer画带洞多边形的问题(使用GDI+的Path对象解决).
+2. 修改LonLatVectorLayer, 内部通过Dic维护,可快速添加定位对象.
+
+[2010.6.27]
+1. 增加LonLatVectorLayer, 可以通过渲染方式添加线\面
+
+[2010.5.20]
+1. 改进GlobeViewTools等工具的取样精度.
+2. 改进TerrainLine, bug及效率.
+
+[2010.5.3]
+1. 增加地形线对象: TerrainLine;
+2. TerrainLayer增加TerrainTileLoaded事件, 在有新的地形数据加载（或下载）后发生. 
+
+[2010.4.29]
+1. 增加Camera视图模式，分街区（block）和地形（terrain），前者视角和视点高度更低, 可通过GlobeView的Camera设置.
+2. GlobeViewSetting增加AntiAliasedEnable属性.
+3. 路线录制回放增加循环功能.
+
+[2010.3.17]
+1. 修订GlobeViewTools使用多边形（TrackPolygonObject）工具时，返回参数是折线（TrackPolylineObject）而不是多边形的错误.
+2. 修订POIIcon在IE环境下，刷新后Texture不能加载的问题.
+
+[2010.2.1]
+1. 改进LabelEditControl，增加LabelLayerEditControl.
+2. 修改网络切片数据下载在快速缩放时会暂停的问题.
+
+[2010.1.7]
+1. 硬件加密狗过期时间在About对话框显示错误（显示为今天）Bug.
+2. POIIcon效率问题改进，可加载超过10k的POIIcon.
+
+[2009.12.29]
+1. 修订了Icon的IconFile为相对路径不能加载的问题.
+2. 将空间分析代码分离为单独的类库.
+3. 增加GlobeView工具GlobeViewTools，例如矩形、圆选择，加点、线、面等对象; 通过设置CurrentTool来使用对象，通过ToolUsed返回所画对象.
+4. 修订视角很低情况下移动旋转视图导致假死的问题.
+5. 其他Bug修订.
+
+

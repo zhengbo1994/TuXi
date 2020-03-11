@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "发布服务管理";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <style>
+        .layui-body {
+            overflow-y: scroll !important;
+        }
+
+
+
+        body {
+            overflow-y: scroll !important;
+        }
+    </style>
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs12 layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">服务列表</div>
+                <div class="layui-card-body">
+                    <div class="test-table-reload-btn" style="margin-top: 10px;margin-left:15px">
+                        名称：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="name" id="txtName" autocomplete="off">
+                        </div>
+                        <button class="layui-btn" data-type="reload" onclick="initGrid()">搜索</button>
+                    </div>
+                    <div class="layui-card-body" style="overflow-x:hidden">
+                        <table class="layui-hide" id="service-table" lay-filter="service-table"></table>
+                        <script type="text/html" id="service-table-toolbar">
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="addService('新增')"><i class="layui-icon"></i>新增</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="editService('编辑')"><i class="layui-icon"></i>编辑</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="removeService()"><i class="layui-icon"></i>删除</button>
+                            </div>
+
+                            <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section script{
+    <script>
+    var table;
+
+    var currentService = '';
+    layui.initModule(['table'], function () {
+        table = layui.table;
+
+        initGrid();
+
+    });
+
+
+
+    function initGrid() {
+        layui.initGird({
+            id: "service-table"
+          , elem: '#service-table'
+        , url: Base.getApiUrl("/SystemManage/GetPublishPageListByCondition")
+      , title: '服务列表'
+      , cols: [[
+         { type: 'checkbox', fixed: 'left', event: 'setSign' }
+          , { field: 'Id', hide: true }
+        , { field: 'TEXT', title: '名称', event: 'setSign', width: 400 }
+        , { field: 'URL', title: '请求路径', width: 500 }
+        , { field: 'DATASERVERKEY', title: 'Key值' }
+        , { field: 'TILESIZE', title: '切片大小', align: 'right', width: 100 }
+        , { field: 'ZEROLEVELSIZE', title: '零级大小', align: 'right', width: 100 }
+        , { field: 'PICTYPE', title: '图片类型', align: 'center', width: 100 },
+          {
+              field: 'SERVICETYPE', title: '服务类型', align: 'center', event: 'setSign', templet: function (d) {
+                  if ((d.SERVICETYPE||'').toLowerCase() ==="geoserver") {
+                      return "<button class=\"layui-btn layui-btn-normal layui-btn-xs\">GeoServer</button>";
+                  }
+
+
+                  return "<button class=\"layui-btn layui-btn layui-btn-xs\">iTelluroServer</button>"
+              }
+          }
+      ]],
+            where: {
+                name: $.trim($("#txtName").val()),
+            },
+            toolbar: '#service-table-toolbar'
+        });
+
+        //监听行单击事件
+        table.on('row(service-table)', function (obj) {
+            currentService = obj.data
+        });
+
+        table.on('rowDouble(service-table)', function (obj) {
+            currentService = obj.data
+            editService('编辑')
+        });
+    }
+
+    function addService(action) {
+        layui.showDlg({
+            title: "选择地图服务类型",
+            content: '@Url.Action("SelectServiceType")',
+            area: ['25%', '19.5%'],
+            yes: function (index, layero) {
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                layer.close(index);
+                openDlg(action, '', iframeWin.getValue());
+            }
+        });
+    }
+
+    function openDlg(action, id,serviceType) {
+
+        layui.showDlg({
+            title: action + "服务",
+            content: '@Url.Action("AddOrEditService")?id=' + id + "&serviceType=" + serviceType,
+            area: ['40%', '53%'],
+            yes: function (index, layero) {
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                iframeWin.doSubmit();
+            }
+        });
+    }
+    function editService(action) {
+        if (!currentService) {
+            alert('请选择服务');
+            return;
+        }
+
+        openDlg(action, currentService.Id, currentService.SERVICETYPE);
+    }
+
+    function removeService() {
+
+        var ids = getCheckedIds();
+        if (ids.length == 0) {
+            alert('请选择服务');
+            return;
+        }
+        confirm('是否删除', function () {
+            $.post({
+                url: Base.getApiUrl("/SystemManage/RemoveService"),
+                data: { "": ids.join(",") },
+                success: function (resp) {
+                    if (resp.code == 0) {
+                        initGrid();
+                        layer.closeAll();
+                    }
+                }
+            })
+        });
+    }
+
+    function getCheckedIds() {
+        return layui.Grid.getCheckedIds('service-table');
+    }
+
+
+    </script>
+}

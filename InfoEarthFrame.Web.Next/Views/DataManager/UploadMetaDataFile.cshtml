@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "上传元数据文件";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+
+}
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card">
+        <div class="layui-card-body" id="app">
+            <form class="layui-form" action="" lay-filter="component-form-group">
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <div class="layui-upload-drag" style="border:none" id="uploader">
+                            <i class="layui-icon"></i>
+                            <p>点击上传，或将文件拖拽到此处(支持*.xml)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-lg3" id="file-name">
+                    <label class="layui-form-label">文件名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="Name" id="txtName" class="layui-input" readonly>
+                    </div>
+                </div>
+                @*<div class="layui-col-lg3" id="file-status">
+                        <label class="layui-form-label">上传状态</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" id="upload-status" lay-filter="upload-status" title="未上传" disabled>
+                        </div>
+                    </div>*@
+            </form>
+        </div>
+    </div>
+</div>
+@section script
+{
+    <script>
+        var uploader = null;
+        layui.initModule(['form', 'upload'], function () {
+            var form = layui.form;
+            form.render(null, 'component-form-group');
+
+            uploader = layui.upload.render({
+                elem: '#uploader'
+      , before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+          layer.load();
+      },
+      url: Base.getApiUrl("/DataManager/UploadMetaDataFile")+'?mainId=@Request.QueryString["mainId"]&folderName=@Request.QueryString["folderName"]',
+                done: function (res) {
+                    layer.closeAll('loading');
+                    window.parent.layer.closeAll();
+                    window.parent.location.reload();
+                },
+                error: function () {
+                    layer.closeAll('loading');
+                },
+                headers: {
+                    "Authorization": "Bearer " + $.cookie(Config['AccessTokenKey']),
+                    "Lang": $.cookie(Config["CurrentLangKey"]) || 'zh-cn'
+                },
+                exts: 'xml',
+                auto: false,
+                choose: function (obj) {
+                    var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                    for (var p in files) {
+                        $("#txtName").val(files[p].name);
+                    }
+                }
+            });
+        });
+
+
+    </script>
+}

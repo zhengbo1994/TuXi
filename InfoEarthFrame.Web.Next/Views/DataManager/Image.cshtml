@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+
+}
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card layui-form">
+        <div class="layui-card-header">
+            @ViewBag.Header
+        </div>
+        <div class="layui-card-body" style="padding:0px">
+
+            <div class="layui-row layui-col-space12">
+
+         
+                <div class="layui-col-xs12 layui-col-md12">
+
+                    <div class="layui-card" style="padding:0px">
+                        <div class="layui-card-body" style="padding:0px">
+                            @*<button class="layui-btn layui-btn-sm layui-btn-danger" onclick="removeFile()"><i class="layui-icon" onclick="removeFile()"></i>删除</button>*@
+                            <div class="layui-upload-drag" style="width:95%;margin-top:10px;border:none" id="uploader" data-permession-button="编辑">
+                                <i class="layui-icon"></i>
+                                <p>点击上传，或将文件拖拽到此处</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-md12">
+
+                    <div class="layui-card" style="padding:0px">
+                        <div class="layui-card-body" style="padding:0px">
+                            <center>
+                            <img class="layui-upload-img" src="" id="current-image" style="width: 220px; height: 200px; " border="0" />
+                            </center>
+                            <center id="current-image-name">
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+
+    </div>
+</div>
+@section script
+{
+    <script>
+
+
+        layui.initModule(['upload'], function () {
+
+            initImage();
+            layui.upload.render({
+                elem: '#uploader'
+              , url: '@Html.Raw(ViewBag.Url)'
+              , before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                        layer.load();
+                }
+              , done: function (res) {
+                  layer.closeAll('loading');
+                  if (res.code == 0)
+                  {
+                      initImage();
+                  }
+              },
+              error:function(){
+                  layer.closeAll('loading');
+              },
+              headers: {
+                  "Authorization": "Bearer " + $.cookie(Config['AccessTokenKey']),
+                  "Lang": $.cookie(Config["CurrentLangKey"]) || 'zh-cn'
+              }
+            });
+        });
+
+
+        function initImage()
+        {
+            $.get({
+                url: Base.getApiUrl("/DataManager/GetUploadFiles"),
+                data: {
+                    mainId: '@Request.QueryString["mainId"]',
+                    folderName: decodeURIComponent('@Request.QueryString["folderName"]')
+                },
+                success: function (resp) {
+                    if (resp.data && resp.data.length > 0) {
+                        var path = resp.data[0].FilePath.toLowerCase();
+                        var parts = path.split('.jpg');
+                        try {
+                            $("#current-image").attr("src", parts[0] + "_thumb" + ".jpg");
+                        }
+                        catch (e)
+                        {
+                            $("#current-image").attr("src", path);
+                        }
+                        $("#current-image-name").text(resp.data[0].name)
+                    }
+                    else {
+                        $("#current-image").attr("src",'@Url.Content("~/content/images/empty-128.png")')
+                        $("#current-image-name").text('')
+                    }
+                    Base.initPermession(window.parent.parent.location.href);
+                }
+            })
+        }
+
+        function removeFile() {
+
+            confirm('是否删除', function () {
+                $.post({
+                    url: Base.getApiUrl("/DataManager/RemovePackageCategory"),
+                    data: {
+                        mainId: '@Request.QueryString["mainId"]',
+                        folderName: decodeURIComponent('@Request.QueryString["folderName"]')
+                    },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            initImage();
+                            layer.closeAll();
+                        }
+                    }
+                })
+            });
+        }
+    </script>
+}

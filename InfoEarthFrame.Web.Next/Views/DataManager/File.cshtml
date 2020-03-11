@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <link href="@Url.Content("~/Content/layuiadmin/uploader_ext/uploader/webuploader.css")" rel="stylesheet" />
+}
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card">
+        <div class="layui-card-header">
+            @ViewBag.Header
+        </div>
+        <div class="layui-card-body" style="padding:0px">
+            <table id="file-table" lay-filter="file-table"></table>
+            <script type="text/html" id="file-table-toolbar">
+                <div class="layui-btn-group">
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="uploadFile()" data-permession-button="编辑"><i class="layui-icon">&#xe681;</i>上传</button>
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="removeFile()" data-permession-button="删除"><i class="layui-icon"></i>删除</button>
+                </div>
+                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+            </script>
+        </div>
+    </div>
+    @section script
+{
+        <script>
+
+
+
+    layui.initModule(['jquery', 'treeGrid', 'layer'], function () {
+        initGrid();
+        Base.initPermession(window.parent.parent.location.href);
+    });
+
+
+    function initGrid() {
+        layui.initTreeGird({
+            id: 'file-table'
+            , elem: '#file-table'
+            , url: Base.getApiUrl("/DataManager/GetUploadFiles")
+            , where: {
+                mainId: '@Request.QueryString["mainId"]',
+                folderName: decodeURIComponent('@Request.QueryString["folderName"]')
+            }
+            , cols: [[
+                //{ type: 'numbers' }
+                { type: 'checkbox', sort: true }
+                , { field: 'name', width: 300, title: '文件名称', sort: true }
+        , { field: 'FileLength', title: '文件长度', align: 'right' }
+        , {
+            field: 'StorageTime', title: '上传时间', align: 'center', templet: function (d) {
+                return Base.Converter.dateTime(d.StorageTime);
+            }
+        },
+        {
+            field: 'IsInGeoServer', title: '是否入库', align: 'center', event: 'setSign', templet: function (d) {
+                if (d.IsInGeoServer) {
+                        return "<button class=\"layui-btn layui-btn-xs\">已入库</button>"
+                }
+                return "";
+            }
+        },
+             {
+                 field: '', title: '', width: 100, align: 'center', event: 'setSign', templet: function (d) {
+                     if (d.IsInGeoServer) {
+                         return "<button class=\"layui-btn layui-btn-normal layui-btn-xs\" onclick=\"viewFile('" + d.FilePath + "','" + d.name + "','"+d.id+"')\">查看</button>"
+                     }
+                     return "<button class=\"layui-btn layui-btn-disabled layui-btn-xs\" onclick=\"viewFile('" + d.FilePath + "','" + d.name + "','"+d.id+"')\">查看</button>"
+                 }
+             }
+            ]],
+            toolbar: "#file-table-toolbar"
+        });
+
+    }
+
+
+            function viewFile(filePath, fileName, id) {
+                if (fileName.toLowerCase().indexOf(".doc") != -1 || fileName.toLowerCase().indexOf(".xls") != -1 || fileName.toLowerCase().indexOf(".pdf")!=-1) {
+                    Base.viewFile({
+                        getPDFFileUrl: "@Url.Action("GetPDFFile","Base")",
+                        filePath: filePath,
+                        fileName: fileName
+                    });
+                }
+                else {
+                    if (fileName.toLowerCase().indexOf(".shp") != -1) {
+                        $.get({
+                            url: Base.getApiUrl("/DataEditor/GetDetailById"),
+                            data: {
+                                layerId: id
+                            },
+                            // async: false,
+                            success: function (resp) {
+                                if (resp.code == 0) {
+                                    model = resp.data;
+
+                                   top.layui.showDlg({
+                                        title: fileName,
+                                        content: "@Url.Action("ShowMap", "DataEditor")",
+                                        area: ['100%', '100%'],
+                                        btn: [],
+                                        success: function (layero, index) {
+                                            var iframeWin = top.window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                                            iframeWin.addLayer(model.LayerAttrTable);
+                                        }
+                                    });
+
+                                }
+                            }
+                        })
+                    }
+                }
+            }
+
+
+    function getCheckData(tableId) {
+        return layui.TreeGird.getCheckedIds(tableId);
+    }
+    function uploadFile() {
+
+        parent.layui.showDlg({
+            title: '上传文件',
+            content: '@Url.Action("UploadFile")?mainId=@Request.QueryString["mainId"]&folderName=@Request.QueryString["folderName"]' + "&uploadUrl=" + '@ViewBag.UploadUrl' + "&ext=@ViewBag.Ext" + "&UploadFailureCallback=@ViewBag.UploadFailureCallback",
+            area: ['80%', '80%'],
+            yes: function (index, layero) {
+            },
+            cancel: function (index, layero) {
+                initGrid();
+                parent.layer.close(index);
+            },
+            btn: []
+        });
+    }
+
+    function removeFile() {
+        var ids = getCheckData('file-table')
+        if (ids.length == 0) {
+            alert('请选择文件');
+            return;
+        }
+
+        confirm('是否删除', function () {
+            $.post({
+                url: Base.getApiUrl("/DataManager/RemoveFile"),
+                data: { "": ids.join(",") },
+                success: function (resp) {
+                    if (resp.code == 0) {
+                        initGrid();
+                        layer.closeAll();
+                    }
+                }
+            })
+        });
+    }
+
+
+        </script>
+    }

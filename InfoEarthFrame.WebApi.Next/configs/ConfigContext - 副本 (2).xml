@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ConfigContext>
+  <AuthConfig IsEnabled="false" />
+  <ApiConfig />
+  <FtpConfig>
+    <Ftp Name="Package" Site="http://localhost:8012">
+      <DirectoryPath>D:\WebSite\\00地质图系\FTPFile</DirectoryPath>
+      <Host>127.0.0.1</Host>
+      <Port>21</Port>
+      <UserName>web</UserName>
+      <Password>123456</Password>
+    </Ftp>
+  </FtpConfig>
+  <DefaultConfig>
+    <Item Key="CurrentLangKey" Value="Lang" Comment="系统所用语言key" />
+    <Item Key="auth:issuer" Value="www.infoearth.com" Comment="令牌颁布者" />
+    <Item Key="auth:secret" Value="ef9f7cad8628ba75f94313a2a8bf8d5e" Comment="令牌密钥" />
+    <Item Key="AllowOrigins" Value="http://localhost:8007,http://localhost:8008" Comment="允许跨域的站点" />
+    <Item Key="upload:tempdir" Value="TempFile" Comment="文件上传临时保存文件夹" />
+    <Item Key="auth:secret" Value="ef9f7cad8628ba75f94313a2a8bf8d5e" Comment="令牌密钥" />
+    <Item Key="KJWebUrl" Value="http://localhost:8007" Comment="空间数据管理服务地址" />
+    <Item Key="geoserver:WMS" Value="http://localhost:8080/geoserver/gisdatamanage1/wms" Comment="geoserverWMS服务" />
+    <Item Key="Upload:SLWJRK" Value="http://localhost:8009/api/uploadZip/upload" Comment="矢量文件入库" />
+  </DefaultConfig>
+  <ModuleConfig>
+    <Module ID="1" Name="数据管理" Icon="layui-icon-upload-drag">
+      <Menu ID="11" Name="数据管理" Url="/dataManager" />
+    </Module>
+    <Module ID="2" Name="数据编辑" Icon="layui-icon-edit">
+      <Menu ID="21" Name="数据编辑" Url="/dataEditor" />
+    </Module>
+    <Module ID="3" Name="专题制作" Icon="layui-icon-theme">
+      <Menu ID="31" Name="专题制作" Url="/thematicMapping" />
+    </Module>
+    <Module ID="4" Name="发布系统" Icon="layui-icon-ok-circle">
+      <Menu ID="41" Name="基础信息" Url="/publishSystem/basicInfo" />
+      <Menu ID="42" Name="全国" Url="/publishSystem/Countory" />
+      <Menu ID="43" Name="省域" Url="/publishSystem/Province" />
+      <Menu ID="44" Name="区域" Url="/publishSystem/Area" />
+    </Module>
+    <Module ID="5" Name="工具集" Icon="layui-icon-util">
+      <Menu ID="51" Name="格式转换" Url="/tools/formatConversion" />
+      <Menu ID="52" Name="坐标转换" Url="/tools/coordinateConversion" />
+      <Menu ID="53" Name="投影转换" Url="/tools/shadowConversion" />
+    </Module>
+    <Module ID="6" Name="系统管理" Icon="layui-icon-set-sm">
+      <Menu ID="62" Name="样式管理" Url="/SystemManage/StyleManager" />
+      <Menu ID="63" Name="已发布服务列表" Url="/SystemManage/publishService" />
+      <Module ID="61" Name="用户权限管理">
+        <Menu ID="611" Name="用户管理" Url="/SystemManage/userlist" />
+        <Menu ID="612" Name="用户组管理" Url="/SystemManage/userGrouplist" />
+        <Menu ID="614" Name="菜单管理" Url="/SystemManage/menulist" />
+        <Menu ID="613" Name="用户组授权" Url="/SystemManage/userGroupPermession" />
+      </Module>
+      <Module ID="64" Name="日志管理">
+        <Menu ID="641" Name="系统日志" Url="/SystemManage/logger" />
+        <Menu ID="642" Name="GeoServer日志" Url="/SystemManage/Geologger" />
+      </Module>
+    </Module>
+  </ModuleConfig>
+  <PermessionConfig>
+    <Group ID="1">
+      <Module ID="61" Name="用户权限管理">
+        <Menu ID="612" Name="用户组管理" Url="/SystemManage/userGrouplist" />
+      </Module>
+      <Module ID="6" Name="系统管理" />
+      <Module ID="64" Name="日志管理">
+        <Menu ID="642" Name="GeoServer日志" Url="/SystemManage/Geologger" />
+      </Module>
+      <Module ID="1" Name="数据管理" Icon="layui-icon-upload-drag" />
+    </Group>
+    <Group ID="2">
+      <Module ID="4" Name="发布系统" Icon="layui-icon-ok-circle">
+        <Menu ID="41" Name="基础信息" Url="/publishSystem/basicInfo" />
+        <Menu ID="43" Name="省域" Url="/publishSystem/Province" />
+      </Module>
+      <Module ID="5" Name="工具集" Icon="layui-icon-util">
+        <Menu ID="51" Name="格式转换" Url="/tools/formatConversion" />
+        <Menu ID="52" Name="坐标转换" Url="/tools/coordinateConversion" />
+        <Menu ID="53" Name="投影转换" Url="/tools/shadowConversion" />
+      </Module>
+    </Group>
+  </PermessionConfig>
+</ConfigContext>

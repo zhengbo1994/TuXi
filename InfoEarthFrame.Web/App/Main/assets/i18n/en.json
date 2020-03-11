@@ -1,0 +1,831 @@
+﻿{
+	"dashboard": {
+		"WELCOME": "welcome to {{appName}}",
+		"MAIN": "Spatial Data Management System",
+		"logo": "App/Main/assets/images/logo-en.png"
+	},
+	"topbar": {
+		"notification": {
+			"MAIN": "Notification",
+			"serialnumber": "No.",
+			"import": {
+				"MAIN": "Import",
+				"filename": "File name",
+				"layername": "Layer name",
+				"uploadtime": "Upload time",
+				"status": "Status"
+			},
+			"download": {
+				"MAIN": "Download",
+				"filename": "File name",
+				"conversiontype": "Conversion type",
+				"conversiontime": "Conversion time",
+				"tables": {
+					"format": "Format conversion",
+					"coordinate": "Coordinate conversion",
+					"shadow": "Shadow conversion",
+					"download": "Download"
+				}
+			}
+		},
+		"user": {
+			"MAIN": "",
+			"userCenter": {
+				"MAIN": "User Center",
+				"information": {
+					"MAIN": "Personal information",
+					"name": "Name",
+					"gender": "Gender",
+					"phone": "Phone",
+					"telephone": "Telephone",
+					"organization": "Organization",
+					"position": "Position",
+					"description": "Description",
+					"man": "Man",
+					"woman": "Woman"
+				},
+				"password": {
+					"MAIN": "Password setting",
+					"account": "Account",
+					"old": "Old password",
+					"new": "New password",
+					"confirm": "Confirm password"
+				},
+				"inputName": "Fill in the name!",
+				"inputNew": "Fill in the new password!",
+				"inputCon": "Confirm the new password!",
+				"oldErr": "Original password error!",
+				"newDeCon": "The two passwords mismatch!",
+				"editSucc": "Modify successful!",
+				"editErr": "Modify failed!"
+			},
+			"Language": {
+				"MAIN": "Language"
+			},
+			"signout": {
+				"MAIN": "Sign out",
+				"confirmOut": "Confirm to sign out?"
+			}
+		}
+	},
+	"offsidebar": {},
+	"sidebar": {
+		"nav": {
+			"dashboard": {
+				"MAIN": "Home"
+			},
+			"layerManager": {
+				"MAIN": "Layers"
+			},
+			"mapManager": {
+				"MAIN": "Maps"
+			},
+			"styleManager": {
+				"MAIN": "Style"
+			},
+			"dataInterface": {
+				"MAIN": "Service"
+			},
+			"tools": {
+				"MAIN": "Toolset",
+				"toolsOne": "Format conversion",
+				"toolsTwo": "Coordinate conversion",
+				"toolsThr": "Projection conversion"
+			},
+			"sysManager": {
+				"MAIN": "System",
+				"setSys": "Setting",
+				"userManager": "User Management",
+				"log": "System log"
+			}
+		}
+	},
+	"footer": {},
+	"setting": {
+		"close": "close",
+		"cancel": "Cancel",
+		"submit": "Submit",
+		"sure": "Confirm",
+		"yes": "Yes",
+		"no": "No",
+		"delete": "Delete",
+		"confirmDel": "Confirm delete",
+		"delErr": "Delete Error!",
+		"edit": "Edit",
+		"error": "Error",
+		"owner": "Owner",
+		"operating": "Operating",
+		"tableOperate": "Operate",
+		"all": "All",
+		"waitText": "Processing",
+		"required": "Required",
+		"toolong": "Exceeds the limit length",
+		"illegalWord": "There are illegal characters",
+		"class": {
+			"MAIN": "Category",
+			"newClass": "Add",
+			"newClassTitle": "New category",
+			"newParent": "New parent node",
+			"newChild": "New child node",
+			"inputNode": "Node name",
+			"editNode": "Edit node"
+		},
+		"tags": {
+			"MAIN": "Tags",
+			"tagPlacehold": "Add up to 5 Tags, separated by spaces or commas",
+			"manage": "Tag setting"
+		},
+		"thispage": "Current location:"
+	},
+	"paging": {
+		"home": "Home",
+		"previous": "Previous",
+		"next": "Next",
+		"last": "Last",
+		"word1": "The ",
+		"word2": " pages",
+		"word3": "Total of ",
+		"word4": "Total of ",
+		"word5": " records",
+		"word6": "The currently displayed"
+	},
+	"maps": {
+		"tools": {
+			"MAIN": "Tools",
+			"point": "Point",
+			"square": "Square",
+			"circle": "Circle",
+			"distance": "Distance",
+			"area": "Area",
+			"reset": "Reset",
+			"clean": "Clean",
+			"full": "Full Screen"
+		}
+	},
+	"views": {
+		"home": {
+			"property": {
+				"detail": {
+					"MAIN": "Map details",
+					"title": "Map service details",
+					"mapName": "Name",
+					"spatialRef": "SRS",
+					"description": "Description",
+					"class": "Category",
+					"East": "East",
+					"South": "South",
+					"West": "West",
+					"North": "North",
+					"legend": "Legend",
+					"see": "Look at the big picture"
+				},
+				"switchmap": {
+					"MAIN": "Switch maps",
+					"title": "Select map"
+				},
+				"switchser": {
+					"MAIN": "Switch service",
+					"title": "Service type"
+				}
+			},
+			"charts": {
+				"layer": {
+					"MAIN": "Total of layers ",
+					"tooltip": "Layer management"
+				},
+				"map": {
+					"MAIN": "Total of maps ",
+					"tooltip": "Map management"
+				}
+			}
+		},
+		"Layer": {
+			"Query": {
+				"MAIN": "Query conditions",
+				"class": {
+					"MAIN": "Category",
+					"all": "All"
+				},
+				"tag": {
+					"MAIN": "Tags"
+				}
+			},
+			"List": {
+				"MAIN": "Layer list",
+				"search": "Search",
+				"placehold": "Search for name of the layer",
+				"layerManage": "Management",
+				"createTime": "Create time",
+				"import": "Import",
+				"export": "Export",
+				"emptied": "Emptied",
+				"classSet": "Category setting",
+				"tagSet": "Tag setting"
+			},
+			"create": {
+				"vectorLayer": "New vector layer",
+				"imageLayer": {
+					"MAIN": "New image layer",
+					"Type": "Image",
+					"uploadTips": "Upload the same name files,supporting .tif, .tfw, .prj"
+				},
+				"name": "Name",
+				"type": {
+					"MAIN": "Type",
+					"point": "Point",
+					"line": "Line",
+					"surface": "Polygon",
+					"RS": "Image"
+				},
+				"class": "Category",
+				"sr": "Coordinate System",
+				"emptied": "Emptied",
+				"emptyTip": "Confirm emptying the fields in the form?",
+				"newField": {
+					"create": "New field",
+					"edit": "Edit field",
+					"detail": "Field details",
+					"fieldName": "Field Name",
+					"datatype": {
+						"MAIN": "Type of data",
+						"long": "Long integer",
+						"short": "Short integer",
+						"double": "Double floating",
+						"single": "Single floating",
+						"character": "Character",
+						"time": "Time"
+					},
+					"length": "Length",
+					"decimal": "Decimal",
+					"unit": "Unit",
+					"default": "Default",
+					"control": {
+						"MAIN": "Control",
+						"required": "Required",
+						"optional": "Optional"
+					},
+					"max": "Max value",
+					"min": "Min value",
+					"code": "Dictionary",
+					"newbtn1": "Add",
+					"newbtn3": "Browse",
+					"format": {
+						"MAIN": "Format",
+						"radio": "Radio",
+						"multiple": "Multiple"
+					},
+					"null": {
+						"MAIN": "Null",
+						"allowed": "Is empty",
+						"notAllowed": "Non empty"
+					},
+					"connect": "Literal value",
+					"formula": "Formula",
+					"newbtn2": "New formula",
+					"source": "Data source",
+					"description": "Description"
+				},
+				"newFrom": {
+					"MAIN": "New from shp",
+					"upload": {
+						"MAIN": "Upload files",
+						"select": "Select file",
+						"uploadAll": "Upload all",
+						"uploadOne": "Upload",
+						"deleteAll": "Delete all",
+						"confirmDelAll":"Are you sure to delete all?",
+						"tips": "Upload 4 files of the same name, including .shp, .shx, .dbf, .prj"
+					},
+					"name": "Name",
+					"size": "Size",
+					"progress": "Progress",
+					"status": "Status",
+					"success": "Upload successful!",
+					"totalPro": "Total of progress"
+				}
+			},
+			"dicWin": {
+				"manage": "Dictionary management",
+				"see": "Dictionary browsing",
+				"data": "Dictionary data",
+				"new": "New",
+				"content": "Content",
+				"description": "Description",
+				"newDic": "New dictionary",
+				"editDic": "Edit dictionary"
+			},
+			"formulaWin": {
+				"MAIN": "Calculation",
+				"list": "Field list",
+				"function": {
+					"MAIN": "Calculate function",
+					"digital": "Digital",
+					"character": "Character",
+					"max": "Evaluate maximum",
+					"min": "Evaluate minimum",
+					"abs": "Evaluate absolute",
+					"ceiling": "Returns the smallest integer greater than the current value",
+					"floor": "Returns the largest integer less than the current value",
+					"substring": "String interception",
+					"replace": "String replacement"
+				},
+				"clear": "Clear",
+				"verification": "Verification",
+				"failed": "Verification failed",
+				"success": "Verification successful"
+			},
+			"layerBro": {
+				"see": "Layer browsing",
+				"manage": "Layer management",
+				"sheet": "Attribute sheet",
+				"records": "Operating records",
+				"information": "Attribute information",
+				"type": "Types of operation",
+				"time": "Operating time",
+				"rule": "Attribute rule",
+				"detail": "Detail",
+				"checkrule": "Attribute Checking Rules",
+				"attrCheck": "Attribute Checking",
+				"incheck": "Being checking",
+				"startcheck": "Start checking",
+				"endcheck": "End checking",
+				"checkResult": "Checking result",
+				"download": "Download",
+				"errorMsg": "The file attribute check is abnormal, please download to see the details",
+				"log": "Checking log"
+			},
+			"alertFun": {
+				"submitErr": "Submit failed",
+				"connectErr1": "Server have an exception, exception information:",
+				"connectErr2": "SocketIO server connection failed, please try again!",
+				"files": {
+					"waitforImport": "Wait for import!",
+					"importing": "Importing!",
+					"importSuccess": "Import successful!",
+					"importErr": "Import failed!",
+					"exportErr": "This layer haven't import data",
+					"importPrompt1": "Only can be submitted one set of vector files at a time",
+					"importPrompt2": "Delete other uploaded files",
+					"importLack": "Lack of necessary files",
+					"beforeImport": "Please upload .shp file",
+					"afterImport1": "Files have been imported into the background",
+					"afterImport2": "Check the notification in the Notification"
+				},
+				"imageFiles": {
+					"importLack": "Import the image layer file!",
+					"importPrompt1": "Allow to import a group of image layer files only!",
+					"importPrompt2": "Delete the remaining files!"
+				},
+				"field": {
+					"namePrompt1": "Field name can not be 'SID'!",
+					"namePrompt2": "The field name already exists!",
+					"namePrompt3": "Fill in the field name!",
+					"lengthPrompt1": "Length of a column of data error!",
+					"lengthPrompt2": "Fill in the length!",
+					"precisionPrompt": "Fractional data error!",
+					"dataTypePrompt": "Select the data type!",
+					"tagPrompt1": "Warning!",
+					"tagPrompt2": "Tag box has a value, enter a space or comma to add it to the label!",
+					"addLayerSuccess": "New layer successful!",
+					"addLayerErr": "New layer failed!",
+					"addTagErr": "New tag failed!",
+					"addTableErr": "Failed to build the table!",
+					"addFieldErr": "Failed to add layer configuration information!",
+					"layerPrompt1": "Fill in the layer name!",
+					"layerPrompt2": "Select a layer type!",
+					"layerPrompt3": "Select category!",
+					"layerPrompt4": "Add one field at least!",
+					"confirmClearLayer": "Confirm to empty the data?",
+					"confirmClearLayerPrompt": "After the layer is emptied irrevocably",
+					"confirmDelLayer": "Confirm to delete the layer?",
+					"confirmDelLayerPrompt": "After the layer is deleted irrevocably",
+					"layerClearSucc": "Empty the layer successful",
+					"layerClearErr": "Failed to empty the layer",
+					"layerDelSucc": "Delete the layer successful",
+					"layerDelErr": "Failed to delete the layer",
+					"layerDelErrPrompt": "Cancel the associatio between the layer and maps or delete maps at first!The maps associated with the layer:",
+					"tooLong": "length is too long!"
+				},
+				"set": {
+					"setClassSucc": "Category setting successful!",
+					"setClassErr": "Category setting failed!",
+					"setTagSucc": "Tags setting successful!",
+					"setTagErr": "Tags setting failed!",
+					"addNodePrompt1": "Select the node!",
+					"addNodePrompt2": "Select the parent node!",
+					"editNodePrompt1": "Select the node to edit!",
+					"delNodePrompt1": "Select the node to delete!",
+					"delNodePrompt2": "The associated node can not be deleted!",
+					"delNodePrompt3": "Delete the selected node?",
+					"inputContent": "Enter the content!",
+					"addClassPrompt": "Category name already exists!",
+					"inputDicContent": "Enter the dictionary item content!",
+					"addDicPrompt1": "Dictionary item content can not be repeated!",
+					"checkSucc": "Verify the successful!",
+					"checkErr": "Verification failed!",
+					"formulaCheckErr": "Formula verification failed!",
+					"setAttrCheckSucc": "Modify attribute rules successful!",
+					"setAttrCheckErr": "Modify attribute rules failed!"
+				}
+			}
+		},
+		"System": {
+			"Setting": {
+				"SRS": "SRS",
+				"SRSSystem": "SRS System",
+				"Basemap": {
+					"BaseMapConfig_1": "Basemap configuration",
+					"BaseMapConfig_2": "Basemap configuration",
+					"NoBaseMap": "No Basemap",
+					"HeavenMap": "MAP WORLD",
+					"iTelluroMap": "iTelluro map",
+					"ViewITelluro": "View iTelluro reference",
+					"Magnification": "Magnification series",
+					"KeyValue": "Key value",
+					"worldMap": "Map World",
+					"LayersUrl": "Layers url",
+					"SliceSize": "Slice size",
+					"ZeroSize": "Zero size"
+				},
+				"Slice": {
+					"SliceConfig": "Slice configuration",
+					"name": "Slice service name",
+					"series": "Slice start series",
+					"level": "Slice termination level"
+				},
+				"Home": {
+					"HomeSettings": "Home settings",
+					"Published": "Published map list",
+					"Selected": "Selected map list",
+					"mapName": "Name",
+					"QueryConditions": "Query conditions",
+					"Category": "Category",
+					"Tags": "Tags",
+					"search": "Search"
+				}
+			},
+			"UserManagement": {
+				"property": {
+					"queryTitle": "Query conditions",
+					"UserTitle": "User Management",
+					"nameSearchPlaceholderTxt": "Seach for the user name",
+					"newusers": "New users",
+					"Search": "Search"
+				},
+				"tableOrModal": {
+					"SerialNumber": "No.",
+					"name": "Name",
+					"gender": "Gender",
+					"loginAccount": "Login account",
+					"loginPassword": "login password",
+					"Phone": "Phone",
+					"telephone": "Telephone",
+					"organization": "Organization",
+					"Position": "Position",
+					"Description": "Description",
+					"male": "Male",
+					"Female": "Female",
+					"resetPassword": "Reset Password"
+				}
+			},
+			"SystemLog": {
+				"SystemLog": "System log",
+				"User": "User",
+				"System": "System",
+				"New": "New",
+				"Edit": "Edit",
+				"Import": "Import",
+				"Export": "Export",
+				"Delete": "Delete",
+				"Emptied": "Emptied",
+				"Refresh": "Refresh",
+				"Functions": "Functions",
+				"Layers": "Layers",
+				"Maps": "Maps",
+				"Style": "Style",
+				"queryTime": "Time",
+				"Today": "Today",
+				"aWeek": "nearly a week",
+				"aMonth": "nearly a month",
+				"threeMonths": "nearly three months",
+				"Inquire": "Inquire",
+				"SerialNumber": "No.",
+				"operateTime": "Time",
+				"Organization": "Organization",
+				"Results": "Results",
+				"Description": "Description",
+				"SelectedUser": "Selected operation user",
+				"Choose": "Select…",
+				"ChooseUser": "Click on the text box to select the operating user",
+				"ChooseDate": "Select a date",
+				"QueryConditions": "Query conditions",
+				"search": "Search",
+				"SeachforName": "Seach for the user name",
+				"name": "Name"
+			},
+			"alertFun": {
+				"Level": "Please enter the zoom level",
+				"Value": "Please enter the Key value",
+				"layerUrl": "Please enter the layer url",
+				"sliceSize": "Please enter the slice size",
+				"zeroSize": "Please enter the zero level size",
+				"LeastMaps": "At least select up to 5 maps",
+				"deleteUser": "Whether to delete the user",
+				"FillName": "Please fill in your name",
+				"FillAccount": "Please fill in the login account",
+				"FillPassword": "Please fill in the login password",
+				"NotContainAdmin": "Login account can not contain admin",
+				"FillOrganization": "Please fill in the organization",
+				"EditSuccessful": "Edit user successful",
+				"Exists": "The account name already exists",
+				"AddSuccessful": "Add new user successful",
+				"FillNewPassword": "Please fill in the new password",
+				"ConfirmPassword": "Please confirm your password",
+				"NotMatch": "Enter password does not match",
+				"ResetSuccessful": "Reset password successful",
+				"error": "Error!",
+				"DeleteSuccessfully": "Delete successful"
+			}
+		},
+		"Map": {
+			"List": {
+				"MAIN": "Map list",
+				"placehold": "Search for the name of the map",
+				"mapManage": "Map management",
+				"refresh": "Refresh",
+				"mapDesc": "Description"
+			},
+			"create": {
+				"MAIN": "New map",
+				"name": "Name",
+				"class": "Map category",
+				"associate": "Associate",
+				"layerStyle": "Layer style",
+				"upOne": "Move up one line",
+				"downOne": "Move down one line"
+			},
+			"toLayer": {
+				"associatedLayer": "The layers are selected"
+			},
+			"mapBro": {
+				"see": "Map browsing",
+				"mapEdit": "Editing",
+				"mapDetail": "Details",
+				"switch": "Switch service",
+				"bindLayer": "Bind layers",
+				"delLayer": "Delete the layer",
+				"selectLayer": "Select the layer",
+				"choseAll": "Chose all",
+				"searchResult": "Search result",
+				"position": "Position:",
+				"attrs": "Attributes",
+				"showDataNum1": "A total of ",
+				"showDataNum2": " data.",
+				"border": {
+					"MAIN": "Boundary range",
+					"minX": "Min X",
+					"minY": "Min Y",
+					"maxX": "Max X",
+					"maxY": "Max Y"
+				}
+			},
+			"alertFun": {
+				"addMapSucc": "New map successful!",
+				"editMapSucc": "Modify the map successful!",
+				"confirmDelMap": "Confirm to delete the map?",
+				"confirmDelMapPrompt": "After the map is deleted irrevocably",
+				"mapDelSucc": "Delete the map successful!",
+				"mapDelErr": "Failed to delete the map!",
+				"confirmRef": "Confirm to refresh this data?",
+				"confirmRef2": "The current map has slicing tasks, is it over immediately?",
+				"refreshOver": "Refresh finished!",
+				"refreshErr": "Refresh failed!",
+				"addClassErr": "New category failed!",
+				"mapPrompt1": "Fill in the map name!",
+				"mapPrompt2": "Please select at least one layer!",
+				"delOneLayer": "Confirm to delete this layer?",
+				"publishErr": "Map failed to publish!",
+				"reLayerErr": "Update layer error!",
+				"loadMapErr": "Failed to load the map!",
+				"changeBindLayerSucc": "Modify the binding layer successful!"
+			}
+		},
+		"Style": {
+			"QueryConditions": "Query conditions",
+			"StyleList": "Style list",
+			"search": "Search",
+			"NewStyle": "New style",
+			"SearchTips": "Search for the name of the style",
+			"setStyle": "Setting style",
+			"setStylePrompt": "Select a style!",
+			"addStyle": "New style",
+			"setStyleSucc": "Setting the style successful!",
+			"SerialNumber": "No.",	
+			"Name": "Name",
+			"Type": "Type",
+			"Category": "Category",
+			"Description": "Description",
+			"SingleStyle": "Single style",
+			"CategoryRendering": "Category rendering",
+			"ImportStyle": "Import style",
+			"EditStyle": "Edit style",
+			"editStyleSucc": "Modify the style successful!",
+			"deleteStyle": "Delete style",
+			"DeleteTips": "Delete this style?",
+			"delStyleSucc": "Delete the style successful!",
+			"point": "Point",
+			"line": "Line",
+			"surface": "Polygon",
+			"NewCategory": "New category",
+			"colour": "Color",
+			"image": "Image",
+			"select": "Select",
+			"range": "Display scale range",
+			"RenderLayers": "Render layers",
+			"RenderFields": "Render fields",
+			"ColorBand": "Color band",
+			"DefaultSymbol": "Default symbol",
+			"SetSymbol": "Set symbol",
+			"symbol": "Symbol",
+			"value": "Value",
+			"Note": "Note",
+			"Number": "Number",
+			"StyleContent": "Style content",
+			"Frame": "Frame",
+			"FillColor": "Fill color",
+			"Graphics": "Graphics",
+			"size": "Size",
+			"transparency": "Diaphaneity",
+			"icon": "Icon",
+			"SymbolSelector": "Symbol selector",
+			"SmallestScale": "Smallest scale",
+			"LargestScale": "Largest scale",
+			"SelectLayer": "Select the layer",
+			"Choose": "Select…",
+			"load": "load",
+			"MoveOut": "Move out",
+			"SelectFile": "Select the file",
+			"PreviewFile": "Preview the file",
+			"PictureManagement": "Picture management",
+			"LineColor": "Line color",
+			"Linear": "Linear",
+			"LineWidth": "Line width",
+			"AddFolder": "Add folder",
+			"FolderName": "Folder name",
+			"Preview": "Preview",
+			"numeral": "numeral…",
+			"RenderingTips": "Rendering fields can not be empty",
+			"NoSelected": "No file selected",
+			"angle": "angle",
+			"AddLocally": "Add locally",
+			"StylePreview": "Style preview",
+			"CategorySearch": "Category",
+			"Tags": "Tags",
+			"layername": "Layer name",
+			"Fill": "Fill",
+			"alertFun": {
+				"ChooseLayer": "Select a render layer",
+				"UploadFiles": "Upload files",
+				"StyleEmpty": "Style content can not be empty",
+				"SelectLayer": "Select the layer",
+				"FillName": "Fill in the style name",
+				"ChooseType": "Select a style type",
+				"ModifySuccessfully": "Modify the style successful",
+				"NewStyleSuccessful": "New style successful",
+				"SelectDelete": "Select the node to delete",
+				"NotBeDeleted": "The associated node can not be deleted",
+				"DeleteSelectedNode": "Delete the selected node?",
+				"CategoryExists": "Category name already exists",
+				"DeleteSuccessfully": "Delete successful",
+				"FailedDelete": "Failed to delete",
+				"SetSymbol": "Set the default symbol please",
+				"RenderingNull": "Rendering fields can not be null",
+				"ColorNull": "Color band can not be null",
+				"PreviewStyle": "Fill in the preview before the name of the style please",
+				"FillStyle": "Fill in the content of the style first please",
+				"RequestError": "Request error",
+				"UploadSuccessfully": "Upload successful!",
+				"uploadFailed": "Upload failed!",
+				"StyleError_1": "The XML content of the",
+				"StyleError_2": "line of the content is wrongly formatted",
+				"StyleError_3": "Please fill in the format of XML",
+				"StyleError_4": "Style content error",
+				"StyleError_5": "Style first or last error",
+				"FolderEmpty": "Folder name can not be empty",
+				"FailedAddFolder": "Failed to add folder",
+				"EditingFailed": "Editing failed",
+				"RequestFailed": "Tips:Request data failed please",
+				"LoadCategory": "Load the category style first please",
+				"StyleNameRepeated": "Style name is repeated",
+				"SelectNode": "Select the node please",
+				"SelectNodeEdit": "Select the node to edit please",
+				"SelectParNode": "Select the parent node please",
+				"EnterContent": "Enter the content ",
+				"PleaseAgain": "Try again please",
+				"error": "Error!",
+				"delete": "Delete",
+				"ConfirmDelete": "Confirm to delete?",
+				"InputAgin": "Input again please"
+			}
+		},
+		"Interface": {
+			"MAIN": "Interface",
+			"interfaceDetail": "Interface details",
+			"serviceDetail": "Service details",
+			"service": "Map service",
+			"info": {
+				"MAIN": "Service Information",
+				"url": "Interface address:",
+				"interfaceDesc": "Interface description:",
+				"func": "Request method:",
+				"param": "Request parameters:",
+				"returnType": "Return type:",
+				"returnParam": "Return parameter:",
+				"json": "JSON format",
+				"paramName": "parameter name",
+				"paramVal": "Parameter value",
+				"required": "Required",
+				"description": "Description",
+				"requestFail": "Request Failed!"
+			},
+			"ogc": "OGC service",
+			"dataInterface": "Data Information",
+			"searchMap": "Search for map's layer api",
+			"searchLayerAttr": "Search for layer's attribute api",
+			"searchLayerSpace": "Spatial query of layer api"
+		},
+		"Toolset": {
+			"FormatConversion": {
+				"FormatConversion": "Format conversion",
+				"Tips_1": "Map2Shp conversion supports MapGIS file conversion to ArcGIS file",
+				"Tips_2": "Format conversion Only ArcGIS files can be converted to other formats",
+				"Tips_3": "Please select all the files of the same name for upload, includes .shp, .shx, .prj, .dpf, otherwise the subsequent operation can not be performed",
+				"Tips_4": "Select the output file format",
+				"uploadFiles": "upload files",
+				"SerialNumber": "No.",
+				"FileName": "file name",
+				"FileSize": "file size",
+				"FileType": "file type",
+				"UploadTime": "file upload time",
+				"description": "description",
+				"FileExtension": "File extension",
+				"Remarks": "Remarks"
+			},
+			"CoordinateConversion": {
+				"CoordinateConversion": "Coordinate conversion",
+				"Tips": "Please select all the files of the same name for upload, including shp, shx, prj, dpf, otherwise the subsequent operation can not be performed",
+				"SevenConversion": "Seven parameters coordinate conversion",
+				"OutputSystem": "Output space reference system",
+				"SpatialReference": "Spatial reference",
+				"ReferenceSetting": "7 Reference setting",
+				"SetParameters": "Set the conversion parameters",
+				"Name": "Name",
+				"Value": "Value",
+				"ControlConversion": "Control point coordinate conversion",
+				"ControlSetting": "Control point parameter setting",
+				"PreSystem": "Pre-conversion space reference system",
+				"ConvertedSystem": "The converted spatial reference system",
+				"TranslatingVariablesDx": "Translating variables Dx(m)",
+				"TranslatingVariablesDy": "Translating variables Dy(m)",
+				"TranslatingVariablesDz": "Translating variables Dz(m)",
+				"RotateVariableX": "Rotate the variable X(s)",
+				"RotateVariableY": "Rotate the variable Y(s)",
+				"RotateVariableZ": "Rotate the variable Z(s)",
+				"ZoomRatio": "Zoom ratio(ppm)",
+				"AddLine": "Add a line",
+				"DeleteLine": "Delete a line",
+				"fileToobig": "File size exceeds limit!",
+				"uploadPointType": "Upload the file of the specified type!",
+				"pointFileType": "The type of upload allowed:",
+				"addNew": "Add a new",
+				"deleteOne": "Delete one"
+			},
+			"ProjectionConversion": {
+				"ProjectionConversion": "Projection conversion",
+				"Tips": "Projection conversion only supports the conversion of projection coordinates to geographical coordinates"
+			},
+			"alertFun": {
+				"UploadedConverted": "The uploaded file has been converted",
+				"reupload": "Please re-upload",
+				"DownloadNotification": "Download the file in the notification",
+				"SelectFormat": "Select the upload file format first",
+				"FilesLeast": "Four files of the same name at least",
+				"SelectSameNameUpload": "Select all the files of the same name to upload",
+				"missing": "File is missing",
+				"SelectFirst": "Select the output file format first",
+				"ConversionFailed_1": "The",
+				"ConversionFailed_2": "file conversion failed",
+				"shpMissing": "shp file is missing",
+				"AddFirst": "Add the file first",
+				"PleaseSRS": "Please select the output SRS",
+				"setCompleted": "A set of coordinate values before and after conversion must be completed",
+				"ConversionSuccessful": "Conversion successful",
+				"ConversionFailed": "Conversion failed",
+				"UploadFiles": "Upload files!"
+			},
+			"waitMask":{
+				"Wait":"Processing,please wait..."
+			}
+		}
+	}
+}

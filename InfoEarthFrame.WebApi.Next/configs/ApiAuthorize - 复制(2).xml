@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ApiProfile>
+  <Module Name="Base">
+    <Item NeedToken="false">/api/BaseApi/GetFile</Item>
+  </Module>
+  <Module Name="Test">
+    <Item NeedToken="false">/api/test/getgreeting</Item>
+    <Item NeedToken="true">/api/test/getlang</Item>
+    <Item NeedToken="false">/api/test/GetCreateFtpDirResult</Item>
+    <Item NeedToken="false">/api/test/GetMap2ShpPathResult</Item>
+  </Module>
+  <Module Name="Auth">
+    <Item NeedToken="false">/api/oauth2/token</Item>
+  </Module>
+  <Module Name="SystemManage">
+    <Item NeedToken="true">/api/SystemManage/GetAreaInfoByUserCode</Item>
+    <Item NeedToken="true">/api/SystemManage/GetAllPageListByCondition</Item>
+    <Item NeedToken="true">/api/SystemManage/GetUser</Item>
+    <Item NeedToken="true">/api/SystemManage/GetUserByName</Item>
+    <Item NeedToken="true">/api/SystemManage/GetUserCodeStatus</Item>
+    <Item NeedToken="true">/api/SystemManage/AddOrEditUser</Item>
+    <Item NeedToken="true">/api/SystemManage/RemoveUser</Item>
+    <Item NeedToken="true">/api/SystemManage/ResetPassword</Item>
+    <Item NeedToken="true">/api/SystemManage/GetPageListByCondition</Item>
+    <Item NeedToken="true">/api/SystemManage/GetAllMainData</Item>
+    <Item NeedToken="true">/api/SystemManage/AddOrEditService</Item>
+    <Item NeedToken="true">/api/SystemManage/GetPublishPageListByCondition</Item>
+    <Item NeedToken="true">/api/SystemManage/GetService</Item>
+    <Item NeedToken="true">/api/SystemManage/RemoveService</Item>
+    <Item NeedToken="true">/api/SystemManage/GetServiceTreeData</Item>
+    <Item NeedToken="true">/api/SystemManage/ClearData</Item>
+    <Item NeedToken="true">/api/SystemManage/GetGeologgerPageListByCondition</Item>
+    <Item NeedToken="true">/api/SystemManage/GetAllGroup</Item>
+    <Item NeedToken="false">/api/SystemManage/GetGroupMapPermession</Item>
+    <Item NeedToken="false">/api/SystemManage/GetGroupMenuPermession</Item>
+    <Item NeedToken="true">/api/SystemManage/SetMapRight</Item>
+    <Item NeedToken="true">/api/SystemManage/SetMenuRight</Item>
+    <Item NeedToken="true">/api/SystemManage/GetGroupRelatedUsers</Item>
+    <Item NeedToken="true">/api/SystemManage/GetGroupAlternativeUsers</Item>
+    <Item NeedToken="true">/api/SystemManage/IntsertGroupUser</Item>
+    <Item NeedToken="true">/api/SystemManage/RemoveGroupUser</Item>
+
+    <Item NeedToken="true">/api/SystemManage/GetDataStylePageListByCondition</Item>
+    <Item NeedToken="true">/api/SystemManage/GetDataStyleById</Item>
+    <Item NeedToken="true">/api/SystemManage/AddOrEditStyle</Item>
+    <Item NeedToken="true">/api/SystemManage/RemoveStyle</Item>
+    <Item NeedToken="true">/api/SystemManage/GetDataStyleStatus</Item>
+
+    <Item NeedToken="true">/api/SystemManage/GetServerTypeForReleaseNumber</Item>
+  </Module>
+  <Module Name="DataManager">
+    <Item NeedToken="true">/api/DataManager/GetMappingTree</Item>
+    <Item NeedToken="true">/api/DataManager/GetType</Item>
+    <Item NeedToken="true">/api/DataManager/GetClassNameStatus</Item>
+    <Item NeedToken="true">/api/DataManager/AddOrEditType</Item>
+    <Item NeedToken="true">/api/DataManager/RemoveType</Item>
+    <Item NeedToken="true">/api/DataManager/PostAllPageListByCondition</Item>
+    <Item NeedToken="true">/api/DataManager/GetChildType</Item>
+    <Item NeedToken="true">/api/DataManager/AddOrEditMainData</Item>
+    <Item NeedToken="true">/api/DataManager/UploadMainDataPackage</Item>
+    <Item NeedToken="true">/api/DataManager/GetMainData</Item>
+    <Item NeedToken="true">/api/DataManager/GetFolderTree</Item>
+    <Item NeedToken="false">/api/DataManager/GetUploadFiles</Item>
+    <Item NeedToken="true">/api/DataManager/UploadLayerFile</Item>
+    <Item NeedToken="true">/api/DataManager/UploadFile</Item>
+    <Item NeedToken="true">/api/DataManager/RemoveFile</Item>
+    <Item NeedToken="true">/api/DataManager/RemovePackage</Item>
+    <Item NeedToken="true">/api/DataManager/RemovePackageCategory</Item>
+    <Item NeedToken="true">/api/DataManager/GetMetaData</Item>
+    <Item NeedToken="true">/api/DataManager/SaveMetaData</Item>
+    <Item NeedToken="true">/api/DataManager/HandleMainDataPackage</Item>
+    <Item NeedToken="true">/api/DataManager/GetErrorMsg</Item>
+    <Item NeedToken="true">/api/DataManager/ChangePackageStatus</Item>
+    <Item NeedToken="true">/api/DataManager/UploadMetaDataFile</Item>
+  </Module>
+  <Module Name="Tools">
+    <Item NeedToken="false">/api/Tools/ImportMappingType</Item>
+    <Item NeedToken="false">/api/Tools/UploadFile</Item>
+    <Item NeedToken="false">/api/Tools/FormatConversion</Item>
+    <Item NeedToken="false">/api/Tools/CoordinateConversion</Item>
+    <Item NeedToken="false">/api/Tools/ShadowConversion</Item>
+    <Item NeedToken="false">/api/Tools/GetMapCode</Item>
+    <Item NeedToken="false">/api/Tools/GetMapRangeByMapCode</Item>
+  </Module>
+  <Module Name="Account">
+    <Item NeedToken="true">/api/Account/GetChangePassword</Item>
+    <Item NeedToken="true">/api/Account/GetPermession</Item>
+  </Module>
+  <Module Name="Upload">
+    <Item NeedToken="false">/api/uploadZip/upload</Item>
+  </Module>
+  <Module Name="Download">
+    <Item NeedToken="false">/api/Download/Getlayers</Item>
+    <Item NeedToken="false">/api/Download/GetResultMap</Item>
+  </Module>
+  <Module Name="DataEditor">
+    <Item NeedToken="true">/api/DataEditor/GetLayers</Item>
+    <Item NeedToken="true">/api/DataEditor/GetLayerTree</Item>
+    <Item NeedToken="false">/api/DataEditor/GetGeoJsonByLayerName</Item>
+    <Item NeedToken="true">/api/DataEditor/GetStyles</Item>
+    <Item NeedToken="true">/api/DataEditor/UpdateDefaultStyle</Item>
+    <Item NeedToken="true">/api/DataEditor/GetDetailById</Item>
+    <Item NeedToken="true">/api/DataEditor/GetLayerFieldsById</Item>
+    <Item NeedToken="true">/api/DataEditor/GetLayerAttrTabledDetail</Item>
+    <Item NeedToken="true">/api/DataEditor/GetLogsByLayerID</Item>
+    <Item NeedToken="true">/api/DataEditor/UpdateLayerElementAttribute</Item>
+    <Item NeedToken="true">/api/DataEditor/AddLayerElementAttribute</Item>
+    <Item NeedToken="true">/api/DataEditor/RemoveLayerElement</Item>
+    <Item NeedToken="true">/api/DataEditor/GetLayerElementAttrs</Item>
+    <Item NeedToken="true">/api/DataEditor/GetSLDContentByLayerIdOrTableName</Item>
+  </Module>
+  <Module Name="ThematicMapping">
+    <Item NeedToken="true">/api/ThematicMapping/SaveDrawingInfo</Item>
+    <Item NeedToken="true">/api/ThematicMapping/GetList</Item>
+    <Item NeedToken="false">/api/ThematicMapping/UpdataDrawingInfo</Item>
+    <Item NeedToken="false">/api/ThematicMapping/GetDrawingInfoByTaskId</Item>
+  </Module>
+  <Module Name="PublishSystem">
+    <Item NeedToken="true">/api/PublishSystem/GetPublishedMapList</Item>
+    <Item NeedToken="true">/api/PublishSystem/GetPublishedMapTree</Item>
+    <Item NeedToken="true">/api/PublishSystem/GetPublishedMap</Item>
+    <Item NeedToken="false">/api/PublishSystem/PublishMap</Item>
+  </Module>
+</ApiProfile>

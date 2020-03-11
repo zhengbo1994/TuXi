@@ -1,0 +1,342 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/eleTree/eleTree.css")" media="all">
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/style/template.css")" media="all">
+    <style>
+        .layadmin-caller {
+            padding: 0px !important;
+        }
+
+            .layadmin-caller .caller-seach {
+                padding-bottom: 0px !important;
+            }
+
+            .layadmin-caller .caller-contar .caller-item {
+                padding: 15px 0px !important;
+            }
+
+        .layui-btn-permession {
+            margin: 0px !important;
+        }
+    </style>
+}
+@RenderBody()
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs6 layui-col-md2">
+            <!-- 填充内容 -->
+            <div class="layui-card">
+                <div class="layui-card-header" style="position:relative">
+                    图件分类
+                    <a href="javascript:void(0)" title="刷新" onclick="initTree()"><i class="layui-icon">&#xe9aa;</i></a>
+                </div>
+                <div class="layui-card-body"><div class="eleTree ele3" lay-filter="data3"></div></div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md10">
+            <div class="layui-card">
+                <div class="layui-card-header">图件列表<a href="javascript:void(0)" title="刷新" onclick="initMaps(pageSize, 1, isFirst)"><i class="layui-icon">&#xe9aa;</i></a></div>
+                <div class="layui-card-body">
+                    <div class="layadmin-caller" style="display:none">
+                        <form class="layui-form caller-seach" action="" onsubmit="return false;">
+                            <i class="layui-icon layui-icon-search caller-seach-icon caller-icon"></i>
+                            <input type="text" name="name" id="txtName" placeholder="请输入图件名称" class="layui-input caller-pl32">
+                        </form>
+                        <div class="caller-contar" id="item-container">
+                           
+
+                        </div>
+
+                        <div id="pager"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section script{
+        <script>
+    var table;
+    var admin;
+    var tree;
+    var treeInstance;
+
+    var pageSize = 5;
+    var isFirst = true;
+
+
+    layui.initModule(['table', 'eleTree', 'laypage'], function () {
+        admin = layui.admin;
+        table = layui.table;
+        tree = layui.eleTree;
+
+
+        initTree();
+        initMaps(pageSize, 1, isFirst);
+
+
+
+
+    });
+
+    function initTree() {
+
+        treeInstance = layui.initTree({
+            elem: '.ele3',
+            url: Base.getApiUrl("/DataManager/GetMappingTree") + "?rootType=@ViewBag.RootType"
+        });
+
+        tree.on("nodeClick(data3)", function (d) {
+            currentNode = d.data.currentData;
+            console.log(currentNode);
+            initMaps();
+        })
+    };
+
+
+    function initMaps(pageSize, pageIndex) {
+        $.get({
+            url: Base.getApiUrl("/PublishSystem/GetPublishedMapList"),
+            data: {
+                mappingTypeID: currentNode.id,
+                mappingClassName: currentNode.label,
+                pageSize: pageSize,
+                pageIndex: pageIndex,
+                name: $.trim($("#txtName").val())
+            },
+            success: function (resp) {
+                if (resp.code == 0) {
+
+                    if (isFirst) {
+                        initPager(resp.data.total);
+                    }
+                    $("#item-container").html('');
+                    $.each(resp.data.items, function (index, element) {
+                        var sb = '   <div class="caller-item" style="position: relative;">';
+                        sb += "                                <blockquote class=\"layui-elem-quote\">" + element.ImageText + "</blockquote>";
+                        sb += '   <div class="layui-btn-group" style="position: absolute; top: 5px; right: 15px;">';
+                        if (element.isBrowse) {
+                            sb += "                                <button class=\"layui-btn layui-btn-primary layui-btn-sm\"  onclick=\"viewMetadata(" + element.isBrowse + ",'" + element.DataMainID + "')\"><i class=\"layui-icon\">&#xe62d;</i>元数据</button>";
+                        }
+                        else {
+                            sb += "<button class=\"layui-btn layui-btn-primary layui-btn-sm layui-btn-disabled\"  onclick=\"javascript:void(0)\"><i class=\"layui-icon\">&#xe62d;</i>元数据</button>";
+                        }
+                        if (element.isDownload) {
+                            sb += "                                <button class=\"layui-btn layui-btn-primary layui-btn-sm\"  onclick=\"downloadLayer(" + element.isDownload + ",'" + element.DataMainID + "')\"><i class=\"layui-icon\"></i>下载图层文件</button>";
+                        }
+                        else {
+                            sb += "                                <button class=\"layui-btn layui-btn-primary layui-btn-sm layui-btn-disabled\"  onclick=\"javascript:void(0)\"><i class=\"layui-icon\"></i>下载图层文件</button>";
+                        }
+                        if (element.isDownload) {
+                            sb += "                                <button class=\"layui-btn layui-btn-primary layui-btn-sm\"  onclick=\"downloadMapResult(" + element.isDownload + ",'" + element.DataMainID + "')\"><i class=\"layui-icon\"></i>下载成果图</button>";
+                        }
+                        else {
+                            sb += " <button class=\"layui-btn layui-btn-primary layui-btn-sm layui-btn-disabled\"  onclick=\"javascript:void(0)\"><i class=\"layui-icon\"></i>下载成果图</button>";
+                        }
+                        if (element.isBrowse) {
+                            sb += "                                <button class=\"layui-btn layui-btn-primary layui-btn-sm\"  onclick=\"viewSMS(" + element.isBrowse + ",'" + element.DataMainID + "')\"><i class=\"layui-icon\">&#xe705;</i>说明书</button>";
+                        }
+                        else {
+                            sb += "                                <button class=\"layui-btn layui-btn-primary layui-btn-sm  layui-btn-disabled\"   onclick=\"javascript:void(0)\"><i class=\"layui-icon\">&#xe705;</i>说明书</button>";
+                        }
+                        sb += '                            </div>';
+                        sb += '                                <div class="layui-row">';
+                        sb += '                                    <div class="layui-col-md4">';
+                      
+                        if (!element.ThumbFilePath || element.ThumbFilePath == ('@ConfigContext.Current.FtpConfig["Package"].Site' + "/")) {
+                            element.ThumbFilePath = '@Url.Content("~/content/images/empty-128.png")'
+                        }
+                        if (!element.isBrowse && !Base.isAdmin())
+                        {
+                            element.ThumbFilePath = '@Url.Content("~/content/images/permession.png")'
+                        }
+                        sb += "                                        <center><a href='javascript:void(0)' onclick=\"viewMap(" + element.isBrowse + ",'" + element.DataMainID + "')\"><img style=\"width: 256px;height: 220px;\" border=\"0\" src=\"" + element.ThumbFilePath + "\" /></a></center>   ";
+
+                        sb += '                                    </div>';
+                        sb += '                                    <div class="layui-col-md8">';
+                        sb += '                              ';
+                        sb += '                                           <table class="layui-table">';
+                        sb += '                                       ';
+                        sb += '                                            <tr>';
+                        sb += "                                               <td><span style=\"font-weight:bold\">发布单位：</span>" +getBrowseText( element,element.PusUnit) + "</td>";
+                        sb += '                                            </tr>';
+                        sb += '                                               <tr>';
+                        sb += "                                                   <td><span style=\"font-weight:bold\">专题类别：</span>" +getBrowseText( element, element.MappingClassName) + "</td>";
+                        sb += '                                               </tr>';
+                        sb += '                                               <tr>';
+                        sb += "                                                   <td><span style=\"font-weight:bold\">制图单位：</span>" +getBrowseText( element, (element.TPCat || '')) + "</td>";
+                        sb += '                                               </tr>';
+                        sb += '                                               <tr>';
+                        sb += "                                                   <td><span style=\"font-weight:bold\">发布时间：</span>" + getBrowseText( element, Base.Converter.dateTime(element.PublishTime)) + "</td>";
+                        sb += '                                               </tr>';
+                        sb += '                                               <tr>';
+                        element.IdAbs = element.IdAbs || '';
+                        sb += "                                                   <td title='" + element.IdAbs + "'><span style=\"font-weight:bold\" >摘要信息：</span>" +getBrowseText( element,  (element.IdAbs.length > 110 ? (element.IdAbs.substring(0, 110) + "...") : element.IdAbs)) + "</td>";
+                        sb += '                                               </tr>';
+                        sb += '                                           </table>';
+                        sb += '                              ';
+                        sb += '                                    </div>';
+                        sb += '                                </div>';
+                        sb += '                            </div>';
+                        $("#item-container").append(sb);
+                    });
+                }
+            }
+        })
+    }
+
+            function getBrowseText(element,value)
+            {
+                if (element.isBrowse || Base.isAdmin())
+                {
+                    return value;
+                }
+
+                return "<button class=\"layui-btn layui-btn-warm layui-btn-xs layui-btn-permession\">无权限查看</button>"
+            }
+
+    function initPager(total) {
+        if (total <= 0) {
+            $(".layadmin-caller").hide();
+            $("#pager").hide();
+        }
+        else {
+            $(".layadmin-caller").show();
+            $("#pager").show();
+            layui.laypage.render({
+                elem: 'pager'
+   , count: total //数据总数，从服务端得到
+   , limit: pageSize
+    , hash: true
+   , jump: function (obj, first) {
+       //首次不执行
+       if (!first) {
+           isFirst = false;
+           initMaps(obj.limit, obj.curr, isFirst);
+       }
+   }
+            });
+        }
+    }
+
+    $(function () {
+        $("#txtName").change(function () {
+            var name = $.trim($(this).val());
+
+            isFirst = true;
+            initMaps(pageSize, 1, isFirst);
+
+        })
+    });
+
+    function viewMetadata(hasPermession, mainId) {
+        if (!hasPermession && !Base.isAdmin())
+        {
+            warnning('无权限查看');
+            return;
+        }
+        layui.showDlg({
+            title: "查看元数据",
+            content: "@Url.Action("MetaData","DataManager")?mainId=" + mainId + "&folderName=5元数据&type=view",
+            area: ['70%', '60%'],
+            btn: []
+        });
+    }
+
+            function viewSMS(hasPermession, mainId) {
+                if (!hasPermession && !Base.isAdmin())
+                {
+                    warnning('无权限查看');
+                    return;
+                }
+        $.get({
+            url: Base.getApiUrl("/DataManager/GetUploadFiles"),
+            data: {
+                mainId: mainId,
+                folderName: decodeURIComponent('4说明书')
+            },
+            success: function (resp) {
+                if (resp.code == 0) {
+                    if (resp.data.length > 0) {
+                        var file = resp.data[0];
+                        viewFile(file.FilePath, file.name);
+                    }
+                    else {
+                        warnning('未找到对应的说明书');
+                    }
+                }
+            }
+        })
+    }
+
+
+    function viewFile(filePath, fileName) {
+        if (fileName.toLowerCase().indexOf(".doc") != -1 || fileName.toLowerCase().indexOf(".xls") != -1 || fileName.toLowerCase().indexOf(".pdf") != -1) {
+            Base.viewFile({
+                getPDFFileUrl: "@Url.Action("GetPDFFile","Base")",
+                        filePath: filePath,
+                        fileName: fileName
+                    });
+                }
+                else {
+                    warnning('暂不支持该文件格式')
+                }
+            }
+
+            function downloadLayer(hasPermession, mainId) {
+                if (!hasPermession && !Base.isAdmin())
+                {
+                    warnning('无权限下载');
+                    return;
+                }
+                top.window.open(Base.getApiUrl("/Download/Getlayers") + "?mainid=" + mainId + "")
+            }
+
+            function downloadMapResult(hasPermession,mainId) {
+                if (!hasPermession && !Base.isAdmin())
+                {
+                    warnning('无权限下载');
+                    return;
+                }
+                top.window.open(Base.getApiUrl("/Download/GetResultMap") + "?mainid=" + mainId + "")
+            }
+
+            function viewMap(hasPermession,mainId)
+            {
+                if (!hasPermession && !Base.isAdmin())
+                {
+                    warnning('无权限查看');
+                    return;
+                }
+
+                $.get({
+                    url: Base.getApiUrl("/PublishSystem/GetPublishedMap"),
+                    data: {
+                        mainId: mainId
+                    },
+                    success: function (resp) {
+                        layui.showDlg({
+                            title: resp.data.TEXT,
+                            content:"@Url.Action("ShowMap", "PublishSystem")",
+                            area: ['100%', '100%'],
+                            btn: [],
+                            success: function (layero, index) {
+                                
+                                layer.iframeAuto(index);
+
+                                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+
+                                    iframeWin.addLayer(resp.data.URL, resp.data.DATASERVERKEY, resp.data.ZEROLEVELSIZE, resp.data.SERVICETYPE);
+                            }
+                        });
+                    }
+                });
+            }
+        </script>
+    }

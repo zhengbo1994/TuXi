@@ -1,0 +1,65 @@
+﻿<!-- /// controller:  'mapQueryPageCtrl' -  localtion: App/Main/assets/js/controllers/dataInterfaceCtrl.js /// -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="dataInterfaceCtrl">
+        <div class="row">
+            <!-- 左 -->
+            <div class="col-sm-2 col-md-2 col-lg-2 container_padding" style="padding-left:6px !important;">
+                <div class="panel panel-white panel-bottom0">
+                    <div class="panel-heading border-bottom">
+                        <h4 class="panel-title">地图分类</h4>
+                    </div>
+                    <div class="panel-body panel-fixed">
+                        <!-- 内容 -->
+                        <div class="disaster-tgfx">
+                            <abn-tree tree-data="typeTreeData" selected-data="selectedType1" initial-selection="{{typeTreeData[0].label}}" on-select="onTypeSelected1" tree-control="treequeryctrl1" icon-leaf=""></abn-tree>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 中间 -->
+            <div class="col-sm-2 col-md-2 col-lg-2 container_padding" style="padding-left:0px !important;padding-right:0px !important;">
+                <div class="panel panel-white panel-bottom0">
+                    <div class="panel-heading border-bottom">
+                        <h4 class="panel-title">地图名称</h4>
+                    </div>
+                    <div class="panel-body panel-fixed">
+                        <div class="disaster-tgfx">
+                            <ul style="list-style:none;padding-left:0px;">
+                                <li ng-repeat="(i,item) in serviceList" ng-class="{currentSer2:i==state}" ng-click="mapSerShow($index,item)">
+                                    <p ><a href="#">{{item.mapName}}</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右 -->
+            <div class="col-sm-8 col-md-8 col-lg-8 container_padding">
+                <!-- 上 -->
+                <div class="panel panel-white">
+                    <open-maps dataset="mapDataset" mapheight="550" add-layer="addLayer" remove-layer="removeLayer" is-load-internet-tian-di-tu="isLoadTianDiTu"></open-maps>
+                </div>
+                <!-- 下 -->
+                <div class="panel panel-white panel-fold panel-bottom0">
+                    <panel-header panel-title="地图服务" fold-element="globalobj"></panel-header>
+                    <div class="panel-body" style="padding:0px !important;">
+                        <div class=" col-lg-3 col-sm-4 col-md-4" style="padding:0; height:310px ;border-right:1px solid #DDDDDD;">
+                            <abn-tree tree-data="typeTreeData3" selected-data="selectedData3" on-select="onSelected3" tree-control="treeQueryCtrl3" icon-leaf="ti-eye"></abn-tree>
+                        </div>
+                        <div class="col-lg-9 col-sm-8 col-md-8" style="padding:0;">
+                            <div class="seviceDataShow" style="max-height:310px;">
+                                <div class="seviceDataContent" ng-repeat="item in currentLayerInfo" style="padding-left:20px;">
+                                    <p style="margin: 5px 0 5px"><span>接口地址 : </span><span>{{item.serverPath}}</span></p>
+                                    <p style="margin: 0 0 5px"><span>请求方法 : </span><span>{{item.requestType}}</span></p>
+                                    <p style="margin: 0 0 5px"><span>请求参数 : </span></p>
+                                    <mic-data-table table-bordered
+                                                    thead="参数名,参数值,必填,描述"
+                                                    td-params="{'parameterName':{'type':'span'},'parameterValue':{'type':'span','isclick':true,'isedit':true},'parameterIsMust':{'type':'span'},'parameterDesc':{'type':'span'}}"
+                                                    datasets="item.serverParameters.items"></mic-data-table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

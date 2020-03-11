@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "GetTokenTest";
+    Layout = null;
+}
+<script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+<script src="~/Scripts/jquery.cookie.js"></script>
+用户名：<input  type="text" id="txtUserName"  value="admin"/><br />
+密码：<input type="password" id="txtPassword" value="infoearth" />
+<input type="button" id="btnGet" value="get token" />  @*<input type="button" id="btnSignOut" value="SignOut" /><br />*@   
+token:<textarea id="token" style="width:800px;height:500px"></textarea>
+<br /> <br /> 
+
+ url:<input type="text" id="txtUrl" style="width:800px" value="http://localhost:8009/api/test/getgreeting" /><br />
+ lang:<input type="text" id="txtLang" /><br />
+ <input type="button" id="btnGet1" value="get"  />  
+<script>
+    $(function () {
+        var token = "";
+        $("#btnGet").click(function () {
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8009/api/oauth2/token",
+                data: {
+                    username: $("#txtUserName").val(),
+                    password: $("#txtPassword").val(),
+                    grant_type:"password",
+                },
+                beforeSend: function () {
+
+                },
+                complete: function () {
+
+                },
+                success: function (resp) {
+                    $("#token").val(token=resp.access_token);
+                },
+                error: function (ex) {
+                    alert(ex);
+                }
+            })
+        });
+       
+        $("#btnGet1").click(function () {
+            $.ajax({
+                type: "get",
+                url: $("#txtUrl").val(),
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", "Bearer " + token);
+                    request.setRequestHeader("Lang", $("#txtLang").val()|| 'zh-cn');
+                },
+                complete: function () {
+
+                },
+                success: function (resp) {
+                    $("#token").val(JSON.stringify( resp));
+                },
+                error: function (ex) {
+                    alert(ex);
+                }
+            })
+        });
+
+        $("#btnSignOut").click(function () {
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8009/api/oauth2/signout",
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", "Bearer " + token);
+                    request.setRequestHeader("Lang", $("#txtLang").val() || 'zh-cn');
+                },
+                complete: function () {
+
+                },
+                success: function (resp) {
+                    alert(resp);
+                },
+                error: function (ex) {
+                    alert(ex);
+                }
+            })
+        });
+    })
+</script>

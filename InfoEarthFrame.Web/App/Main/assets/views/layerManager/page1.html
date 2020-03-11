@@ -1,0 +1,621 @@
+﻿<!-- 图层管理页面 create by huqr /// controller:  'layerManagerCtrl' -  localtion: App/Main/assets/js/controllers/layerManagerCtrl.js -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="layerManagerCtrl">
+    <div class="row">
+        <!-- 左侧 -->
+        <div class="col-sm-3 col-md-3 col-lg-3 container_padding container_cross_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Layer.Query.MAIN">查询条件</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <div style="padding-bottom:10px;">
+                        <tabset type="roundline" justified="true" class="tabbable" no-tab-content>
+                            <tab class="tabpadding0 font-content-middle" heading="{{'views.Layer.Query.class.MAIN'|translate}}" select="selectTab(true)"></tab>
+                            <tab class="tabpadding0 font-content-middle" heading="{{'views.Layer.Query.tag.MAIN'|translate}}" select="selectTab(false)"></tab>
+                        </tabset>
+                        <div>
+                            <div ng-init="showtab1=true" ng-show="showtab1===true">
+                                <abn-tree class="font-title-btn" tree-data="typeTreeData" selected-data="selectedType" on-select="onTypeSelected" tree-control="treeQueryCtrl1" icon-leaf=""></abn-tree>
+                            </div>
+                            <div ng-show="showtab1===false">
+                                <abn-tree class="font-title-btn" tree-data="tagTreeData" selected-data="selectedTag" on-select="onTagSelected" tree-control="treeQueryCtrl2" icon-leaf=""></abn-tree>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧 -->
+        <div class="col-sm-9 col-md-9 col-lg-9 container_padding container_cross_padding">
+            <div class="panel panel-white panel-bottom0">
+                <div class="panel-heading border-bottom">
+                    <span class="font-title-middle" translate="views.Layer.List.MAIN">图层列表</span>
+                </div>
+                <div class="panel-body panel-fixed">
+                    <!-- 内容 -->
+                    <div>
+                        <div style="margin-bottom: 15px;">
+                            <div class="col-sm-6" style="padding-left: 0;">
+                                <input type="text" ng-model="inputText.inmodel" placeholder="{{'views.Layer.List.placehold'|translate}}" style="width: 250px; height: 34px;" />
+                                <a class="btn btn-wide btn-default btn-o font-title-little" href="javascript:;" translate="views.Layer.List.search" style="min-width: 70px; margin-left: 10px; vertical-align: baseline;" ng-click="searchLayer()">
+                                    搜索
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <div style="float:right;">
+                                    <a class="btn btn-primary font-title-btn" href="javascript:;" ng-click="addLayerOpenWin()" translate="views.Layer.create.vectorLayer">新建矢量图层</a>
+                                    <a class="btn btn-primary font-title-btn" href="javascript:;" ng-click="addImageLayer()" translate="views.Layer.create.imageLayer.MAIN">新建影像图层</a>
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+
+                        <div>
+                            <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                                <li ng-repeat="li in layerData" style="margin-bottom: 0;">
+                                    <div class="col-xs-12" style="padding-bottom: 15px; padding-left: 0;">
+                                        <div class="col-xs-12" style="padding: 0; border:1px solid #ccc;">
+                                            <div class="col-xs-3" style="padding-left: 0; padding-right: 0;">
+                                                <a href="/#/app/layerBrowse?id={{li.id}}&&type=2" target="_blank">
+                                                    <img ng-src="{{li.imgUrl}}" style="width: 100%; height: 100%; max-width: 196px; max-height: 171px; margin: 0; padding: 10px;" err-src="{{li.dataTypeName}}" />
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-9">
+                                                <div style="position: absolute; right: 0; top: 5px;">
+                                                    <ul class="font-title-btn" style="list-style: none; float: right; padding-left: 0;">
+                                                        <li style="float: left;" ng-if="li.uploadFileType!=2">
+                                                            <a class="mainlist-ul-btn" href="/#/app/layerBrowse?id={{li.id}}&&type=1" target="_blank">
+                                                                <i class="mdi mdi-layers" style="color: inherit;"></i><span translate="views.Layer.List.layerManage">图层管理</span>
+                                                            </a>
+                                                        </li>
+                                                        <li style="float: left;" ng-if="li.uploadFileType!=2">
+                                                            <a class="mainlist-ul-btn" href="javascript:;" ng-click="importOpenWin(li.id)">
+                                                                <i class="mdi mdi-import" style="color: inherit;"></i><span translate="views.Layer.List.import">导入</span>
+                                                            </a>
+                                                        </li>
+                                                        <li style="float: left;">
+                                                            <a class="mainlist-ul-btn" href="javascript:;" ng-click="export(li.id,li.uploadFileType)">
+                                                                <i class="mdi mdi-export" style="color: inherit;"></i><span translate="views.Layer.List.export">导出</span>
+                                                            </a>
+                                                        </li>
+                                                        <li style="float: left;" ng-if="li.uploadFileType!=2">
+                                                            <a class="mainlist-ul-btn" href="javascript:;" ng-click="clearLayerData(li.id)">
+                                                                <i class="mdi mdi-delete-forever" style="color: inherit;"></i><span translate="views.Layer.List.emptied">清空</span>
+                                                            </a>
+                                                        </li>
+                                                        <li style="float: left;">
+                                                            <a class="mainlist-ul-btn" href="javascript:;" ng-click="delLayerData(li.id)">
+                                                                <i class="mdi mdi-window-close" style="color: inherit;"></i><span translate="setting.delete">删除</span>
+                                                            </a>
+                                                        </li>
+                                                        <div style="clear:both;"></div>
+                                                    </ul>
+                                                </div>
+                                                <div class="font-title-big" style="margin-top: 10px;">
+                                                    <a href="/#/app/layerBrowse?id={{li.id}}&&type=2" target="_blank">
+                                                        {{li.layerName}}
+                                                    </a>
+                                                </div>
+                                                <div style="border-top: solid 1px rgba(0, 0, 0, 0); margin-top: 15px;"></div>
+                                                <div>
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td style="word-break: keep-all; white-space: nowrap; padding-bottom: 10px; width: 50%;">
+                                                                <span class="font-content-small" translate="views.Layer.create.sr">空间参考</span>
+                                                                <span class="font-content-small">：{{li.layerRefence}}</span>
+                                                            </td>
+                                                            <td style="padding-bottom: 10px; width: 50%;">
+                                                                <span class="font-content-small" translate="views.Layer.create.type.MAIN">图层类型</span>
+                                                                <span class="font-content-small">：{{li.dataTypeName}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding-bottom: 10px;">
+                                                                <span class="font-content-small" translate="setting.class.MAIN">分类</span>
+                                                                <span class="font-content-small">：{{li.layerTypeName}}</span>
+                                                            </td>
+                                                            <td style="padding-bottom: 10px;">
+                                                                <span class="font-content-small" translate="setting.tags.MAIN">标签</span>
+                                                                <span class="font-content-small">：{{li.layerTag}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding-bottom: 10px;">
+                                                                <span class="font-content-small" translate="setting.owner">所有者</span>
+                                                                <span class="font-content-small">：{{li.createBy}}</span>
+                                                            </td>
+                                                            <td style="padding-bottom: 10px;">
+                                                                <span class="font-content-small" translate="views.Layer.List.createTime">创建时间</span>
+                                                                <span class="font-content-small">：{{li.createDT | dateFilter}}</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--<div style="border-top: solid 1px rgba(0, 0, 0, 0); margin-top: 15px;"></div>-->
+                                                <div class="font-title-btn" style="padding-bottom: 5px;">
+                                                    <a class="mainlist-ul-btn" style="float: right" ng-click="tagManageId(li.layerTag,li.id)">
+                                                        <i class="mdi mdi-tag" style="color: #007AFF;"></i>
+                                                        <span translate="views.Layer.List.tagSet">标签设置</span>
+                                                    </a>
+                                                    <a class="mainlist-ul-btn" style="float: right" ng-click="typeManageId(li.layerType,li.id)">
+                                                        <i class="mdi mdi-format-list-bulleted-type" style="color: #007AFF;"></i>
+                                                        <span translate="views.Layer.List.classSet">分类设置</span>
+                                                    </a>
+                                                    <div style="clear: both;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="clear: both;"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div style="height: 30px;">
+                                <pagination style="float: left; margin: 0 !important;" first-text="{{'paging.home'|translate}}" previous-text="{{'paging.previous'|translate}}" next-text="{{'paging.next'|translate}}" last-text="{{'paging.last'|translate}}" items-per-page="pageSize"
+                                            total-items="pageCounts" ng-model="pageIndex" max-size="maxSize" class="pagination-sm"
+                                            boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages" ng-change="pageChanged()"></pagination>
+                                <ul class="pagination" style="float: left; margin: 0 !important;">
+                                    <li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage" ng-keydown="pageChanged(goPage,$event)" /></li>
+                                    <li><a style="padding: 4px 10px;" ng-click="pageChanged(goPage)">GO</a></li>
+                                    <li>
+                                        <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">
+                                            <span translate="paging.word1">第</span>{{pageIndex}}<span translate="paging.word2">页</span>
+                                            /
+                                            <span translate="paging.word3">共</span>{{totalPages}}<span translate="paging.word2">页</span>
+                                            ，
+                                            <span translate="paging.word4">总计</span>{{pageCounts}}<span translate="paging.word5">条记录</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <div style="clear: both; height: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 新建矢量图层弹窗 -->
+        <mic-ui-modal popwinmodal="inputModal" open-popwin-fun="openAddLayerFun" template="addLayerHtml" backdrop="'static'" popwin-title="inputModal.addLayerTitle" size="lg" win-class="addlayerWinCls" on-opened="openedBack" on-submit="submitForm" on-cancel="cancel">
+        </mic-ui-modal>
+
+        <!-- 新建影像图层弹窗 -->
+        <mic-ui-modal popwinmodal="imageLayerModal" open-popwin-fun="openImageLayerFun" template-url="imageLayerHtml" backdrop="'static'" popwin-title="imageLayerModal.title" size="lg" win-class="addImageLayerCls" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" on-opened="imageLayerModal.opened" on-submit="imageLayerModal.submit" on-cancel="imageLayerModal.cancel">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="imageLayerHtml">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group">
+                <div class="popwin-top" style="padding: 0 10px;">
+                    <div class="" style="margin-bottom: 10px;">
+                        <div class="col-sm-6">
+                            <div style="float:right; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;">
+                                        <span translate="views.Layer.create.name">图层名称</span><span class="symbol required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px; padding-left: 0;">
+                                    <input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.layerName" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div style="float: right; padding-right: 10px; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;">
+                                        <span translate="views.Layer.create.type.MAIN">图层类型</span><span class="symbol required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-9" style="padding: 0;">
+                                    <input type="text" style="width: 100%; height: 34px;" ng-model="popwinmodal.layerType" ng-disabled="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div class="" style="margin-bottom: 10px;">
+                        <div class="col-sm-6">
+                            <div style="float: right; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;">
+                                        <span translate="views.Layer.create.sr">空间参考</span><span class="symbol required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-9" style="padding-right: 14px; padding-left: 0;">
+                                    <input type="text" ng-model="popwinmodal.spatialRefData" ng-disabled="true" style="width: 100%; height:34px;" readonly />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div style="float: right; padding-right: 10px; width: 100%;">
+                                <div class="col-sm-3">
+                                    <label class="font-title-little" style="padding-top: 6px;">
+                                        <span translate="setting.class.MAIN">分类</span><span class="symbol required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-9" style="padding: 0;">
+                                    <abn-tree class="typePullDownTreeData" style="float: left; margin-right: 13px;" mic-combo-tree tree-data="popwinmodal.typePullDownTreeData"
+                                              icon-leaf="" selected-data="popwinmodal.typePullDownTreeSelData" on-select="popwinmodal.onComboSelected" expand-level="2">
+                                    </abn-tree>
+                                    <span class="btn btn-primary btn-o font-title-little" ng-click="popwinmodal.createClaOpenWinIn()" translate="setting.class.newClass">
+                                        创建分类
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div class="col-sm-12">
+                            <div style="float: right; padding-right: 10px; padding-left: 0; width: 100%;">
+                                <div class="col-sm-1">
+                                    <label class="font-title-little" style="padding-top: 6px;" translate="setting.tags.MAIN">标签</label>
+                                </div>
+                                <div class="col-sm-11" style="padding-left: 36px;">
+                                    <div style="border: solid 1px rgba(200, 199, 204, 0.62);" class="taginput col-sm-12">
+                                        <span class="btn btn-default btn-xs datavalues ng-scope" ng-repeat="$item in popwinmodal.tagsList"
+                                              style="font-size: 13px; line-height: 1.35; margin-right: 4px; margin-bottom: 3px; padding: 2px 4px;">
+                                            <span class="close" style="line-height: 0.665432em;padding-left:4px;" ng-click="popwinmodal.delItems($item,$event)">×</span>
+                                            <span class="cs-placeholder mtl ng-binding">{{$item}}</span>
+                                        </span>
+                                        <input class="mytagsfocus" type="text" placeholder="{{'setting.tags.tagPlacehold'|translate}}"
+                                               ng-keydown="popwinmodal.keydown($event,popwinmodal.tagsInput)" ng-trim="true" ng-model="popwinmodal.tagsInput"
+                                               style="background-color: #FFF !important; height: 34px; border: none; padding: 0;width:63%;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div style="border-top: solid 1px rgba(0, 0, 0, 0.07);"></div>
+                </div>
+                <div class="popwin-body">
+                    <div style="position: relative;">
+                        <div class="import-point">
+                            <label translate="views.Layer.create.imageLayer.uploadTips">请选择同名的所有文件上传，包括.tif、.tfw、.prj</label>
+                        </div>
+                        <bp-upload file-type="tif,tfw,prj" on-success="popwinmodal.onLoadSuccess" on-del-all="popwinmodal.onDelAll" on-del-single="popwinmodal.del" style="border: none !important;"></bp-upload>
+                    </div>
+                </div>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+        
+
+        <!--创建分类弹窗-->
+        <mic-ui-modal popwinmodal="creatTypeModal" open-popwin-fun="opencreatstyle" template="creatTypeModal.html" backdrop="'static'" popwin-title="creatTypeModal.title" size="" on-opened="createTypeOpened" on-submit="createTypeSubmit" on-cancel="createTypeCancel">
+        </mic-ui-modal>
+        
+
+        <!--标签管理弹窗-->
+        <mic-ui-modal popwinmodal="inputModalTag" open-popwin-fun="openTagManagerFun" template-url="tagsManager.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="'static'" popwin-title="inputModalTag.title" size="" win-class="listWinCls" on-opened="openTagManage" on-submit="tagManageForm" on-cancel="cancelTagManage">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="tagsManager.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group" style="padding: 15px;">
+                <label class="col-sm-1 font-title-little" style="line-height: 2.6469;" translate="setting.tags.MAIN">标签</label>
+                <div class="taginput col-sm-11" style="border: solid 1px rgba(200, 199, 204, 0.62);">
+                    <span ng-repeat="$item in popwinmodal.tagsList" style="font-size: 13px; line-height: 1.35; margin-right: 4px; margin-bottom: 3px; padding: 2px 4px;" class="btn btn-default btn-xs datavalues ng-scope">
+                        <span class="close" style="line-height: 0.665432em; padding-left:4px;" ng-click="popwinmodal.delItems($item,$event)">×</span>
+                        <span class="cs-placeholder mtl ng-binding">{{$item}}</span>
+                    </span>
+                    <input class="mytagsfocus" ng-trim="false" ng-keydown="popwinmodal.keydown($event,popwinmodal.tagsInput)" style="background-color: #FFF !important; height: 34px; border: none; padding: 0;width:63%;" type="text" ng-model="popwinmodal.tagsInput" placeholder="{{'setting.tags.tagPlacehold'|translate}}" />
+                </div>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+        <!--导入弹窗-->
+        <mic-ui-modal popwinmodal="importModal" open-popwin-fun="openImportFun" template-url="import.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="'static'" popwin-title="importModal.title" size="lg" win-class="import-win-class" on-opened="importOpened" on-submit="importSubmit" on-cancel="importCancel" style="float: right; margin-right: 10px;">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="import.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group">
+                <div style="padding-left: 20px;">
+                    <div class="import-point">
+                        <label translate="views.Layer.create.newFrom.upload.tips">请选择同名的4个文件上传，包括.shp、.shx、.dbf、.prj</label>
+                    </div>
+                    <!--<mic-upload edit-data="popwinmodal.fileListData" file-type=".shp.shx.dbf.prj" file-size="2147483647" tiphot="" on-success="popwinmodal.onLoadSuccess" on-del-all="popwinmodal.onDelAll" on-del-single="popwinmodal.del"></mic-upload>-->
+                    <bp-upload file-type="shp,shx,dbf,prj" on-success="popwinmodal.onLoadSuccess" on-del-all="popwinmodal.onDelAll" on-del-single="popwinmodal.del"></bp-upload>
+                </div>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+        <!--分类设置弹窗-->
+        <mic-ui-modal popwinmodal="inputModalType" open-popwin-fun="openClaSetFun" template-url="classSet.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" popwin-title="inputModalType.title" size="" win-class="setTypeWinCls" on-opened="inputModalType.opened" on-submit="inputModalType.submit" on-cancel="inputModalType.cancel">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="classSet.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group">
+                <div style="padding-left: 20px;">
+                    <div class="col-sm-10">
+                        <label class="font-title-little" style="width: 20%; line-height: 34px; float: left;" translate="views.Layer.create.class">图层分类</label>
+                        <abn-tree class="typePullDownTreeData font-content-small" style="width: 78% !important; float: left;" mic-combo-tree tree-data="popwinmodal.typePullDownTreeData" icon-leaf="" selected-data="popwinmodal.typePullDownTreeSelData" on-select="popwinmodal.onComboSelected" initial-selection="{{popwinmodal.initialTypeTreeData.label}}" expand-level="2"></abn-tree>
+                    </div>
+                    <div class="col-sm-2" style="padding-left: 0;">
+                        <span class="btn btn-primary btn-o font-title-btn" ng-click="popwinmodal.openCreatStylea()" translate="setting.class.newClass">
+                            创建分类
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+        
+        <!--'输入分类'弹窗-->
+        <mic-ui-modal popwinmodal="openInputTextModal" open-popwin-fun="openInputText" template="openInputTextModal.html" backdrop="'static'" popwin-title="openInputTextModal.title" size="" win-class="openInputTextCls" backdrop="'static'" on-opened="openInputTextModal.open" on-submit="openInputTextModal.submit" on-cancel="openInputTextModal.cancel">
+        </mic-ui-modal>
+        
+
+        <!-- 新增字段弹窗 -->
+        <mic-ui-modal popwinmodal="inputModal.createTdModal" open-popwin-fun="openNewTdFun" template-url="tdManager.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" backdrop="'static'" popwin-title="inputModal.createTdModal.newTdTitle" size="lg" on-opened="inputModal.createTdOpened" on-submit="inputModal.createTdSubmit" on-cancel="inputModal.createTdCancel">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="tdManager.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group">
+                <div style="padding: 0 14px 0 10px; ">
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;">
+                                <span translate="views.Layer.create.newField.fieldName">字段名称</span><span class="symbol required"></span>
+                            </label>
+                            <text-box text-model="popwinmodal.firstname" text-length="10" text-not-allowed="popwinmodal.notAllowedString" text-readonly="popwinmodal.newTdTitle=='字段详细信息'" required="true" style="display: inline-block; margin: 0px !important; text-align: left; width: 187px;"></text-box>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; margin-bottom: 23px; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;">
+                                <span translate="views.Layer.create.newField.datatype.MAIN">数据类型</span><span class="symbol required"></span>
+                            </label>
+                            <div style="display: inline-block; text-align: left;">
+                                <ui-select class="ui-select-width" ng-model="popwinmodal.tdDataTypeSel.selected" on-select="popwinmodal.onSelDataType()" theme="select2" ng-disabled="popwinmodal.newTdTitle=='字段详细信息'" style="width: 187px;">
+                                    <ui-select-match>{{$select.selected.codeName}}</ui-select-match>
+                                    <ui-select-choices class="ui-select-height" repeat="p in popwinmodal.tdDataTypeData| propsFilter: {codeName: $select.search}">
+                                        <div ng-bind-html="p.codeName | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.length">长度</label>
+                            <num-box width="187" max-num="99999" min-num="0" precision="0" text-placeholder="" text-model="popwinmodal.length" style="display: inline-block; margin: 0; margin-bottom: 19px; text-align: left;" ng-readonly="popwinmodal.readOnly1||popwinmodal.newTdTitle=='字段详细信息'"></num-box>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.decimal">小数位</label>
+                            <num-box width="187" max-num="99999" min-num="0" precision="0" text-placeholder="" text-model="popwinmodal.precision" style="display: inline-block; margin: 0; margin-bottom: 19px; text-align: left;" ng-readonly="popwinmodal.readOnly2||popwinmodal.newTdTitle=='字段详细信息'"></num-box>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.unit">单位</label>
+                            <text-box text-model="popwinmodal.unit" text-readonly="popwinmodal.newTdTitle=='字段详细信息'" style="display: inline-block; margin: 0; width: 187px; text-align: left;"></text-box>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.default">缺省值</label>
+                            <text-box text-model="popwinmodal.defaultVal" text-readonly="popwinmodal.newTdTitle=='字段详细信息'" style="display: inline-block; margin: 0; width: 187px; text-align: left;"></text-box>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; margin-bottom: 23px; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.control.MAIN">输入控制</label>
+                            <div style="display: inline-block; text-align: left;">
+                                <ui-select class="ui-select-width" ng-model="popwinmodal.tdInputCtrlSel.selected" on-select="popwinmodal.onSelInputCtrl()" ng-disabled="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.isTimeType" theme="select2" style="width: 187px;">
+                                    <ui-select-match>{{$select.selected.label}}</ui-select-match>
+                                    <ui-select-choices class="ui-select-height" repeat="p in popwinmodal.tdInputCtrlData| propsFilter: {label: $select.search}">
+                                        <div ng-bind-html="p.label | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.max">值域上限</label>
+                            <text-box text-model="popwinmodal.maxVal" text-readonly="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.readOnly3" style="display: inline-block; margin: 0; width: 187px; text-align: left;"></text-box>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.min">值域下限</label>
+                            <text-box text-model="popwinmodal.minVal" text-readonly="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.readOnly3" style="display: inline-block; margin: 0; width: 187px; text-align: left;"></text-box>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0; margin-bottom: 23px;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.code">数据分类代码</label>
+                            <div style="display: inline-block; width: 187px;">
+                                <div class="radio clip-radio radio-primary radio-inline" style="margin: 0 !important; padding-top: 5px;">
+                                    <input type="radio" id="datatypecode_1" name="datatypecode" value="F" ng-model="popwinmodal.dataTypeCode" ng-disabled="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.isTimeType" ng-change="popwinmodal.dataTypeCodeChange()">
+                                    <label for="datatypecode_1" style="margin-right: 5px;" translate="setting.no">
+                                        否
+                                    </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary radio-inline" style="margin: 0 !important; padding-top: 5px;">
+                                    <input type="radio" id="datatypecode_2" name="datatypecode" value="T" ng-model="popwinmodal.dataTypeCode" ng-disabled="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.isTimeType" ng-change="popwinmodal.dataTypeCodeChange()">
+                                    <label for="datatypecode_2" translate="setting.yes">
+                                        是
+                                    </label>
+                                </div>
+                                <a class="btn btn-primary font-title-little" href="javascript:;" ng-click="popwinmodal.createDict(popwinmodal.dictData,1)" ng-disabled="popwinmodal.dataTypeCode!='T'" style="display: inline-block; text-align: left; margin-left: -13px;" translate="views.Layer.create.newField.newbtn1">创建字典项</a>
+                            </div>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; margin-bottom: 23px; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.format.MAIN">输入格式</label>
+                            <div style="display: inline-block; text-align: left;">
+                                <ui-select class="ui-select-width" ng-model="popwinmodal.tdInputFormatSel.selected" on-select="popwinmodal.onSelInputFormat()" ng-disabled="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.isTimeType||popwinmodal.dataTypeCode!='T'" theme="select2" style="width: 187px;">
+                                    <ui-select-match>{{$select.selected.label}}</ui-select-match>
+                                    <ui-select-choices class="ui-select-height" repeat="p in popwinmodal.tdInputFormatData| propsFilter: {label: $select.search}">
+                                        <div ng-bind-html="p.label | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0; margin-bottom: 23px;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.null.MAIN">空值</label>
+                            <div style="display: inline-block; text-align: left;">
+                                <div class="radio clip-radio radio-primary radio-inline" style="margin: 0 !important; padding-top: 5px;">
+                                    <input type="radio" id="isnull_1" name="isnull" value="T" ng-model="popwinmodal.empty" ng-disabled="true" readonly="readonly">
+                                    <label for="isnull_1" translate="views.Layer.create.newField.null.allowed">
+                                        允许为空
+                                    </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary radio-inline" style="margin: 0 !important; padding-top: 5px;">
+                                    <input type="radio" id="isnull_2" name="isnull" value="F" ng-model="popwinmodal.empty" ng-disabled="true" readonly="readonly">
+                                    <label for="isnull_2" translate="views.Layer.create.newField.null.notAllowed">
+                                        不能为空
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.connect">文字值连接代码</label>
+                            <text-box text-model="popwinmodal.linkCode" text-readonly="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.isTimeType" style="display: inline-block; margin: 0; width: 187px; text-align: left;"></text-box>
+                        </li>
+                        <li class="col-sm-8" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.formula">计算公式</label>
+                            <text-box text-model="popwinmodal.formula" text-readonly="true" ng-class="{'edit-formula':popwinmodal.newTdTitle!=='字段详细信息','see-formula':popwinmodal.newTdTitle=='字段详细信息'}" style="display: inline-block; margin: 0; margin-right: 16px; text-align: left;"></text-box>
+                            <a class="btn btn-primary font-title-little" href="javascript:;" ng-click="popwinmodal.createCalComp()" ng-disabled="popwinmodal.isTimeType||!popwinmodal.firstname" ng-if="popwinmodal.newTdTitle!=='字段详细信息'" translate="views.Layer.create.newField.newbtn2" style="display: inline-block; text-align: left; vertical-align: top;">创建计算公式</a>
+                        </li>
+                        <li class="col-sm-4" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.source">数据源</label>
+                            <text-box text-model="popwinmodal.dataSource" text-readonly="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.isTimeType" style="display: inline-block; margin: 0; width: 187px; text-align: left;"></text-box>
+                        </li>
+                        <li class="col-sm-8" style="text-align: right; padding-left: 0;">
+                            <label class="font-title-little" style="vertical-align: top; margin-top: 8px;" translate="views.Layer.create.newField.description">说明</label>
+                            <text-box text-model="popwinmodal.describe" text-readonly="popwinmodal.newTdTitle=='字段详细信息'||popwinmodal.isTimeType" style="display: inline-block; margin: 0; width: 478px; text-align: left;"></text-box>
+                        </li>
+                        <!--<li class="col-sm-4" ng-repeat="r in popwinmodal.tableHeadData" style="text-align: right; padding-left: 0;">
+                <label style="vertical-align: top; margin-top: 8px;">{{r.label}}</label>
+                <num-box max-num="99999" min-num="0" precision="0" text-placeholder="" text-model="r.text" ng-if="$index<2" style="display: inline-block; margin: 0; margin-bottom: 23px; width: 187px; text-align: left;" ng-readonly="r.readOnly"></num-box>
+                <text-box text-model="r.text" text-readonly="r.readOnly" text-length="r.length" style="display: inline-block; margin: 0; width: 187px; text-align: left;" ng-if="$index>1"></text-box>
+            </li>-->
+
+                        <div style="clear: both;"></div>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+        <!--字典项管理弹窗-->
+        <mic-ui-modal popwinmodal="dictManagerModal" open-popwin-fun="openDictManager" template="dictManagerModal.html" backdrop="'static'" popwin-title="dictManagerModal.title" size="lg" backdrop="'static'" resolve="" on-opened="dictManagerModal.dictManagerOpened" on-submit="dictManagerModal.submit" on-cancel="dictManagerModal.cancel">
+        </mic-ui-modal>
+
+
+        <!--新增/编辑字典项弹窗-->
+        <mic-ui-modal popwinmodal="createDictModel" open-popwin-fun="openCreateDictFun" template-url="createDict.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" popwin-title="createDictModel.title" size="" on-opened="createDictModel.openCreateDict" on-submit="createDictModel.createDictForm" on-cancel="createDictModel.cancelCreateDict">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="createDict.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group">
+                <div style="padding: 0 20px;">
+                    <div class="col-sm-12" style="padding: 0; margin-bottom: 15px;">
+                        <label class="col-sm-3 font-title-little" style="padding-top: 8px; padding-left: 0;">
+                            <span translate="views.Layer.dicWin.content">字典项内容</span><span class="symbol required"></span>
+                        </label>
+                        <input class="col-sm-9" type="text" ng-model="popwinmodal.text" style="height: 34px;" />
+                    </div>
+                    <div class="col-sm-12" style="padding: 0; margin-bottom: 15px;">
+                        <label class="col-sm-3 font-title-little" style="padding-top: 8px; padding-left: 0;" translate="views.Layer.dicWin.description">字典项说明</label>
+                        <textarea class="col-sm-9" ng-model="popwinmodal.remark"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+        <!--公式字段弹窗-->
+        <mic-ui-modal popwinmodal="calCompModel" open-popwin-fun="openCalCompFun" template-url="calComp.html" submit-text="{{'setting.submit'|translate}}" cancel-text="{{'setting.cancel'|translate}}" popwin-title="calCompModel.title" size="lg" win-class="calcomp-model-cls" on-opened="calCompModel.openCalComp" on-submit="calCompModel.calCompForm" on-cancel="calCompModel.cancelCalComp">
+        </mic-ui-modal>
+        <script type="text/ng-template" id="calComp.html">
+            <!-- 表单内容 ---start--- -->
+            <div class="form-group">
+                <div style="padding: 0 20px;">
+                    <div class="col-sm-12" style="padding: 0; margin-bottom: 15px;">
+                        <div class="col-sm-4" style="text-align: center; padding-left: 0;">
+                            <span class="font-title-middle" translate="views.Layer.formulaWin.list">字段列表</span>
+                            <div style="width: 100%; height: 211px; border: solid 1px rgba(236, 236, 236, 1); padding: 0 5px; margin-top: 7px; overflow: auto; ">
+                                <table class="table-hover font-content-small" style="width: 100%;">
+                                    <tbody>
+                                        <tr ng-repeat="tr in popwinmodal.fieldData" ng-click="popwinmodal.clickField(tr)" style="height: 25px; cursor: default;">
+                                            <td>{{tr.value}}</td>
+                                            <td>{{tr.type}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="padding-left: 16px; text-align: center;">
+                            <div>
+                                <span class="font-title-middle" translate="views.Layer.formulaWin.function.MAIN">计算函数</span>
+                            </div>
+                            <div>
+                                <div class="radio clip-radio radio-primary radio-inline">
+                                    <input type="radio" id="calComp_rad1" name="calComp_rad" value="number" ng-model="popwinmodal.checkType" ng-change="popwinmodal.changeType(1)">
+                                    <label class="font-content-small" for="calComp_rad1" translate="views.Layer.formulaWin.function.digital">
+                                        数字型
+                                    </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary radio-inline">
+                                    <input type="radio" id="calComp_rad2" name="calComp_rad" value="string" ng-model="popwinmodal.checkType" ng-change="popwinmodal.changeType(2)">
+                                    <label class="font-content-small" for="calComp_rad2" translate="views.Layer.formulaWin.function.character">
+                                        字符型
+                                    </label>
+                                </div>
+                            </div>
+                            <div style="width: 100%; height: 171px; border: solid 1px rgba(236, 236, 236, 1); padding: 0 5px; overflow: auto; ">
+                                <table class="table-hover font-content-small" style="width: 100%; text-align: left;">
+                                    <tbody>
+                                        <tr ng-repeat="tr in popwinmodal.calFuncData" ng-click="popwinmodal.clickFunc(tr)" style="height: 25px; cursor: default;">
+                                            <td>{{tr.label}}</td>
+                                            <td>{{tr.remark}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center; ">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li ng-click="popwinmodal.clickSymbol('7')">7</li>
+                                <li ng-click="popwinmodal.clickSymbol('8')">8</li>
+                                <li ng-click="popwinmodal.clickSymbol('9')">9</li>
+                                <li ng-click="popwinmodal.clickSymbol('/')">/</li>
+                                <li ng-click="popwinmodal.clickSymbol('%')" style="border-right: solid 1px #E1E1E1;">%</li>
+                                <li ng-click="popwinmodal.clickSymbol('4')">4</li>
+                                <li ng-click="popwinmodal.clickSymbol('5')">5</li>
+                                <li ng-click="popwinmodal.clickSymbol('6')">6</li>
+                                <li ng-click="popwinmodal.clickSymbol('*')">*</li>
+                                <li ng-click="popwinmodal.clickSymbol('(')" style="border-right: solid 1px #E1E1E1;">(</li>
+                                <li ng-click="popwinmodal.clickSymbol('1')">1</li>
+                                <li ng-click="popwinmodal.clickSymbol('2')">2</li>
+                                <li ng-click="popwinmodal.clickSymbol('3')">3</li>
+                                <li ng-click="popwinmodal.clickSymbol('-')">-</li>
+                                <li ng-click="popwinmodal.clickSymbol(')')" style="border-right: solid 1px #E1E1E1;">)</li>
+                                <li ng-click="popwinmodal.clickSymbol('0')" style="border-bottom: solid 1px #E1E1E1;">0</li>
+                                <li ng-click="popwinmodal.clickSymbol(',')" style="border-bottom: solid 1px #E1E1E1;">,</li>
+                                <li ng-click="popwinmodal.clickSymbol('.')" style="border-bottom: solid 1px #E1E1E1;">.</li>
+                                <li ng-click="popwinmodal.clickSymbol('+')" style="border-bottom: solid 1px #E1E1E1;">+</li>
+                                <li ng-click="popwinmodal.clear()" style="border-right: solid 1px #E1E1E1; border-bottom: solid 1px #E1E1E1;" translate="views.Layer.formulaWin.clear">清空</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" style="padding: 10px; margin-bottom: 40px; border: solid 1px rgba(27, 26, 26, 0.11);">
+                        <div style="margin-bottom: 15px; margin-top: 5px;">
+                            <div class="col-sm-4 font-content-btn" style="font-size: 20px;">
+                                {{popwinmodal.fieldName}}
+                                <label style="float: right;">=</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <textarea class="calcomp-content-textarea" ng-model="popwinmodal.calFormula" ng-change="popwinmodal.changeTextarea()" style="width: 100%; height: 100px;"></textarea>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div>
+                            <div class="form-group" style="margin-bottom: 5px; margin-right: 0px;">
+                                <a class="btn btn-wide btn-primary font-title-btn" style="min-width: 80px; float: right; margin-left: 0.5em;" ng-click="popwinmodal.check()" ng-disabled="popwinmodal.isDisabled" translate="views.Layer.formulaWin.verification">公式校验</a>
+                                <!--<a class="btn btn-wide btn-o btn-default font-title-btn" style="float: right; min-width: 80px;" ng-click="popwinmodal.clear()">清空</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+            <!-- 表单内容 ---end--- -->
+        </script>
+
+    </div>
+</div>

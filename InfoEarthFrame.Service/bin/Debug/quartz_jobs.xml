@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains job definitions in schema version 2.0 format -->
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+
+    <job>
+        <name>ThumbnailInitialize</name>
+        <group>SDMS</group>
+        <description>图层与地图初始化下载</description>
+        <job-type>InfoEarthFrame.Server.ThumbnailInitialize, InfoEarthFrame.Server</job-type>
+        <durable>true</durable>
+        <recover>false</recover>
+    </job>
+    <job>
+      <name>ShpFileRead</name>
+      <group>SDMS</group>
+      <description>Spatial Data Management Service ShpFile Analysis</description>
+      <job-type>InfoEarthFrame.Server.ShpFileRead, InfoEarthFrame.Server</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <simple>
+        <name>ThumbnailInitTrigger</name>
+        <group>ThumbnailInitGroup</group>
+        <description>图层与地图初始化下载(空间数据管理平台)</description>
+        <job-name>ThumbnailInitialize</job-name>
+        <job-group>SDMS</job-group>
+        <misfire-instruction>SmartPolicy</misfire-instruction>
+        <repeat-count>1</repeat-count>
+        <repeat-interval>1000</repeat-interval>
+      </simple>
+    </trigger>
+    <trigger>
+      <simple>
+        <name>ShpFileReadTrigger</name>
+        <group>ShpFileReadGroup</group>
+        <description>矢量文件解析服务(空间数据管理平台)</description>
+        <job-name>ShpFileRead</job-name>
+        <job-group>SDMS</job-group>
+        <misfire-instruction>SmartPolicy</misfire-instruction>
+        <repeat-count>-1</repeat-count>
+        <repeat-interval>10000</repeat-interval>
+      </simple>
+    </trigger>
+  </schedule>
+</job-scheduling-data>

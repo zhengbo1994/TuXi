@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Class name="OperateLog">
+		<!-- 系统功能 -->
+    <word Code="1004" Chinese="数据编辑" English="DataEditor"/>
+		<word Code="1001" Chinese="图层管理" English="Layers"/>
+		<word Code="1002" Chinese="地图管理" English="Maps"/>
+		<word Code="1003" Chinese="样式管理" English="Style"/>
+		
+		<!-- 操作类型 -->
+		<word Code="1101" Chinese="新增" English="New"/>
+		<word Code="1102" Chinese="编辑" English="Edit"/>
+		<word Code="1103" Chinese="导入" English="Import"/>
+		<word Code="1104" Chinese="清空" English="Empty"/>
+		<word Code="1105" Chinese="删除" English="Delete"/>
+		<word Code="1106" Chinese="刷新" English="Refresh"/>
+		
+		<!-- 操作结果 -->
+		<word Code="1201" Chinese="成功" English="success"/>
+		<word Code="1202" Chinese="失败" English="failure"/>
+		
+		<!-- 结果描述（图层管理） -->
+		<word Code="1301" Chinese="图层名称" English="layer name"/>
+		
+		<word Code="1311" Chinese="新增图层成功" English="New layer successful"/>
+		<word Code="1312" Chinese="新增图层失败" English="New layer failed"/>
+		<word Code="1313" Chinese="新增矢量图层成功" English="New vector layer successful"/>
+		<word Code="1314" Chinese="新增矢量图层失败" English="New vector layer failed"/>
+		<word Code="1315" Chinese="新增影像图层成功" English="New image layer successful"/>
+		<word Code="1316" Chinese="新增影像图层失败" English="New image layer failed"/>
+		
+		<word Code="1321" Chinese="上传文件成功" English="Upload file successful"/>
+		<word Code="1322" Chinese="上传文件解析异常" English="Upload file resolution exception"/>
+		<word Code="1323" Chinese="上传文件解析异常(上传的矢量文件无效)" English="UUpload file resolution exception (uploaded vector file is invalid)"/>
+		<word Code="1324" Chinese="上传文件解析异常(与系统默认坐标系不匹配)" English="Upload file resolution exception (does not match the system default coordinate system)"/>
+		<word Code="1325" Chinese="上传文件解析异常(属性无匹配或只部分匹配)" English="Upload file resolution exception(Attributes do not match or only partially match)"/>
+		<word Code="1326" Chinese="上传文件解析异常(上传必要文件不存在或不完整)" English="Upload file resolution exception (upload necessary file does not exist or incomplete)"/>
+		<word Code="1327" Chinese="图层属性信息匹配异常(长度＼精度＼数据类型)" English="Layer attribute information matching exception(Length \ precision \ data type)"/>
+		<word Code="1328" Chinese="图层属性信息匹配异常" English="Layer attribute information matching exception"/>
+		
+		<word Code="1331" Chinese="清空图层成功" English="Empty layer successful"/>
+		<word Code="1332" Chinese="清空图层失败" English="Empty layer failed"/>
+		
+		<word Code="1341" Chinese="删除图层成功" English="Delete layer successful"/>
+		<word Code="1342" Chinese="删除图层失败" English="Delete layer failed"/>
+		
+		<word Code="1351" Chinese="设置图层样式成功" English="Set the layer style successful"/>
+		<word Code="1352" Chinese="设置图层样式失败" English="Set the layer style failed"/>
+		
+		<word Code="1361" Chinese="批量更新成功" English="Batch update successful"/>
+		<word Code="1362" Chinese="批量更新失败" English="Batch update failed"/>
+		
+		
+		<!-- 结果描述（地图管理） -->
+		<word Code="1401" Chinese="地图名称" English="map name"/>
+		
+		<word Code="1411" Chinese="新增地图成功" English="New map successful"/>
+		<word Code="1412" Chinese="新增地图失败" English="New map failed"/>
+    <word Code="1413" Chinese="新增要素成功" English="New element successful"/>
+    <word Code="1414" Chinese="编辑要素成功" English="Update element successful"/>
+    <word Code="1415" Chinese="删除要素成功" English="Delete element successful"/>
+    
+		<word Code="1421" Chinese="删除地图成功" English="Delete map successful"/>
+		<word Code="1422" Chinese="删除地图失败" English="Delete map failed"/>
+		
+		<word Code="1431" Chinese="更新数据成功" English="Update data successful"/>
+		<word Code="1432" Chinese="更新数据失败" English="Update data failed"/>
+		
+		<word Code="1441" Chinese="批量更新成功" English="Batch update successful"/>
+		<word Code="1442" Chinese="批量更新失败" English="Batch update failed"/>
+		
+		<word Code="1451" Chinese="刷新成功" English="Refresh successful"/>
+		<word Code="1452" Chinese="刷新失败" English="Refresh failed"/>
+		
+		<!-- 结果描述（样式管理） -->
+		<word Code="1501" Chinese="样式名称" English="style name"/>
+		
+		<word Code="1511" Chinese="新增样式成功" English="New style successful"/>
+		<word Code="1512" Chinese="新增样式失败" English="New style failed"/>
+		
+		<word Code="1521" Chinese="更新样式成功" English="Update style successful"/>
+		<word Code="1522" Chinese="更新样式失败" English="Update style failed"/>
+		
+		<word Code="1531" Chinese="删除样式成功" English="Delete style successful"/>
+		<word Code="1532" Chinese="删除样式失败" English="Delete style failed"/>
+		
+	</Class>
+</root>

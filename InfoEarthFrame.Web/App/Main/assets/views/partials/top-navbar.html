@@ -1,0 +1,224 @@
+<!-- start: TOP NAVBAR -->
+<!-- start: NAVBAR HEADER -->
+<div class="navbar-header hidden-md hidden-lg">
+    <a href="#" class="sidebar-mobile-toggler pull-left" ng-click="toggle('sidebar')" class="btn btn-navbar sidebar-toggle">
+        <i class="ti-align-justify"></i>
+    </a>
+    <a ng-if="isMobileDevice" ui-sref="app.dashboard">
+        <img ng-src="{{'dashboard.logo'|translate}}" alt="{{'dashboard.MAIN'|translate}}" />
+    </a>
+    <!--<a class="pull-right menu-toggler visible-xs-block" style="margin-right: 15px !important; " id="menu-toggler" ng-click="navbarCollapsed = !navbarCollapsed">
+        <span class="sr-only">切换导航</span>
+        <i class="ti-view-grid"></i>
+    </a>-->
+</div>
+<!-- end: NAVBAR HEADER -->
+<!-- start: NAVBAR COLLAPSE -->
+<div class="navbar-collapse collapse" collapse="navbarCollapsed" ng-init="navbarCollapsed = true" off-click="navbarCollapsed = true" off-click-if='!navbarCollapsed' off-click-filter="#menu-toggler">
+    <ul class="nav navbar-left" style="margin-top: -6px;" ng-if="!isMobileDevice">
+        <li class="navbar-left00">
+            <a class="navbar-brand" ui-sref="app.dashboard" style="padding:10px 0px">
+                <img ng-src="{{'dashboard.logo'|translate}}" alt="{{'dashboard.MAIN'|translate}}" />
+            </a>
+        </li>
+    </ul>
+    <ul class="nav navbar-right" ct-fullheight="window" data-ct-fullheight-exclusion="header"
+        data-ct-fullheight-if="isSmallDevice">
+        
+        <!-- start: CONVERSION RESULT -->
+        <li class="dropdown" ng-controller="downListCtrl">
+            <a href="#" class="dropdown-toggle" ng-click="open()" style="text-transform: initial;">
+                <!--{{ allNum }}-->
+                <span class="dot-badge" style="top: 0; border-width: 0">{{ allNum }}</span>
+                <i class="fa fa-list"></i> <span class="font-title-small" translate="topbar.notification.MAIN">消息通知</span>
+            </a>
+        </li>
+        <!-- end: CONVERSION RESULT -->
+        <li class="dropdown" ng-if="!!showLanguage">
+            <a class="dropdown-toggle" href="javascript:;" ng-click="dropdownLanguage()" style="text-transform: initial;">
+                <i class="fa fa-user"></i><span class="font-title-small" translate="topbar.user.Language.MAIN">语言</span>
+            </a>
+            <ul class="dropdown-menu dropdown-light fadeInUpShort font-title-little" ng-if="isShowLanguageMenu" style="display: block; left: -16px; min-width: 90px;">
+                <li>
+                    <a class="menu-toggler" href="javascript:;" style="padding: 0;" ng-click="changeToChinese()">
+                        中文
+                    </a>
+                    <a class="menu-toggler" href="javascript:;" style="padding: 0;" ng-click="changeToEnglish()">
+                        English
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- start: USER MENU -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" href="javascript:;" ng-click="dropdownUser()" style="text-transform: initial;">
+                <i class="fa fa-user"></i><span class="font-title-small">{{loginUserCode}}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-light fadeInUpShort font-title-little" ng-if="isShowUserMenu" style="display: block; left: -16px; min-width: 90px;">
+                <li ng-if="!isAdmin">
+                    <a class="menu-toggler" href="javascript:;" style="padding: 0;" ng-click="openPerCenterMenu()" translate="topbar.user.userCenter.MAIN">
+                        个人中心
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-toggler" href="javascript:;" style="padding: 0;" ng-click="signOutSys()" translate="topbar.user.signout.MAIN">
+                        退出登录
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- end: USER MENU -->
+        
+    </ul>
+    <!-- end: USER OPTIONS DROPDOWN -->
+    <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+    <div class="close-handle visible-xs-block menu-toggler" ng-click="navbarCollapsed = true">
+        <div class="arrow-left"></div>
+        <div class="arrow-right"></div>
+    </div>
+    <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+</div>
+<!-- <a class="dropdown-off-sidebar" ng-click="toggle('off-sidebar')">
+    &nbsp;
+</a> -->
+<!-- end: NAVBAR COLLAPSE -->
+<!-- start: TOP NAVBAR -->
+
+<!-- 消息通知弹窗 -->
+<script type="text/ng-template" id="downList.html">
+    <div class="modal-header" style="padding: 10px;">
+        <span class="font-title-middle" style="margin-bottom: 0px;" translate="topbar.notification.MAIN">消息通知</span>
+        <a class="my-pop-win-close" href="#" ng-click="cancel()">
+            <i class="ti-close" tooltip="关闭"></i>
+        </a>
+    </div>
+
+    <div class="modal-body form-error">
+        <form role="form" class="form-horizontal">
+            <tabset class="tabbable no-padding no-margin">
+
+                <tab heading="{{'topbar.notification.import.MAIN'|translate}}" class="padding-top-5 padding-left-5 font-content-middle">
+                    <div class="table-responsive" style="max-height: 300px;">
+                        <table class="table font-content-small">
+                            <thead>
+                                <tr>
+                                    <th translate="topbar.notification.serialnumber">序号</th>
+                                    <th translate="topbar.notification.import.filename">导入文件名称</th>
+                                    <th translate="topbar.notification.import.layername">图层名称</th>
+                                    <th translate="topbar.notification.import.uploadtime">文件上传时间</th>
+                                    <th translate="topbar.notification.import.status">状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="da in $importDatas">
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{da.shpFileName}}</td>
+                                    <td>{{da.layerName}}</td>
+                                    <td>{{da.createDT | dateFilter}}</td>
+                                    <td>
+                                        <a href="javascript:;" ng-click="seeMsg(da.readStatus,da.message)">
+                                            <span ng-class="{msgStatusReady:da.readStatus==0,msgStatusSuccess:da.readStatus==1,msgStatusFail:da.readStatus==2}">{{da.readStatus | msgStatusFilter}}</span>
+                                        </a>
+                                        <a href="{{da.downloadUrl}}" ng-if="!!da.downloadUrl">
+                                            <i class="ti ti-arrow-down"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--<div style="height: 30px;">
+            <pagination style="float: left; margin: 0 !important;" first-text="首页" previous-text="上一页" next-text="下一页" last-text="末页" items-per-page="pageSize2"
+                        total-items="pageCounts2" ng-model="pageIndex2" max-size="maxSize2" class="pagination-sm"
+                        boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages2" ng-change="pageChanged2()"></pagination>
+            <ul class="pagination" style="float: left; margin: 0 !important;">
+                <li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage2" ng-keydown="pageChanged2(goPage2,$event)" /></li>
+                <li><a style="padding: 4px 10px;" ng-click="pageChanged2(goPage2)">GO</a></li>
+                <li>
+                    <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">第{{pageIndex2}}页/共{{totalPages2}}页，总计{{pageCounts2}}条记录。</label>
+                </li>
+            </ul>
+            <div style="clear: both; height: 10px;"></div>
+        </div>-->
+                </tab>
+
+                <tab heading="{{'topbar.notification.download.MAIN'|translate}}" class="padding-top-5 padding-left-5 font-content-middle">
+                    <div class="panel-scroll" perfect-scrollbar wheel-propagation="false" suppress-scroll-x="true">
+                        <table class="table no-margin font-content-small" id="sample-table-1" ng-table="tableParams" template-pagination="custom/pager">
+                            <thead>
+                                <tr>
+                                    <th translate="topbar.notification.serialnumber">序号</th>
+                                    <th translate="topbar.notification.download.filename">文件名称</th>
+                                    <th translate="topbar.notification.download.conversiontype">转换类型</th>
+                                    <th translate="topbar.notification.download.conversiontime">转换时间</th>
+                                    <th translate="setting.operating">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="da in $toolDatas" ng-style="da.styles">
+                                    <td>
+                                        {{ $index + 1 }}
+                                    </td>
+                                    <td>
+                                        {{ da.fileName }}
+                                        <i class="ti-eye" style="color: blue" ng-mouseover="showDetail($event,$index,da.convertFileNames)" ng-mouseleave="downDetail()"></i>
+                                    </td>
+
+                                    <td>
+                                        {{ da.fileType | fileChange: '' }}
+                                    </td>
+
+                                    <td>
+                                        {{ da.createTime | date:"yyyy/MM/dd HH:mm:ss" }}
+                                    </td>
+
+                                    <td>
+                                        <a href="#" ng-click="changeStatus(da)" translate="topbar.notification.download.tables.download">下载</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <ul pagination total-items="totalItemsOne" ng-model="currentPageOne" previous-text="{{'paging.previous'|translate}}" next-text="{{'paging.next'|translate}}"
+                            boundary-links="true" ng-change="pageChangedOne(currentPageOne)" first-text="{{'paging.home'|translate}}" last-text="{{'paging.last'|translate}}"></ul>
+                    </div>
+                </tab>
+
+            </tabset>
+
+            <div class="form-group" style="margin-top: 50px;margin-bottom: 0px; margin-right: 0px;">
+                <a class="btn btn-wide btn-o btn-default font-title-btn" style="float: right; min-width: 80px;" ng-click="cancel()" translate="setting.cancel">取消</a>
+            </div>
+
+            <!-- 下载通知中文件名称旁边的小眼睛弹出来的文件信息窗口 -->
+            <div class="static-tooltip detail-window" ng-style="detailTop" ng-show="isEyes" ng-mouseover="itselfShow()" ng-mouseleave="downDetail()">
+                <div role="tooltip" class="tooltip bottom">
+                    <div class="tooltip-arrow"></div>
+
+                    <div class="tooltip-inner" style="background-color: #fff; width: 200px">
+                        <table class="table table-bordered table-hover" id="sample-table-3" ng-table="tableParams" template-pagination="custom/pager">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th style="text-align: center" translate="topbar.notification.download.filename">文件名称</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="da in $detailFileName">
+                                    <td>
+                                        {{ $index + 1 }}
+                                    </td>
+                                    <td>
+                                        {{ da }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+

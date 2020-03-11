@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata>
+    <id>iTelluro.DataTools.Utility</id>
+    <version>1.0.6023.32572</version>
+    <authors>武汉地大信息工程股份有限公司</authors>
+    <owners>武汉地大信息工程股份有限公司</owners>
+    <licenseUrl>http://192.168.100.77/nugetserver/notify.html</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>数据处理工具辅助模块</description>
+    <summary>请自行将包里lib中的文件拷贝到运行程序所在目录。</summary>
+    <tags>vectoreditor net20</tags>
+    <dependencies>
+      <dependency id="gdal110_release_net2.0_x86" version="1.0.5184.21789" />
+      <dependency id="iTelluro.GeometrySymbol" version="1.0.5981.29948" />
+      <dependency id="iTelluro.GlobeDB" version="2.6.5434.26875" />
+      <dependency id="iTelluro.MBTiles" version="1.1.5553.30535" />
+    </dependencies>
+    <references>
+      <group targetFramework=".NETFramework2.0">
+        <reference file="iTelluro.DataTools.Utility.dll" />
+      </group>
+    </references>
+  </metadata>
+</package>

@@ -1,0 +1,624 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hangfire.RecurringJobExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:Hangfire.RecurringJobExtensions.CronJob">
+            <summary>
+            The helper class to build <see cref="T:Hangfire.RecurringJob"/> automatically.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.CronJob.AddOrUpdate(System.Type[])">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically within specified interface or class.
+            </summary>
+            <param name="types">Specified interface or class</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.CronJob.AddOrUpdate(System.Func{System.Collections.Generic.IEnumerable{System.Type}})">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically within specified interface or class.
+            </summary>
+            <param name="typesProvider">The provider to get specified interfaces or class.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.CronJob.AddOrUpdate(System.String[],System.Boolean)">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically by using multiple JSON configuration files.
+            </summary>
+            <param name="jsonFiles">The array of json files.</param>
+            <param name="reloadOnChange">Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded if the file changes.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.CronJob.AddOrUpdate(System.String,System.Boolean)">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically by using a JSON configuration.
+            </summary>
+            <param name="jsonFile">Json file for <see cref="T:Hangfire.RecurringJob"/> configuration.</param>
+            <param name="reloadOnChange">Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded if the file changes.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.CronJob.AddOrUpdate(Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider)">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically with <seealso cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/>.
+            </summary>
+            <param name="provider"><see cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/></param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.CronJob.AddOrUpdate(System.Collections.Generic.IEnumerable{Hangfire.RecurringJobExtensions.RecurringJobInfo})">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically with the collection of <seealso cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+            <param name="recurringJobInfos">The collection of <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.CronJob.AddOrUpdate(Hangfire.RecurringJobExtensions.RecurringJobInfo[])">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically with the array of <seealso cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+            <param name="recurringJobInfos">The array of <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.</param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.HangfireExtensions">
+            <summary>
+            Hangfire <see cref="T:Hangfire.RecurringJob"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.HangfireExtensions.UseRecurringJob(Hangfire.IGlobalConfiguration,System.Type[])">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically within specified interface or class.
+            To the Hangfire client, alternatively way is to use the class <seealso cref="T:Hangfire.RecurringJobExtensions.CronJob"/> to add or update <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="configuration"><see cref="T:Hangfire.IGlobalConfiguration"/></param>
+            <param name="types">Specified interface or class</param>
+            <returns><see cref="T:Hangfire.IGlobalConfiguration"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.HangfireExtensions.UseRecurringJob(Hangfire.IGlobalConfiguration,System.Func{System.Collections.Generic.IEnumerable{System.Type}})">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically within specified interface or class.
+            To the Hangfire client, alternatively way is to use the class <seealso cref="T:Hangfire.RecurringJobExtensions.CronJob"/> to add or update <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="configuration"><see cref="T:Hangfire.IGlobalConfiguration"/></param>
+            <param name="typesProvider">The provider to get specified interfaces or class.</param>
+            <returns><see cref="T:Hangfire.IGlobalConfiguration"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.HangfireExtensions.UseRecurringJob(Hangfire.IGlobalConfiguration,System.String,System.Boolean)">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically by using a JSON configuration.
+            To the Hangfire client, alternatively way is to use the class <seealso cref="T:Hangfire.RecurringJobExtensions.CronJob"/> to add or update <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="configuration"><see cref="T:Hangfire.IGlobalConfiguration"/>.</param>
+            <param name="jsonFile">Json file for <see cref="T:Hangfire.RecurringJob"/> configuration.</param>
+            <param name="reloadOnChange">Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded if the file changes.</param>
+            <returns><see cref="T:Hangfire.IGlobalConfiguration"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.HangfireExtensions.UseRecurringJob(Hangfire.IGlobalConfiguration,System.String[],System.Boolean)">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically by using multiple JSON configuration files.
+            To the Hangfire client, alternatively way is to use the class <seealso cref="T:Hangfire.RecurringJobExtensions.CronJob"/> to add or update <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="configuration"><see cref="T:Hangfire.IGlobalConfiguration"/>.</param>
+            <param name="jsonFiles">The array of json files.</param>
+            <param name="reloadOnChange">Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded if the file changes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.HangfireExtensions.UseRecurringJob(Hangfire.IGlobalConfiguration,Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider)">
+            <summary>
+            Builds <see cref="T:Hangfire.RecurringJob"/> automatically with <seealso cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/>.
+            To the Hangfire client, alternatively way is to use the class <seealso cref="T:Hangfire.RecurringJobExtensions.CronJob"/> to add or update <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="configuration"><see cref="T:Hangfire.IGlobalConfiguration"/>.</param>
+            <param name="provider"><see cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/></param>
+            <returns><see cref="T:Hangfire.IGlobalConfiguration"/>.</returns>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.IRecurringJob">
+            <summary>
+            Provides a unified interface to build hangfire <see cref="T:Hangfire.RecurringJob"/>, similar to quartz.net.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJob.Execute(Hangfire.Server.PerformContext)">
+            <summary>
+            Execute the <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="context">The context to <see cref="T:Hangfire.Server.PerformContext"/>.</param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.IRecurringJobBuilder">
+            <summary>
+            Build <see cref="T:Hangfire.RecurringJob"/> automatically.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobBuilder.Build(System.Func{System.Collections.Generic.IEnumerable{System.Type}})">
+            <summary>
+            Create <see cref="T:Hangfire.RecurringJob"/> with the provider for specified interface or class.
+            </summary>
+            <param name="typesProvider">Specified interface or class</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobBuilder.Build(System.Func{System.Collections.Generic.IEnumerable{Hangfire.RecurringJobExtensions.RecurringJobInfo}})">
+            <summary>
+            Create <see cref="T:Hangfire.RecurringJob"/> with the provider for specified list <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+            <param name="recurringJobInfoProvider">The provider to get <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> list/></param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.IRecurringJobInfoStorage">
+            <summary>
+            The storage APIs for <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobInfoStorage.FindAll">
+            <summary>
+            Finds all <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> from storage.
+            </summary>
+            <returns>The collection of <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobInfoStorage.FindByJobId(System.String)">
+            <summary>
+            Finds <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> by jobId.
+            The job id is associated with <seealso cref="P:Hangfire.BackgroundJob.Id"/>
+            </summary>
+            <param name="jobId">The specified <see cref="P:Hangfire.BackgroundJob.Id"/></param>
+            <returns><see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobInfoStorage.FindByRecurringJobId(System.String)">
+            <summary>
+            Finds <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> by recurringJobId.
+            </summary>
+            <param name="recurringJobId">The specified identifier of the RecurringJob.</param>
+            <returns><see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobInfoStorage.SetJobData(Hangfire.RecurringJobExtensions.RecurringJobInfo)">
+            <summary>
+            Sets <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> to storage which associated with <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="recurringJobInfo">The specified identifier of the RecurringJob.</param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.IRecurringJobRegistry">
+            <summary>
+            Register <see cref="T:Hangfire.RecurringJob"/> dynamically.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobRegistry.Register(System.Reflection.MethodInfo,System.String,System.TimeZoneInfo,System.String)">
+            <summary>
+            Register RecurringJob via <see cref="T:System.Reflection.MethodInfo"/>.
+            </summary>
+            <param name="method">the specified method</param>
+            <param name="cron">Cron expressions</param>
+            <param name="timeZone"><see cref="T:System.TimeZoneInfo"/></param>
+            <param name="queue">Queue name</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobRegistry.Register(System.String,System.Reflection.MethodInfo,System.String,System.TimeZoneInfo,System.String)">
+            <summary>
+            Register RecurringJob via <see cref="T:System.Reflection.MethodInfo"/>.
+            </summary>
+            <param name="recurringJobId">The identifier of the RecurringJob</param>
+            <param name="method">the specified method</param>
+            <param name="cron">Cron expressions</param>
+            <param name="timeZone"><see cref="T:System.TimeZoneInfo"/></param>
+            <param name="queue">Queue name</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.IRecurringJobRegistry.Register(Hangfire.RecurringJobExtensions.RecurringJobInfo)">
+            <summary>
+            Register RecurringJob via <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+            <param name="recurringJobInfo"><see cref="T:Hangfire.RecurringJob"/> info.</param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.PerformContextExtensions">
+            <summary>
+            Extensions for <see cref="T:Hangfire.Server.PerformContext"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.PerformContextExtensions.GetJobData(Hangfire.Server.PerformContext,System.String)">
+            <summary>
+            Gets job data from storage associated with <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="context">The <see cref="T:Hangfire.Server.PerformContext"/>.</param>
+            <param name="name">The dictionary key from the property <see cref="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.JobData"/></param>
+            <returns>The value from the property <see cref="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.JobData"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.PerformContextExtensions.GetJobData``1(Hangfire.Server.PerformContext,System.String)">
+            <summary>
+            Gets job data from storage associated with <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <typeparam name="T">The specified type to json value.</typeparam>
+            <param name="context">The <see cref="T:Hangfire.Server.PerformContext"/>.</param>
+            <param name="name">The dictionary key from the property <see cref="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.JobData"/></param>
+            <returns>The value from the property <see cref="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.JobData"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.PerformContextExtensions.GetJobData(Hangfire.Server.PerformContext)">
+            <summary>
+            Gets job data from storage associated with <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="context">The <see cref="T:Hangfire.Server.PerformContext"/>.</param>
+            <returns>The job data from storage.</returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.PerformContextExtensions.SetJobData(Hangfire.Server.PerformContext,System.String,System.Object)">
+            <summary>
+            Persists job data to storage associated with <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="context">The <see cref="T:Hangfire.Server.PerformContext"/>.</param>
+            <param name="name">The dictionary key from the property <see cref="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.JobData"/></param>
+            <param name="value">The persisting value.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.PerformContextExtensions.SetJobData(Hangfire.Server.PerformContext,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Persists job data to storage associated with <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="context">The <see cref="T:Hangfire.Server.PerformContext"/>.</param>
+            <param name="jobData">The dictionary value to be added or updated. </param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.RecurringJobAttribute">
+            <summary>
+            Attribute to add or update <see cref="T:Hangfire.RecurringJob"/> automatically
+            by target it to interface/instance/static method.
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobAttribute.RecurringJobId">
+            <summary>
+            The identifier of the RecurringJob
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobAttribute.Cron">
+            <summary>
+            Cron expressions
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobAttribute.Queue">
+            <summary>
+            Queue name
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobAttribute.TimeZone">
+            <summary>
+            Converts to <see cref="T:System.TimeZoneInfo"/> via method <seealso cref="M:System.TimeZoneInfo.FindSystemTimeZoneById(System.String)"/>,
+            default value is <see cref="P:System.TimeZoneInfo.Utc"/>
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobAttribute.Enabled">
+            <summary>
+            Whether to build RecurringJob automatically, default value is true.
+            If false it will be deleted automatically.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobAttribute"/>
+            </summary>
+            <param name="cron">Cron expressions</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobAttribute"/>
+            </summary>
+            <param name="cron">Cron expressions</param>
+            <param name="queue">Queue name</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobAttribute"/>
+            </summary>
+            <param name="cron">Cron expressions</param>
+            <param name="timeZone">Converts to <see cref="T:System.TimeZoneInfo"/> via method <seealso cref="M:System.TimeZoneInfo.FindSystemTimeZoneById(System.String)"/>.</param>
+            <param name="queue">Queue name</param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.RecurringJobBuilder">
+            <summary>
+            Build <see cref="T:Hangfire.RecurringJob"/> automatically, <see cref="T:Hangfire.RecurringJobExtensions.IRecurringJobBuilder"/> interface.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobBuilder.#ctor(Hangfire.RecurringJobExtensions.IRecurringJobRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobBuilder"/>	with <see cref="T:Hangfire.RecurringJobExtensions.IRecurringJobRegistry"/>.
+            </summary>
+            <param name="registry"><see cref="T:Hangfire.RecurringJobExtensions.IRecurringJobRegistry"/> interface.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobBuilder.Build(System.Func{System.Collections.Generic.IEnumerable{System.Type}})">
+            <summary>
+            Create <see cref="T:Hangfire.RecurringJob"/> with the provider for specified interface or class.
+            </summary>
+            <param name="typesProvider">Specified interface or class</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobBuilder.Build(System.Func{System.Collections.Generic.IEnumerable{Hangfire.RecurringJobExtensions.RecurringJobInfo}})">
+            <summary>
+            Create <see cref="T:Hangfire.RecurringJob"/> with the provider for specified list <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+            <param name="recurringJobInfoProvider">The provider to get <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> list.</param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.RecurringJobInfo">
+            <summary>
+            It is used to build <see cref="T:Hangfire.RecurringJob"/> 
+            with <see cref="M:Hangfire.RecurringJobExtensions.IRecurringJobBuilder.Build(System.Func{System.Collections.Generic.IEnumerable{Hangfire.RecurringJobExtensions.RecurringJobInfo}})"/>.
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.RecurringJobId">
+            <summary>
+            The identifier of the RecurringJob
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.Cron">
+            <summary>
+            Cron expressions
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.TimeZone">
+            <summary>
+            TimeZoneInfo
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.Queue">
+            <summary>
+            Queue name
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.Method">
+            <summary>
+            Method to execute while <see cref="T:Hangfire.RecurringJob"/> running.
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.JobData">
+            <summary>
+            The <see cref="T:Hangfire.RecurringJob"/> data persisted in storage.  
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.Enable">
+            <summary>
+            Whether the <see cref="T:Hangfire.RecurringJob"/> can be added/updated,
+            default value is true, if false it will be deleted automatically.
+            </summary>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage">
+            <summary>
+            The storage APIs for <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage"/>
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage.#ctor(Hangfire.Storage.IStorageConnection)">
+            <summary>
+            Initializes a new <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage"/>
+            </summary>
+            <param name="connection"><see cref="T:Hangfire.Storage.IStorageConnection"/></param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage.FindAll">
+            <summary>
+            Finds all <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> from storage.
+            </summary>
+            <returns>The collection of <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage.FindByJobId(System.String)">
+            <summary>
+            Finds <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> by jobId.
+            The job id is associated with <seealso cref="P:Hangfire.BackgroundJob.Id"/>
+            </summary>
+            <param name="jobId">The specified <see cref="P:Hangfire.BackgroundJob.Id"/></param>
+            <returns><see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage.FindByRecurringJobId(System.String)">
+            <summary>
+            Finds <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> by recurringJobId.
+            </summary>
+            <param name="recurringJobId">The specified identifier of the RecurringJob.</param>
+            <returns><see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/></returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage.SetJobData(Hangfire.RecurringJobExtensions.RecurringJobInfo)">
+            <summary>
+            Sets <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> to storage which associated with <see cref="T:Hangfire.RecurringJob"/>.
+            </summary>
+            <param name="recurringJobInfo">The specified identifier of the RecurringJob.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobInfoStorage.Dispose">
+            <summary>
+            Disposes storage connection.
+            </summary>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.RecurringJobRegistry">
+            <summary>
+            Register <see cref="T:Hangfire.RecurringJob"/> dynamically.
+            <see cref="T:Hangfire.RecurringJobExtensions.IRecurringJobRegistry"/> interface.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobRegistry.Register(System.Reflection.MethodInfo,System.String,System.TimeZoneInfo,System.String)">
+            <summary>
+            Register RecurringJob via <see cref="T:System.Reflection.MethodInfo"/>.
+            </summary>
+            <param name="method">The specified method</param>
+            <param name="cron">Cron expressions</param>
+            <param name="timeZone"><see cref="T:System.TimeZoneInfo"/></param>
+            <param name="queue">Queue name</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobRegistry.Register(System.String,System.Reflection.MethodInfo,System.String,System.TimeZoneInfo,System.String)">
+            <summary>
+            Register RecurringJob via <see cref="T:System.Reflection.MethodInfo"/>.
+            </summary>
+            <param name="recurringJobId">The identifier of the RecurringJob</param>
+            <param name="method">the specified method</param>
+            <param name="cron">Cron expressions</param>
+            <param name="timeZone"><see cref="T:System.TimeZoneInfo"/></param>
+            <param name="queue">Queue name</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.RecurringJobRegistry.Register(Hangfire.RecurringJobExtensions.RecurringJobInfo)">
+            <summary>
+            Register RecurringJob via <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.
+            </summary>
+            <param name="recurringJobInfo"><see cref="T:Hangfire.RecurringJob"/> info.</param>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.TimeZoneInfoConverter">
+            <summary>
+            Converts <see cref="T:System.TimeZoneInfo"/> to and from JSON
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.TimeZoneInfoConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified <see cref="T:System.TimeZoneInfo"/>
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>true if this instance can convert the specified <see cref="T:System.TimeZoneInfo"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.TimeZoneInfoConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from</param>
+            <param name="objectType">Type of the object</param>
+            <param name="existingValue">The existing value of object being read</param>
+            <param name="serializer">The calling serializer</param>
+            <returns>The object value</returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.TimeZoneInfoConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the <see cref="T:System.TimeZoneInfo"/>.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to</param>
+            <param name="value">The value</param>
+            <param name="serializer">The calling serializer</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.TypeExtensions.ToGenericTypeString(System.Type)">
+            <summary>
+            Fork the extension method from 
+            https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Common/TypeExtensions.cs
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider">
+            <summary>
+            Represents a base class for file based <see cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new <see cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/>
+            </summary>
+            <param name="configFile">The source settings file.</param>
+            <param name="reloadOnChange">Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded if the file changes.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider.#ctor(System.IO.FileInfo,System.Boolean)">
+            <summary>
+            Initializes a new <see cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/>
+            </summary>
+            <param name="fileInfo">The source settings <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="reloadOnChange">Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded if the file changes.</param>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider.ConfigFile">
+            <summary>
+            <see cref="T:Hangfire.RecurringJob"/> configuraion file
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider.ReloadOnChange">
+            <summary>
+            Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider.Load">
+            <summary>
+            Loads the data for this provider.
+            </summary>
+            <returns>The list of <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.</returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider.ReadFromFile">
+            <summary>
+            Reads from config file.
+            </summary>
+            <returns>The string content reading from file.</returns>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.FileConfigurationProvider.Dispose">
+            <summary>
+            Disposes the file watcher
+            </summary>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider">
+            <summary>
+            Provides configuration for <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> for Hangfire.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider.Load">
+            <summary>
+            Loads configuration values from the source represented by this <see cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/>.
+            </summary>
+            <returns>The list of <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/>.</returns>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.Configuration.JsonConfigurationProvider">
+            <summary>
+            Represents a JSON file provider as an <see cref="T:Hangfire.RecurringJobExtensions.Configuration.IConfigurationProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.JsonConfigurationProvider.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new <see cref="T:Hangfire.RecurringJobExtensions.Configuration.JsonConfigurationProvider"/>.
+            </summary>
+            <param name="configFile">The source settings file.</param>
+            <param name="reloadOnChange">Whether the <see cref="T:Hangfire.RecurringJob"/> should be reloaded if the file changes.</param>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.JsonConfigurationProvider.Load">
+            <summary>
+            Loads the <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> for this source.
+            </summary>
+            <returns>The list of <see cref="T:Hangfire.RecurringJobExtensions.RecurringJobInfo"/> for this provider.</returns>
+        </member>
+        <member name="T:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions">
+            <summary>
+            <see cref="T:Hangfire.RecurringJob"/> json configuration settings.
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.JobName">
+            <summary>
+            The job name represents for <see cref="P:Hangfire.RecurringJobExtensions.RecurringJobInfo.RecurringJobId"/>
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.JobType">
+            <summary>
+            The job type while impl the interface <see cref="T:Hangfire.RecurringJobExtensions.IRecurringJob"/>.
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.Cron">
+            <summary>
+            Cron expressions
+            </summary>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.TimeZone">
+            <summary>  
+            The value of <see cref="T:System.TimeZoneInfo"/> can be created by <seealso cref="M:System.TimeZoneInfo.FindSystemTimeZoneById(System.String)"/>
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.ShouldSerializeTimeZone">
+            <summary>
+            Whether the property <see cref="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.TimeZone"/> can be serialized or not.
+            </summary>
+            <returns>true if value not null, otherwise false.</returns>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.Queue">
+            <summary>
+            Hangfire queue name
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.ShouldSerializeQueue">
+            <summary>
+            Whether the property <see cref="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.Queue"/> can be serialized or not.
+            </summary>
+            <returns>true if value not null or empty, otherwise false.</returns>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.JobData">
+            <summary>
+            The <see cref="T:Hangfire.RecurringJob"/> data persisted in storage.  
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.ShouldSerializeJobData">
+            <summary>
+            Whether the property <see cref="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.JobData"/> can be serialized or not.
+            </summary>
+            <returns>true if value not null or count is zero, otherwise false.</returns>
+        </member>
+        <member name="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.Enable">
+            <summary>
+            Whether the <see cref="T:Hangfire.RecurringJob"/> can be added/updated,
+            default value is true, if false it will be deleted automatically.
+            </summary>
+        </member>
+        <member name="M:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.ShouldSerializeEnable">
+            <summary>
+            Whether the property <see cref="P:Hangfire.RecurringJobExtensions.Configuration.RecurringJobJsonOptions.Enable"/> can be serialized or not.
+            </summary>
+            <returns>true if value is not null, otherwise false.</returns>
+        </member>
+    </members>
+</doc>

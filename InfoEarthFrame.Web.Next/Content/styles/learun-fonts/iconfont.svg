@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Fri Nov 18 13:54:36 2016
+ By admin
+</metadata>
+<defs>
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face 
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="896"
+    descent="-128"
+    x-height="792"
+    bbox="0 -110.545 2139 878"
+    underline-thickness="0"
+    underline-position="0"
+    unicode-range="U+0078-E608"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="341" 
+ />
+    <glyph glyph-name="x" unicode="x" horiz-adv-x="1001" 
+d="M281 543q-27 -1 -53 -1h-83q-18 0 -36.5 -6t-32.5 -18.5t-23 -32t-9 -45.5v-76h912v41q0 16 -0.5 30t-0.5 18q0 13 -5 29t-17 29.5t-31.5 22.5t-49.5 9h-133v-97h-438v97zM955 310v-52q0 -23 0.5 -52t0.5 -58t-10.5 -47.5t-26 -30t-33 -16t-31.5 -4.5q-14 -1 -29.5 -0.5
+t-29.5 0.5h-32l-45 128h-439l-44 -128h-29h-34q-20 0 -45 1q-25 0 -41 9.5t-25.5 23t-13.5 29.5t-4 30v167h911zM163 247q-12 0 -21 -8.5t-9 -21.5t9 -21.5t21 -8.5q13 0 22 8.5t9 21.5t-9 21.5t-22 8.5zM316 123q-8 -26 -14 -48q-5 -19 -10.5 -37t-7.5 -25t-3 -15t1 -14.5
+t9.5 -10.5t21.5 -4h37h67h81h80h64h36q23 0 34 12t2 38q-5 13 -9.5 30.5t-9.5 34.5q-5 19 -11 39h-368zM336 498v228q0 11 2.5 23t10 21.5t20.5 15.5t34 6h188q31 0 51.5 -14.5t20.5 -52.5v-227h-327z" />
+    <glyph glyph-name="leafonts" unicode="&#xe605;" 
+d="M406 559v-95h-20v95h20zM440 492q-1 -17 11 -17q10 0 12 9h18q-2 -21 -30 -21q-32 0 -31 34q1 33 31 35q20 0 28 -16q3 -5 3.5 -11.5t0.5 -12.5h-43zM463 505q0 14 -12 14q-11 0 -11 -14h23zM495 511q0 11 9 16q7 5 19 5q28 0 28 -25v-36q0 -1 1 -2v-5h-17q-1 5 -1 9
+q-6 -10 -21 -10q-21 1 -21 19q1 15 14 21q9 4 26 4v6q-1 7 -10 8q-7 -1 -8 -10h-19zM511 485q0 -9 9 -10q12 0 12 20q-21 1 -21 -10zM584 530v-12h1q5 14 22 13v-18h-8q-8 -1 -10 -4q-2 -4 -3 -10v-2v-33h-19v53v4q-1 6 -1 9h18zM661 472q-7 -9 -20 -9q-18 2 -22 14
+q-1 4 -1 10v43h19v-40q1 -15 12 -15q11 1 12 15v40h20v-54v-6v-6h-19zM717 522h1q6 10 20 10q18 -3 21 -15q2 -6 2 -10v-43h-20v39q0 16 -12 16q-10 -1 -12 -16v-39h-19v66h19v-8z" />
+    <glyph glyph-name="learunlogoleft" unicode="&#xe606;" horiz-adv-x="1434" 
+d="M779 857q-95 -19 -182 -63.5t-154.5 -105t-127.5 -133.5t-104 -148.5t-80 -151t-60 -140.5t-40.5 -116.5t-23.5 -79.5t-7 -29h627q5 50 9 62q109 371 456 665q43 37 100 81.5t129 99.5t102 79h-34h-274q-247 -3 -336 -20z" />
+    <glyph glyph-name="learunlogoright" unicode="&#xe607;" horiz-adv-x="1434" 
+d="M644 -89q95 19 182 64t154.5 104.5t127.5 133t104 149t80.5 151t60 140.5t40 116.5t23.5 79.5t7 29h-626q-6 -50 -9 -62q-110 -371 -456 -665q-44 -37 -101 -81.5t-129 -99.5t-102 -79h35q51 -1 131.5 -1.5t246 4.5t231.5 17z" />
+    <glyph glyph-name="learunlogo" unicode="&#xe608;" horiz-adv-x="2156" 
+d="M787 851q-336 -65 -568 -456q-129 -218 -195 -473q-7 -25 -7 -27h619q6 50 10 62q108 367 450 657q43 36 99.5 80.5t127.5 99t101 78.5h-34v0q-52 1 -132 1.5t-242.5 -4.5t-228.5 -18zM1369 -83q93 18 179.5 62.5t153 103.5t126 131.5t102.5 147t79 149.5t59.5 139
+t40 115t23.5 78.5t7 29.5h-620q-5 -50 -9 -62q-108 -367 -451 -657q-43 -36 -99 -80.5t-127 -99t-101 -78.5h34h272q243 4 331 21z" />
+  </font>
+</defs></svg>

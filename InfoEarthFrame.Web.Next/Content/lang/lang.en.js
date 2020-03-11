@@ -1,0 +1,46 @@
+﻿var LangConfig = {
+	CommonText: {
+		internalError: "internal Error",
+		systemName: "Spatial Data Management System",
+		changeLanguage: "Change current language, are you sure?",
+		closeThisTab: "close this tab",
+		closeOtherTabs: "close other tabs",
+		closeAllTabs: "close all tabs",
+		language: "change language",
+		theme: "change theme",
+		screen: "change screen",
+        to:"to"
+	},
+	HomeText: {
+	    main: "main",
+	    sideSlip: "sideSlip",
+	    baseInfo: "baseInfo",
+	    changePassword: "changePassword",
+	    logout: "logout",
+	    index: "index",
+	    layerManage: "layerManage",
+	    mapManage: "mapManage",
+	    styleManage: "styleManage",
+	    dataManage: "dataManage",
+	    dataEdit: "dataEdit",
+	    themeMapping: "themeMapping",
+	    serviceManage: "serviceManage",
+	    tools: "tools",
+	    formatConversion: "formatConversion",
+	    coordinateConversion: "coordinateConversion",
+	    shadowConversion: "shadowConversion",
+	    systemManage: "systemManage",
+	    config: "config",
+	    userlist: "userlist",
+	    logger: "logger"
+	},
+	LoginText: {
+		main: "System Login",
+		loginTitle: 'Spatial Data Management System',
+		loginButton: "Logining",
+		inputUsername: "Please input your username",
+		inputPassword: "Please input your password",
+		logining: "Login...",
+		loginFailMsg: "Invalid username or password",
+	}
+}

@@ -1,0 +1,167 @@
+﻿<!-- /// controller:  'mapServicePageCtrl' -  localtion: App/Main/assets/js/controllers/mapServicePageCtrl.js /// -->
+<div class="container-fluid container-fullw container-full-stretch" ng-controller="mapServicePageCtrl">
+        <div class="row">
+            <!-- 左 -->
+            <div class="col-sm-3 col-md-3 col-lg-2 container_padding container_cross_padding map-service-tree">
+                <div class="panel panel-white panel-bottom0">
+                    <div class="panel-heading border-bottom">
+                        <span class="font-title-middle" translate="views.Interface.service">地图服务</span>
+                    </div>
+                    <div class="panel-body panel-fixed">
+                        <!-- 内容 -->
+                        <div class="disaster-tgfx">
+                            <abn-tree class="font-title-btn" tree-data="typeTreeData3" selected-data="selectedData3" initial-selection="{{initialSelection}}" on-select="onSelected3" tree-control="treeQueryCtrl" icon-leaf=""></abn-tree>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 中间 -->
+            <div class="col-sm-5 col-md-5 col-lg-5 container_padding container_cross_padding">
+                <div class="panel panel-white panel-bottom0">
+                    <div class="panel-heading border-bottom">
+                        <span class="font-title-middle" translate="views.Interface.info.MAIN">服务信息</span>
+                    </div>
+                    <div class="panel-body panel-fixed">
+                        <div class="seviceDataShow">
+                            <div class="seviceDataContent" ng-repeat="item in currentLayerInfo">
+                                <p style="margin: 5px 0 5px; white-space: normal; word-wrap: break-word;">
+                                    <span class="font-title-little" translate="views.Interface.info.url">接口地址:</span>
+                                    <a class="font-content-small" href="javascript:;" ng-if="showLink" ng-click="serverPathClick(item)">{{item.serverPath}}</a>
+                                    <span class="font-content-small" ng-if="!showLink">{{item.serverPath}}</span>
+                                </p>
+                                <p style="margin: 5px 0 5px; white-space: normal; word-wrap: break-word;">
+                                    <span class="font-title-little" translate="views.Interface.info.interfaceDesc">接口描述:</span><span class="font-content-small">{{item.serverDesc}}</span>
+                                </p>
+                                <p style="margin: 0 0 5px;"><span class="font-title-little" translate="views.Interface.info.func">请求方法:</span><span class="font-content-small">{{item.requestType}}</span></p>
+                                <p style="margin: 0 0 5px;"><span class="font-title-little" translate="views.Interface.info.param">请求参数:</span></p>
+                                <table class="font-content-small" style="width: 100%; table-layout: fixed;" border="1">
+                                    <tr class="tableTitle" style="background: #CCCCCC;">
+                                        <th translate="views.Interface.info.paramName">参数名</th>
+                                        <th translate="views.Interface.info.paramVal">参数值</th>
+                                        <th translate="views.Interface.info.required">必填</th>
+                                        <th translate="views.Interface.info.description">描述</th>
+                                    </tr>
+                                    <tr class="tableTitle" ng-repeat="item2 in item.serverRequestParameters.items">
+                                        <td>{{item2.parameterName}}</td>
+                                        <td style="word-wrap:break-word;">{{item2.parameterValue}}</td>
+                                        <td>{{item2.parameterIsMust}}</td>
+                                        <td>{{item2.parameterDesc}}</td>
+                                    </tr>
+                                </table>
+                                <div ng-show="responseP">
+                                    <p style="margin: 5px 0 5px;"><span class="font-title-little" translate="views.Interface.info.returnType">返回类型:</span><span class="font-content-small">JSON格式</span></p>
+                                    <p style="margin: 5px 0 5px;"><span class="font-title-little" translate="views.Interface.info.returnParam">返回参数:</span></p>
+                                    <table class="font-content-small" style="width: 100%; table-layout: fixed;" border="1">
+                                        <tr class="tableTitle" style="background: #CCCCCC;">
+                                            <th translate="views.Interface.info.paramName">参数名</th>
+                                            <th translate="views.Interface.info.description">描述</th>
+                                        </tr>
+                                        <tr class="tableTitle" ng-repeat="item2 in item.serverResponseParameters.items">
+                                            <td>{{item2.parameterName}}</td>
+                                            <td>{{item2.parameterDesc}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧 -->
+            <div class="col-sm-4 col-md-4 col-lg-5 container_padding container_cross_padding map-service-map">
+                <div class="panel panel-white panel-bottom0">
+                    <div class="panel-body panel-fixed">
+                        <div ng-style="mapContentSty" ng-class="{'not-show':!showMap}">
+                            <open-maps dataset="mapDataset" mapheight="mapheight" add-layer="addLayer" remove-layer="removeLayer" is-load-internet-tian-di-tu="isLoadTianDiTu"></open-maps>
+                        </div>
+                        <div class="righttag" ng-if="showWFS" style="top: 20px; left: 20px; z-index: 1000;">
+                            <div style="position: relative; background-color: #fff; width: 320px; ">
+                                <div class="title">
+                                    <span class="font-title-middle" translate="views.Map.mapBro.selectLayer">选择图层</span>
+                                    <a href="javascript:;" style="font-size: 18px; float: right; line-height: 1.2;" ng-click="hideChose()">
+                                        <i ng-class="{'mdi-window-minimize':isShowChose,'mdi-window-maximize':!isShowChose}"></i>
+                                    </a>
+                                </div>
+                                <div style="max-height: 140px; overflow: auto; padding: 0 10px;" ng-if="isShowChose">
+                                    <div class="checkbox clip-check check-primary check-column" ng-repeat="a in wfsLayerData">
+                                        <input type="checkbox" id="{{a.id}}" value="{{a.value}}" ng-checked="a.ischecked" ng-click="wfsCheckedOne(a)">
+                                        <label class="font-content-small" for="{{a.id}}">
+                                            {{a.value}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 0;" ng-if="showInput">
+                            <div class="form-group">
+                                <label class="font-title-little" translate="views.Interface.info.url">接口地址:</label>
+                                <input class="form-control" id="searchUrlInput" type="text" ng-model="searchServiceURL" ng-change="searchChanged(searchServiceURL)" style="height: 34px;" />
+                            </div>
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="font-title-little" translate="views.Interface.info.param">请求参数:</label>
+                                <div>
+                                    <ul style="list-style: none; padding: 0;">
+                                        <li ng-repeat="(a,b) in params" style="margin-bottom: 10px;">
+                                            <div class="col-sm-3 col-lg-2" style="padding: 0;">
+                                                <label class="font-content-small" style="padding-top: 7px;">{{a}}:</label>
+                                            </div>
+                                            <div class="col-sm-9 col-lg-10">
+                                                <input class="" type="text" ng-model="b" ng-change="paramChanged(a,b)" style="height: 34px; width: 100%;" />
+                                            </div>
+                                            <div style="clear:both;"></div>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-primary btn-o font-title-btn" href="javascript:;" ng-click="searchService()" style="min-width: 70px;" translate="views.System.UserManagement.property.Search">查询</a>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+
+                        <div ng-if="showTable">
+                            <div style="overflow: auto;">
+                                <div ng-style="tableWidth">
+                                    <table class="th-tables table table-bordered font-content-small">
+                                        <thead>
+                                            <tr>
+                                                <th ng-repeat="th in tablePageData[0]" ng-if="tableDataType=='array'">{{th[0]}}</th>
+                                                <th ng-repeat="(a,b) in tablePageData[0]" ng-if="tableDataType=='object'">{{a}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="tr in tablePageData">
+                                                <td ng-repeat="td in tr" ng-if="tableDataType=='array'">{{td[1]}}</td>
+                                                <td ng-repeat="(a,b) in tr" ng-if="tableDataType=='object'">{{b}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div style="height: 30px;">
+                                <pagination style="float: left; margin: 0 !important;" first-text="{{'paging.home'|translate}}" previous-text="{{'paging.previous'|translate}}" next-text="{{'paging.next'|translate}}" last-text="{{'paging.last'|translate}}" items-per-page="pageSize"
+                                            total-items="pageCounts" ng-model="pageIndex" max-size="maxSize" class="pagination-sm"
+                                            boundary-links="true" boundary-go="true" rotate="false" num-pages="totalPages" ng-change="pageChanged()"></pagination>
+                                <ul class="pagination" style="float: left; margin: 0 !important;">
+                                    <!--<li><input type="text" style="margin-left: 10px; float: left; width: 40px; border-radius: 4px !important;" ng-model="goPage" ng-keydown="pageChanged(goPage,$event)" /></li>
+                    <li><a style="padding: 4px 10px;" ng-click="pageChanged(goPage)">GO</a></li>-->
+                                    <li>
+                                        <label style="float: left; border: none; margin-left: 5px; padding: 4px 10px; position: relative; line-height: 1.52857143; text-decoration: none; margin-bottom: 0px;">
+                                            <span translate="paging.word1">第</span>{{pageIndex}}<span translate="paging.word2">页</span>
+                                            /
+                                            <span translate="paging.word3">共</span>{{totalPages}}<span translate="paging.word2">页</span>
+                                            ，
+                                            <span translate="paging.word4">总计</span>{{pageCounts}}<span translate="paging.word5">条记录</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <div style="clear: both; height: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>

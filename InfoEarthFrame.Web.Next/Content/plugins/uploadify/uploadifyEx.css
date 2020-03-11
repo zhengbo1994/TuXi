@@ -1,0 +1,4 @@
+﻿.uploadify-queue {height: auto; max-height: 295px;}
+.uploadify-queue-item:last-child {border-bottom: solid 0px;}
+.uploadify-queue-item .cancel a {margin-top: 4px;margin-right: 5px;background: none;text-indent: initial;cursor:pointer;}
+.uploadify-queue-item .cancel a > i {color: #808080;font-size: 21px;}

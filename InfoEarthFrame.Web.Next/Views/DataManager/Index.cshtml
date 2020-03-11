@@ -1,0 +1,369 @@
+﻿@{
+    ViewBag.Title = "数据管理";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+
+@section css
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/layuiadmin/eleTree/eleTree.css")" media="all">
+}
+<div class="layui-fluid" id="LAY-component-grid-mobile-pc">
+    <div class="layui-row layui-col-space12">
+        <div class="layui-col-xs6 layui-col-md2">
+            <!-- 填充内容 -->
+            <div class="layui-card">
+                <div class="layui-card-header" style="position:relative">
+                    图件分类
+                    <a href="javascript:void(0)" title="刷新" onclick="initTree()"><i class="layui-icon">&#xe9aa;</i></a> 
+                </div>
+                <a href="javascript:void(0)"   data-permession-button="新增" onclick="addOrEditType('新增','',true)" style="position:absolute;top:18px;left:88px"><i class="layui-icon">&#xe654;</i></a>
+                <div class="layui-card-body"><div class="eleTree ele3" lay-filter="data3"></div></div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md10">
+            <div class="layui-card">
+                <div class="layui-card-header">图件列表</div>
+                <div class="layui-card-body">
+                    <div class="test-table-reload-btn" style="margin-top: 10px;margin-left:15px">
+                        名称：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="Name" id="txtName" autocomplete="off">
+                        </div>
+                        入库时间：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="timeRanage" id="txtTimeRanage" autocomplete="off" style="width:300px">
+                        </div>
+                        <button class="layui-btn" data-type="reload" onclick="initGrid()">搜索</button>
+                    </div>
+                    <div class="layui-card-body" style="overflow-x:hidden">
+                        <table class="layui-hide" id="file-table" lay-filter="file-table"></table>
+                        <script type="text/html" id="file-table-toolbar">
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" data-permession-button="新增" onclick="addPackage('新增')"><i class="layui-icon"></i>新增</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" data-permession-button="编辑" onclick="editPackage('编辑')"><i class="layui-icon"></i>编辑</button>
+                                <button class="layui-btn layui-btn-primary layui-btn-sm" data-permession-button="删除" onclick="removePackage()"><i class="layui-icon"></i>删除</button>
+                            </div>
+                            <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="initGrid()"><i class="layui-icon">&#xe9aa;</i>刷新</button>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section script{
+    <script>
+        var table;
+        var admin;
+        var tree;
+        var treeInstance;
+        var laydate;
+        var currentNode = {
+            id: '',
+            label: ''
+        };
+
+        var currentPackage = null;
+        layui.initModule(['table', 'eleTree', 'laydate'], function () {
+            admin = layui.admin;
+            table = layui.table;
+            tree = layui.eleTree;
+            laydate = layui.laydate;
+            
+            initTree();
+            initGrid();
+
+            laydate.render({
+                elem: '#txtTimeRanage'
+  , type: 'datetime'
+  , range: LangConfig.CommonText.to
+  , format: 'yyyy-MM-dd HH:mm:ss'
+  , lang: '@UserConfigContext.CurrentLang'
+            });
+        });
+
+        function initTree() {
+
+            treeInstance = layui.initTree({
+                elem: '.ele3',
+                url: Base.getApiUrl("/DataManager/GetMappingTree"),
+                contextmenuList: ["add", "edit", "remove"],
+                addCallback: function (obj) {
+                    currentNode = obj;
+                    addOrEditType("新增");
+                },
+                editCallback: function (obj) {
+                    currentNode = obj;
+                    addOrEditType("编辑", currentNode.id);
+                },
+                removeCallback: function (obj) {
+                    currentNode = obj;
+                    removeType("删除");
+                }
+            });
+
+            tree.on("nodeClick(data3)", function (d) {
+                debugger
+                currentNode = d.data.currentData;
+                initGrid();
+            })
+
+
+
+        };
+        function initGrid() {
+            layui.initGird({
+                id: "file-table"
+              , elem: '#file-table'
+            , url: Base.getApiUrl("/DataManager/PostAllPageListByCondition")
+           , title: '文件包列表'
+          , cols: [[
+             //{ type: 'checkbox', fixed: 'left', event: 'setSign' }
+              { field: 'Id', hide: true }
+            , { field: 'Name', title: '名称', event: 'setSign',width:200 }
+            , { field: 'MappingTypeName', title: '图件类型', event: 'setSign',width:300 }
+            , {
+                field: 'StorageTime', title: '入库时间', align: 'center', event: 'setSign',templet: function (d) {
+                    return Base.Converter.dateTime(d.StorageTime);
+                }
+            }
+            , {
+                field: 'Scale', title: '比例尺', align: 'right', event: 'setSign', templet: function (d) {
+                    var str = "1" + " : " + d.Scale;
+                    $.each(Base.DataContext.scaleList, function (index, ele) {
+                        if (ele.number == d.Scale) {
+                            str = "1" + " : " + ele.label;
+                            return false;
+                        }
+                    });
+                    return str;
+                }
+            }
+            , {
+                field: 'Version', title: '版本', align: 'center', event: 'setSign', templet: function (d) {
+                    if (d.Version == 2) {
+                        return "最终版";
+                    }
+
+                    return "验收版";
+                }
+            },
+            {
+                field: 'ZipFileName', title: '上传方式', align: 'center', event: 'setSign', templet: function (d) {
+                    if (d.ZipFileName) {
+                        return "<button class=\"layui-btn layui-btn-normal layui-btn-xs\">压缩包</button>"
+                    }
+
+                    return "<button class=\"layui-btn layui-btn-primary layui-btn-xs\">自定义</button>"
+                }
+            },
+             {
+                 field: 'Status', title: '状态', align: 'center', event: 'setSign', templet: function (d) {
+                     if (d.Status===1) {
+                         return "<button class=\"layui-btn layui-btn-warm layui-btn-xs\">处理中...</button>"
+                     }
+                     else if (d.Status ===2) {
+                         return "<button class=\"layui-btn layui-btn-xs\" onclick=\"showErrMsg('" + d.Id + "')\">处理成功</button>"
+                     }
+                     else if (d.Status === 3) {
+                         return "<button class=\"layui-btn layui-btn-danger layui-btn-xs\" onclick=\"showErrMsg('"+d.Id+"')\">处理失败</button>"
+                     }
+
+                     return "";
+                 }
+             }
+          ]],
+                method: "post",
+                where: $.extend({
+                    GeologyMappingTypeID: currentNode.id,
+                    Name: $("#txtName").val()
+                }, getTimeRange()),
+                toolbar: '#file-table-toolbar'
+            });
+
+            //监听行单击事件
+            table.on('row(file-table)', function (obj) {
+               currentPackage = obj.data
+            });
+
+            table.on('rowDouble(file-table)', function (obj) {
+                currentPackage = obj.data
+                editPackage('编辑')
+            });
+        }
+
+
+        function getTimeRange() {
+           return Base.getTimeRange('txtTimeRanage');
+        }
+
+        function getCheckedIds() {
+            var checkStatus = table.checkStatus('file-table');
+
+            var ids = [];
+            for (var i = 0, length = checkStatus.data.length; i < length; i++) {
+                ids.push(checkStatus.data[i].Id);
+            }
+            return ids;
+        }
+
+        function addOrEditType(action, id, isRoot) {
+                id = id || '';
+                if (isRoot) {
+                    currentNode.label = '';
+                    currentNode.id = '';
+                }
+                layui.showDlg({
+                    title: action + "分类",
+                    content: '@Url.Action("AddOrEditType")?id=' + id + "&parentName=" + encodeURIComponent(currentNode.label) + "&parentId=" + currentNode.id,
+                    area: ['25%', '25.9%'],
+                    yes: function (index, layero) {
+                        var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                        iframeWin.doSubmit(function (key, data) {
+                            if (!id) {
+                                treeInstance.append(key, data);
+                            }
+                            else {
+                                treeInstance.updateKeySelf(id, data);
+                            }
+                        });
+                    }
+                });
+        }
+
+        function removeType() {
+            confirm('是否删除?', function () {
+                $.post({
+                    url: Base.getApiUrl("/DataManager/RemoveType"),
+                    data: { "": currentNode.id },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            treeInstance.remove(currentNode.id);
+                            layer.closeAll();
+                        }
+                    }
+                })
+            });
+        }
+
+
+        function removePackage() {
+
+
+            if (!currentPackage) {
+                alert('请选择记录');
+                return;
+            }
+            //if (currentPackage.Status == 1) {
+            //    warnning('正在处理当中，无法删除!');
+            //    return;
+            //}
+
+            confirm('是否删除?', function () {
+                $.post({
+                    url: Base.getApiUrl("/DataManager/RemovePackage"),
+                    data: { "": currentPackage.Id },
+                    success: function (resp) {
+                        if (resp.code == 0) {
+                            initGrid();
+                            layer.closeAll();
+                        }
+                    }
+                })
+            });
+        }
+
+
+        function addPackage(action) {
+            layui.showDlg({
+                title: action + "图件包",
+                content: '@Url.Action("SelectPackageSource")',
+                area: ['25%', '19.5%'],
+                yes: function (index, layero) {
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                    if (iframeWin.getValue() == 2) {
+                        layer.close(index);
+
+                        var index2 = layui.showDlg({
+                            title: "自定义图件包",
+                            content: '@Url.Action("AddOrEditPackage")?mappingTypeId=' + currentNode.id,
+                            area: ['80%', '100%'],
+                            btn: []
+                        })
+                    }
+                    else {
+                        layer.close(index);
+
+                        var index2 =layui.showDlg({
+                            title: "压缩文件格式图件包",
+                            content: '@Url.Action("AddOrEditRarPackage")?mappingTypeId=' + currentNode.id,
+                            area: ['30%', '64.3%'],
+                            yes: function (index, layero) {
+                               // layer.load();
+                                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法
+                                iframeWin.doSubmit();
+                               // layer.close("loading");
+                            }
+                        })
+                    }
+                }
+            })
+        }
+
+        function editPackage(action) {
+                if (!currentPackage) {
+                    alert('请选择记录');
+                    return;
+                }
+
+
+                if (currentPackage.Status == 1) {
+                    warnning('正在处理当中，无法编辑!');
+                    return;
+                }
+
+
+                var index2 = layui.showDlg({
+                    title: "自定义图件包",
+                    content: '@Url.Action("AddOrEditPackage")?id=' + currentPackage.Id,
+                    area: ['80%', '100%'],
+                    btn: []
+                });
+        }
+
+
+        function showErrMsg(mainId)
+        {
+            layui.showDlg({
+                type: 2,
+                title: "查看错误信息",
+                content: '@Url.Action("ErrorDetail")?mainId=' + mainId,
+                area: ['35%', '80%'],
+                btn: ['已读', '取消'],
+                yes: function (index, layero) 
+                {
+                    $.post({
+                        url: Base.getApiUrl("/DataManager/ChangePackageStatus"),
+                        data: {
+                            "":mainId
+                        },
+                        success: function (resp)
+                        {
+                            if (resp.code == 0)
+                            {
+                                layer.close(index);
+                                initGrid();
+                            }
+                        }
+                    })
+                }
+            });
+        }
+
+        window.setInterval(function () {
+            initGrid();
+        }, 30000);
+    </script>
+}

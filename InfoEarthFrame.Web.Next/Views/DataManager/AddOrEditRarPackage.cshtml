@@ -1,0 +1,350 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+    ViewBag.Title = "增加或编辑图件包";
+}
+@section css
+{
+  
+}
+
+<div class="layui-fluid" id="component-tabs" style="padding:0px">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card" id="app" >
+                <div class="layui-card-body">
+                    <form class="layui-form" action="" lay-filter="basic-form" enctype="multipart/form-data">
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            @*<div class="layui-col-lg6">
+                                <label class="layui-form-label">名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="Name" id="txtName" class="layui-input" lay-verify="required">
+                                </div>
+                            </div>*@
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">地区大类</label>
+                                <div class="layui-input-block">
+                                    <select lay-verify="required" id="rootType" lay-filter="rootType"></select>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">图件类别</label>
+                                <div class="layui-input-block">
+                                    <select lay-verify="required" id="secondType" lay-filter="secondType"></select>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="layui-row layui-col-space12 layui-form-item">
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">图件名称</label>
+                                <div class="layui-input-block">
+                                    <select name="MappingTypeID" lay-verify="required" id="thirdType" lay-filter="thirdType"></select>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">比例尺分母</label>
+                                <div class="layui-input-block">
+                                    <select name="Scale" lay-verify="required" id="scale" lay-filter="scale"></select>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg3">
+                                <label class="layui-form-label">版本</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="Version" id="Version1" value="1" title="验收版" checked>
+                                    <input type="radio" name="Version" id="Version2" value="2" title="最终版">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg3" id="file-upload" >
+                                <div class="layui-upload-drag" style="width:90%;border:none" id="uploader">
+                                    <i class="layui-icon"></i>
+                                    <p>点击上传，或将文件拖拽到此处(支持*.zip|*.rar)</p>
+                                </div>
+                                </div>
+                            <div class="layui-col-lg3" id="file-name" style="display:none">
+                                <label class="layui-form-label">文件名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="Name" id="txtName" class="layui-input">
+                                </div>
+                            </div>
+                                <div class="layui-col-lg3" id="file-status">
+                                    <label class="layui-form-label">上传状态</label>
+                                    <div class="layui-input-block">
+                                        <input type="checkbox" id="upload-status" lay-filter="upload-status" title="未上传" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        <button class="layui-btn" lay-submit="" lay-filter="basic-form" id="btnSubmit" style="display:none">立即提交</button>
+                        <input type="hidden"  name="Id" id="hidId" />
+                        <input type="hidden" id="hidFileName" />
+                        <input type="hidden" id="hidFileSize" />
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+@section script
+{
+    <script>
+        var model = {
+            Id: '@Request.QueryString["Id"]',
+            Version: 1,
+            Name: '',
+            Scale:0,
+            MappingTypeID: '@Request.QueryString["mappingTypeId"]'
+        };
+
+      
+        var rootTypeValue = '';
+        var secondTypeValue = '';
+        var thirdTypeValue = '';
+
+
+        layui.initModule(['form', 'eleTree', 'upload'], function () {
+            var form = layui.form;
+            var element = layui.element;
+            element.render();
+
+            initModel();
+            initControl();
+
+            form.render(null, 'basic-form');
+            /* 监听提交 */
+            form.on('submit(basic-form)', function (data) {
+                var isValid = true;
+
+                model.Version = $("input[name='Version']:checked").val();
+                model.Name = $("#txtName").val();
+                model.Id = $("#hidId").val();
+                model.ZipFileName = $("#hidFileName").val();
+                model.FileSize = $("#hidFileSize").val();
+                if (isValid) {
+                    $.post({
+                        url: Base.getApiUrl("/DataManager/AddOrEditMainData"),
+                        data: model,
+                        async:true,
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                alert('系统已接受您的图件包，正在处理...');
+                                setTimeout(function () {
+                                    parent.initGrid();
+
+                                    $.post({
+                                        url: Base.getApiUrl("/DataManager/HandleMainDataPackage"),
+                                        data: {
+                                            zipFileName: model.ZipFileName,
+                                            mainId: model.Id
+                                        }
+                                    });
+
+                                    parent.layer.closeAll();
+                                },1500)
+                               
+                            }
+                            else {
+                                if (resp.code == -1001) {
+                                    warnning(resp.message);
+                                }
+                                else {
+                                    alert(resp.message);
+                                }
+                            }
+                        }
+                    })
+                }
+                return false;
+            });
+
+
+            form.on('checkbox(upload-status)', function (data) {
+                //console.log(data.elem); //得到checkbox原始DOM对象
+                //console.log(data.elem.checked); //是否被选中，true或者false
+                //console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+                //console.log(data.othis); //得到美化后的DOM对象
+
+                if (!data.elem.checked) {
+                    $("#upload-status").attr("title", '未上传').attr("disabled",true);
+
+                    $("#file-upload").show();
+                    $("#file-name").hide();
+                    $("#txtName").val('');
+
+
+                    $("#hidId").val('');
+                    $("#hidFileName").val('');
+                    $("#hidFileSize").val('');
+
+                    form.render();
+                }
+            });
+        });
+
+
+
+        function initControl()
+        {
+            initMapppingType();
+            initScale();
+
+            initUploader();
+        }
+
+        function initUploader()
+        {
+            layui.upload.render({
+                elem: '#uploader'
+           , before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+               layer.load();
+           },
+           url:Base.getApiUrl("/DataManager/UploadMainDataPackage"),
+            done: function (res) {
+               layer.closeAll('loading');
+               if (res.code == 0) {
+                   console.log(res.data)
+                   $("#file-upload").hide();
+                   $("#file-name").show();
+                   $("#txtName").val(res.data.Name);
+
+
+                   $("#hidId").val(res.data.MainID);
+                   $("#hidFileName").val(res.data.FileName);
+                   $("#hidFileSize").val(res.data.FileSize);
+
+                   $("#upload-status").attr("checked", true).attr("title", '已上传').removeAttr("disabled");
+                   layui.form.render(); 
+               }
+           },
+                error: function () {
+                    layer.closeAll('loading');
+                },
+                headers: {
+                    "Authorization": "Bearer " + $.cookie(Config['AccessTokenKey']),
+                    "Lang": $.cookie(Config["CurrentLangKey"]) || 'zh-cn'
+                },
+                exts: 'zip|rar',
+                auto: true
+            });
+        }
+
+        function doSubmit() {
+            $("#btnSubmit").click();
+        }
+        function initScale()
+        {
+            layui.initSelect({
+                valueField: "number",
+                textField: "label",
+                id: "#scale",
+                data: Base.DataContext.scaleList,
+                onSelect: function (data)
+                {
+                    model.Scale = data.value;
+                },
+                selectedValue: model.Scale
+            });
+        }
+
+        function initMapppingType()
+        {
+            initType("#rootType", '', rootTypeValue, {
+                selectCallback: function (data) {
+          
+                    $("#secondType").empty();
+                    $("#thirdType").empty();
+                    layui.form.render("select");
+
+                    initType("#secondType", data.value,'', {
+                        selectCallback: function (data2) {
+                            initType("#thirdType", data2.value, '', {
+                                selectCallback: function (data3) {
+                                    model.MappingTypeID = data3.value;
+                                }
+                            });
+                        }
+                    });
+                },
+                successCallback: function () {
+                    if (rootTypeValue) {
+                        initType("#secondType", rootTypeValue, secondTypeValue, {
+                            selectCallback: function (data2) {
+                                $("#thirdType").empty();
+                                layui.form.render("select");
+
+                                initType("#thirdType", data2.value, '', {
+                                    selectCallback: function (data) {
+                                        model.MappingTypeID = data.value;
+                                    }
+                                });
+                            },
+                            successCallback: function (data) {
+                                if (secondTypeValue) {
+                                    initType("#thirdType", secondTypeValue, thirdTypeValue, {
+                                        selectCallback: function (data2) {
+                                            model.MappingTypeID = data2.value;
+                                        }
+                                    })
+                                }
+                            }
+                        });
+                    }
+                }
+            })
+        }
+
+
+
+        function initType(selector,parentId,selectedValue,func)
+        {
+            layui.initSelect({
+                valueField: "Id",
+                textField: "ClassName",
+                id: selector,
+                url: Base.getApiUrl("/DataManager/GetChildType"),
+                onSelect:func.selectCallback,
+                where: {
+                    parentId: parentId
+                },
+                callback: func.successCallback,
+                selectedValue: selectedValue
+            });
+        }
+        function initModel() {
+       
+            function GetType() {
+                if (model.MappingTypeID) {
+                    $.get({
+                        url: Base.getApiUrl("/DataManager/GetType"),
+                        async: false,
+                        data: {
+                            id: model.MappingTypeID
+                        },
+                        success: function (resp) {
+                            GetTypeValue(resp);
+                        }
+                    });
+                }
+            }
+
+            GetType();
+
+            function GetTypeValue(resp)
+            {
+                var typeParts = resp.data.Paths.split('.');
+                if (typeParts.length == 1) {
+                    rootTypeValue = typeParts[0];
+                }
+                else if (typeParts.length == 2) {
+                    rootTypeValue = typeParts[0];
+                    secondTypeValue = typeParts[1];
+                }
+                else if (typeParts.length == 3) {
+                    rootTypeValue = typeParts[0];
+                    secondTypeValue = typeParts[1];
+                    model.MappingTypeID = thirdTypeValue = typeParts[2]
+                }
+            }
+        }
+    </script>
+}

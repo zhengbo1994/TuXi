@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "设置转换参数";
+    Layout = "~/Views/Shared/_MainContentLayout.cshtml";
+}
+@section css{
+<style>
+    .layui-form-label {
+        padding: 0px;
+    }
+    </style>
+    }
+
+<div class="layui-fluid" style="padding:0px">
+    <div class="layui-card">
+        <div class="layui-card-body" style="padding: 15px;">
+            <form class="layui-form" action="" lay-filter="component-form-group">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平移变量Dx(米)</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="txtPYBLDX" name="PYBLDX" lay-verify="number1"  class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平移变量Dy(米)</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="txtPYBLDY" name="PYBLDY" lay-verify="number1"  class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平移变量Dz(米)</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="txtPYBLDZ" name="PYBLDZ" lay-verify="number1"  class="layui-input">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">旋转变量X(秒)</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="txtXZBLX" name="XZBLX" lay-verify="number1"  class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">旋转变量Y(秒)</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="txtXZBLY" name="XZBLY" lay-verify="number1"  class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">旋转变量Z(秒)</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="txtXZBLZ" name="XZBLZ" lay-verify="number1"  class="layui-input">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="padding:9px 15px">缩放比(ppm)</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="txtSFB" name="SFB" lay-verify="number1"  class="layui-input">
+                    </div>
+                </div>
+
+                <button class="layui-btn" lay-submit="" lay-filter="component-form" id="btnSubmit" style="display:none">立即提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section script
+{
+    <script>
+        var dataArr = [];
+        layui.initModule(['form'], function () {
+            layui.form.render();
+
+            /* 自定义验证规则 */
+            layui.form.verify({
+                number1: function (value) {
+                    if (!value)
+                    {
+                        return;
+                    }
+
+                    if (!(/^([1-9]\d*|0)(\.\d{1,2})?$/.test(value))) {
+                        return '只能是数字'
+                    }
+                }
+            });
+
+            /* 监听提交 */
+            layui.form.on('submit(component-form)', function (data) {
+                var isValid = true;
+                if (isValid) {
+                    for (var p in data.field)
+                    {
+                        dataArr.push(data.field[p]);
+                    }
+                }
+                return false;
+            });
+        })
+
+        function doSubmit()
+        {
+            $("#btnSubmit").click();
+        }
+    </script>
+}
